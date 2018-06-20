@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "cross-env NODE_ENV=production parcel build index.html --no-minify --public-url /",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,7 @@
     "babel-env": "^2.4.1",
     "babel-loader": "^7.1.4",
     "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -33,6 +35,7 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
+    "parcel-bundler": "^1.9.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
