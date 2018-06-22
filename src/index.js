@@ -6,9 +6,10 @@ import { createLogger } from 'redux-logger';
 import reducer from './reducers';
 import './index.css';
 import App from './components/App';
+import { ReduxThunk } from 'redux-thunk';
 import registerServiceWorker from './registerServiceWorker';
 
-const middleware = [ thunk ]
+const middleware = [ReduxThunk];
 if (process.env.NODE_ENV !== 'production') {
   middleware.push(createLogger());
 }
