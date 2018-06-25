@@ -18,12 +18,12 @@ class CountryPage extends React.Component {
 
         <div className="main">
           <h1>{this.state.country}</h1>
-          <div>Horizontal Nav bar goes here: Info | Attractions | Blog Posts | Photos and Videos </div>
+          <div>Info | Attractions | Blog Posts | Photos and Videos </div>
           <div>Breadcrumb trail goes here</div>
 
           <div>
             <p>XXX Wanderers have visited this country.</p>
-            <p>xxx Wanderers want to visit this country.</p>
+            <p>XXX Wanderers want to visit this country.</p>
           </div>
 
           <div>Blurb about the country goes here:
@@ -35,21 +35,21 @@ class CountryPage extends React.Component {
 
           <div>Top Places To Visit In This Country:
             <ul>
-              {this.state.topPlacesToGo.map((place) => {
-                return (<li>{place}</li>);
+              {this.state.topPlacesToGo.map((place, ind) => {
+                return (<li key={ind}>{place}</li>);
               })}
             </ul>
           </div>
 
           <div>Fun Facts About This Country:
             <ul>
-              {this.state.funFacts.map((fact) => {
-                return (<li>{fact}</li>);
+              {this.state.funFacts.map((fact, ind) => {
+                return (<li key={ind}>{fact}</li>);
               })}
             </ul>
           </div>
 
-        </div> //close main div
+        </div>
 
       </div> //close country-page div
     );
