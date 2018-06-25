@@ -18,3 +18,4 @@ Icon
 .Trashes
 
 .cache/
+.cache/*.json
