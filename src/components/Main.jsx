@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import PhotoGrid from './PhotoGrid.jsx'
 
 const Main = (props) => {
     return (
@@ -19,7 +20,9 @@ const Main = (props) => {
 
           <Route exact path='/photos_videos' render={() => {
             return (
-              <div>Photos Page</div>
+              <div>
+                <PhotoGrid travelData={props.travelData}/>
+              </div>
             )
           }}/>
 

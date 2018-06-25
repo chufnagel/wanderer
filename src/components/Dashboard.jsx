@@ -4,15 +4,19 @@ import Stats from './Stats.jsx'
 import Main from './Main.jsx'
 import Timeline from './Timeline.jsx'
 
-var Dashboard = (props) => (
-  <div className="dashboard">
+var Dashboard = (props) => {
+  console.log('dashboard props', props) 
+  return (
+    <div className="dashboard">
       <Header/>
       <Timeline/>
-      <h4>Welcome [Koichi]</h4> 
+      <h4>Welcome [Koichi]</h4>
+      <button>Add Memory</button> 
       <Stats/>
-      <Main/>
-  </div>
-);
+      <Main travelData={props.travelData}/>
+    </div>
+  )
+};
 
 /*VideoList.propTypes = {
   videos: React.PropTypes.array.isRequired
