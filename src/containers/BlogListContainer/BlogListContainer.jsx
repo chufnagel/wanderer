@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import BlogList from './../../components/BlogList';
+import BlogList from '../../components/BlogList/BlogList';
 
 
 class BlogListContainer extends Component {
