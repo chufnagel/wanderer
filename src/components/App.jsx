@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
+import { hot } from 'react-hot-loader';
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      userId: 1
+    };
+  }
+  render() {
+    return (
+      <div>
+        <h1>WANDERER</h1>
+      </div>
+    );
+  }
+}
 
-const App = () => (
-  <div>
-    <h1>WANDERER</h1>
-  </div>
-)
-
-export default App;
+export default hot(module)(App);
