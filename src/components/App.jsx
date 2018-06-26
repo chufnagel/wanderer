@@ -1,10 +1,21 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
+import axios from "axios";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
 import CountryPage from "./CountryPage/CountryPage";
 import Home from "./Home";
-// import axios from "axios";
 import BlogList from "./BlogList/BlogList";
+import Sidebar from "./Sidebar/Sidebar";
+import Dashboard from "./Dashboard"
+import photos from "../../example data/pictures-of-japan.js"
+import PhotoGrid from "./PhotoGrid.jsx"
+import Header from "./Header.jsx"
+import Destinations from "./Destinations.jsx"
+import Stats from "./Stats.jsx"
+import Main from "./Main.jsx"
 
 class App extends Component {
   constructor(props) {
@@ -234,25 +245,11 @@ class App extends Component {
           blogAuthor: "BROICHI",
           blogContents: "とりあえず 生 なま ビルください"
         }
-      ]
+      ],
+      photos: photos
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
-    // this.getAllCountries = this.getAllCountries.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.getAllCountries();
-  // }
-
-  // getAllCountries() {
-  //   axios({
-  //     method: 'get',
-  //     url: 'http://countryapi.gear.host/v1/Country/getCountries',
-  //     responseType: 'json'
-  //   })
-  //   .then((result) => console.log('api call results: ', result))
-  //   .catch((err) => console.log('error getting all countries'));
-  // }
 
   handleSelectedCountry(event) {
     event.preventDefault();
@@ -283,17 +280,32 @@ class App extends Component {
           <BlogList blogs={this.state.blogs} />
         </div>
 
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path={`/${this.state.selectedCountry}`}
-            render={() => <CountryPage country={this.state.selectedCountry} />}
-          />
-        </Switch>
+        <Sidebar
+          handleSelectedCountry={this.handleSelectedCountry}
+          countries={this.state.countries}
+        />
+
+        <center>
+          <div>
+          <select onChange={this.handleSelectedCountry}>
+          {this.state.countries.map((country, ind) => (
+            <option key={ind} value={country}>
+            {country}
+            </option>
+          ))}
+          </select>
+          <Link to={`/${this.state.selectedCountry}`}>
+          <button>Search Country</button>
+          </Link>
+            <Header/>
+            <Stats/>
+            <Main country={this.state.selectedCountry} blogs={this.state.blogs} photos={this.state.photos}/>
+          </div>
+        </center>
       </div>
     );
   }
 }
 
 export default hot(module)(App);
+
