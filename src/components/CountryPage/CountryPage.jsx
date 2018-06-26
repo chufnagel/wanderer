@@ -1,21 +1,18 @@
-import React from 'react';
+import React from "react";
 
 class CountryPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      country: props.country, //current country displayed on page
-      topPlacesToGo: ['osaka', 'tokyo', 'kyoto'],
-      funFacts: ['fun fact 1', 'fun fact 2', 'fun fact 3']
+      country: props.country, // current country displayed on page
+      topPlacesToGo: ["osaka", "tokyo", "kyoto"],
+      funFacts: ["fun fact 1", "fun fact 2", "fun fact 3"]
     };
   }
 
   render() {
     return (
       <div className="country-page">
-        <div>Map Goes Here</div>
-        <div>Nav Bar Goes Here</div>
-
         <div className="main">
           <h1>{this.state.country}</h1>
           <div>Info | Attractions | Blog Posts | Photos and Videos </div>
@@ -26,35 +23,35 @@ class CountryPage extends React.Component {
             <p>XXX Wanderers want to visit this country.</p>
           </div>
 
-          <div>Blurb about the country goes here:
+          <div>
+            Blurb about the country goes here:
             <p>Population size: </p>
             <p>Language: </p>
             <p>Currency: </p>
             <p>Flag: </p>
           </div>
 
-          <div>Top Places To Visit In This Country:
+          <div>
+            Top Places To Visit In This Country:
             <ul>
-              {this.state.topPlacesToGo.map((place, ind) => {
-                return (<li key={ind}>{place}</li>);
-              })}
+              {this.state.topPlacesToGo.map((place, ind) => (
+                <li key={ind}>{place}</li>
+              ))}
             </ul>
           </div>
 
-          <div>Fun Facts About This Country:
+          <div>
+            Fun Facts About This Country:
             <ul>
-              {this.state.funFacts.map((fact, ind) => {
-                return (<li key={ind}>{fact}</li>);
-              })}
+              {this.state.funFacts.map((fact, ind) => (
+                <li key={ind}>{fact}</li>
+              ))}
             </ul>
           </div>
-
         </div>
-
-      </div> //close country-page div
+      </div> // close country-page div
     );
   }
-
 }
 
 export default CountryPage;
