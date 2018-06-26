@@ -1,9 +1,33 @@
 import React from 'react';
 
-const Timeline = (props) => (
-  <div>
-    <h4> Insert Timeline Here </h4>
-  </div>
-)
+import HorizontalTimeline from 'react-horizontal-timeline';
+
+class Timeline extends React.Component {
+    constructor(props) {
+    super(props);
+    state = {
+        value : '01-01-1990',
+        previous: 0,
+        values = ['04/20/1991']
+    };
+
+  }
+
+    render(){
+      return(
+         <div>
+             <HorizontalTimeline
+                values={this.state.values}
+                indexClick={(index) => {
+                    this.setState({value: index, previous: this.state.value});
+                }}
+             />
+             <div className='text-center'>
+                {this.state.value}
+             </div>
+          </div>
+      )
+    }
+}
 
 export default Timeline;

@@ -1,9 +1,8 @@
-import React from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import PhotoGrid from './PhotoGrid.jsx'
+import React from "react";
+import { Switch, Route, Redirect } from "react-router-dom";
+import PhotoGrid from "./PhotoGrid.jsx";
 
-const Main = (props) => {
-    return (
+const Main = props => (
       <main>
         <Switch>
           <Route exact path='/info' render={() => {
@@ -31,9 +30,8 @@ const Main = (props) => {
               <div>Destinations Page</div>
             )
           }}/>
-        </Switch> 
+        </Switch>
       </main>
-    )
-}
+    );
 
-export default Main; 
+export default Main;

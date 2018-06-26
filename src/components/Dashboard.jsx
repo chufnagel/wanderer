@@ -5,13 +5,13 @@ import Main from './Main.jsx'
 import Timeline from './Timeline.jsx'
 
 var Dashboard = (props) => {
-  console.log('dashboard props', props) 
+  console.log('dashboard props', props)
   return (
     <div className="dashboard">
       <Header/>
       <Timeline/>
       <h4>Welcome [Koichi]</h4>
-      <button>Add Memory</button> 
+      <button>Add Memory</button>
       <Stats/>
       <Main travelData={props.travelData}/>
     </div>
