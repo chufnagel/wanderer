@@ -7,8 +7,7 @@ class Timeline extends React.Component {
     super(props);
     state = {
         value : '01-01-1990',
-        previous: 0,
-        values = ['04/20/1991']
+        previous: 0
     };
 
   }
