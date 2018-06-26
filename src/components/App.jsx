@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import CountryPage from "./CountryPage/CountryPage";
 import Home from "./Home";
 import Main from "./Main";
-// import axios from "axios";
+import axios from "axios";
 import BlogList from "./BlogList/BlogList";
 <<<<<<< HEAD
 import Sidebar from "./Sidebar/Sidebar";
