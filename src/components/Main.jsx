@@ -6,6 +6,49 @@ import Destinations from "./Destinations.jsx"
 import BlogList from "./BlogList/BlogList.jsx"
 import CountryPage from "./CountryPage/CountryPage.jsx"
 
+<<<<<<< HEAD
+const Main = props => (
+  <main>
+    <Switch>
+      <Route
+        exact
+        path="/info"
+        render={() => {
+          return <div>Info Page</div>;
+        }}
+      />
+
+      <Route
+        exact
+        path="/blogs"
+        render={() => {
+          return <div>Blogs Page</div>;
+        }}
+      />
+
+      <Route
+        exact
+        path="/photos_videos"
+        render={() => {
+          return (
+            <div>
+              <PhotoGrid travelData={props.travelData} />
+            </div>
+          );
+        }}
+      />
+
+      <Route
+        exact
+        path="/destinations"
+        render={() => {
+          return <div>Destinations Page</div>;
+        }}
+      />
+    </Switch>
+  </main>
+);
+=======
 const Main = props => {
     console.log('main props',props)
     return (
@@ -66,5 +109,6 @@ const Main = props => {
       </main>
       )
     };
+>>>>>>> d01da0cf312d602648d3d9b4d2f7389b720b4afe
 
 export default Main;
