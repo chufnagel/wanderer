@@ -5,8 +5,8 @@ const PhotoGrid = (props) => {
   return (
     <div>
       <h4> Photos </h4>
-      {props.travelData.map((photo) => {
-        return ( 
+      {props.photos.map((photo) => {
+        return (
             <img src={photo.imageUrl} className="post-image"/>
         )
       })}

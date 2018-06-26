@@ -5,6 +5,9 @@ import CountryPage from "./CountryPage/CountryPage";
 import Home from "./Home";
 // import axios from "axios";
 import BlogList from "./BlogList/BlogList";
+import Dashboard from "./Dashboard"
+import photos from "../../example data/pictures-of-japan.js"
+import PhotoGrid from "./PhotoGrid.jsx"
 
 class App extends Component {
   constructor(props) {
@@ -234,7 +237,8 @@ class App extends Component {
           blogAuthor: "BROICHI",
           blogContents: "とりあえず 生 なま ビルください"
         }
-      ]
+      ],
+      photos: photos
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
     // this.getAllCountries = this.getAllCountries.bind(this);
@@ -280,7 +284,43 @@ class App extends Component {
         </div>
 
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" render={() => {
+            return (
+              <div>
+                <Home />
+                <Dashboard photos={this.state.photos} />
+              </div>
+            )
+          }}/>
+
+          <Route exact path="/info" render={() => {
+            return (
+              <div>
+                <h4>Info Page</h4>
+              </div>
+            )
+          }}/>
+
+          <Route exact path='/blogs' render={() => {
+            return (
+              <div>Blogs Page</div>
+            )
+          }}/>
+
+          <Route exact path='/photos_videos' render={() => {
+            return (
+              <div>
+                <PhotoGrid photos={this.state.photos}/>
+              </div>
+            )
+          }}/>
+
+          <Route exact path='/destinations' render={() => {
+            return (
+              <div>Destinations Page</div>
+            )
+          }}/>
+
           <Route
             exact
             path={`/${this.state.selectedCountry}`}

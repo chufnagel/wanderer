@@ -2,7 +2,9 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import PhotoGrid from "./PhotoGrid.jsx";
 
-const Main = props => (
+const Main = props => {
+    console.log('main props',props.photos)
+    return (
       <main>
         <Switch>
           <Route exact path='/info' render={() => {
@@ -20,7 +22,7 @@ const Main = props => (
           <Route exact path='/photos_videos' render={() => {
             return (
               <div>
-                <PhotoGrid travelData={props.travelData}/>
+                <PhotoGrid photos={props.photos}/>
               </div>
             )
           }}/>
@@ -32,6 +34,7 @@ const Main = props => (
           }}/>
         </Switch>
       </main>
-    );
+      )
+    };
 
 export default Main;
