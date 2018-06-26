@@ -1,7 +1,7 @@
 {
   "name": "thesis",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find your adventure!",
   "main": "index.js",
   "scripts": {
     "start": "parcel ./src/index.html",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/CoolStuffIncorporated/thesis.git"
   },
-  "author": "Charles Hufnagel, Koichi Sakamoto, Lina Lei, Mandy Mak",
+  "author": "Charles Hufnagel, Koichi Sakamaki, Lina Lei, Mandy Mak",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CoolStuffIncorporated/thesis/issues"
@@ -45,6 +45,7 @@
     "commitizen": "^2.10.1",
     "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "fetch-mock": "^6.4.4",
     "morgan": "^1.9.0",

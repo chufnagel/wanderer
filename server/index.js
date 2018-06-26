@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
+const cors = require("cors");
 
 const {
   log,
@@ -14,7 +15,7 @@ const {
   chalkError,
   chalkWarning,
   chalkInfo
-} = require("../chalkPresets");
+} = require("../chalkpresets");
 
 const port = process.env.port || 3000;
 
@@ -26,6 +27,7 @@ app
   .use(cookieParser())
   .use(compression())
   .use(logger("dev"))
+  .use(cors())
   .use(express.static(path.join(__dirname, "../dist/")));
 
 app.listen(port, () => {
