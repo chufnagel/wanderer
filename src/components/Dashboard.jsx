@@ -9,11 +9,10 @@ var Dashboard = (props) => {
   return (
     <div className="dashboard">
       <Header/>
-      <Timeline/>
       <h4>Welcome [Koichi]</h4>
       <button>Add Memory</button>
       <Stats/>
-      <Main travelData={props.travelData}/>
+      <Main photos={props.photos}/>
     </div>
   )
 };

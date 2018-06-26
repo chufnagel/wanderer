@@ -5,7 +5,7 @@ import HorizontalTimeline from 'react-horizontal-timeline';
 class Timeline extends React.Component {
     constructor(props) {
     super(props);
-    state = {
+    this.state = {
         value : '01-01-1990',
         previous: 0
     };
