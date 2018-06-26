@@ -6,7 +6,7 @@ class CountryPage extends React.Component {
     super(props);
     this.state = {
       country: props.country, // current country displayed on page
-      topPlacesToGo: ["osaka", "tokyo", "kyoto"],
+      pointsOfInterest: ["osaka", "tokyo", "kyoto"],
       funFacts: ["fun fact 1", "fun fact 2", "fun fact 3"]
     };
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
@@ -20,7 +20,7 @@ class CountryPage extends React.Component {
     // console.log('test', this.state.country);
     axios
       .post("/getPointsOfInterest", { country: this.state.country })
-      .then(data => console.log("points of interest results:", data))
+      .then(data => this.setState({ pointsOfInterest: data.data }))
       .catch(err => console.log("error getting points of interest:", err));
   }
 
@@ -45,17 +45,21 @@ class CountryPage extends React.Component {
             <p>Flag: </p>
           </div>
 
-          <div>
-            Top Places To Visit In This Country:
-            <ul>
-              {this.state.topPlacesToGo.map((place, ind) => (
-                <li key={ind}>{place}</li>
+          <div className="points-of-interest-section">
+            <h2>Top Places To Visit In This Country:</h2>
+              {this.state.pointsOfInterest.map((place, ind) => (
+                <div className="point-of-interest" key={ind}>
+                  <img src={place.icon} />
+                  <h3>{place.name}</h3>
+                  <p>Address: {place.formatted_address}</p>
+                  <p>Rating: {place.rating}</p>
+
+                </div>
               ))}
-            </ul>
           </div>
 
           <div>
-            Fun Facts About This Country:
+            <h2>Fun Facts About This Country:</h2>
             <ul>
               {this.state.funFacts.map((fact, ind) => (
                 <li key={ind}>{fact}</li>

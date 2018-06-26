@@ -7,8 +7,7 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
-const { GOOGLEPLACES_API_KEY } = require('../config.js');
-// var { getPointsOfInterest } = require('./helperFunctions');
+let { getPointsOfInterest } = require("./helperFunctions");
 
 const {
   log,
@@ -32,8 +31,13 @@ app.use(cors());
 app.use(express.static("dist"));
 
 app.post("/getPointsOfInterest", (req, res) => {
-  console.log('req.body from server:', req.body);
-  // getPointsOfInterest();
+  getPointsOfInterest(req.body.country, (err, data) => {
+    if (err) {
+      console.log("error getting points of interest", err);
+    } else {
+      res.send(data);
+    }
+  });
 });
 
 app.listen(port, () => {
