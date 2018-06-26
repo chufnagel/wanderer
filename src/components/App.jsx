@@ -262,11 +262,15 @@ class App extends Component {
   render() {
     return (
       <div className="app">
+        <title>WANDERER</title>
         <h1>WANDERER</h1>
         <div>Map Goes Here</div>
         <div>Nav Bar Goes Here</div>
         <div>
-        <select onChange={this.handleSelectedCountry}>
+          <select
+            className="country-select"
+            onChange={this.handleSelectedCountry}
+          >
         {this.state.countries.map((country, ind) => (
           <option key={ind} value={country}>
           {country}
@@ -274,7 +278,7 @@ class App extends Component {
         ))}
         </select>
         <Link to={`/${this.state.selectedCountry}`}>
-        <button>Search Country</button>
+        <button className="country-search-button">Search Country</button>
         </Link>
           <BlogList blogs={this.state.blogs} />
         </div>

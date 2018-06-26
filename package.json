@@ -9,7 +9,11 @@
     "dev": "concurrently --kill-others \"npm run start-watch\" \"npm run build-watch\"",
     "build": "parcel build ./src/index.html",
     "start": "npm run build && node server/index.js",
-    "test": "jest"
+    "test": "jest",
+    "selenium-setup": "selenium-standalone install",
+    "selenium-start": "selenium-standalone start",
+    "e2e-tests": "wdio wdio.conf.js",
+    "e2e-tests-watch": "wdio wdio.conf.js --watch"
   },
   "repository": {
     "type": "git",
@@ -27,6 +31,7 @@
     "babel-jest": "^23.0.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
     "concurrently": "^3.6.0",
     "cross-env": "^5.2.0",
     "enzyme": "^3.3.0",
@@ -40,7 +45,11 @@
     "eslint-plugin-react": "^7.9.1",
     "jest": "^23.1.0",
     "nodemon": "^1.17.5",
-    "prettier": "^1.13.5"
+    "prettier": "^1.13.5",
+    "react-test-renderer": "^16.4.1",
+    "selenium-standalone": "^6.15.1",
+    "wdio-mocha-framework": "^0.5.13",
+    "webdriverio": "^4.13.1"
   },
   "dependencies": {
     "@material-ui/core": "^1.2.3",
@@ -55,7 +64,9 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "fetch-mock": "^6.4.4",
+    "install": "^0.12.0",
     "morgan": "^1.9.0",
+    "npm": "^6.1.0",
     "parcel-bundler": "^1.9.2",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
