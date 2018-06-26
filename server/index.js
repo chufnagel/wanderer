@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
+const { GOOGLEPLACES_API_KEY } = require('../config.js');
 
 const {
   log,
@@ -28,6 +29,8 @@ app.use(logger("dev"));
 app.use(cors());
 // app.use(express.static(path.join(__dirname, "../dist/")));
 app.use(express.static("dist"));
+
+
 
 app.listen(port, () => {
   log(chalkSuccess(`Port ${port} is lit fam 🔥 🔥 🔥`));

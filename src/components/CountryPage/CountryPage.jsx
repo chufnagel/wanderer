@@ -10,6 +10,14 @@ class CountryPage extends React.Component {
     };
   }
 
+  componentDidMount() {
+
+  }
+
+  getPointsOfInterest() {
+
+  }
+
   render() {
     return (
       <div className="country-page">
