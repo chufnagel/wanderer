@@ -4,6 +4,7 @@ import { hot } from "react-hot-loader";
 import CountryPage from "./CountryPage/CountryPage";
 import Home from "./Home";
 // import axios from "axios";
+import BlogList from "./BlogList/BlogList";
 
 class App extends Component {
   constructor(props) {
@@ -219,7 +220,21 @@ class App extends Component {
         "Zambia",
         "Zimbabwe"
       ],
-      selectedCountry: ""
+      selectedCountry: "",
+      blogs: [
+        {
+          blogId: "1",
+          blogTitle: "WELCOME TO NIHON",
+          blogAuthor: "BROICHI",
+          blogContents: "YOLO SWAG"
+        },
+        {
+          blogId: "2",
+          blogTitle: "Ebisu Brewery",
+          blogAuthor: "BROICHI",
+          blogContents: "とりあえず 生 なま ビルください"
+        }
+      ]
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
     // this.getAllCountries = this.getAllCountries.bind(this);
@@ -250,18 +265,18 @@ class App extends Component {
         <h1>WANDERER</h1>
         <div>Map Goes Here</div>
         <div>Nav Bar Goes Here</div>
-
         <div>
-          <select onChange={this.handleSelectedCountry}>
-            {this.state.countries.map((country, ind) => (
-              <option key={ind} value={country}>
-                {country}
-              </option>
-            ))}
-          </select>
-          <Link to={`/${this.state.selectedCountry}`}>
-            <button>Search Country</button>
-          </Link>
+        <select onChange={this.handleSelectedCountry}>
+        {this.state.countries.map((country, ind) => (
+          <option key={ind} value={country}>
+          {country}
+          </option>
+        ))}
+        </select>
+        <Link to={`/${this.state.selectedCountry}`}>
+        <button>Search Country</button>
+        </Link>
+          <BlogList blogs={this.state.blogs} />
         </div>
 
         <Switch>
