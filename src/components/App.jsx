@@ -1,17 +1,14 @@
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
+import axios from "axios";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CountryPage from "./CountryPage/CountryPage";
 import Home from "./Home";
-import Main from "./Main";
-import axios from "axios";
 import BlogList from "./BlogList/BlogList";
-<<<<<<< HEAD
 import Sidebar from "./Sidebar/Sidebar";
-=======
 import Dashboard from "./Dashboard"
 import photos from "../../example data/pictures-of-japan.js"
 import PhotoGrid from "./PhotoGrid.jsx"
@@ -19,7 +16,6 @@ import Header from "./Header.jsx"
 import Destinations from "./Destinations.jsx"
 import Stats from "./Stats.jsx"
 import Main from "./Main.jsx"
->>>>>>> d01da0cf312d602648d3d9b4d2f7389b720b4afe
 
 class App extends Component {
   constructor(props) {
@@ -253,22 +249,7 @@ class App extends Component {
       photos: photos
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
-    // this.getAllCountries = this.getAllCountries.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.getAllCountries();
-  // }
-
-  // getAllCountries() {
-  //   axios({
-  //     method: 'get',
-  //     url: 'http://countryapi.gear.host/v1/Country/getCountries',
-  //     responseType: 'json'
-  //   })
-  //   .then((result) => console.log('api call results: ', result))
-  //   .catch((err) => console.log('error getting all countries'));
-  // }
 
   handleSelectedCountry(event) {
     event.preventDefault();
@@ -278,59 +259,31 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-<<<<<<< HEAD
-        <center>
-          <div>Map Goes Here</div>
-          <div>Nav Bar Goes Here</div>
-          <div>
-            <select onChange={this.handleSelectedCountry}>
-              {this.state.countries.map((country, ind) => (
-                <option key={ind} value={country}>
-                  {country}
-                </option>
-              ))}
-            </select>
-            <Link to={`/${this.state.selectedCountry}`}>
-              <button>Search Country</button>
-            </Link>
-            <BlogList blogs={this.state.blogs} />
-          </div>
-        </center>
+        <center><h1>WANDERER</h1>
+        <div>Map Goes Here</div></center>
+
         <Sidebar
           handleSelectedCountry={this.handleSelectedCountry}
           countries={this.state.countries}
         />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route
-            exact
-            path={`/${this.state.selectedCountry}`}
-            render={() => <CountryPage country={this.state.selectedCountry} />}
-          />
-          <Route exact path="/profile" component={Main} />
-        </Switch>
-=======
-        <h1>WANDERER</h1>
-        <div>Map Goes Here</div>
-        <div>Nav Bar Goes Here</div>
-        <div>
-        <select onChange={this.handleSelectedCountry}>
-        {this.state.countries.map((country, ind) => (
-          <option key={ind} value={country}>
-          {country}
-          </option>
-        ))}
-        </select>
-        <Link to={`/${this.state.selectedCountry}`}>
-        <button>Search Country</button>
-        </Link>
-          <Header/>
-          <Stats/>
-          <Main country={this.state.selectedCountry} blogs={this.state.blogs} photos={this.state.photos}/>
-        </div>
 
-
->>>>>>> d01da0cf312d602648d3d9b4d2f7389b720b4afe
+        <center>
+          <div>
+          <select onChange={this.handleSelectedCountry}>
+          {this.state.countries.map((country, ind) => (
+            <option key={ind} value={country}>
+            {country}
+            </option>
+          ))}
+          </select>
+          <Link to={`/${this.state.selectedCountry}`}>
+          <button>Search Country</button>
+          </Link>
+            <Header/>
+            <Stats/>
+            <Main country={this.state.selectedCountry} blogs={this.state.blogs} photos={this.state.photos}/>
+          </div>
+        </center>
       </div>
     );
   }
@@ -338,49 +291,3 @@ class App extends Component {
 
 export default hot(module)(App);
 
-/*
-<Switch>
-          <Route exact path="/" render={() => {
-            return (
-              <div>
-                <Main/>
-                <Home />
-                <Dashboard photos={this.state.photos} />
-              </div>
-            )
-          }}/>
-
-          <Route exact path="/info" render={() => {
-            return (
-              <div>
-                <h4>Info Page</h4>
-              </div>
-            )
-          }}/>
-
-          <Route exact path='/blogs' render={() => {
-            return (
-              <BlogList blogs={this.state.blogs} />
-            )
-          }}/>
-
-          <Route exact path='/photos_videos' render={() => {
-            return (
-              <div>
-                <PhotoGrid photos={this.state.photos}/>
-              </div>
-            )
-          }}/>
-
-          <Route exact path='/destinations' render={() => {
-            return (
-              <Destinations/>
-            )
-          }}/>
-
-          <Route
-            exact
-            path={`/${this.state.selectedCountry}`}
-            render={() => <CountryPage country={this.state.selectedCountry} />}
-          />
-        </Switch>*/
