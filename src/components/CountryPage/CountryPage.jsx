@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class CountryPage extends React.Component {
   constructor(props) {
@@ -8,14 +9,19 @@ class CountryPage extends React.Component {
       topPlacesToGo: ["osaka", "tokyo", "kyoto"],
       funFacts: ["fun fact 1", "fun fact 2", "fun fact 3"]
     };
+    this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
   }
 
   componentDidMount() {
-
+    this.getPointsOfInterest();
   }
 
   getPointsOfInterest() {
-
+    // console.log('test', this.state.country);
+    axios
+      .post("/getPointsOfInterest", { country: this.state.country })
+      .then(data => console.log("points of interest results:", data))
+      .catch(err => console.log("error getting points of interest:", err));
   }
 
   render() {

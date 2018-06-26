@@ -8,6 +8,7 @@ const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
 const { GOOGLEPLACES_API_KEY } = require('../config.js');
+// var { getPointsOfInterest } = require('./helperFunctions');
 
 const {
   log,
@@ -30,7 +31,10 @@ app.use(cors());
 // app.use(express.static(path.join(__dirname, "../dist/")));
 app.use(express.static("dist"));
 
-
+app.post("/getPointsOfInterest", (req, res) => {
+  console.log('req.body from server:', req.body);
+  // getPointsOfInterest();
+});
 
 app.listen(port, () => {
   log(chalkSuccess(`Port ${port} is lit fam 🔥 🔥 🔥`));
