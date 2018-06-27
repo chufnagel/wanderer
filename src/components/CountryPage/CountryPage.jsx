@@ -13,6 +13,7 @@ class CountryPage extends React.Component {
   }
 
   componentDidMount() {
+    this.props.setNavFlagToCountryorCity()
     this.getPointsOfInterest();
   }
 
