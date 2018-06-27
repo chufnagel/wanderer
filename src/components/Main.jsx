@@ -5,7 +5,6 @@ import Home from "./Home.jsx"
 import Destinations from "./Destinations.jsx"
 import BlogList from "./BlogList/BlogList.jsx"
 import CountryPage from "./CountryPage/CountryPage.jsx"
-import Explore from "./Explore/Explore"
 
 const Main = props => {
   console.log('main props',props)
@@ -15,26 +14,26 @@ const Main = props => {
 
         <Route exact path='/' render={() => {
           return (
-            <Home/>
+            <Home setNavFlagToDashboard={props.setNavFlagToDashboard}/>
           )
         }}/>
 
         <Route exact path='/blogs' render={() => {
           return (
-            <BlogList blogs={props.blogs}/>
+            <BlogList blogs={props.blogs} setNavFlagToDashboard={props.setNavFlagToDashboard}/>
           )
         }}/>
 
         <Route exact path='/photos_videos' render={() => {
           return (
-            <div>
-              <PhotoGrid photos={props.photos}/>
+             <div>
+              <PhotoGrid photos={props.photos} setNavFlagToDashboard={props.setNavFlagToDashboard}/>
             </div>
           )
         }}/>
 
          <Route exact path={`/${props.country}`} render={() =>
-           <CountryPage country={props.country} />}
+           <CountryPage setNavFlagToCountryorCity={props.setNavFlagToCountryorCity} />}
          />
 
         <Route exact path='/destinations' render={() => {
@@ -57,8 +56,6 @@ const Main = props => {
               </div>
             )
         }}/>
-
-        <Route exact path='/explore' component={Explore} />
       </Switch>
     </main>
     )

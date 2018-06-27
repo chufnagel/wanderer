@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 // between routes.
 const Header = (props) => {
   console.log('header props', props)
-  if (props.navTracker === 'dashboard') {
+  if (props.navFlag === 'dashboard') {
     return (
       <header>
         <nav>
@@ -20,7 +20,7 @@ const Header = (props) => {
     )
   }
 
-  if (props.navTracker === 'countryOrCity') {
+  if (props.navFlag === 'countryOrCity') {
     return (
       <header>
         <nav>

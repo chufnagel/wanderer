@@ -9,13 +9,13 @@ import CountryPage from "./CountryPage/CountryPage";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
 import Sidebar from "./Sidebar/Sidebar";
-import Dashboard from "./Dashboard"
-import photos from "../../example data/pictures-of-japan.js"
-import PhotoGrid from "./PhotoGrid.jsx"
-import Header from "./Header.jsx"
-import Destinations from "./Destinations.jsx"
-import Stats from "./Stats.jsx"
-import Main from "./Main.jsx"
+import Dashboard from "./Dashboard";
+import photos from "../../example data/pictures-of-japan.js";
+import PhotoGrid from "./PhotoGrid.jsx";
+import Header from "./Header.jsx";
+import Destinations from "./Destinations.jsx";
+import Stats from "./Stats.jsx";
+import Main from "./Main.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -247,9 +247,11 @@ class App extends Component {
         }
       ],
       photos: photos,
-      navTracker: 'dashboard'
+      navFlag: 'dashboard'
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
+    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this)
+    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this)
   }
 
   handleSelectedCountry(event) {
@@ -257,35 +259,26 @@ class App extends Component {
     this.setState({ selectedCountry: event.target.value });
   }
 
-  handleNavTracker() {
+  setNavFlagToCountryorCity() {
     this.setState({
-      navTracker: "countryOrCity"
+      navFlag: "countryOrCity"
     })
+  }
+
+  setNavFlagToDashboard() {
+    this.setState({
+      navFlag: "dashboard"
+    })
+    console.log('Halloooo')
   }
 
   render() {
     return (
       <div className="app">
-        <title>WANDERER</title>
-        <h1>WANDERER</h1>
-        <div>Map Goes Here</div>
-        <div>Nav Bar Goes Here</div>
-        <div>
-          <select
-            className="country-select"
-            onChange={this.handleSelectedCountry}
-          >
-        {this.state.countries.map((country, ind) => (
-          <option key={ind} value={country}>
-          {country}
-          </option>
-        ))}
-        </select>
-        <Link to={`/${this.state.selectedCountry}`}>
-        <button className="country-search-button">Search Country</button>
-        </Link>
-          <BlogList blogs={this.state.blogs} />
-        </div>
+        <center>
+          <h1>WANDERER</h1>
+          <div>Map Goes Here</div>
+        </center>
 
         <Sidebar
           handleSelectedCountry={this.handleSelectedCountry}
@@ -294,18 +287,25 @@ class App extends Component {
 
         <center>
           <div>
-          <select onChange={this.handleSelectedCountry}>
-          {this.state.countries.map((country, ind) => (
-            <option key={ind} value={country}>
-            {country}
-            </option>
-          ))}
-          </select>
-          <Link to={`/${this.state.selectedCountry}`}>
-          <button onClick={()=> this.handleNavTracker()}>Search Country</button>
-          </Link>
-            <Header navTracker={this.state.navTracker}/>
-            <Main country={this.state.selectedCountry} blogs={this.state.blogs} photos={this.state.photos}/>
+            <select onChange={this.handleSelectedCountry}>
+              {this.state.countries.map((country, ind) => (
+                <option key={ind} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+            <Link to={`/${this.state.selectedCountry}`}>
+              <button>Search Country</button>
+            </Link>
+            <Header navFlag={this.state.navFlag}/>
+            <Stats />
+            <Main
+              country={this.state.selectedCountry}
+              blogs={this.state.blogs}
+              photos={this.state.photos}
+              setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
+              setNavFlagToDashboard={this.setNavFlagToDashboard}
+            />
           </div>
         </center>
       </div>
@@ -314,4 +314,3 @@ class App extends Component {
 }
 
 export default hot(module)(App);
-
