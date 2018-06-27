@@ -20,6 +20,8 @@
     "node": true
   },
   "rules": {
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "linebreak-style": 0,
+    "react/jsx-filename-extension": 0
   }
 }

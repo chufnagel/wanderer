@@ -1,4 +1,5 @@
 node_modules/
+package-lock.json
 *.log
 
 build/
@@ -17,3 +18,12 @@ Icon
 .Spotlight-V100
 .Trashes
 
+.cache/
+.cache/*.json
+
+.env.development
+.env.test
+
+jest.config.json
+
+_README.md

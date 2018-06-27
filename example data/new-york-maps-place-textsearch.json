@@ -1,0 +1,237 @@
+{
+   "html_attributions" : [],
+   "results" : [
+      {
+         "formatted_address" : "455 12th Ave, New York, NY 10018, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.759683,
+               "lng" : -74.00393799999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.76090382989272,
+                  "lng" : -74.00227952010728
+               },
+               "southwest" : {
+                  "lat" : 40.75820417010727,
+                  "lng" : -74.00497917989273
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "c39213d2329c93a0aa891d3ecc1a9980f5dc3eaa",
+         "name" : "City Sightseeing New York",
+         "opening_hours" : {
+            "open_now" : false,
+            "weekday_text" : []
+         },
+         "photos" : [
+            {
+               "height" : 533,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/112658838972132324756/photos\"\u003eCity Sightseeing New York\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAqeWuBGCH8zh19Isn-rIRGBG6-7i0-TErKb5Edb2tM8fCCo8_KIpF36qY06k6K4CIDCIq2J29NVYek1bySpR5KLlKCBs9vMYqrzPtDMuI2HU3GLUA_vYwvKrIxCYVDLYGEhAHvyTBYosNCdvZv6Rw71eyGhSHPFxOwLeu-QYuigtj7Q1VNnPFaA",
+               "width" : 800
+            }
+         ],
+         "place_id" : "ChIJfU1wXrFZwokR_MtjKYjWfOU",
+         "rating" : 3.6,
+         "reference" : "CmRbAAAADvbhrZY0oIfAxG-4DtbzAu4m4dKDuDsh2wyelTH1JZt2or2S2dxU9twE2jLk3s24h2tuEpXxux9FyFquI5Tmv3NjQJeNRLomXM34bkwfenOzoywIDB0cHpqAKywHZZv9EhBjP4gnA7Wvk5_gnok8P7ueGhS-gJHeElUGjZt_6tHbUs4qwXg43w",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ]
+      },
+      {
+         "formatted_address" : "234 W 42nd St, New York, NY 10036, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.7565641,
+               "lng" : -73.9886975
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.75798812989272,
+                  "lng" : -73.98728087010728
+               },
+               "southwest" : {
+                  "lat" : 40.75528847010727,
+                  "lng" : -73.98998052989272
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "7fb1db25b6f21a795eafa568ded19ff99c38e884",
+         "name" : "CitySights NY",
+         "opening_hours" : {
+            "open_now" : false,
+            "weekday_text" : []
+         },
+         "photos" : [
+            {
+               "height" : 426,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/101781661712379806961/photos\"\u003eCitySights NY\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAMyRddWQ7sdM23ompG77fLfzJfYkW2S2icD3cLjv3tVAzMR-fq5LICHWOxX7UtvT3pSkW82wHHnElUwYCfpfGILP3aoL9M0Q1zCGjQ6SFgdXHrhDtYBJmQ_VvlZblU2QIEhDpBGmkrCyoe_bhJ5sj17KHGhR33Gn36brkt5rGSbiNNEVbqr9nlQ",
+               "width" : 820
+            }
+         ],
+         "place_id" : "ChIJ8VOfr1RYwokR03qsCp4k0xE",
+         "rating" : 3,
+         "reference" : "CmRbAAAADyNS_Y-RbSkfgaQnrnl_gDQj0IqEEuJxDmukEs4tpfK66591ZwSCKcZSBXQ5Mk0WTg9iBaYXBTWTkjvw933vtpbbWKF5bX4SEKV7b_u4e52dgprPmL0VVHiwyp19rnPlEhCxIZs9WNXtq2Pe2BW646FnGhRqwmACOzvXo909BRFG1gD6JsTZgQ",
+         "types" : [ "travel_agency", "point_of_interest", "establishment" ]
+      },
+      {
+         "formatted_address" : "New York, NY, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.7828647,
+               "lng" : -73.9653551
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.81804399999999,
+                  "lng" : -73.9339825
+               },
+               "southwest" : {
+                  "lat" : 40.7473416,
+                  "lng" : -73.99703049999999
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_recreational-71.png",
+         "id" : "c9bcef33f0cc85eda31f1c7444e9b1a3b82c9a9f",
+         "name" : "Central Park",
+         "opening_hours" : {
+            "open_now" : true,
+            "weekday_text" : []
+         },
+         "photos" : [
+            {
+               "height" : 752,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/115654212397710628402/photos\"\u003eSatyajeet B\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAPGcapi6wO-4wcduvKYkxUXtunBCq_cGlp-1540PSwZFDH2OJu0GyYhJFQEQQAcj-VX-3F9hn7YV3sc1nQ4DeB5Bt9t5Kzxa98pxOwbSd-nr0gNbLm5-B9cdcgEkzzLN6EhB2ROZVg-4RmURSrtBTTsSdGhQz4j-I7a_jUS-8Sv4G2IobSEdBbg",
+               "width" : 1152
+            }
+         ],
+         "place_id" : "ChIJ4zGFAZpYwokRGUGph3Mf37k",
+         "rating" : 4.8,
+         "reference" : "CmRbAAAAkj0nyf4zlVOHEI7TSbbd1cQM28KfM0cH8LOsGFgHZ4v03K2cjEI3ylpGJiD2V_7rvvNzq4MP84tauWxDZGoQczktCVLhsG40S3fdaI29UfVcoMxpoVxTTRkTINEG4ydKEhCodGe9VJXzzl1aMspUIb4PGhQy10LRvbsPgWErsu--747HlKwTmg",
+         "types" : [ "park", "point_of_interest", "establishment" ]
+      },
+      {
+         "formatted_address" : "381 5th Ave, New York, NY 10016, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.74930500000001,
+               "lng" : -73.9834815
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.75072537989272,
+                  "lng" : -73.98230867010727
+               },
+               "southwest" : {
+                  "lat" : 40.74802572010728,
+                  "lng" : -73.98500832989271
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "12485011c20369a1ddc5356c560cf9e2f64c7571",
+         "name" : "New York Pass Redemption Point",
+         "place_id" : "ChIJf8Yg5KlZwokR8ahuwNUuhZU",
+         "reference" : "CmRbAAAArZZiIiEYZoNuAVYtYAJ2gBTDU2irK7kjWbEC3uaQpLRm5EcLDmhN2SQwXO6yxn8Rt23sMeXbb9Ym68HWQuEBqTs8KnwHn5OafEtWtabLLlFt-WcMQWExd5RTfJ6PKJLUEhAGoRUzFCbeB02F_nAWMYQVGhThsiDZCQFlLW-VzVifUGMWpJeYhA",
+         "types" : [ "point_of_interest", "establishment" ]
+      },
+      {
+         "formatted_address" : "61 W 62nd St, New York, NY 10023, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.7710841,
+               "lng" : -73.9829202
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.77236552989272,
+                  "lng" : -73.98162142010729
+               },
+               "southwest" : {
+                  "lat" : 40.76966587010728,
+                  "lng" : -73.98432107989272
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "fc605192f0f6c62a0f1af101cb08ebaded7af963",
+         "name" : "New York Pass Redemption Point",
+         "place_id" : "ChIJmyRH9fVYwokRLFuB9CmJu7A",
+         "reference" : "CmRbAAAAd-uwiUVjDKTtohaSN7oH8ymVP5eAasdVn8ugBqH2h5OMz5nCl3xgKofqJXCBfYpqGNY-MI2-tkTZzro9AB1lyiUJGwfkzSketIR72m3MLOPPr--G2oYB4onMnxVy-cFVEhCckmU86XJrPGBfxCkjr0UPGhSbpUKk5iN3wb0OWSwtiriqgRPHjw",
+         "types" : [ "point_of_interest", "establishment" ]
+      },
+      {
+         "formatted_address" : "9 Murray Street # 3, New York, NY 10007, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.7136425,
+               "lng" : -74.0079468
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.71490082989272,
+                  "lng" : -74.00667097010728
+               },
+               "southwest" : {
+                  "lat" : 40.71220117010727,
+                  "lng" : -74.00937062989273
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "6ea82afe1b0e05831851e692f338d0057c7293d4",
+         "name" : "New York Public Interest",
+         "place_id" : "ChIJuQSJxxhawokRgcU4m_cUCgE",
+         "reference" : "CmRbAAAAjgdaN-sdC5POKU0WnMiHtNZ6OkyAQtXzVh6LgAPHHym9KH5Kou6YvYTJoXqBA4kSQD7lkM6fbWaOnJm86vBCs4kdJnIxtjLFxHmM6Ba8ScK7ZKqHWue4L2Fck01Sif3iEhBD73UKIpafm8HMvdOnxiI0GhSnk9kd7pNqTCPJbxyhrO3lQZWDAg",
+         "types" : [ "point_of_interest", "establishment" ]
+      },
+      {
+         "formatted_address" : "158 Worth St, New York, NY 10013, USA",
+         "geometry" : {
+            "location" : {
+               "lat" : 40.7143585,
+               "lng" : -74.00047339999999
+            },
+            "viewport" : {
+               "northeast" : {
+                  "lat" : 40.71569017989273,
+                  "lng" : -73.99913932010729
+               },
+               "southwest" : {
+                  "lat" : 40.71299052010729,
+                  "lng" : -74.00183897989274
+               }
+            }
+         },
+         "icon" : "https://maps.gstatic.com/mapfiles/place_api/icons/generic_business-71.png",
+         "id" : "915260a5313656262c55e8ca77be1d75b69608c5",
+         "name" : "The Five Points",
+         "photos" : [
+            {
+               "height" : 4000,
+               "html_attributions" : [
+                  "\u003ca href=\"https://maps.google.com/maps/contrib/116865290834096953595/photos\"\u003eHedvig Mihalec\u003c/a\u003e"
+               ],
+               "photo_reference" : "CmRaAAAAct5ettMxZ9Ybm8UHruyUWvNzz3U_RKZ39QwHhShtOK3zq_oII6sGru5iMlTa7M_iv8ReDU3jj0GqvEFyl4DduoKyLzVex0AZUjHLLBm4N9kd6SHnahFTZhNfaGxRb9LvEhBUIVE3jPTQGAbhBARPpY_sGhQqZLWlT3NROsYuIx17VZMEiuGbjQ",
+               "width" : 3000
+            }
+         ],
+         "place_id" : "ChIJHcqByiZawokRzIdmxLc1Bhk",
+         "rating" : 4.5,
+         "reference" : "CmRbAAAAolKjn2Q4pePC37BqIJtNhJzMGnuSUeC7QHVszlHJNcp9BTrCzaX0Ynw4RKUYbWvR95gs-YJEr2X0BaIGkB8TpKXs3azxChTC5TWk8t8XY7LI2O0qchUxNgyKg_GsrZFhEhCTZAfiqd76mQJ6B6W3Yfm0GhQkwrif2XrWtzHuuNfAYx28NSIkeQ",
+         "types" : [ "point_of_interest", "establishment" ]
+      }
+   ],
+   "status" : "OK"
+}
