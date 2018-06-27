@@ -6,7 +6,7 @@ class CountryPage extends React.Component {
     super(props);
     this.state = {
       country: props.country, // current country displayed on page
-      pointsOfInterest: ["osaka", "tokyo", "kyoto"],
+      pointsOfInterest: [],
       funFacts: ["fun fact 1", "fun fact 2", "fun fact 3"]
     };
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
@@ -17,7 +17,6 @@ class CountryPage extends React.Component {
   }
 
   getPointsOfInterest() {
-    // console.log('test', this.state.country);
     axios
       .post("/getPointsOfInterest", { country: this.state.country })
       .then(data => this.setState({ pointsOfInterest: data.data }))
@@ -53,7 +52,6 @@ class CountryPage extends React.Component {
                   <h3>{place.name}</h3>
                   <p>Address: {place.formatted_address}</p>
                   <p>Rating: {place.rating}</p>
-
                 </div>
               ))}
           </div>
