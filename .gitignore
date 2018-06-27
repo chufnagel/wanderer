@@ -21,3 +21,10 @@ Icon
 
 .cache/
 .cache/*.json
+
+.env.development
+.env.test
+
+jest.config.json
+
+_README.md

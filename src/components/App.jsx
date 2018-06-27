@@ -10,13 +10,13 @@ import CountriesAll from "./CountryPage/CountriesAll";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
 import Sidebar from "./Sidebar/Sidebar";
-import Dashboard from "./Dashboard"
-import photos from "../../example data/pictures-of-japan.js"
-import PhotoGrid from "./PhotoGrid.jsx"
-import Header from "./Header.jsx"
-import Destinations from "./Destinations.jsx"
-import Stats from "./Stats.jsx"
-import Main from "./Main.jsx"
+import Dashboard from "./Dashboard";
+import photos from "../../example data/pictures-of-japan.js";
+import PhotoGrid from "./PhotoGrid.jsx";
+import Header from "./Header.jsx";
+import Destinations from "./Destinations.jsx";
+import Stats from "./Stats.jsx";
+import Main from "./Main.jsx";
 
 class App extends Component {
   constructor(props) {
@@ -38,7 +38,7 @@ class App extends Component {
           blogContents: "とりあえず 生 なま ビルください"
         }
       ],
-      photos: photos
+      photos
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
   }
@@ -55,8 +55,10 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <center><h1>WANDERER</h1>
-        <div>Map Goes Here</div></center>
+        <center>
+          <h1>WANDERER</h1>
+          <div>Map Goes Here</div>
+        </center>
 
         <Sidebar
           handleSelectedCountry={this.handleSelectedCountry}
@@ -65,19 +67,23 @@ class App extends Component {
 
         <center>
           <div>
-          <select onChange={this.handleSelectedCountry}>
-          {this.state.countries.map((country, ind) => (
-            <option key={ind} value={country}>
-            {country}
-            </option>
-          ))}
-          </select>
-          <Link to={`/${this.state.selectedCountry}`}>
-          <button>Search Country</button>
-          </Link>
-            <Header/>
-            <Stats/>
-            <Main country={this.state.selectedCountry} blogs={this.state.blogs} photos={this.state.photos}/>
+            <select onChange={this.handleSelectedCountry}>
+              {this.state.countries.map((country, ind) => (
+                <option key={ind} value={country}>
+                  {country}
+                </option>
+              ))}
+            </select>
+            <Link to={`/${this.state.selectedCountry}`}>
+              <button>Search Country</button>
+            </Link>
+            <Header />
+            <Stats />
+            <Main
+              country={this.state.selectedCountry}
+              blogs={this.state.blogs}
+              photos={this.state.photos}
+            />
           </div>
         </center>
       </div>

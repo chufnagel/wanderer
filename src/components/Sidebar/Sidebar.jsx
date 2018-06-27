@@ -37,13 +37,19 @@ class Sidebar extends Component {
             />
             <br />
             <ListItem button>
-              <ListItemText primary="Home" />
+              <Link to='/'>
+                <ListItemText primary="Home" />
+              </Link>
             </ListItem>
             <ListItem button>
-              <ListItemText primary="Profile" />
+              <Link to='/info'>
+                <ListItemText primary="Profile" />
+              </Link>
             </ListItem>
             <ListItem button>
-              <ListItemText primary="Explore" />
+              <Link to='/explore'>
+                <ListItemText primary="Explore" />
+              </Link>
             </ListItem>
             <br />
           </List>

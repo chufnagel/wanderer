@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Mandy Mak
+  - __Scrum Master__: Charles Hufnagel
+  - __Development Team Members__: Koichi Sakamaki, Lina Lei
 
 ## Table of Contents
 
