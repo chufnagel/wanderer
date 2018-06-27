@@ -2,6 +2,7 @@ const express = require("express");
 // const fs = require("fs");
 // const http = require('http');
 // const https = require('https');
+const dotenv = require("dotenv").config();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
@@ -39,6 +40,11 @@ app.post("/getPointsOfInterest", (req, res) => {
       res.send(data);
     }
   });
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Server error");
 });
 
 app.listen(port, () => {
