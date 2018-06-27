@@ -10,7 +10,7 @@ const Header = (props) => {
       <header>
         <nav>
           <ul>
-            <li><Link to='/'>info</Link></li>
+            <li><Link to='/'>home</Link></li>
             <li><Link to='/blogs'>blog posts</Link></li>
             <li><Link to='/photos_videos'>photos & videos</Link></li>
             <li><Link to='/destinations'>destinations</Link></li>
@@ -25,7 +25,7 @@ const Header = (props) => {
       <header>
         <nav>
           <ul>
-            <li><Link to='/'>info</Link></li>
+            <li><Link to='/'>profile</Link></li>
             <li><Link to='/attractions'>attractions</Link></li>
             <li><Link to='/blogs'>blog posts</Link></li>
             <li><Link to='/photos_videos'>photos & videos</Link></li>

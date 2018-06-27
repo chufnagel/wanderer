@@ -10,7 +10,6 @@ import CountriesAll from "./CountryPage/CountriesAll";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
 import Sidebar from "./Sidebar/Sidebar";
-import Dashboard from "./Dashboard";
 import photos from "../../example data/pictures-of-japan.js";
 import PhotoGrid from "./PhotoGrid.jsx";
 import Header from "./Header.jsx";
