@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require("webpack");
-// const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 const SRC_DIR = path.join(__dirname, "/src");
 const DIST_DIR = path.join(__dirname, "/dist");
@@ -14,7 +13,6 @@ if (process.env.NODE_ENV === "test") {
 
 module.exports = env => {
   const isProduction = env === "production";
-  // const CSSExtract = new ExtractTextPlugin("");
 
   return {
     entry: `${SRC_DIR}/index.js`,
