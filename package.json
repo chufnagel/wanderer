@@ -10,6 +10,12 @@
     "build": "webpack",
     "start": "npm run build && node server/index.js",
     "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "selenium-setup": "selenium-standalone install",
+    "selenium-start": "selenium-standalone start",
+    "e2e-tests": "wdio wdio.conf.js",
+    "e2e-tests-watch": "wdio wdio.conf.js --watch",
     "lint": "eslint src"
   },
   "repository": {
@@ -30,6 +36,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "chai": "^4.1.2",
     "concurrently": "^3.6.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
@@ -48,9 +55,13 @@
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
     "prettier": "^1.13.5",
+    "react-test-renderer": "^16.4.1",
     "sass-loader": "^7.0.3",
+    "selenium-standalone": "^6.15.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
+    "wdio-mocha-framework": "^0.5.13",
+    "webdriverio": "^4.13.1",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8"
   },
@@ -66,8 +77,10 @@
     "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
+    "enzyme-to-json": "^3.3.4",
     "express": "^4.16.3",
     "fetch-mock": "^6.4.4",
+    "install": "^0.12.0",
     "morgan": "^1.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -88,5 +101,13 @@
       "post-merge": "npm install",
       "post-rewrite": "npm install"
     }
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/tests/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
