@@ -2,9 +2,9 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import PhotoGrid from "./PhotoGrid.jsx";
 import Home from "./Home.jsx"
-import Destinations from "./Destinations.jsx"
 import BlogList from "./BlogList/BlogList.jsx"
 import CountryPage from "./CountryPage/CountryPage.jsx"
+import Destinations from "./Destinations.jsx"
 
 const Main = props => {
   console.log('main props',props)
@@ -39,20 +39,7 @@ const Main = props => {
         <Route exact path='/destinations' render={() => {
             return (
               <div>
-                <ul>
-                  <h4> places i've been </h4>
-                  <li>Reykjavik, Iceland</li>
-                  <li>Bonquete, Panama</li>
-                  <li>Panama City, Panama</li>
-                  <li>Seattle, USA</li>
-                </ul>
-                <ul>
-                  <h4> places i'd love to go </h4>
-                  <li>New York, New York</li>
-                  <li>Hong Kong, Hong Kong</li>
-                  <li>Sydney, Australia</li>
-                  <li>Argentina</li>
-                </ul>
+                <Destinations setNavFlagToDashboard={props.setNavFlagToDashboard}/>
               </div>
             )
         }}/>
