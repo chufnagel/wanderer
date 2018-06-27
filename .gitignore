@@ -24,5 +24,6 @@ Icon
 
 .env.development
 .env.test
+.env
 
 _README.md
