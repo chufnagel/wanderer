@@ -31,6 +31,7 @@ app.use(cors());
 app.use(express.static("dist"));
 
 app.post("/getPointsOfInterest", (req, res) => {
+  console.log('hello');
   getPointsOfInterest(req.body.country, (err, data) => {
     if (err) {
       console.log("error getting points of interest", err);

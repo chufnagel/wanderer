@@ -46,10 +46,6 @@ class App extends Component {
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this)
   }
 
-  // componentDidRender() {
-  //   console.log('countries', CountriesAll);
-  // }
-
   handleSelectedCountry(event) {
     event.preventDefault();
     this.setState({ selectedCountry: event.target.value });
@@ -65,7 +61,6 @@ class App extends Component {
     this.setState({
       navFlag: "dashboard"
     })
-    console.log('Halloooo')
   }
 
   render() {

@@ -18,6 +18,7 @@ class CountryPage extends React.Component {
   }
 
   getPointsOfInterest() {
+    console.log('country is', this.state.country);
     axios
       .post("/getPointsOfInterest", { country: this.state.country })
       .then(data => this.setState({ pointsOfInterest: data.data }))
@@ -29,16 +30,14 @@ class CountryPage extends React.Component {
       <div className="country-page">
         <div className="main">
           <h1>{this.state.country}</h1>
-          <div>Info | Attractions | Blog Posts | Photos and Videos </div>
-          <div>Breadcrumb trail goes here</div>
 
           <div>
             <p>XXX Wanderers have visited this country.</p>
             <p>XXX Wanderers want to visit this country.</p>
           </div>
 
-          <div>
-            Blurb about the country goes here:
+          <div className="country-info">
+            <h2>Blurb about the country goes here:</h2>
             <p>Population size: </p>
             <p>Language: </p>
             <p>Currency: </p>
