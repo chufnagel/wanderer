@@ -1,5 +1,7 @@
 const axios = require("axios");
-const { GOOGLEPLACES_API_KEY } = require("../config.js");
+// const { GOOGLEPLACES_API_KEY } = require("../config.js");
+
+const GOOGLEPLACES_API_KEY = process.env.GOOGLEPLACES_API_KEY;
 
 module.exports = {
   // query Google API for points of interest for a particular country
