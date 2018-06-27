@@ -33,7 +33,7 @@ const Main = props => {
         }}/>
 
          <Route exact path={`/${props.country}`} render={() =>
-           <CountryPage setNavFlagToCountryorCity={props.setNavFlagToCountryorCity} />}
+           <CountryPage country={props.country} setNavFlagToCountryorCity={props.setNavFlagToCountryorCity} />}
          />
 
         <Route exact path='/destinations' render={() => {
