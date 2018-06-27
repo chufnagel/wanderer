@@ -3,6 +3,7 @@ import lifecycle from 'react-pure-lifecycle'
 
 const methods =  {
   componentDidMount(props) {
+    console.log('props',props)
     props.setNavFlagToDashboard()
   }
 }
@@ -25,4 +26,4 @@ const Destinations = function () {
   )
 }
 
-export default lifecycle(methods)(Destinations);
+export default Destinations;
