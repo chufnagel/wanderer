@@ -1,4 +1,4 @@
-/* global expect, test */
+/* global expect, test, shallow */
 import React from "react";
 import BlogList from "../../components/BlogList/BlogList";
 
@@ -15,8 +15,8 @@ test("BlogList renders without crashing", () => {
   expect(component.exists()).toEqual(true);
 });
 test("BlogList renders a blog post", () => {
-  const wrapper = shallow(
+  const component = shallow(
     <BlogList blogs={testBlogs} />
   );
-  expect(wrapper).toMatchSnapshot();
+  expect(component).toMatchSnapshot();
 });

@@ -56,12 +56,12 @@
     "nodemon": "^1.17.5",
     "prettier": "^1.13.5",
     "react-test-renderer": "^16.4.1",
-    "selenium-standalone": "^6.15.1",
-    "wdio-mocha-framework": "^0.5.13",
-    "webdriverio": "^4.13.1",
     "sass-loader": "^7.0.3",
+    "selenium-standalone": "^6.15.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
+    "wdio-mocha-framework": "^0.5.13",
+    "webdriverio": "^4.13.1",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8"
   },
@@ -103,7 +103,11 @@
     }
   },
   "jest": {
-    "setupFiles": ["./src/tests/setupTests.js"],
-    "snapshotSerializers": ["enzyme-to-json/serializer"]
+    "setupFiles": [
+      "./src/tests/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
