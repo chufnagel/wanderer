@@ -42,7 +42,12 @@ class Sidebar extends Component {
               </Link>
             </ListItem>
             <ListItem button>
-              <Link to='/info'>
+              <Link to='/friends'>
+                <ListItemText primary="Friends" />
+              </Link>
+            </ListItem>
+            <ListItem button>
+              <Link to='/profile'>
                 <ListItemText primary="Profile" />
               </Link>
             </ListItem>
