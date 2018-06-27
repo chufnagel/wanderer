@@ -8,6 +8,12 @@ class CountryPage extends React.Component {
       topPlacesToGo: ["osaka", "tokyo", "kyoto"],
       funFacts: ["fun fact 1", "fun fact 2", "fun fact 3"]
     };
+
+    console.log('CountryPAge props', this.props)
+  }
+
+  componentDidMount () {
+    this.props.setNavFlagToCountryorCity()
   }
 
   render() {

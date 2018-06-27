@@ -246,14 +246,30 @@ class App extends Component {
           blogContents: "とりあえず 生 なま ビルください"
         }
       ],
-      photos
+      photos: photos,
+      navFlag: 'dashboard'
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
+    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this)
+    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this)
   }
 
   handleSelectedCountry(event) {
     event.preventDefault();
     this.setState({ selectedCountry: event.target.value });
+  }
+
+  setNavFlagToCountryorCity() {
+    this.setState({
+      navFlag: "countryOrCity"
+    })
+  }
+
+  setNavFlagToDashboard() {
+    this.setState({
+      navFlag: "dashboard"
+    })
+    console.log('Halloooo')
   }
 
   render() {
@@ -281,12 +297,14 @@ class App extends Component {
             <Link to={`/${this.state.selectedCountry}`}>
               <button>Search Country</button>
             </Link>
-            <Header />
+            <Header navFlag={this.state.navFlag}/>
             <Stats />
             <Main
               country={this.state.selectedCountry}
               blogs={this.state.blogs}
               photos={this.state.photos}
+              setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
+              setNavFlagToDashboard={this.setNavFlagToDashboard}
             />
           </div>
         </center>
