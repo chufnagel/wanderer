@@ -18,12 +18,6 @@ const Main = props => {
           )
         }}/>
 
-        <Route exact path='/info' render={() => {
-          return (
-            <h4>Info Page</h4>
-          )
-        }}/>
-
         <Route exact path='/blogs' render={() => {
           return (
             <BlogList blogs={props.blogs}/>
