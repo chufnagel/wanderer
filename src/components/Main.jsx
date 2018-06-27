@@ -5,6 +5,7 @@ import Home from "./Home.jsx"
 import Destinations from "./Destinations.jsx"
 import BlogList from "./BlogList/BlogList.jsx"
 import CountryPage from "./CountryPage/CountryPage.jsx"
+import Explore from "./Explore/Explore"
 
 const Main = props => {
   console.log('main props',props)
@@ -62,6 +63,8 @@ const Main = props => {
               </div>
             )
         }}/>
+
+        <Route exact path='/explore' component={Explore} />
       </Switch>
     </main>
     )
