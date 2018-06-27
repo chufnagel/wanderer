@@ -25,6 +25,4 @@ Icon
 .env.development
 .env.test
 
-jest.config.json
-
 _README.md
