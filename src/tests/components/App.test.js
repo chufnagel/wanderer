@@ -1,4 +1,4 @@
-/* global expect, test, shallow */
+/* global expect, test */
 import React from "react";
 import { shallow } from "enzyme";
 import App from "../../components/App";
