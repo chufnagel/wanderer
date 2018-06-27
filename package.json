@@ -14,8 +14,8 @@
     "test:coverage": "jest --coverage",
     "selenium-setup": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
-    "e2e-tests": "wdio wdio.conf.js",
-    "e2e-tests-watch": "wdio wdio.conf.js --watch",
+    "e2etests": "wdio wdio.conf.js",
+    "e2etests-watch": "wdio wdio.conf.js --watch",
     "lint": "eslint src"
   },
   "repository": {
@@ -109,6 +109,9 @@
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
+    ],
+    "modulePathIgnorePatterns": [
+      "./e2etests"
     ]
   }
 }
