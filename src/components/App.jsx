@@ -246,7 +246,8 @@ class App extends Component {
           blogContents: "とりあえず 生 なま ビルください"
         }
       ],
-      photos: photos
+      photos: photos,
+      navTracker: 'dashboard'
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
   }
@@ -254,6 +255,12 @@ class App extends Component {
   handleSelectedCountry(event) {
     event.preventDefault();
     this.setState({ selectedCountry: event.target.value });
+  }
+
+  handleNavTracker() {
+    this.setState({
+      navTracker: "countryOrCity"
+    })
   }
 
   render() {
@@ -277,10 +284,9 @@ class App extends Component {
           ))}
           </select>
           <Link to={`/${this.state.selectedCountry}`}>
-          <button>Search Country</button>
+          <button onClick={()=> this.handleNavTracker()}>Search Country</button>
           </Link>
-            <Header/>
-            <Stats/>
+            <Header navTracker={this.state.navTracker}/>
             <Main country={this.state.selectedCountry} blogs={this.state.blogs} photos={this.state.photos}/>
           </div>
         </center>
