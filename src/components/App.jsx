@@ -11,6 +11,7 @@ import photos from "../../example data/pictures-of-japan.js";
 import Header from "./Header.jsx";
 import Stats from "./Stats.jsx";
 import Main from "./Main.jsx";
+import GlobalMap from "./GlobalMap/GlobalMap";
 
 class App extends Component {
   constructor(props) {
@@ -71,7 +72,7 @@ class App extends Component {
       <div className="app">
         <center>
           <h1>WANDERER</h1>
-          <div>Map Goes Here</div>
+          <GlobalMap />
         </center>
 
         <Sidebar

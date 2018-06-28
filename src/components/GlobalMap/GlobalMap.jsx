@@ -6,7 +6,6 @@ import {
   Geography
 } from "react-simple-maps";
 import chroma from "chroma-js";
-
 import subregions from "./subregions";
 
 const wrapperStyles = {
@@ -21,7 +20,15 @@ const colorScale = chroma
   .colors(24);
 
 class GlobalMap extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      subregions: subregions
+    }
+  }
   render() {
+    console.log('hello');
     return (
       <div className="global-map" style={wrapperStyles}>
         <ComposableMap
@@ -37,7 +44,7 @@ class GlobalMap extends Component {
           }}
         >
           <ZoomableGroup center={[0, 20]}>
-            <Geographies geography={"./example data/world-1.json"}>
+            <Geographies geography={ "world-1.json" }>
               {(geographies, projection) =>
                 geographies.map((geography, i) => (
                   <Geography
