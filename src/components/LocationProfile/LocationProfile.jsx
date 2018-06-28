@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import PointsOfInterest from "../PointsOfInterest.jsx";
+import PointsOfInterest from "../LocationProfile/PointsOfInterest";
 
 const LocationProfile = ({ location, pointsOfInterest}) => {
   return (
