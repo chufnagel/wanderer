@@ -1,10 +1,12 @@
 const express = require("express");
+const path = require('path');
 // const fs = require("fs");
 // const http = require('http');
 // const https = require('https');
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
+// console.log(process.env);
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
@@ -30,8 +32,8 @@ app.use(cookieParser());
 app.use(compression());
 app.use(logger("dev"));
 app.use(cors());
-// app.use(express.static(path.join(__dirname, "../dist/")));
-app.use(express.static("dist"));
+app.use(express.static(path.join(__dirname, "../dist/")));
+// app.use(express.static("dist"));
 
 app.post("/getPointsOfInterest", (req, res) => {
   console.log('hello');
