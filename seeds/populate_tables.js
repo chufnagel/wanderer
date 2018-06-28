@@ -1,16 +1,17 @@
 exports.seed = (knex, Promise) => {
   return Promise.join(
-    knex("users", "posts", "tags", "posts_tags", "media", "media_tags").del(),
+    knex("users", "blogs", "tags", "blogs_tags", "media", "media_tags").del(),
     knex("users").insert([
       {
         user_id: 1,
         username: "BROICHI",
         password: "gangbusters",
         name: "Broichi Slope-Roll",
-        email: "s.koichi@gmail.com"
+        email: "s.koichi@gmail.com",
+        bio: "I am a placeholder bio"
       }
     ]),
-    knex("posts").insert([
+    knex("blogs").insert([
       {
         post_id: 1,
         title: "WELCOME TO NIHON",
