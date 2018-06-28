@@ -1,0 +1,28 @@
+const subregions = [
+  "Southern Asia",
+  "Polynesia",
+  "Micronesia",
+  "Southern Africa",
+  "Central Asia",
+  "Melanesia",
+  "Western Europe",
+  "Central America",
+  "Seven seas (open ocean)",
+  "Northern Africa",
+  "Caribbean",
+  "South-Eastern Asia",
+  "Eastern Africa",
+  "Australia and New Zealand",
+  "Eastern Europe",
+  "Western Africa",
+  "Southern Europe",
+  "Eastern Asia",
+  "South America",
+  "Middle Africa",
+  "Antarctica",
+  "Northern Europe",
+  "Northern America",
+  "Western Asia",
+];
+
+export default subregions;
