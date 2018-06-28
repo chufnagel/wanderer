@@ -4,7 +4,8 @@
   "description": "Find your adventure!",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build && node server/index.js",
+    "start": "node server/index.js",
+    "start-dev": "npm run build && node server/index.js",
     "build": "webpack",
     "build-watch": "webpack -w -d",
     "start-watch": "nodemon server/index.js",
@@ -97,7 +98,8 @@
     "redux-form": "^7.4.2"
   },
   "engines": {
-    "node": "10.1.0"
+    "node": "10.1.0",
+    "npm": "6.1.0"
   },
   "config": {
     "ghooks": {
