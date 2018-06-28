@@ -13,7 +13,8 @@ module.exports = {
       location = locationWords.join("+");
       console.log("querying this location:", location);
     }
-    let queryStr = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${country}+points+of+interest&language=en&key=${process.env.GOOGLEPLACES_API_KEY}`;
+    console.log('wtf is process env', process.env.GOOGLEPLACES_API_KEY);
+    let queryStr = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}+points+of+interest&language=en&key=${process.env.GOOGLEPLACES_API_KEY}`;
     axios.get(queryStr).then(data => cb(null, data.data.results));
   }
 };
