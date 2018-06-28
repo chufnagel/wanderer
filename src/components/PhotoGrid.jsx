@@ -3,16 +3,14 @@ import lifecycle from 'react-pure-lifecycle'
 
 const methods =  {
   componentDidMount(props) {
-    console.log('props',props)
     props.setNavFlagToDashboard()
   }
 }
 
 const PhotoGrid = (props) => {
-  console.log('photogrid', props)
   return (
     <div>
-      <h4> Photos </h4>
+      <h1> Photos </h1>
       {props.photos.map((photo) => {
         return (
             <img src={photo.imageUrl} className="post-image"/>

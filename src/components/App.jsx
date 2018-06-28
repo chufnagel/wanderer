@@ -88,7 +88,6 @@ class App extends Component {
               <button>Search Country</button>
             </Link>
             <Header navFlag={this.state.navFlag}/>
-            <Stats />
             <Main
               country={this.state.selectedCountry}
               blogs={this.state.blogs}
