@@ -37,7 +37,7 @@ class GlobalMap extends Component {
           }}
         >
           <ZoomableGroup center={[0, 20]}>
-            <Geographies geography={"./example data/world.json"}>
+            <Geographies geography={"./example data/world-1.json"}>
               {(geographies, projection) =>
                 geographies.map((geography, i) => (
                   <Geography
