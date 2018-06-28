@@ -4,7 +4,7 @@ config.js
 *.log
 
 build/
-dist/
+
 
 ### OSX ###
 .DS_Store
@@ -19,10 +19,13 @@ Icon
 .Spotlight-V100
 .Trashes
 
+dist/bundle.js
+
 .cache/
 .cache/*.json
 
 .env.development
 .env.test
+.env
 
 _README.md

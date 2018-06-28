@@ -5,6 +5,7 @@ import { withStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 
 // This is roughly what we will use when we have some data in our DB.
 
@@ -23,6 +24,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 // In the meantime, let's hardcode it.
 const FriendsList = () => (
+<<<<<<< HEAD
   <List>
     <ListItem button>
       <Link to="/profile">
@@ -30,6 +32,24 @@ const FriendsList = () => (
       </Link>
     </ListItem>
   </List>
+=======
+  <div>
+    <Typography variant="headline">
+      We didn't think you'd have friends, but here they are.
+    </Typography>
+    <div>
+      <center>
+        <List>
+          <ListItem button>
+            <Link to="/profile">
+              <ListItemText primary="Lina Luna Lei" />
+            </Link>
+          </ListItem>
+        </List>
+      </center>
+    </div>
+  </div>
+>>>>>>> dev
 );
 
 export default FriendsList;

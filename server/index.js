@@ -1,7 +1,12 @@
 const express = require("express");
+const path = require('path');
 // const fs = require("fs");
 // const http = require('http');
 // const https = require('https');
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+console.log(process.env);
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
@@ -17,7 +22,7 @@ const {
   chalkInfo
 } = require("../chalkpresets");
 
-const port = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -27,8 +32,8 @@ app.use(cookieParser());
 app.use(compression());
 app.use(logger("dev"));
 app.use(cors());
-// app.use(express.static(path.join(__dirname, "../dist/")));
-app.use(express.static("dist"));
+app.use(express.static(path.join(__dirname, "../dist/")));
+// app.use(express.static("dist"));
 
 app.post("/getPointsOfInterest", (req, res) => {
   console.log('hello');
@@ -41,6 +46,11 @@ app.post("/getPointsOfInterest", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  log(chalkSuccess(`Port ${port} is lit fam 🔥 🔥 🔥`));
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Server error");
+// });
+
+app.listen(PORT, () => {
+  log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
 });
