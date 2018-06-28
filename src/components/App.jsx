@@ -71,7 +71,10 @@ class App extends Component {
     return (
       <div className="app">
         <center>
-          <h1>WANDERER</h1>
+          <Typography variant="display3">
+            Wanderer
+          </Typography>
+          <br />
           <GlobalMap />
         </center>
 
