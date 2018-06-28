@@ -24,7 +24,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 // In the meantime, let's hardcode it.
 const FriendsList = () => (
   <List>
-    <ListItem key={id} button>
+    <ListItem button>
       <Link to="/profile">
         <ListItemText primary="Lina Luna Lei" />
       </Link>

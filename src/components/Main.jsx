@@ -7,9 +7,10 @@ import CountryPage from "./CountryPage/CountryPage";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
+import Profile from "./Profile/Profile"
 
 const Main = props => {
-  console.log("main props", props);
+
   return (
     <main>
       <Switch>
@@ -76,6 +77,19 @@ const Main = props => {
 
         <Route exact path="/explore" component={Explore} />
         <Route exact path="/friends" component={FriendsList} />
+        <Route
+          exact
+          path="/profile"
+          render={() => {
+            return (
+              <div>
+                <Profile
+                  photos={props.photos} blogs={props.blogs} setNavFlagToDashboard={props.setNavFlagToDashboard}
+                />
+              </div>
+            );
+          }}
+        />
       </Switch>
     </main>
   );

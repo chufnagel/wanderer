@@ -3,7 +3,6 @@ import lifecycle from 'react-pure-lifecycle'
 
 const methods =  {
   componentDidMount(props) {
-    console.log('props',props)
     props.setNavFlagToDashboard()
   }
 }
