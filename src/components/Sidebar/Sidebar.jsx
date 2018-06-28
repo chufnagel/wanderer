@@ -32,8 +32,8 @@ class Sidebar extends Component {
             </center>
             <br />
             <Search
-              handleSelectedCountry={this.props.handleSelectedCountry}
-              selectedCountry={this.props.selectedCountry}
+              handleSelectedLocation={this.props.handleSelectedLocation}
+              location={this.props.location}
             />
             <br />
             <ListItem button>

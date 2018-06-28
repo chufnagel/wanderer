@@ -5,7 +5,7 @@ import axios from "axios";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import CountriesAll from "./CountryPage/CountriesAll";
+import CountriesAll from "./LocationProfile/CountriesAll";
 import Sidebar from "./Sidebar/Sidebar";
 import photos from "../../example data/pictures-of-japan.js";
 import Header from "./Header.jsx";
@@ -17,7 +17,7 @@ class App extends Component {
     super(props);
     this.state = {
       countries: CountriesAll,
-      selectedCountry: "",
+      location: "",
       pointsOfInterest: [],
       blogs: [
         {
@@ -36,20 +36,20 @@ class App extends Component {
       photos: photos,
       navFlag: 'dashboard'
     };
-    this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
+    this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
   }
 
-  handleSelectedCountry(event) {
+  handleSelectedLocation(event) {
     event.preventDefault();
-    this.setState({ selectedCountry: event.target.value });
+    this.setState({ location: event.target.value });
   }
 
-  getPointsOfInterest(countryOrCity) {
+  getPointsOfInterest(location) {
     axios
-      .post("/getPointsOfInterest", { countryOrCity })
+      .post("/getPointsOfInterest", { location })
       .then(data => this.setState({ pointsOfInterest: data.data }))
       .catch(err => console.log("error getting points of interest from app:", err));
   }
@@ -75,13 +75,13 @@ class App extends Component {
         </center>
 
         <Sidebar
-          handleSelectedCountry={this.handleSelectedCountry}
-          selectedCountry={this.state.selectedCountry}
+          handleSelectedLocation={this.handleSelectedLocation}
+          location={this.state.location}
         />
 
         <center>
           <div>
-            <select onChange={this.handleSelectedCountry}>
+            <select onChange={this.handleSelectedLocation}>
               {this.state.countries.map((country, ind) => (
                 <option key={ind} value={country}>
                   {country}
@@ -89,23 +89,24 @@ class App extends Component {
               ))}
             </select>
 
-            <Link to={`/${this.state.selectedCountry}`}>
-              <button>Search Country</button>
+            <Link to={`/${this.state.location}`}>
+              <button
+                onClick={() => {
+                  this.setNavFlagToCountryorCity();
+                  this.getPointsOfInterest(this.state.location);
+                }}
+              >
+                Search Country
+              </button>
             </Link>
-
-            {/* <Link to="/city">
-              <button>Placeholder Link to City Page</button>
-            </Link> */}
 
             <Header navFlag={this.state.navFlag}/>
             <Stats />
             <Main
-              country={this.state.selectedCountry}
+              location={this.state.location}
               blogs={this.state.blogs}
               photos={this.state.photos}
-              setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
-              getPointsOfInterest={this.getPointsOfInterest}
               pointsOfInterest={this.state.pointsOfInterest}
             />
           </div>

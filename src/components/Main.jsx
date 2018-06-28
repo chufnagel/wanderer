@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import PhotoGrid from "./PhotoGrid.jsx";
 import Home from "./Home.jsx";
 import BlogList from "./BlogList/BlogList.jsx";
-import CountryPage from "./CountryPage/CountryPage.jsx";
+import LocationProfile from "./LocationProfile/LocationProfile.jsx";
 import CityPage from "./CityPage/CityPage.jsx";
 import Destinations from "./Destinations.jsx";
 
@@ -33,18 +33,12 @@ const Main = props => {
           )
         }}/>
 
-         <Route exact path={`/${props.country}`} render={() =>
-           <CountryPage
-             country={props.country}
-             setNavFlagToCountryorCity={props.setNavFlagToCountryorCity}
-             getPointsOfInterest={props.getPointsOfInterest}
+         <Route exact path={`/${props.location}`} render={() =>
+           <LocationProfile
+             location={props.location}
              pointsOfInterest={props.pointsOfInterest}
             />}
          />
-
-        {/* <Route exact path='/city' render={() =>
-          <CityPage city={props.city} />}
-        /> */}
 
         <Route exact path='/destinations' render={() => {
             return (

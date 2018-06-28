@@ -38,11 +38,11 @@ class Search extends Component {
           type="search"
           margin="normal"
           onChange={event => {
-            this.props.handleSelectedCountry(event);
+            this.props.handleSelectedLocation(event);
           }}
         />
         <br />
-        <Link to={`/${this.props.selectedCountry}`}>
+        <Link to={`/${this.props.location}`}>
           <Button label="Search" type="submit" variant="raised" color="primary">Search</Button>
         </Link>
       </form>
