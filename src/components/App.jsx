@@ -47,9 +47,9 @@ class App extends Component {
     this.setState({ location: event.target.value });
   }
 
-  getPointsOfInterest(location) {
+  getPointsOfInterest() {
     axios
-      .post("/getPointsOfInterest", { location })
+      .post("/getPointsOfInterest", { location: this.state.location })
       .then(data => this.setState({ pointsOfInterest: data.data }))
       .catch(err => console.log("error getting points of interest from app:", err));
   }
@@ -76,6 +76,7 @@ class App extends Component {
 
         <Sidebar
           handleSelectedLocation={this.handleSelectedLocation}
+          getPointsOfInterest={this.getPointsOfInterest}
           location={this.state.location}
         />
 
@@ -93,7 +94,7 @@ class App extends Component {
               <button
                 onClick={() => {
                   this.setNavFlagToCountryorCity();
-                  this.getPointsOfInterest(this.state.location);
+                  this.getPointsOfInterest();
                 }}
               >
                 Search Country

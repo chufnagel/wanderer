@@ -24,11 +24,6 @@ class Search extends Component {
     });
   }
 
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   console.log('CLICKED');
-  // }
-
   render() {
     return (
       <form>
@@ -43,7 +38,17 @@ class Search extends Component {
         />
         <br />
         <Link to={`/${this.props.location}`}>
-          <Button label="Search" type="submit" variant="raised" color="primary">Search</Button>
+          <Button
+            label="Search"
+            type="submit"
+            variant="raised"
+            color="primary"
+            onClick={() => {
+              this.props.getPointsOfInterest();
+            }}
+          >
+            Search
+          </Button>
         </Link>
       </form>
     );

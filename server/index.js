@@ -6,7 +6,7 @@ const path = require('path');
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-console.log(process.env);
+// console.log(process.env);
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
