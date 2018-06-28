@@ -33,7 +33,7 @@ class Sidebar extends Component {
             <br />
             <Search
               handleSelectedCountry={this.props.handleSelectedCountry}
-              countries={this.props.countries}
+              selectedCountry={this.props.selectedCountry}
             />
             <br />
             <ListItem button>

@@ -1,29 +1,36 @@
 import React from "react";
 import axios from "axios";
+import PointsOfInterest from "../PointsOfInterest.jsx";
 
 class CountryPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       country: props.country, // current country displayed on page
-      pointsOfInterest: [],
+      pointsOfInterest: props.pointsOfInterest,
       funFacts: ["fun fact 1", "fun fact 2", "fun fact 3"]
     };
-    this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
+    // this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
   }
 
   componentDidMount() {
-    this.props.setNavFlagToCountryorCity()
-    this.getPointsOfInterest();
+    this.props.setNavFlagToCountryorCity();
+    this.props.getPointsOfInterest(this.state.country);
   }
 
-  getPointsOfInterest() {
-    console.log('country is', this.state.country);
-    axios
-      .post("/getPointsOfInterest", { country: this.state.country })
-      .then(data => this.setState({ pointsOfInterest: data.data }))
-      .catch(err => console.log("error getting points of interest:", err));
-  }
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.pointsOfInterest !== prevProps.pointsOfInterest) {
+  //     this.fetchData(this.props.pointsOfInterest);
+  //   }
+  // }
+
+  // getPointsOfInterest() {
+  //   console.log('country is', this.state.country);
+  //   axios
+  //     .post("/getPointsOfInterest", { country: this.state.country })
+  //     .then(data => this.setState({ pointsOfInterest: data.data }))
+  //     .catch(err => console.log("error getting points of interest:", err));
+  // }
 
   render() {
     return (
@@ -44,17 +51,18 @@ class CountryPage extends React.Component {
             <p>Flag: </p>
           </div>
 
-          <div className="points-of-interest-section">
+          <PointsOfInterest pointsOfInterest={this.state.pointsOfInterest} countryOrCity={this.state.country} />
+
+          {/* <div className="points-of-interest-section">
             <h2>Top Places To Visit In This Country:</h2>
               {this.state.pointsOfInterest.map((place, ind) => (
                 <div className="point-of-interest" key={ind}>
-                  <img src={place.icon} />
                   <h3>{place.name}</h3>
                   <p>Address: {place.formatted_address}</p>
                   <p>Rating: {place.rating}</p>
                 </div>
               ))}
-          </div>
+          </div> */}
 
           <div>
             <h2>Fun Facts About This Country:</h2>

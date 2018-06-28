@@ -5,15 +5,10 @@ import axios from "axios";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import CountryPage from "./CountryPage/CountryPage";
 import CountriesAll from "./CountryPage/CountriesAll";
-import Home from "./Home";
-import BlogList from "./BlogList/BlogList";
 import Sidebar from "./Sidebar/Sidebar";
 import photos from "../../example data/pictures-of-japan.js";
-import PhotoGrid from "./PhotoGrid.jsx";
 import Header from "./Header.jsx";
-import Destinations from "./Destinations.jsx";
 import Stats from "./Stats.jsx";
 import Main from "./Main.jsx";
 
@@ -23,6 +18,8 @@ class App extends Component {
     this.state = {
       countries: CountriesAll,
       selectedCountry: "",
+      selectedCity: "Tokyo",
+      pointsOfInterest: [],
       blogs: [
         {
           blogId: "1",
@@ -41,8 +38,9 @@ class App extends Component {
       navFlag: 'dashboard'
     };
     this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
-    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this)
-    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this)
+    this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
+    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
+    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
   }
 
   handleSelectedCountry(event) {
@@ -50,16 +48,23 @@ class App extends Component {
     this.setState({ selectedCountry: event.target.value });
   }
 
+  getPointsOfInterest(countryOrCity) {
+    axios
+      .post("/getPointsOfInterest", { countryOrCity })
+      .then(data => this.setState({ pointsOfInterest: data.data }))
+      .catch(err => console.log("error getting points of interest from app:", err));
+  }
+
   setNavFlagToCountryorCity() {
     this.setState({
       navFlag: "countryOrCity"
-    })
+    });
   }
 
   setNavFlagToDashboard() {
     this.setState({
       navFlag: "dashboard"
-    })
+    });
   }
 
   render() {
@@ -72,7 +77,7 @@ class App extends Component {
 
         <Sidebar
           handleSelectedCountry={this.handleSelectedCountry}
-          countries={this.state.countries}
+          selectedCountry={this.state.selectedCountry}
         />
 
         <center>
@@ -84,17 +89,26 @@ class App extends Component {
                 </option>
               ))}
             </select>
+
             <Link to={`/${this.state.selectedCountry}`}>
               <button>Search Country</button>
             </Link>
+
+            <Link to="/city">
+              <button>Placeholder Link to City Page</button>
+            </Link>
+
             <Header navFlag={this.state.navFlag}/>
             <Stats />
             <Main
               country={this.state.selectedCountry}
+              city={this.state.selectedCity}
               blogs={this.state.blogs}
               photos={this.state.photos}
               setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
+              getPointsOfInterest={this.getPointsOfInterest}
+              pointsOfInterest={this.state.pointsOfInterest}
             />
           </div>
         </center>
