@@ -5,15 +5,10 @@ import axios from "axios";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import CountryPage from "./CountryPage/CountryPage";
-import CountriesAll from "./CountryPage/CountriesAll";
-import Home from "./Home";
-import BlogList from "./BlogList/BlogList";
+import CountriesAll from "./LocationProfile/CountriesAll";
 import Sidebar from "./Sidebar/Sidebar";
 import photos from "../../example data/pictures-of-japan.js";
-import PhotoGrid from "./PhotoGrid.jsx";
 import Header from "./Header.jsx";
-import Destinations from "./Destinations.jsx";
 import Stats from "./Stats.jsx";
 import Main from "./Main.jsx";
 
@@ -22,7 +17,8 @@ class App extends Component {
     super(props);
     this.state = {
       countries: CountriesAll,
-      selectedCountry: "",
+      location: "",
+      pointsOfInterest: [],
       blogs: [
         {
           blogId: "1",
@@ -40,26 +36,34 @@ class App extends Component {
       photos: photos,
       navFlag: 'dashboard'
     };
-    this.handleSelectedCountry = this.handleSelectedCountry.bind(this);
-    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this)
-    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this)
+    this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
+    this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
+    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
+    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
   }
 
-  handleSelectedCountry(event) {
+  handleSelectedLocation(event) {
     event.preventDefault();
-    this.setState({ selectedCountry: event.target.value });
+    this.setState({ location: event.target.value });
+  }
+
+  getPointsOfInterest() {
+    axios
+      .post("/getPointsOfInterest", { location: this.state.location })
+      .then(data => this.setState({ pointsOfInterest: data.data }))
+      .catch(err => console.log("error getting points of interest from app:", err));
   }
 
   setNavFlagToCountryorCity() {
     this.setState({
       navFlag: "countryOrCity"
-    })
+    });
   }
 
   setNavFlagToDashboard() {
     this.setState({
       navFlag: "dashboard"
-    })
+    });
   }
 
   render() {
@@ -71,29 +75,39 @@ class App extends Component {
         </center>
 
         <Sidebar
-          handleSelectedCountry={this.handleSelectedCountry}
-          countries={this.state.countries}
+          handleSelectedLocation={this.handleSelectedLocation}
+          getPointsOfInterest={this.getPointsOfInterest}
+          location={this.state.location}
         />
 
         <center>
           <div>
-            <select onChange={this.handleSelectedCountry}>
+            <select onChange={this.handleSelectedLocation}>
               {this.state.countries.map((country, ind) => (
                 <option key={ind} value={country}>
                   {country}
                 </option>
               ))}
             </select>
-            <Link to={`/${this.state.selectedCountry}`}>
-              <button>Search Country</button>
+
+            <Link to={`/${this.state.location}`}>
+              <button
+                onClick={() => {
+                  this.setNavFlagToCountryorCity();
+                  this.getPointsOfInterest();
+                }}
+              >
+                Search Country
+              </button>
             </Link>
+
             <Header navFlag={this.state.navFlag}/>
             <Main
-              country={this.state.selectedCountry}
+              location={this.state.location}
               blogs={this.state.blogs}
               photos={this.state.photos}
-              setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
+              pointsOfInterest={this.state.pointsOfInterest}
             />
           </div>
         </center>
