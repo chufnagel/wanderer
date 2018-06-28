@@ -2,7 +2,9 @@ const express = require("express");
 // const fs = require("fs");
 // const http = require('http');
 // const https = require('https');
-const dotenv = require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
