@@ -1,13 +1,15 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import PhotoGrid from "./PhotoGrid.jsx";
-import Home from "./Home.jsx";
-import Destinations from "./Destinations.jsx";
-import BlogList from "./BlogList/BlogList.jsx";
-import CountryPage from "./CountryPage/CountryPage.jsx";
+import PhotoGrid from "./PhotoGrid";
+import Home from "./Home";
+import BlogList from "./BlogList/BlogList";
+import CountryPage from "./CountryPage/CountryPage";
+import Destinations from "./Destinations";
+import Explore from "./Explore/Explore";
+import FriendsList from "./FriendsList";
 
 const Main = props => {
-  // console.log("main props", props);
+  console.log("main props", props);
   return (
     <main>
       <Switch>
@@ -15,15 +17,7 @@ const Main = props => {
           exact
           path="/"
           render={() => {
-            return <Home />;
-          }}
-        />
-
-        <Route
-          exact
-          path="/info"
-          render={() => {
-            return <h4>Info Page</h4>;
+            return <Home setNavFlagToDashboard={props.setNavFlagToDashboard} />;
           }}
         />
 
@@ -31,7 +25,12 @@ const Main = props => {
           exact
           path="/blogs"
           render={() => {
-            return <BlogList blogs={props.blogs} />;
+            return (
+              <BlogList
+                blogs={props.blogs}
+                setNavFlagToDashboard={props.setNavFlagToDashboard}
+              />
+            );
           }}
         />
 
@@ -41,7 +40,10 @@ const Main = props => {
           render={() => {
             return (
               <div>
-                <PhotoGrid photos={props.photos} />
+                <PhotoGrid
+                  photos={props.photos}
+                  setNavFlagToDashboard={props.setNavFlagToDashboard}
+                />
               </div>
             );
           }}
@@ -50,31 +52,30 @@ const Main = props => {
         <Route
           exact
           path={`/${props.country}`}
-          render={() => <CountryPage country={props.country} />}
+          render={() => (
+            <CountryPage
+              country={props.country}
+              setNavFlagToCountryorCity={props.setNavFlagToCountryorCity}
+            />
+          )}
         />
 
         <Route
           exact
           path="/destinations"
-          render={() => (
-            <div>
-              <ul>
-                <h4> places i've been </h4>
-                <li>Reykjavik, Iceland</li>
-                <li>Bonquete, Panama</li>
-                <li>Panama City, Panama</li>
-                <li>Seattle, USA</li>
-              </ul>
-              <ul>
-                <h4> places i'd love to go </h4>
-                <li>New York, New York</li>
-                <li>Hong Kong, Hong Kong</li>
-                <li>Sydney, Australia</li>
-                <li>Argentina</li>
-              </ul>
-            </div>
-          )}
+          render={() => {
+            return (
+              <div>
+                <Destinations
+                  setNavFlagToDashboard={props.setNavFlagToDashboard}
+                />
+              </div>
+            );
+          }}
         />
+
+        <Route exact path="/explore" component={Explore} />
+        <Route exact path="/friends" component={FriendsList} />
       </Switch>
     </main>
   );

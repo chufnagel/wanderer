@@ -22,7 +22,7 @@ class Sidebar extends Component {
   render() {
     return (
       <div>
-        <Drawer variant="permanent" position="absolute" className="docked">
+        <Drawer variant="permanent" position="absolute" className="docked" anchor="right">
           <br />
           <br />
           <br />
@@ -37,17 +37,22 @@ class Sidebar extends Component {
             />
             <br />
             <ListItem button>
-              <Link to='/'>
+              <Link to="/">
                 <ListItemText primary="Home" />
               </Link>
             </ListItem>
             <ListItem button>
-              <Link to='/info'>
+              <Link to="/friends">
+                <ListItemText primary="Friends" />
+              </Link>
+            </ListItem>
+            <ListItem button>
+              <Link to="/profile">
                 <ListItemText primary="Profile" />
               </Link>
             </ListItem>
             <ListItem button>
-              <Link to='/explore'>
+              <Link to="/explore">
                 <ListItemText primary="Explore" />
               </Link>
             </ListItem>

@@ -1,9 +1,10 @@
 node_modules/
 package-lock.json
+config.js
 *.log
 
 build/
-dist/
+
 
 ### OSX ###
 .DS_Store
@@ -23,7 +24,6 @@ Icon
 
 .env.development
 .env.test
-
-jest.config.json
+.env
 
 _README.md
