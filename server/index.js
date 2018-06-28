@@ -22,7 +22,7 @@ const {
   chalkInfo
 } = require("../chalkpresets");
 
-const PORT = process.env.port;
+const PORT = process.env.PORT;
 
 const app = express();
 
