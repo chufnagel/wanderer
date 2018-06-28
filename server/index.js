@@ -46,10 +46,10 @@ app.post("/getPointsOfInterest", (req, res) => {
   });
 });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Server error");
-});
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Server error");
+// });
 
 app.listen(process.env.port || 3000, () => {
   log(chalkSuccess(`Port ${process.env.port || 3000} is lit fam 🔥 🔥 🔥`));
