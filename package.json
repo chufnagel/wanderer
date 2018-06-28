@@ -40,7 +40,6 @@
     "concurrently": "^3.6.0",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
-    "dotenv": "^6.0.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -75,6 +74,7 @@
     "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
@@ -95,7 +95,7 @@
     "redux-form": "^7.4.2"
   },
   "engines": {
-    "node": "10.5.0"
+    "node": "10.1.0"
   },
   "config": {
     "ghooks": {
