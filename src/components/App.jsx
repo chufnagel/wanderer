@@ -18,7 +18,6 @@ class App extends Component {
     this.state = {
       countries: CountriesAll,
       selectedCountry: "",
-      selectedCity: "Tokyo",
       pointsOfInterest: [],
       blogs: [
         {
@@ -94,15 +93,14 @@ class App extends Component {
               <button>Search Country</button>
             </Link>
 
-            <Link to="/city">
+            {/* <Link to="/city">
               <button>Placeholder Link to City Page</button>
-            </Link>
+            </Link> */}
 
             <Header navFlag={this.state.navFlag}/>
             <Stats />
             <Main
               country={this.state.selectedCountry}
-              city={this.state.selectedCity}
               blogs={this.state.blogs}
               photos={this.state.photos}
               setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}

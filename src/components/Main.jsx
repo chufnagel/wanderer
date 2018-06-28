@@ -42,9 +42,9 @@ const Main = props => {
             />}
          />
 
-        <Route exact path='/city' render={() =>
+        {/* <Route exact path='/city' render={() =>
           <CityPage city={props.city} />}
-        />
+        /> */}
 
         <Route exact path='/destinations' render={() => {
             return (
