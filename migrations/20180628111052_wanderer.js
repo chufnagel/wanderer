@@ -22,7 +22,8 @@ exports.up = (knex, Promise) =>
     }),
     knex.schema.createTable("posts", table => {
       table.increments("post_id").primary();
-      table.string("text");
+      table.string("title");
+      table.string("content");
       table.timestamp("timestamp");
       table.integer("user_id");
     }),
@@ -36,14 +37,14 @@ exports.up = (knex, Promise) =>
       table.integer("post_id");
     }),
     knex.schema.createTable("media", table => {
-      table.increments("media").primary();
+      table.increments("media_id").primary();
       table.string("link");
       table.integer("user_id");
     }),
     knex.schema.createTable("media_tags", table => {
       table.increments("media_tags_id").primary();
       table.integer("tag_id");
-      table.integer("post_id");
+      table.integer("media_id");
     })
   ]);
 
