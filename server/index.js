@@ -22,7 +22,7 @@ const {
   chalkInfo
 } = require("../chalkpresets");
 
-// const port = process.env.port || 3000;
+const PORT = process.env.port;
 
 const app = express();
 
@@ -51,6 +51,6 @@ app.post("/getPointsOfInterest", (req, res) => {
 //   res.status(500).send("Server error");
 // });
 
-app.listen(process.env.port, () => {
-  log(chalkSuccess(`Port ${process.env.port} is lit fam 🔥 🔥 🔥`));
+app.listen(PORT, () => {
+  log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
 });
