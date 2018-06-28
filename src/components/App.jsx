@@ -102,7 +102,6 @@ class App extends Component {
             </Link>
 
             <Header navFlag={this.state.navFlag}/>
-            <Stats />
             <Main
               location={this.state.location}
               blogs={this.state.blogs}

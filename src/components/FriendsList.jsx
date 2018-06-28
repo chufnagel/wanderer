@@ -24,6 +24,15 @@ import Typography from "@material-ui/core/Typography";
 
 // In the meantime, let's hardcode it.
 const FriendsList = () => (
+<<<<<<< HEAD
+  <List>
+    <ListItem button>
+      <Link to="/profile">
+        <ListItemText primary="Lina Luna Lei" />
+      </Link>
+    </ListItem>
+  </List>
+=======
   <div>
     <Typography variant="headline">
       We didn't think you'd have friends, but here they are.
@@ -40,6 +49,7 @@ const FriendsList = () => (
       </center>
     </div>
   </div>
+>>>>>>> dev
 );
 
 export default FriendsList;

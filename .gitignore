@@ -19,6 +19,8 @@ Icon
 .Spotlight-V100
 .Trashes
 
+dist/bundle.js
+
 .cache/
 .cache/*.json
 
