@@ -18,7 +18,7 @@ const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addD
         </div>
 
         <div className="location-info">
-          <h2>Blurb about the location goes here:</h2>
+          <h2>Basic Info About {location}:</h2>
           <p>Population size: </p>
           <p>Language: </p>
           <p>Currency: </p>
