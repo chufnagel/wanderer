@@ -7,7 +7,25 @@ const Destinations = require("./Models/destinations")
 
 // User.retrieveUserByUserId
 router.get("/favDestinations", function (req, res) {
-  Destinations.retrieveFavByUserId(req.query.user_id)
+  Destinations.retrieveFavByUserId(req.query.user_id, (countries) => {
+    console.log('favorite countries', countries)
+    res.send(countries)
+  })
+});
+
+router.get("/visitedDestinations", function (req, res) {
+  Destinations.retrieveVisitedByUserId(req.query.user_id, (countries) => {
+    console.log('visited countries', countries)
+    res.send(countries)
+  })
+});
+
+
+router.get("/friends", function (req, res) {
+  User.retrieveFriendsByUserId(req.query.user_id, (friends) => {
+    console.log("friends", friends)
+    res.send(friends)
+  })
 });
 
 // Blog.retrieveBlogsByBlogId

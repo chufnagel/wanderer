@@ -65,6 +65,11 @@ exports.up = (knex, Promise) =>
       table.integer("destination_id"); // references countries_id for purposes of mvp
       table.integer("user_id");
     }),
+    knex.schema.createTable("visited_destinations", table => {
+      table.increments("visited_destination_id").primary();
+      table.integer("destination_id"); // references countries_id for purposes of mvp
+      table.integer("user_id");
+    }),
   ]);
 
 exports.down = (knex, Promise) =>
@@ -77,5 +82,6 @@ exports.down = (knex, Promise) =>
     knex.schema.dropTableIfExists("media_tags"),
     knex.schema.dropTableIfExists("user_friends"),
     knex.schema.dropTableIfExists("countries"),
-    knex.schema.dropTableIfExists("favorite_destinations")
+    knex.schema.dropTableIfExists("favorite_destinations"),
+    knex.schema.dropTableIfExists("visited_destinations")
   ]);

@@ -50,12 +50,22 @@ exports.seed = (knex, Promise) => {
       { country_id: 2, country: "Hong Kong", acronym: "HKG"},
       { country_id: 3, country: "Panama", acronym: "PAN"},
       { country_id: 4, country: "Singapore", acronym: "SGP"},
+      { country_id: 5, country: "England", acronym: "ENG"}, 
+      { country_id: 6, country: "France", acronym: "FRA"},
+      { country_id: 7, country: "Germany", acronym: "GER"},
+      { country_id: 8, country: "Russia", acronym: "RUS"},
     ]),
     knex("favorite_destinations").insert([
       { favorite_destination_id: 1, destination_id: 1, user_id: 1},
       { favorite_destination_id: 2, destination_id: 2, user_id: 1},
       { favorite_destination_id: 3, destination_id: 3, user_id: 2},
       { favorite_destination_id: 4, destination_id: 4, user_id: 2},
+    ]),
+    knex("visited_destinations").insert([
+      { visited_destination_id: 1, destination_id: 5, user_id: 1},
+      { visited_destination_id: 2, destination_id: 6, user_id: 1},
+      { visited_destination_id: 3, destination_id: 7, user_id: 2},
+      { visited_destination_id: 4, destination_id: 8, user_id: 2},
     ]),
     knex("user_friends").insert([
       { user_friend_id: 1, friend_id: 2, user_id: 1},

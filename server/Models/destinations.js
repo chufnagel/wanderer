@@ -2,22 +2,38 @@ const db = require("../db");
 
 const Destinations = {};
 
-Destinations.retrieveFavByUserId = userId => {
+Destinations.retrieveFavByUserId = (userId, cb) => {
   console.log('userId',userId)  
   return db("favorite_destinations")
     .where({ user_id: userId })
     .then((destination_id) => {
         var arr = destination_id.map( function(el) { return el.destination_id; });
-        console.log('arr',arr)
         db("countries").whereIn('country_id', arr)
-
         //db.query( "select * from `countries` where `country_id` IN "+ arr)
-        .then((country) => {
+        .then((countries) => {
             console.log('country',country)
-            return country; 
+            cb(countries); 
         })
+        .catch(err => console.error(err));    
     })
     .catch(err => console.error(err));
 };
+
+Destinations.retrieveVisitedByUserId = (userId, cb) => {
+    console.log('userId',userId)  
+    return db("visited_destinations")
+      .where({ user_id: userId })
+      .then((destination_id) => {
+          var arr = destination_id.map( function(el) { return el.destination_id; });
+          db("countries").whereIn('country_id', arr)
+          //db.query( "select * from `countries` where `country_id` IN "+ arr)
+          .then((countries) => {
+              console.log('country',country)
+              cb(countries); 
+          })
+          .catch(err => console.error(err));    
+      })
+      .catch(err => console.error(err));
+  };
 
 module.exports = Destinations;
