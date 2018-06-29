@@ -46,7 +46,6 @@ class Search extends Component {
               onClick={() => {
                 this.props.getPointsOfInterest();
                 this.props.getAttractions();
-                this.props.setNavFlagToCountryorCity();
               }}
             >
               Search

@@ -20,6 +20,9 @@ class App extends Component {
       countries: CountriesAll,
       location: "",
       pointsOfInterest: [],
+      attractions: [],
+      destinationsPast: ["Iceland", "Panama"],
+      destinationsFuture: ["Hong Kong", "Kyoto"],
       blogs: [
         {
           blogId: "1",
@@ -43,11 +46,14 @@ class App extends Component {
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
+    this.getAttractions = this.getAttractions.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
-    this.getFriends = this.getFriends.bind(this);
-    this.getFavDestinations = this.getFavDestinations.bind(this);
-    this.getVisitedDestinations = this.getVisitedDestinations.bind(this);
+    this.addDestinationsPast = this.addDestinationsPast.bind(this);
+    this.addDestinationsFuture = this.addDestinationsFuture.bind(this);
+    this.getFriends = this.getFriends.bind(this)
+    this.getFavDestinations = this.getFavDestinations.bind(this)
+    this.getVisitedDestinations = this.getVisitedDestinations.bind(this)
   }
 
   componentDidMount() {
@@ -68,6 +74,25 @@ class App extends Component {
       .catch(err =>
         console.log("error getting points of interest from app:", err)
       );
+  }
+
+  getAttractions() {
+    axios
+      .post("/getAttractions", { location: this.state.location })
+      .then(data => this.setState({ attractions: data.data }))
+      .catch(err => console.log("error getting attractions from app:", err));
+  }
+
+  addDestinationsPast() {
+    this.setState({
+      destinationsPast: [...this.state.destinationsPast, this.state.location]
+    });
+  }
+
+  addDestinationsFuture() {
+    this.setState({
+      destinationsFuture: [...this.state.destinationsFuture, this.state.location]
+    });
   }
 
   setNavFlagToCountryorCity() {
@@ -135,6 +160,7 @@ class App extends Component {
         <Sidebar
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
+          getAttractions={this.getAttractions}
           location={this.state.location}
         />
 
@@ -153,9 +179,10 @@ class App extends Component {
                 onClick={() => {
                   this.setNavFlagToCountryorCity();
                   this.getPointsOfInterest();
+                  this.getAttractions();
                 }}
               >
-                Search sCountry
+                Search Country
               </button>
             </Link>
 
@@ -166,7 +193,11 @@ class App extends Component {
               photos={this.state.photos}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
               pointsOfInterest={this.state.pointsOfInterest}
-              friends={this.state.friends}
+              attractions={this.state.attractions}
+              destinationsPast={this.state.destinationsPast}
+              destinationsFuture={this.state.destinationsFuture}
+              addDestinationsPast={this.addDestinationsPast}
+              addDestinationsFuture={this.addDestinationsFuture}
             />
           </div>
         </center>
