@@ -35,6 +35,7 @@ class Sidebar extends Component {
             <Search
               handleSelectedLocation={this.props.handleSelectedLocation}
               getPointsOfInterest={this.props.getPointsOfInterest}
+              getAttractions={this.props.getAttractions}
               location={this.props.location}
             />
             <br />
