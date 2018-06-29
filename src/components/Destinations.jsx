@@ -1,18 +1,17 @@
-import React from 'react';
-import lifecycle from 'react-pure-lifecycle'
+import React from "react";
+import lifecycle from "react-pure-lifecycle";
 
-const methods =  {
+const methods = {
   componentDidMount(props) {
-    props.setNavFlagToDashboard()
+    props.setNavFlagToDashboard();
   }
-}
+};
 
-
-const Destinations = function () {
+const Destinations = () => {
   return (
     <div>
       <ul>
-        places I've been
+        <h3>places I‘ve been</h3>
         <li>Iceland</li>
         <li>Panama</li>
       </ul>
@@ -22,7 +21,7 @@ const Destinations = function () {
         <li>Tokyo</li>
       </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Destinations;
+export default lifecycle(methods)(Destinations);
