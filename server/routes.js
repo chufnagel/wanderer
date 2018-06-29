@@ -34,6 +34,7 @@ router.get("/visitedDestinations", function (req, res) {
 
 
 router.get("/friends", function (req, res) {
+  console.log('*******',req.query)
   User.retrieveFriendsByUserId(req.query.user_id, (friends) => {
     console.log("friends", friends)
     res.send(friends)
