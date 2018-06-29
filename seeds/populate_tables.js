@@ -44,6 +44,12 @@ exports.seed = (knex, Promise) => {
     knex("media_tags").insert([
       { media_tags_id: 1, tags_id: 1, media_id: 1 },
       { media_tags_id: 1, tags_id: 2, media_id: 1 }
-    ])
+    ]),
+    knex("countries").insert([
+      { country_id: 1, country: "Japan", acronym: "JPN"},
+      { country_id: 2, country: "Hong Kong", acronym: "HKG"},
+      { country_id: 3, country: "Panama", acronym: "PAN"},
+      { country_id: 3, country: "Singapore", acronym: "SGP"},
+    ]),
   );
 };
