@@ -88,6 +88,7 @@ class App extends Component {
           getPointsOfInterest={this.getPointsOfInterest}
           getAttractions={this.getAttractions}
           location={this.state.location}
+          setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
         />
 
         <center>

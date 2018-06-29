@@ -37,6 +37,7 @@ class Sidebar extends Component {
               getPointsOfInterest={this.props.getPointsOfInterest}
               getAttractions={this.props.getAttractions}
               location={this.props.location}
+              setNavFlagToCountryorCity={this.props.setNavFlagToCountryorCity}
             />
             <br />
             <ListItem button>
