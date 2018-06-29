@@ -3,7 +3,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
 import axios from "axios";
 // import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
+// import Toolbar from "@material-ui/core/Toolbar
 import Typography from "@material-ui/core/Typography";
 import CountriesAll from "./LocationProfile/CountriesAll";
 import Sidebar from "./Sidebar/Sidebar";
@@ -105,8 +105,7 @@ class App extends Component {
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
           location={this.state.location}
-          friends={this.state.friends}
-        />
+          />
 
         <center>
           <div>
@@ -136,7 +135,8 @@ class App extends Component {
               photos={this.state.photos}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
               pointsOfInterest={this.state.pointsOfInterest}
-            />
+              friends={this.state.friends}
+              />
           </div>
         </center>
       </div>
