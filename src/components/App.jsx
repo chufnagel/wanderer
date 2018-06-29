@@ -21,6 +21,8 @@ class App extends Component {
       location: "",
       pointsOfInterest: [],
       attractions: [],
+      destinationsPast: ["Iceland", "Panama"],
+      destinationsFuture: ["Hong Kong", "Kyoto"],
       blogs: [
         {
           blogId: "1",
@@ -125,6 +127,8 @@ class App extends Component {
               setNavFlagToDashboard={this.setNavFlagToDashboard}
               pointsOfInterest={this.state.pointsOfInterest}
               attractions={this.state.attractions}
+              destinationsPast={this.state.destinationsPast}
+              destinationsFuture={this.state.destinationsFuture}
             />
           </div>
         </center>

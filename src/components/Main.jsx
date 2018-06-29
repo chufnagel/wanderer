@@ -82,11 +82,11 @@ const Main = props => {
           path="/destinations"
           render={() => {
             return (
-              <div>
                 <Destinations
                   setNavFlagToDashboard={props.setNavFlagToDashboard}
+                  destinationsPast={props.destinationsPast}
+                  destinationsFuture={props.destinationsFuture}
                 />
-              </div>
             );
           }}
         />

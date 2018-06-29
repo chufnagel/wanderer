@@ -13,6 +13,10 @@ const LocationProfile = ({ location, pointsOfInterest}) => {
           <p>XXX Wanderers want to visit here.</p>
         </div>
 
+        <div>
+
+        </div>
+
         <div className="location-info">
           <h2>Blurb about the location goes here:</h2>
           <p>Population size: </p>
