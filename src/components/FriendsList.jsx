@@ -14,7 +14,7 @@ const FriendsList = ({ friends }) => (
     </Typography>
     {friends.map(friend => (
     <div>
-      <Link to={`/profile/${friend.id}`}>
+      <Link to="/profile">
         <center>
           <ListItemText primary={friend.username} />
         </center>

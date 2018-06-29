@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
-import LocationProfile from "./LocationProfile/LocationProfile.jsx";
+import LocationProfile from "./LocationProfile/LocationProfile";
 import Attractions from "./LocationProfile/Attractions";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
@@ -92,12 +92,12 @@ const Main = props => {
 
         <Route exact path="/explore" component={Explore} />
         <Route
-          exact
           path="/friends"
           render={() => {
             return <FriendsList friends={props.friends} />;
           }}
         />
+
         <Route
           exact
           path="/profile"
