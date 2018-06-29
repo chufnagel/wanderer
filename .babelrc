@@ -8,7 +8,6 @@
     "transform-class-properties",
     "transform-decorators",
     "transform-react-constant-elements",
-    "transform-react-inline-elements",
-    "react-hot-loader/babel"
+    "transform-react-inline-elements"
   ]
 }

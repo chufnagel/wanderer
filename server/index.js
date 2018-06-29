@@ -1,17 +1,14 @@
 const express = require("express");
-const path = require('path');
-// const fs = require("fs");
-// const http = require('http');
-// const https = require('https');
+const path = require("path");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-// console.log(process.env);
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
+const router = require("./routes");
 let { getPointsOfInterest, getAttractions } = require("./helperFunctions");
 
 const {
@@ -33,6 +30,14 @@ app.use(compression());
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
+app.use("/", router);
+
+
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Server error");
+});
 // app.use(express.static("dist"));
 
 // calls the helper function to query Google Places API for points of interest for given location
