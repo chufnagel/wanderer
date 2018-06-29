@@ -1,18 +1,15 @@
 const express = require("express");
-const path = require('path');
-// const fs = require("fs");
-// const http = require('http');
-// const https = require('https');
+const path = require("path");
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
-// console.log(process.env);
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
-let { getPointsOfInterest } = require("./helperFunctions");
+const { getPointsOfInterest } = require("./helperFunctions");
+const router = require("./routes");
 
 const {
   log,
@@ -33,9 +30,9 @@ app.use(compression());
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
-// app.use(express.static("dist"));
+app.use("/", router);
 
-//calls the helper function to query Google Places API for points of interest for given location
+// calls the helper function to query Google Places API for points of interest for given location
 app.post("/getPointsOfInterest", (req, res) => {
   getPointsOfInterest(req.body.location, (err, data) => {
     if (err) {
@@ -46,10 +43,10 @@ app.post("/getPointsOfInterest", (req, res) => {
   });
 });
 
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send("Server error");
-// });
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Server error");
+});
 
 app.listen(PORT, () => {
   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
