@@ -72,6 +72,8 @@ const Main = props => {
               <LocationProfile
                 location={props.location}
                 pointsOfInterest={props.pointsOfInterest}
+                addDestinationsPast={props.addDestinationsPast}
+                addDestinationsFuture={props.addDestinationsFuture}
               />
             )
           }}

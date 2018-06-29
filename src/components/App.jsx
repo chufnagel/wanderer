@@ -38,13 +38,15 @@ class App extends Component {
         }
       ],
       photos: photos,
-      navFlag: 'dashboard'
+      navFlag: "dashboard"
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
     this.getAttractions = this.getAttractions.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
+    this.addDestinationsPast = this.addDestinationsPast.bind(this);
+    this.addDestinationsFuture = this.addDestinationsFuture.bind(this);
   }
 
   handleSelectedLocation(event) {
@@ -64,6 +66,18 @@ class App extends Component {
       .post("/getAttractions", { location: this.state.location })
       .then(data => this.setState({ attractions: data.data }))
       .catch(err => console.log("error getting attractions from app:", err));
+  }
+
+  addDestinationsPast() {
+    this.setState({
+      destinationsPast: [...this.state.destinationsPast, this.state.location]
+    });
+  }
+
+  addDestinationsFuture() {
+    this.setState({
+      destinationsFuture: [...this.state.destinationsFuture, this.state.location]
+    });
   }
 
   setNavFlagToCountryorCity() {
@@ -129,6 +143,8 @@ class App extends Component {
               attractions={this.state.attractions}
               destinationsPast={this.state.destinationsPast}
               destinationsFuture={this.state.destinationsFuture}
+              addDestinationsPast={this.addDestinationsPast}
+              addDestinationsFuture={this.addDestinationsFuture}
             />
           </div>
         </center>

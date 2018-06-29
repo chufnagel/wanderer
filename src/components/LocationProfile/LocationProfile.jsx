@@ -1,20 +1,20 @@
 import React from "react";
-import axios from "axios";
 import PointsOfInterest from "../LocationProfile/PointsOfInterest";
 
-const LocationProfile = ({ location, pointsOfInterest}) => {
+const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addDestinationsFuture }) => {
   return (
     <div className="location-profile">
       <div className="main">
         <h1>{location}</h1>
 
         <div>
-          <p>XXX Wanderers have visited here.</p>
-          <p>XXX Wanderers want to visit here.</p>
+          <p>[37] Wanderers have visited here.</p>
+          <p>[58] Wanderers want to visit here.</p>
         </div>
 
-        <div>
-
+        <div className="add-location-options">
+          <button onClick={() => addDestinationsPast()}>I've Been Here</button>
+          <button onClick={() => addDestinationsFuture()}>I Want To Go Here!</button>
         </div>
 
         <div className="location-info">
