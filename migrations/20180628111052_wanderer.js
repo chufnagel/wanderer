@@ -11,6 +11,9 @@ or whether we should manually create these associations. */
  * media_tags
 */
 
+// add friends table
+// add cities table
+// add countries table
 exports.up = (knex, Promise) =>
   Promise.all([
     knex.schema.createTable("users", table => {
@@ -19,9 +22,10 @@ exports.up = (knex, Promise) =>
       table.string("password");
       table.string("name");
       table.string("email");
+      table.string("bio");
     }),
-    knex.schema.createTable("posts", table => {
-      table.increments("post_id").primary();
+    knex.schema.createTable("blogs", table => {
+      table.increments("blog_id").primary();
       table.string("title");
       table.string("content");
       table.timestamp("timestamp");
@@ -31,10 +35,10 @@ exports.up = (knex, Promise) =>
       table.increments("tag_id").primary();
       table.string("name");
     }),
-    knex.schema.createTable("posts_tags", table => {
-      table.increments("posts_tags_id").primary();
+    knex.schema.createTable("blog_tags", table => {
+      table.increments("blog_tags_id").primary();
       table.integer("tag_id");
-      table.integer("post_id");
+      table.integer("blog_id");
     }),
     knex.schema.createTable("media", table => {
       table.increments("media_id").primary();
@@ -45,15 +49,32 @@ exports.up = (knex, Promise) =>
       table.increments("media_tags_id").primary();
       table.integer("tag_id");
       table.integer("media_id");
+    }),
+    knex.schema.createTable("user_friends", table => {
+      table.increments("user_friend_id").primary();
+      table.integer("user_id");
+      table.integer("friendId"); // references user_id corresponding to friend
+    }),
+    knex.schema.createTable("countries", table => {
+      table.increments("country_id").primary();
+      table.string("country");
+      table.string("acronym");
+    }),
+    knex.schema.createTable("favorite_destinations", table => {
+      table.increments("favorite_destination_id").primary();
+      table.integer("destination_id"); // references countries_id for purposes of mvp
     })
   ]);
 
 exports.down = (knex, Promise) =>
   Promise.all([
     knex.schema.dropTableIfExists("users"),
-    knex.schema.dropTableIfExists("posts"),
+    knex.schema.dropTableIfExists("blogs"),
     knex.schema.dropTableIfExists("tags"),
-    knex.schema.dropTableIfExists("posts_tags"),
+    knex.schema.dropTableIfExists("blogs_tags"),
     knex.schema.dropTableIfExists("media"),
-    knex.schema.dropTableIfExists("media_tags")
+    knex.schema.dropTableIfExists("media_tags"),
+    knex.schema.dropTableIfExists("user_friends"),
+    knex.schema.dropTableIfExists("countries"),
+    knex.schema.dropTableIfExists("favorite_destinations")
   ]);

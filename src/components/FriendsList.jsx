@@ -30,13 +30,9 @@ const FriendsList = () => (
     </Typography>
     <div>
       <center>
-        <List>
-          <ListItem button>
-            <Link to="/profile">
-              <ListItemText primary="Lina Luna Lei" />
-            </Link>
-          </ListItem>
-        </List>
+        <Link to="/profile">
+          <ListItemText primary="Lina Luna Lei" />
+        </Link>
       </center>
     </div>
   </div>
