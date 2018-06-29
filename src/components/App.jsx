@@ -37,17 +37,23 @@ class App extends Component {
       photos: photos,
       navFlag: 'dashboard', 
       user_id: 1,
-      friends: [] 
+      friends: [], 
+      myVisitedDestinations:[],
+      myFavDestinations:[] 
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
     this.getFriends = this.getFriends.bind(this)
+    this.getFavDestinations = this.getFavDestinations.bind(this)
+    this.getVisitedDestinations = this.getVisitedDestinations.bind(this)
   }
 
   componentDidMount() {
-    this.getFriends()
+    this.getFriends();
+    this.getFavDestinations(this.state.user_id);
+    this.getVisitedDestinations(this.state.user_id);
   }
 
   handleSelectedLocation(event) {
@@ -83,6 +89,31 @@ class App extends Component {
     .then((friends) => {
       //console.log('getFriends',friends)
       this.setState({friends: friends.data})
+    })
+    .catch((err) => console.error(err))
+  }
+
+  getFavDestinations(user_id) {
+    axios.get("/favDestinations", { 
+      params: {
+        user_id: user_id
+      }
+    })
+    .then((destinations) => {
+      this.setState({myFavDestinations: destinations.data})
+    })
+    .catch((err) => console.error(err))
+  }
+
+  getVisitedDestinations(user_id) {
+    axios.get("/visitedDestinations", { 
+      params: {
+        user_id: user_id
+      }
+    })
+    .then((destinations) => {
+      console.log('visited destination', destinations)
+      this.setState({myVisitedDestinations: destinations.data})
     })
     .catch((err) => console.error(err))
   }
