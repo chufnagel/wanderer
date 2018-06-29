@@ -4,6 +4,17 @@ const Blog = require("./Models/blog");
 // const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
 
+// calls the helper function to query Google Places API for points of interest for given location
+router.post("/getPointsOfInterest", (req, res) => {
+  getPointsOfInterest(req.body.location, (err, data) => {
+    if (err) {
+      console.log("error getting points of interest from server", err);
+    } else {
+      res.send(data);
+    }
+  });
+});
+
 // User.retrieveUserByUserId
 router.get("/user", async (req, res, next) => {
   try {
