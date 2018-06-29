@@ -46,6 +46,7 @@ class App extends Component {
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
+    this.getAttractions = this.getAttractions.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
     this.addDestinationsPast = this.addDestinationsPast.bind(this);
@@ -156,6 +157,7 @@ class App extends Component {
         <Sidebar
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
+          getAttractions={this.getAttractions}
           location={this.state.location}
         />
 
@@ -174,9 +176,10 @@ class App extends Component {
                 onClick={() => {
                   this.setNavFlagToCountryorCity();
                   this.getPointsOfInterest();
+                  this.getAttractions();
                 }}
               >
-                Search sCountry
+                Search Country
               </button>
             </Link>
 
