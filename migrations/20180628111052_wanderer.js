@@ -65,14 +65,11 @@ exports.up = (knex, Promise) =>
       table.integer("destination_id"); // references countries_id for purposes of mvp
       table.integer("user_id");
     }),
-<<<<<<< HEAD
     knex.schema.createTable("visited_destinations", table => {
       table.increments("visited_destination_id").primary();
       table.integer("destination_id"); // references countries_id for purposes of mvp
       table.integer("user_id");
     }),
-=======
->>>>>>> 3820178163d674a28af269b779e9437b29573603
   ]);
 
 exports.down = (knex, Promise) =>
