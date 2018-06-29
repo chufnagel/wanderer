@@ -50,16 +50,20 @@ exports.seed = (knex, Promise) => {
       { country_id: 2, country: "Hong Kong", acronym: "HKG"},
       { country_id: 3, country: "Panama", acronym: "PAN"},
       { country_id: 4, country: "Singapore", acronym: "SGP"},
+<<<<<<< HEAD
       { country_id: 5, country: "England", acronym: "ENG"}, 
       { country_id: 6, country: "France", acronym: "FRA"},
       { country_id: 7, country: "Germany", acronym: "GER"},
       { country_id: 8, country: "Russia", acronym: "RUS"},
+=======
+>>>>>>> 3820178163d674a28af269b779e9437b29573603
     ]),
     knex("favorite_destinations").insert([
       { favorite_destination_id: 1, destination_id: 1, user_id: 1},
       { favorite_destination_id: 2, destination_id: 2, user_id: 1},
       { favorite_destination_id: 3, destination_id: 3, user_id: 2},
       { favorite_destination_id: 4, destination_id: 4, user_id: 2},
+<<<<<<< HEAD
     ]),
     knex("visited_destinations").insert([
       { visited_destination_id: 1, destination_id: 5, user_id: 1},
@@ -71,6 +75,8 @@ exports.seed = (knex, Promise) => {
       { user_friend_id: 1, friend_id: 2, user_id: 1},
       { user_friend_id: 2, friend_id: 3, user_id: 1},
       { user_friend_id: 3, friend_id: 4, user_id: 1},
+=======
+>>>>>>> 3820178163d674a28af269b779e9437b29573603
     ])
   )
 };

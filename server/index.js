@@ -32,16 +32,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use("/", router);
 
-// calls the helper function to query Google Places API for points of interest for given location
-app.post("/getPointsOfInterest", (req, res) => {
-  getPointsOfInterest(req.body.location, (err, data) => {
-    if (err) {
-      console.log("error getting points of interest from server", err);
-    } else {
-      res.send(data);
-    }
-  });
-});
+
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

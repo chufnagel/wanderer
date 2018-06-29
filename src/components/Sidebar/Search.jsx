@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 // gets props from Sidebar, which connects to Redux store (later)
 class Search extends Component {
@@ -11,10 +11,9 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      field: ''
+      field: ""
     };
     this.handleChange = this.handleChange.bind(this);
-
   }
 
   handleChange(event) {
@@ -38,17 +37,19 @@ class Search extends Component {
         />
         <br />
         <Link to={`/${this.props.location}`}>
-          <Button
-            label="Search"
-            type="submit"
-            variant="raised"
-            color="primary"
-            onClick={() => {
-              this.props.getPointsOfInterest();
-            }}
-          >
-            Search
-          </Button>
+          <center>
+            <Button
+              label="Search"
+              type="submit"
+              variant="raised"
+              color="primary"
+              onClick={() => {
+                this.props.getPointsOfInterest();
+              }}
+            >
+              Search
+            </Button>
+          </center>
         </Link>
       </form>
     );
