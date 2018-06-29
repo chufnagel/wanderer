@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
 import axios from "axios";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
+// import AppBar from "@material-ui/core/AppBar";
+// import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import CountriesAll from "./LocationProfile/CountriesAll";
 import Sidebar from "./Sidebar/Sidebar";
 import photos from "../../example data/pictures-of-japan.js";
 import Header from "./Header.jsx";
-import Stats from "./Stats.jsx";
+// import Stats from "./Stats.jsx";
 import Main from "./Main.jsx";
 import GlobalMap from "./GlobalMap/GlobalMap";
 
@@ -35,19 +35,21 @@ class App extends Component {
         }
       ],
       photos: photos,
-      navFlag: 'dashboard', 
+      navFlag: "dashboard",
       user_id: 1,
-      friends: [] 
+      friends: [],
+      myVisitedDestinations: [],
+      myFavDestinations: []
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
-    this.getFriends = this.getFriends.bind(this)
+    this.getFriends = this.getFriends.bind(this);
   }
 
   componentDidMount() {
-    this.getFriends()
+    this.getFriends();
   }
 
   handleSelectedLocation(event) {
@@ -59,9 +61,11 @@ class App extends Component {
     axios
       .post("/getPointsOfInterest", { location: this.state.location })
       .then(data => this.setState({ pointsOfInterest: data.data }))
-      .catch(err => console.log("error getting points of interest from app:", err));
+      .catch(err =>
+        console.log("error getting points of interest from app:", err)
+      );
   }
-  
+
   setNavFlagToCountryorCity() {
     this.setState({
       navFlag: "countryOrCity"
@@ -75,25 +79,24 @@ class App extends Component {
   }
 
   getFriends() {
-    axios.get("/friends", { 
-      params: {
-        user_id: this.state.user_id
-      }
-    })
-    .then((friends) => {
-      //console.log('getFriends',friends)
-      this.setState({friends: friends.data})
-    })
-    .catch((err) => console.error(err))
+    axios
+      .get("/friends", {
+        params: {
+          user_id: this.state.user_id
+        }
+      })
+      .then(friends => {
+        //console.log('getFriends',friends)
+        this.setState({ friends: friends.data });
+      })
+      .catch(err => console.error(err));
   }
 
   render() {
     return (
       <div className="app">
         <center>
-          <Typography variant="display2">
-            Wanderer
-          </Typography>
+          <Typography variant="display2">Wanderer</Typography>
           <br />
           <GlobalMap />
         </center>
@@ -102,6 +105,7 @@ class App extends Component {
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
           location={this.state.location}
+          friends={this.state.friends}
         />
 
         <center>
@@ -125,7 +129,7 @@ class App extends Component {
               </button>
             </Link>
 
-            <Header navFlag={this.state.navFlag}/>
+            <Header navFlag={this.state.navFlag} />
             <Main
               location={this.state.location}
               blogs={this.state.blogs}
