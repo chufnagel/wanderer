@@ -1,7 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 // gets props from Sidebar, which connects to Redux store (later)
 class Search extends Component {
@@ -9,31 +11,48 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      field: ''
+      field: ""
     };
-
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e) {
-    e.preventDefault;
+  handleChange(event) {
+    event.preventDefault();
     this.setState({
-      field: e.target.value
-    })
+      field: event.target.value
+    });
   }
 
   render() {
     return (
-      <TextField
-        id="search"
-        label="Search a city/country"
-        type="search"
-        margin="normal"
-        onChange={e => {
-          this.handleChange(e);
-        }}
-        onSubmit={this.props.search}
-      />
+      <form>
+        <TextField
+          id="search"
+          label="Search a city/country"
+          type="search"
+          margin="normal"
+          onChange={event => {
+            this.props.handleSelectedLocation(event);
+          }}
+        />
+        <br />
+        <Link to={`/${this.props.location}`}>
+          <center>
+            <Button
+              label="Search"
+              type="submit"
+              variant="raised"
+              color="primary"
+              onClick={() => {
+                this.props.getPointsOfInterest();
+                this.props.getAttractions();
+              }}
+            >
+              Search
+            </Button>
+          </center>
+        </Link>
+      </form>
     );
   }
 }

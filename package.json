@@ -4,8 +4,7 @@
   "description": "Find your adventure!",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "start-dev": "npm run build && node server/index.js",
+    "start": "npm run build && node server/index.js",
     "build": "webpack",
     "build-watch": "webpack -w -d",
     "start-watch": "nodemon server/index.js",
@@ -17,7 +16,8 @@
     "selenium-start": "selenium-standalone start",
     "e2etests": "wdio wdio.conf.js",
     "e2etests-watch": "wdio wdio.conf.js --watch",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "heroku-postbuild": "webpack"
   },
   "repository": {
     "type": "git",
@@ -73,6 +73,7 @@
     "babel-preset-react-app": "^3.1.1",
     "body-parser": "^1.18.3",
     "chalk": "^2.4.1",
+    "chroma-js": "^1.3.7",
     "compression": "^1.7.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
@@ -85,6 +86,7 @@
     "install": "^0.12.0",
     "knex": "^0.14.6",
     "morgan": "^1.9.0",
+    "mysql": "^2.15.0",
     "pg": "^7.4.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.1",
@@ -95,6 +97,7 @@
     "react-pure-lifecycle": "^2.2.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
+    "react-simple-maps": "^0.12.1",
     "redux": "^4.0.0",
     "redux-form": "^7.4.2"
   },

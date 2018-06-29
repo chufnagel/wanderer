@@ -5,227 +5,18 @@ exports[`App matches snapshot 1`] = `
   className="app"
 >
   <center>
-    <h1>
-      WANDERER
-    </h1>
-    <div>
-      Map Goes Here
-    </div>
+    <WithStyles(Typography)
+      variant="display2"
+    >
+      Wanderer
+    </WithStyles(Typography)>
+    <br />
+    <GlobalMap />
   </center>
   <Sidebar
-    countries={
-      Array [
-        "Afghanistan",
-        "Albania",
-        "Algeria",
-        "Andorra",
-        "Angola",
-        "Anguilla",
-        "Antigua &amp; Barbuda",
-        "Argentina",
-        "Armenia",
-        "Aruba",
-        "Australia",
-        "Austria",
-        "Azerbaijan",
-        "Bahamas",
-        "Bahrain",
-        "Bangladesh",
-        "Barbados",
-        "Belarus",
-        "Belgium",
-        "Belize",
-        "Benin",
-        "Bermuda",
-        "Bhutan",
-        "Bolivia",
-        "Bosnia &amp; Herzegovina",
-        "Botswana",
-        "Brazil",
-        "British Virgin Islands",
-        "Brunei",
-        "Bulgaria",
-        "Burkina Faso",
-        "Burundi",
-        "Cambodia",
-        "Cameroon",
-        "Canada",
-        "Cape Verde",
-        "Cayman Islands",
-        "Chad",
-        "Chile",
-        "China",
-        "Colombia",
-        "Congo",
-        "Cook Islands",
-        "Costa Rica",
-        "Cote D Ivoire",
-        "Croatia",
-        "Cruise Ship",
-        "Cuba",
-        "Cyprus",
-        "Czech Republic",
-        "Denmark",
-        "Djibouti",
-        "Dominica",
-        "Dominican Republic",
-        "Ecuador",
-        "Egypt",
-        "El Salvador",
-        "Equatorial Guinea",
-        "Estonia",
-        "Ethiopia",
-        "Falkland Islands",
-        "Faroe Islands",
-        "Fiji",
-        "Finland",
-        "France",
-        "French Polynesia",
-        "French West Indies",
-        "Gabon",
-        "Gambia",
-        "Georgia",
-        "Germany",
-        "Ghana",
-        "Gibraltar",
-        "Greece",
-        "Greenland",
-        "Grenada",
-        "Guam",
-        "Guatemala",
-        "Guernsey",
-        "Guinea",
-        "Guinea Bissau",
-        "Guyana",
-        "Haiti",
-        "Honduras",
-        "Hong Kong",
-        "Hungary",
-        "Iceland",
-        "India",
-        "Indonesia",
-        "Iran",
-        "Iraq",
-        "Ireland",
-        "Isle of Man",
-        "Israel",
-        "Italy",
-        "Jamaica",
-        "Japan",
-        "Jersey",
-        "Jordan",
-        "Kazakhstan",
-        "Kenya",
-        "Kuwait",
-        "Kyrgyz Republic",
-        "Laos",
-        "Latvia",
-        "Lebanon",
-        "Lesotho",
-        "Liberia",
-        "Libya",
-        "Liechtenstein",
-        "Lithuania",
-        "Luxembourg",
-        "Macau",
-        "Macedonia",
-        "Madagascar",
-        "Malawi",
-        "Malaysia",
-        "Maldives",
-        "Mali",
-        "Malta",
-        "Mauritania",
-        "Mauritius",
-        "Mexico",
-        "Moldova",
-        "Monaco",
-        "Mongolia",
-        "Montenegro",
-        "Montserrat",
-        "Morocco",
-        "Mozambique",
-        "Namibia",
-        "Nepal",
-        "Netherlands",
-        "Netherlands Antilles",
-        "New Caledonia",
-        "New Zealand",
-        "Nicaragua",
-        "Niger",
-        "Nigeria",
-        "Norway",
-        "Oman",
-        "Pakistan",
-        "Palestine",
-        "Panama",
-        "Papua New Guinea",
-        "Paraguay",
-        "Peru",
-        "Philippines",
-        "Poland",
-        "Portugal",
-        "Puerto Rico",
-        "Qatar",
-        "Reunion",
-        "Romania",
-        "Russia",
-        "Rwanda",
-        "Saint Pierre &amp; Miquelon",
-        "Samoa",
-        "San Marino",
-        "Satellite",
-        "Saudi Arabia",
-        "Senegal",
-        "Serbia",
-        "Seychelles",
-        "Sierra Leone",
-        "Singapore",
-        "Slovakia",
-        "Slovenia",
-        "South Africa",
-        "South Korea",
-        "Spain",
-        "Sri Lanka",
-        "St Kitts &amp; Nevis",
-        "St Lucia",
-        "St Vincent",
-        "St. Lucia",
-        "Sudan",
-        "Suriname",
-        "Swaziland",
-        "Sweden",
-        "Switzerland",
-        "Syria",
-        "Taiwan",
-        "Tajikistan",
-        "Tanzania",
-        "Thailand",
-        "Timor L'Este",
-        "Togo",
-        "Tonga",
-        "Trinidad &amp; Tobago",
-        "Tunisia",
-        "Turkey",
-        "Turkmenistan",
-        "Turks &amp; Caicos",
-        "Uganda",
-        "Ukraine",
-        "United Arab Emirates",
-        "United Kingdom",
-        "United States",
-        "United States Minor Outlying Islands",
-        "Uruguay",
-        "Uzbekistan",
-        "Venezuela",
-        "Vietnam",
-        "Virgin Islands (US)",
-        "Yemen",
-        "Zambia",
-        "Zimbabwe",
-      ]
-    }
-    handleSelectedCountry={[Function]}
+    getPointsOfInterest={[Function]}
+    handleSelectedLocation={[Function]}
+    location=""
   />
   <center>
     <div>
@@ -270,9 +61,9 @@ exports[`App matches snapshot 1`] = `
         </option>
         <option
           key="6"
-          value="Antigua &amp; Barbuda"
+          value="Antigua & Barbuda"
         >
-          Antigua &amp; Barbuda
+          Antigua & Barbuda
         </option>
         <option
           key="7"
@@ -378,9 +169,9 @@ exports[`App matches snapshot 1`] = `
         </option>
         <option
           key="24"
-          value="Bosnia &amp; Herzegovina"
+          value="Bosnia & Herzegovina"
         >
-          Bosnia &amp; Herzegovina
+          Bosnia & Herzegovina
         </option>
         <option
           key="25"
@@ -1170,9 +961,9 @@ exports[`App matches snapshot 1`] = `
         </option>
         <option
           key="156"
-          value="Saint Pierre &amp; Miquelon"
+          value="Saint Pierre & Miquelon"
         >
-          Saint Pierre &amp; Miquelon
+          Saint Pierre & Miquelon
         </option>
         <option
           key="157"
@@ -1266,9 +1057,9 @@ exports[`App matches snapshot 1`] = `
         </option>
         <option
           key="172"
-          value="St Kitts &amp; Nevis"
+          value="St Kitts & Nevis"
         >
-          St Kitts &amp; Nevis
+          St Kitts & Nevis
         </option>
         <option
           key="173"
@@ -1368,9 +1159,9 @@ exports[`App matches snapshot 1`] = `
         </option>
         <option
           key="189"
-          value="Trinidad &amp; Tobago"
+          value="Trinidad & Tobago"
         >
-          Trinidad &amp; Tobago
+          Trinidad & Tobago
         </option>
         <option
           key="190"
@@ -1392,9 +1183,9 @@ exports[`App matches snapshot 1`] = `
         </option>
         <option
           key="193"
-          value="Turks &amp; Caicos"
+          value="Turks & Caicos"
         >
-          Turks &amp; Caicos
+          Turks & Caicos
         </option>
         <option
           key="194"
@@ -1485,12 +1276,15 @@ exports[`App matches snapshot 1`] = `
         replace={false}
         to="/"
       >
-        <button>
+        <button
+          onClick={[Function]}
+        >
           Search Country
         </button>
       </Link>
-      <Header />
-      <Stats />
+      <Header
+        navFlag="dashboard"
+      />
       <Main
         blogs={
           Array [
@@ -1508,7 +1302,7 @@ exports[`App matches snapshot 1`] = `
             },
           ]
         }
-        country=""
+        location=""
         photos={
           Array [
             Object {
@@ -1531,6 +1325,8 @@ exports[`App matches snapshot 1`] = `
             },
           ]
         }
+        pointsOfInterest={Array []}
+        setNavFlagToDashboard={[Function]}
       />
     </div>
   </center>

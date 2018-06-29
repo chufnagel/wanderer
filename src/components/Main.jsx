@@ -3,13 +3,14 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
-import CountryPage from "./CountryPage/CountryPage";
+import LocationProfile from "./LocationProfile/LocationProfile";
+import Attractions from "./LocationProfile/Attractions";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
+import Profile from "./Profile/Profile";
 
 const Main = props => {
-  console.log("main props", props);
   return (
     <main>
       <Switch>
@@ -51,13 +52,30 @@ const Main = props => {
 
         <Route
           exact
-          path={`/${props.country}`}
-          render={() => (
-            <CountryPage
-              country={props.country}
-              setNavFlagToCountryorCity={props.setNavFlagToCountryorCity}
-            />
-          )}
+          path="/attractions"
+          render={() => {
+            return (
+              <Attractions
+                location={props.location}
+                attractions={props.attractions}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path={`/${props.location}`}
+          render={() => {
+            return (
+              <LocationProfile
+                location={props.location}
+                pointsOfInterest={props.pointsOfInterest}
+                addDestinationsPast={props.addDestinationsPast}
+                addDestinationsFuture={props.addDestinationsFuture}
+              />
+            );
+          }}
         />
 
         <Route
@@ -65,17 +83,38 @@ const Main = props => {
           path="/destinations"
           render={() => {
             return (
-              <div>
                 <Destinations
+                  setNavFlagToDashboard={props.setNavFlagToDashboard}
+                  destinationsPast={props.destinationsPast}
+                  destinationsFuture={props.destinationsFuture}
+                />
+            );
+          }}
+        />
+
+        <Route exact path="/explore" component={Explore} />
+        <Route
+          path="/friends"
+          render={() => {
+            return <FriendsList friends={props.friends} />;
+          }}
+        />
+
+        <Route
+          exact
+          path="/profile"
+          render={() => {
+            return (
+              <div>
+                <Profile
+                  photos={props.photos}
+                  blogs={props.blogs}
                   setNavFlagToDashboard={props.setNavFlagToDashboard}
                 />
               </div>
             );
           }}
         />
-
-        <Route exact path="/explore" component={Explore} />
-        <Route exact path="/friends" component={FriendsList} />
       </Switch>
     </main>
   );

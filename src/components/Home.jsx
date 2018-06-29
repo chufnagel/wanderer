@@ -1,22 +1,20 @@
 import React from "react";
-import Stats from "./Stats.jsx"
-import lifecycle from 'react-pure-lifecycle'
+import Typography from "@material-ui/core/Typography";
+import lifecycle from "react-pure-lifecycle";
+import Stats from "./Stats";
 
-const methods =  {
+const methods = {
   componentDidMount(props) {
-    console.log('props',props)
-    props.setNavFlagToDashboard()
+    props.setNavFlagToDashboard();
   }
-}
-
-const Home = (props) => {
-    return (
-    <div>
-      <Stats/>
-      <h5>Your Friends' Popular/Recent blogs</h5>
-      <h5>Your Friends' Popular/Recent photos</h5>
-    </div>
-  )
 };
 
+const Home = () => (
+  <div>
+    <Stats />
+    <br/>
+    <Typography variant="body1">Your Friends' Popular/Recent blogs</Typography>
+    <Typography variant="body1">Your Friends' Popular/Recent photos</Typography>
+  </div>
+);
 export default lifecycle(methods)(Home);

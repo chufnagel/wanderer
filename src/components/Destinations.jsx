@@ -1,29 +1,39 @@
-import React from 'react';
-import lifecycle from 'react-pure-lifecycle'
+import React from "react";
+import lifecycle from "react-pure-lifecycle";
 
-const methods =  {
+const methods = {
   componentDidMount(props) {
-    console.log('props',props)
-    props.setNavFlagToDashboard()
+    props.setNavFlagToDashboard();
   }
-}
+};
 
-
-const Destinations = function () {
+const Destinations = props => {
   return (
-    <div>
-      <ul>
-        places I've been
-        <li>Iceland</li>
-        <li>Panama</li>
-      </ul>
-      <ul>
-        places I want to visit
-        <li>Hong Kong</li>
-        <li>Tokyo</li>
-      </ul>
-    </div>
-  )
-}
+    <div className="destinations">
+      <h1>Destinations</h1>
+      <div className="destinations-past">
+        <h2>Places I've Been:</h2>
+        {props.destinationsPast.map(past => {
+          return (
+            <div>
+              <p>☑ {past}</p>
+            </div>
+          );
+        })}
+      </div>
 
-export default Destinations;
+      <div className="destinations-future">
+        <h2>Places I Want To Visit:</h2>
+        {props.destinationsFuture.map(future => {
+          return (
+            <div>
+              <p>☐ {future}</p>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default lifecycle(methods)(Destinations);
