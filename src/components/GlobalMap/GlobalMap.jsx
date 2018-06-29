@@ -15,7 +15,9 @@ const wrapperStyles = {
 };
 
 const colorScale = chroma
-  .scale(["#FF6E40", "#FFD740", "#00B8D4"])
+  .scale([
+    "b6fbea", "ccccff", "663894"
+  ]) // icy teal, pastel lavender, dark purple
   .mode("lch")
   .colors(24);
 
@@ -28,7 +30,6 @@ class GlobalMap extends Component {
     }
   }
   render() {
-    console.log('hello');
     return (
       <div className="global-map" style={wrapperStyles}>
         <ComposableMap
