@@ -29,4 +29,9 @@ dist/bundle.js
 .env
 
 _README.md
+<<<<<<< HEAD
+
+knexfile.js
+=======
 knexfile.js 
+>>>>>>> dev

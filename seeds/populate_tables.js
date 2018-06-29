@@ -74,7 +74,7 @@ exports.seed = (knex, Promise) => {
       { country_id: 2, country: "Hong Kong", acronym: "HKG"},
       { country_id: 3, country: "Panama", acronym: "PAN"},
       { country_id: 4, country: "Singapore", acronym: "SGP"},
-      { country_id: 5, country: "England", acronym: "ENG"}, 
+      { country_id: 5, country: "England", acronym: "ENG"},
       { country_id: 6, country: "France", acronym: "FRA"},
       { country_id: 7, country: "Germany", acronym: "GER"},
       { country_id: 8, country: "Russia", acronym: "RUS"},
