@@ -9,7 +9,7 @@ const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
 const { getPointsOfInterest } = require("./helperFunctions");
-const router = require("./routes");
+// const router = require("./routes");
 
 const {
   log,
@@ -30,7 +30,7 @@ app.use(compression());
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
-app.use("/", router);
+// app.use("/", router);
 
 
 
