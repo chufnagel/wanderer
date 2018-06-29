@@ -46,10 +46,14 @@ class App extends Component {
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
     this.getFriends = this.getFriends.bind(this);
+    this.getFavDestinations = this.getFavDestinations.bind(this);
+    this.getVisitedDestinations = this.getVisitedDestinations.bind(this);
   }
 
   componentDidMount() {
     this.getFriends();
+    this.getFavDestinations(this.state.user_id);
+    this.getVisitedDestinations(this.state.user_id);
   }
 
   handleSelectedLocation(event) {
@@ -92,6 +96,33 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
+  getFavDestinations(user_id) {
+    axios
+      .get("/favDestinations", {
+        params: {
+          user_id: user_id
+        }
+      })
+      .then(destinations => {
+        this.setState({ myFavDestinations: destinations.data });
+      })
+      .catch(err => console.error(err));
+  }
+
+  getVisitedDestinations(user_id) {
+    axios
+      .get("/visitedDestinations", {
+        params: {
+          user_id: user_id
+        }
+      })
+      .then(destinations => {
+        console.log("visited destination", destinations);
+        this.setState({ myVisitedDestinations: destinations.data });
+      })
+      .catch(err => console.error(err));
+  }
+
   render() {
     return (
       <div className="app">
@@ -105,7 +136,7 @@ class App extends Component {
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
           location={this.state.location}
-          />
+        />
 
         <center>
           <div>
@@ -136,7 +167,7 @@ class App extends Component {
               setNavFlagToDashboard={this.setNavFlagToDashboard}
               pointsOfInterest={this.state.pointsOfInterest}
               friends={this.state.friends}
-              />
+            />
           </div>
         </center>
       </div>
