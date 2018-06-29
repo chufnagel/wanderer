@@ -13,9 +13,9 @@ exports.seed = (knex, Promise) => {
     ]),
     knex("blogs").insert([
       {
-        post_id: 1,
+        blog_id: 1,
         title: "WELCOME TO NIHON",
-        contents: "YOLO SWAG",
+        content: "YOLO SWAG",
         user_id: 1
       }
     ]),
@@ -29,9 +29,9 @@ exports.seed = (knex, Promise) => {
         tag_name: "Japan"
       }
     ]),
-    knex("posts_tags").insert([
-      { posts_tags_id: 1, tags_id: 1, post_id: 1 },
-      { posts_tags_id: 1, tags_id: 2, post_id: 1 }
+    knex("blogs_tags").insert([
+      { blog_tags_id: 1, tag_id: 1, blog_id: 1 },
+      { blog_tags_id: 2, tag_id: 2, blog_id: 1 }
     ]),
     knex("media").insert([
       {
@@ -42,8 +42,20 @@ exports.seed = (knex, Promise) => {
       }
     ]),
     knex("media_tags").insert([
-      { media_tags_id: 1, tags_id: 1, media_id: 1 },
-      { media_tags_id: 1, tags_id: 2, media_id: 1 }
+      { media_tags_id: 1, tag_id: 1, media_id: 1 },
+      { media_tags_id: 2, tag_id: 2, media_id: 1 }
+    ]),
+    knex("countries").insert([
+      { country_id: 1, country: "Japan", acronym: "JPN"},
+      { country_id: 2, country: "Hong Kong", acronym: "HKG"},
+      { country_id: 3, country: "Panama", acronym: "PAN"},
+      { country_id: 4, country: "Singapore", acronym: "SGP"},
+    ]),
+    knex("favorite_destinations").insert([
+      { favorite_destination_id: 1, destination_id: 1, user_id: 1},
+      { favorite_destination_id: 2, destination_id: 2, user_id: 1},
+      { favorite_destination_id: 3, destination_id: 3, user_id: 2},
+      { favorite_destination_id: 4, destination_id: 4, user_id: 2},
     ])
-  );
+  )
 };

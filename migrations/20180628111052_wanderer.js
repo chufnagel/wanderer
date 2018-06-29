@@ -33,16 +33,16 @@ exports.up = (knex, Promise) =>
     }),
     knex.schema.createTable("tags", table => {
       table.increments("tag_id").primary();
-      table.string("name");
+      table.string("tag_name");
     }),
-    knex.schema.createTable("blog_tags", table => {
+    knex.schema.createTable("blogs_tags", table => {
       table.increments("blog_tags_id").primary();
       table.integer("tag_id");
       table.integer("blog_id");
     }),
     knex.schema.createTable("media", table => {
       table.increments("media_id").primary();
-      table.string("link");
+      table.string("link",10000);
       table.integer("user_id");
     }),
     knex.schema.createTable("media_tags", table => {
@@ -63,7 +63,8 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("favorite_destinations", table => {
       table.increments("favorite_destination_id").primary();
       table.integer("destination_id"); // references countries_id for purposes of mvp
-    })
+      table.integer("user_id");
+    }),
   ]);
 
 exports.down = (knex, Promise) =>
