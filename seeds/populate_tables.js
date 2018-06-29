@@ -56,6 +56,11 @@ exports.seed = (knex, Promise) => {
       { favorite_destination_id: 2, destination_id: 2, user_id: 1},
       { favorite_destination_id: 3, destination_id: 3, user_id: 2},
       { favorite_destination_id: 4, destination_id: 4, user_id: 2},
+    ]),
+    knex("user_friends").insert([
+      { user_friend_id: 1, friend_id: 2, user_id: 1},
+      { user_friend_id: 2, friend_id: 3, user_id: 1},
+      { user_friend_id: 3, friend_id: 4, user_id: 1},
     ])
   )
 };

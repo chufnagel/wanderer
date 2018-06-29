@@ -53,7 +53,7 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("user_friends", table => {
       table.increments("user_friend_id").primary();
       table.integer("user_id");
-      table.integer("friendId"); // references user_id corresponding to friend
+      table.integer("friend_id"); // references user_id corresponding to friend
     }),
     knex.schema.createTable("countries", table => {
       table.increments("country_id").primary();
