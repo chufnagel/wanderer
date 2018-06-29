@@ -9,7 +9,7 @@ const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
 const { getPointsOfInterest } = require("./helperFunctions");
-// const router = require("./routes");
+const router = require("./routes");
 
 const {
   log,
@@ -30,14 +30,14 @@ app.use(compression());
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
-// app.use("/", router);
+app.use("/", router);
 
 
 
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send("Server error");
-// });
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Server error");
+});
 
 app.listen(PORT, () => {
   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
