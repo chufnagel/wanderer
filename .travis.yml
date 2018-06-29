@@ -8,3 +8,5 @@ notifications:
     recipients: charles.hufnagel@protonmail.com
 install:
 - npm install
+branches:
+  only: ["master"]
