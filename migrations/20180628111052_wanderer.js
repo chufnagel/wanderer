@@ -53,7 +53,7 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("user_friends", table => {
       table.increments("user_friend_id").primary();
       table.integer("user_id");
-      table.integer("friendId"); // references user_id corresponding to friend
+      table.integer("friend_id"); // references user_id corresponding to friend
     }),
     knex.schema.createTable("countries", table => {
       table.increments("country_id").primary();
@@ -62,6 +62,11 @@ exports.up = (knex, Promise) =>
     }),
     knex.schema.createTable("favorite_destinations", table => {
       table.increments("favorite_destination_id").primary();
+      table.integer("destination_id"); // references countries_id for purposes of mvp
+      table.integer("user_id");
+    }),
+    knex.schema.createTable("visited_destinations", table => {
+      table.increments("visited_destination_id").primary();
       table.integer("destination_id"); // references countries_id for purposes of mvp
       table.integer("user_id");
     }),
@@ -77,5 +82,6 @@ exports.down = (knex, Promise) =>
     knex.schema.dropTableIfExists("media_tags"),
     knex.schema.dropTableIfExists("user_friends"),
     knex.schema.dropTableIfExists("countries"),
-    knex.schema.dropTableIfExists("favorite_destinations")
+    knex.schema.dropTableIfExists("favorite_destinations"),
+    knex.schema.dropTableIfExists("visited_destinations")
   ]);

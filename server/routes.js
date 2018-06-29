@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const User = require("./Models/user");
 const Blog = require("./Models/blog");
+const Destinations = require("./Models/destinations")
+let { getPointsOfInterest, getAttractions } = require("./helperFunctions");
 // const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
 
@@ -16,33 +18,26 @@ router.post("/getPointsOfInterest", (req, res) => {
 });
 
 // User.retrieveUserByUserId
-router.get("/user", async (req, res, next) => {
-  try {
-    const user = await User.retrieveUserByUserId({ id: req.body.userId });
-    res.json(user);
-  } catch (err) {
-    next(err);
-  }
+router.get("/favDestinations", function (req, res) {
+  Destinations.retrieveFavByUserId(req.query.user_id, (countries) => {
+    console.log('favorite countries', countries)
+    res.send(countries)
+  })
 });
 
-// Blog.addBlog
-router.post("/blogs", async (req, res, next) => {
-  try {
-    const blog = await Blog.addNewBlog(req.body);
-    res.json(blog);
-  } catch (err) {
-    next(err);
-  }
+router.get("/visitedDestinations", function (req, res) {
+  Destinations.retrieveVisitedByUserId(req.query.user_id, (countries) => {
+    console.log('visited countries', countries)
+    res.send(countries)
+  })
 });
 
-// Blog.retrieveBlogsByUserId
-router.get("/blogs", async (req, res, next) => {
-  try {
-    const blogs = await Blog.retrieveBlogsByUserId(req.body.userId);
-    res.json(blogs);
-  } catch (err) {
-    next(err);
-  }
+
+router.get("/friends", function (req, res) {
+  User.retrieveFriendsByUserId(req.query.user_id, (friends) => {
+    console.log("friends", friends)
+    res.send(friends)
+  })
 });
 
 // Blog.retrieveBlogsByBlogId

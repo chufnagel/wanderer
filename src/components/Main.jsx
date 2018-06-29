@@ -4,6 +4,7 @@ import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
 import LocationProfile from "./LocationProfile/LocationProfile.jsx";
+import Attractions from "./LocationProfile/Attractions";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
@@ -46,6 +47,19 @@ const Main = props => {
                   setNavFlagToDashboard={props.setNavFlagToDashboard}
                 />
               </div>
+            );
+          }}
+        />
+
+        <Route
+          exact
+          path="/attractions"
+          render={() => {
+            return (
+              <Attractions
+                location={props.location}
+                attractions={props.attractions}
+              />
             );
           }}
         />
