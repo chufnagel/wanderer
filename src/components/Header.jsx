@@ -34,7 +34,7 @@ const Header = props => {
         <center>
           <nav>
             <Link to="/">
-              <ListItemText primary="profile" />
+              <ListItemText primary="information" />
             </Link>
             <Link to="/attractions">
               <ListItemText primary="attractions" />

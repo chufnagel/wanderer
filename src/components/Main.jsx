@@ -3,15 +3,14 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
-import LocationProfile from "./LocationProfile/LocationProfile.jsx";
+import LocationProfile from "./LocationProfile/LocationProfile";
 import Attractions from "./LocationProfile/Attractions";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
-import Profile from "./Profile/Profile"
+import Profile from "./Profile/Profile";
 
 const Main = props => {
-
   return (
     <main>
       <Switch>
@@ -75,7 +74,7 @@ const Main = props => {
                 addDestinationsPast={props.addDestinationsPast}
                 addDestinationsFuture={props.addDestinationsFuture}
               />
-            )
+            );
           }}
         />
 
@@ -94,7 +93,13 @@ const Main = props => {
         />
 
         <Route exact path="/explore" component={Explore} />
-        <Route exact path="/friends" component={FriendsList} />
+        <Route
+          path="/friends"
+          render={() => {
+            return <FriendsList friends={props.friends} />;
+          }}
+        />
+
         <Route
           exact
           path="/profile"
@@ -102,7 +107,9 @@ const Main = props => {
             return (
               <div>
                 <Profile
-                  photos={props.photos} blogs={props.blogs} setNavFlagToDashboard={props.setNavFlagToDashboard}
+                  photos={props.photos}
+                  blogs={props.blogs}
+                  setNavFlagToDashboard={props.setNavFlagToDashboard}
                 />
               </div>
             );
