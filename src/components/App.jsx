@@ -43,6 +43,11 @@ class App extends Component {
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
+    this.getFriends = this.getFriends.bind(this)
+  }
+
+  componentDidMount() {
+    this.getFriends()
   }
 
   handleSelectedLocation(event) {
@@ -70,13 +75,16 @@ class App extends Component {
   }
 
   getFriends() {
-    axiox.get("/friends", { 
-      params: this.state.user_id
+    axios.get("/friends", { 
+      params: {
+        user_id: this.state.user_id
+      }
     })
     .then((friends) => {
-      console.log('getFriends',friends)
+      //console.log('getFriends',friends)
       this.setState({friends: friends.data})
     })
+    .catch((err) => console.error(err))
   }
 
   render() {
