@@ -95,7 +95,7 @@ const Main = props => {
           exact
           path="/friends"
           render={() => {
-            return <FriendsList friends={this.props.friends} />;
+            return <FriendsList friends={props.friends} />;
           }}
         />
         <Route

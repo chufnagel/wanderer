@@ -2,19 +2,26 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 // import { withStyles } from "@material-ui/core/styles";
-import List from "@material-ui/core/List";
+// import List from "@material-ui/core/List";
+// import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Typography from "@material-ui/core/Typography";
 
 const FriendsList = ({ friends }) => (
-  <List>
+  <div>
+    <Typography variant="headline">
+      You don't have many friends, but here they are.
+    </Typography>
     {friends.map(friend => (
-      <ListItem key={friend.id} button>
-        <Link to={`/profile/${friend.id}`}>
+    <div>
+      <Link to={`/profile/${friend.id}`}>
+        <center>
           <ListItemText primary={friend.username} />
-        </Link>
-      </ListItem>
-    ))};
-  </List>
+        </center>
+      </Link>
+      </div>
+    ))}
+  </div>
 );
 
 // Hard coded FriendsList (from before we had a DB set up)
