@@ -38,15 +38,27 @@ class App extends Component {
         }
       ],
       photos: photos,
-      navFlag: "dashboard"
+      navFlag: 'dashboard',
+      user_id: 1,
+      friends: [],
+      myVisitedDestinations:[],
+      myFavDestinations:[]
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
-    this.getAttractions = this.getAttractions.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
     this.addDestinationsPast = this.addDestinationsPast.bind(this);
     this.addDestinationsFuture = this.addDestinationsFuture.bind(this);
+    this.getFriends = this.getFriends.bind(this)
+    this.getFavDestinations = this.getFavDestinations.bind(this)
+    this.getVisitedDestinations = this.getVisitedDestinations.bind(this)
+  }
+
+  componentDidMount() {
+    this.getFriends();
+    this.getFavDestinations(this.state.user_id);
+    this.getVisitedDestinations(this.state.user_id);
   }
 
   handleSelectedLocation(event) {
@@ -92,6 +104,44 @@ class App extends Component {
     });
   }
 
+  getFriends() {
+    axios.get("/friends", {
+      params: {
+        user_id: this.state.user_id
+      }
+    })
+    .then((friends) => {
+      //console.log('getFriends',friends)
+      this.setState({friends: friends.data})
+    })
+    .catch((err) => console.error(err))
+  }
+
+  getFavDestinations(user_id) {
+    axios.get("/favDestinations", {
+      params: {
+        user_id: user_id
+      }
+    })
+    .then((destinations) => {
+      this.setState({myFavDestinations: destinations.data})
+    })
+    .catch((err) => console.error(err))
+  }
+
+  getVisitedDestinations(user_id) {
+    axios.get("/visitedDestinations", {
+      params: {
+        user_id: user_id
+      }
+    })
+    .then((destinations) => {
+      console.log('visited destination', destinations)
+      this.setState({myVisitedDestinations: destinations.data})
+    })
+    .catch((err) => console.error(err))
+  }
+
   render() {
     return (
       <div className="app">
@@ -106,9 +156,7 @@ class App extends Component {
         <Sidebar
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
-          getAttractions={this.getAttractions}
           location={this.state.location}
-          setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
         />
 
         <center>
@@ -126,10 +174,9 @@ class App extends Component {
                 onClick={() => {
                   this.setNavFlagToCountryorCity();
                   this.getPointsOfInterest();
-                  this.getAttractions();
                 }}
               >
-                Search Country
+                Search sCountry
               </button>
             </Link>
 

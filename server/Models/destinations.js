@@ -11,7 +11,7 @@ Destinations.retrieveFavByUserId = (userId, cb) => {
         db("countries").whereIn('country_id', arr)
         //db.query( "select * from `countries` where `country_id` IN "+ arr)
         .then((countries) => {
-            console.log('country',country)
+            console.log('country',countries)
             cb(countries); 
         })
         .catch(err => console.error(err));    
@@ -28,7 +28,7 @@ Destinations.retrieveVisitedByUserId = (userId, cb) => {
           db("countries").whereIn('country_id', arr)
           //db.query( "select * from `countries` where `country_id` IN "+ arr)
           .then((countries) => {
-              console.log('country',country)
+              console.log('country',countries)
               cb(countries); 
           })
           .catch(err => console.error(err));    

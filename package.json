@@ -9,14 +9,15 @@
     "build-watch": "webpack -w -d",
     "start-watch": "nodemon server/index.js",
     "dev": "concurrently --kill-others \"npm run start-watch\" \"npm run build-watch\"",
-    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
+    "test-arch": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "selenium-setup": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
     "e2etests": "wdio wdio.conf.js",
     "e2etests-watch": "wdio wdio.conf.js --watch",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "heroku-postbuild": "webpack"
   },
   "repository": {
     "type": "git",
