@@ -2,6 +2,7 @@ const router = require("express").Router();
 const User = require("./Models/user");
 const Blog = require("./Models/blog");
 const Destinations = require("./Models/destinations")
+let { getPointsOfInterest, getAttractions } = require("./helperFunctions");
 // const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
 
