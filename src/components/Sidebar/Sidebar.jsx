@@ -8,7 +8,6 @@ import Search from "./Search";
 
 // Sidebar gets the search function as a prop from App
 // and passes it to the Search component
-// *** Sidebar to be refactored into a stateless component ***
 
 const Sidebar = props => (
   <div>
@@ -25,6 +24,8 @@ const Sidebar = props => (
           handleSelectedLocation={props.handleSelectedLocation}
           getPointsOfInterest={props.getPointsOfInterest}
           location={props.location}
+          getAttractions={props.getAttractions}
+          setNavFlagToCountryorCity={props.setNavFlagToCountryorCity}
         />
         <br />
         <ListItem button>

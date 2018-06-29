@@ -20,6 +20,7 @@ class App extends Component {
       countries: CountriesAll,
       location: "",
       pointsOfInterest: [],
+      attractions: [],
       blogs: [
         {
           blogId: "1",
@@ -39,6 +40,7 @@ class App extends Component {
     };
     this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
     this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
+    this.getAttractions = this.getAttractions.bind(this);
     this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
     this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
   }
@@ -53,6 +55,13 @@ class App extends Component {
       .post("/getPointsOfInterest", { location: this.state.location })
       .then(data => this.setState({ pointsOfInterest: data.data }))
       .catch(err => console.log("error getting points of interest from app:", err));
+  }
+
+  getAttractions() {
+    axios
+      .post("/getAttractions", { location: this.state.location })
+      .then(data => this.setState({ attractions: data.data }))
+      .catch(err => console.log("error getting attractions from app:", err));
   }
 
   setNavFlagToCountryorCity() {
@@ -81,7 +90,9 @@ class App extends Component {
         <Sidebar
           handleSelectedLocation={this.handleSelectedLocation}
           getPointsOfInterest={this.getPointsOfInterest}
+          getAttractions={this.getAttractions}
           location={this.state.location}
+          setNavFlagToCountryorCity={this.setNavFlagToCountryorCity}
         />
 
         <center>
@@ -99,6 +110,7 @@ class App extends Component {
                 onClick={() => {
                   this.setNavFlagToCountryorCity();
                   this.getPointsOfInterest();
+                  this.getAttractions();
                 }}
               >
                 Search Country
@@ -112,6 +124,7 @@ class App extends Component {
               photos={this.state.photos}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
               pointsOfInterest={this.state.pointsOfInterest}
+              attractions={this.state.attractions}
             />
           </div>
         </center>
