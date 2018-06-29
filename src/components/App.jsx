@@ -119,6 +119,7 @@ class App extends Component {
               photos={this.state.photos}
               setNavFlagToDashboard={this.setNavFlagToDashboard}
               pointsOfInterest={this.state.pointsOfInterest}
+              attractions={this.state.attractions}
             />
           </div>
         </center>
