@@ -34,10 +34,10 @@ app.use(express.static(path.join(__dirname, "../dist/")));
 
 
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Server error");
-});
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Server error");
+// });
 
 app.listen(PORT, () => {
   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
