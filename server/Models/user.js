@@ -9,4 +9,4 @@ User.findByUserId = userId => {
     .catch(err => console.error(err));
 };
 
-export default User;
+module.exports = User;
