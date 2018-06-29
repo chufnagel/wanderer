@@ -33,16 +33,16 @@ exports.up = (knex, Promise) =>
     }),
     knex.schema.createTable("tags", table => {
       table.increments("tag_id").primary();
-      table.string("name");
+      table.string("tag_name");
     }),
-    knex.schema.createTable("blog_tags", table => {
+    knex.schema.createTable("blogs_tags", table => {
       table.increments("blog_tags_id").primary();
       table.integer("tag_id");
       table.integer("blog_id");
     }),
     knex.schema.createTable("media", table => {
       table.increments("media_id").primary();
-      table.string("link");
+      table.string("link",10000);
       table.integer("user_id");
     }),
     knex.schema.createTable("media_tags", table => {
@@ -53,7 +53,7 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("user_friends", table => {
       table.increments("user_friend_id").primary();
       table.integer("user_id");
-      table.integer("friendId"); // references user_id corresponding to friend
+      table.integer("friend_id"); // references user_id corresponding to friend
     }),
     knex.schema.createTable("countries", table => {
       table.increments("country_id").primary();
@@ -63,7 +63,13 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("favorite_destinations", table => {
       table.increments("favorite_destination_id").primary();
       table.integer("destination_id"); // references countries_id for purposes of mvp
-    })
+      table.integer("user_id");
+    }),
+    knex.schema.createTable("visited_destinations", table => {
+      table.increments("visited_destination_id").primary();
+      table.integer("destination_id"); // references countries_id for purposes of mvp
+      table.integer("user_id");
+    }),
   ]);
 
 exports.down = (knex, Promise) =>
@@ -76,5 +82,6 @@ exports.down = (knex, Promise) =>
     knex.schema.dropTableIfExists("media_tags"),
     knex.schema.dropTableIfExists("user_friends"),
     knex.schema.dropTableIfExists("countries"),
-    knex.schema.dropTableIfExists("favorite_destinations")
+    knex.schema.dropTableIfExists("favorite_destinations"),
+    knex.schema.dropTableIfExists("visited_destinations")
   ]);

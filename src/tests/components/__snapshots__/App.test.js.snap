@@ -5,12 +5,13 @@ exports[`App matches snapshot 1`] = `
   className="app"
 >
   <center>
-    <h1>
-      WANDERER
-    </h1>
-    <div>
-      Map Goes Here
-    </div>
+    <WithStyles(Typography)
+      variant="display2"
+    >
+      Wanderer
+    </WithStyles(Typography)>
+    <br />
+    <GlobalMap />
   </center>
   <Sidebar
     getPointsOfInterest={[Function]}
