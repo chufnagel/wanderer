@@ -12,7 +12,7 @@ import Search from "./Search";
 
 const Sidebar = props => (
   <div>
-    <Drawer variant="permanent" position="absolute" className="docked" anchor="right">
+    <Drawer variant="permanent" position="absolute" className="docked" anchor="left">
       <br />
       <br />
       <br />
