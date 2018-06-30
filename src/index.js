@@ -5,9 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
-import configureStore from "./store";
+import store from "./store";
 
-const store = configureStore();
+// const store = configureStore();
 render(
   <Provider store={store}>
     <BrowserRouter>
