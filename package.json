@@ -98,7 +98,10 @@
     "react-router-dom": "^4.3.1",
     "react-simple-maps": "^0.12.1",
     "redux": "^4.0.0",
-    "redux-form": "^7.4.2"
+    "redux-devtools-extension": "^2.13.5",
+    "redux-form": "^7.4.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0"
   },
   "engines": {
     "node": "10.1.0",
