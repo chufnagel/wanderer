@@ -98,7 +98,7 @@ const Main = props => {
           exact
           path="/friends"
           render={() => {
-            return <FriendsList friends={props.friends} />;
+            return <FriendsList friends={props.friends} getUserInfo={props.getUserInfo}/>;
           }}
         />
 
@@ -112,6 +112,7 @@ const Main = props => {
                   photos={props.photos}
                   blogs={props.blogs}
                   setNavFlagToDashboard={props.setNavFlagToDashboard}
+                  userInfo={props.userInfo}
                 />
               </div>
             );

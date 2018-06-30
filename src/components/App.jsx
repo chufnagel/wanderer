@@ -14,45 +14,47 @@ import Main from "./Main.jsx";
 import GlobalMap from "./GlobalMap/GlobalMap";
 
 class App extends Component {
-    state = {
-      countries: CountriesAll,
-      location: "",
-      pointsOfInterest: [],
-      attractions: [],
-      destinationsPast: ["Iceland", "Panama"],
-      destinationsFuture: ["Hong Kong", "Kyoto"],
-      blogs: [
-        {
-          blogId: "1",
-          blogTitle: "WELCOME TO NIHON",
-          blogAuthor: "BROICHI",
-          blogContents: "YOLO SWAG"
-        },
-        {
-          blogId: "2",
-          blogTitle: "Ebisu Brewery",
-          blogAuthor: "BROICHI",
-          blogContents: "とりあえず 生 なま ビルください"
-        }
-      ],
-      photos: photos,
-      navFlag: "dashboard",
-      user_id: 1,
-      friends: [],
-      myVisitedDestinations: [],
-      myFavDestinations: []
-    };
+  state = {
+    countries: CountriesAll,
+    location: "",
+    pointsOfInterest: [],
+    attractions: [],
+    destinationsPast: ["Iceland", "Panama"],
+    destinationsFuture: ["Hong Kong", "Kyoto"],
+    blogs: [
+      {
+        blogId: "1",
+        blogTitle: "WELCOME TO NIHON",
+        blogAuthor: "BROICHI",
+        blogContents: "YOLO SWAG"
+      },
+      {
+        blogId: "2",
+        blogTitle: "Ebisu Brewery",
+        blogAuthor: "BROICHI",
+        blogContents: "とりあえず 生 なま ビルください"
+      }
+    ],
+    photos,
+    navFlag: "dashboard",
+    user_id: 1,
+    friends: [],
+    myVisitedDestinations: [],
+    myFavDestinations: [],
+    userInfo: []
+  };
 
   componentDidMount() {
     this.getFriends();
     this.getFavDestinations(this.state.user_id);
     this.getVisitedDestinations(this.state.user_id);
+    this.getUserInfo(this.state.user_id);
   }
 
-  handleSelectedLocation = (event) => {
+  handleSelectedLocation = event => {
     event.preventDefault();
     this.setState({ location: event.target.value });
-  }
+  };
 
   getPointsOfInterest = () => {
     axios
@@ -61,38 +63,41 @@ class App extends Component {
       .catch(err =>
         console.log("error getting points of interest from app:", err)
       );
-  }
+  };
 
   getAttractions = () => {
     axios
       .post("/getAttractions", { location: this.state.location })
       .then(data => this.setState({ attractions: data.data }))
       .catch(err => console.log("error getting attractions from app:", err));
-  }
+  };
 
   addDestinationsPast = () => {
     this.setState({
       destinationsPast: [...this.state.destinationsPast, this.state.location]
     });
-  }
+  };
 
   addDestinationsFuture = () => {
     this.setState({
-      destinationsFuture: [...this.state.destinationsFuture, this.state.location]
+      destinationsFuture: [
+        ...this.state.destinationsFuture,
+        this.state.location
+      ]
     });
-  }
+  };
 
   setNavFlagToCountryorCity = () => {
     this.setState({
       navFlag: "countryOrCity"
     });
-  }
+  };
 
   setNavFlagToDashboard = () => {
     this.setState({
       navFlag: "dashboard"
     });
-  }
+  };
 
   getFriends = () => {
     axios
@@ -102,38 +107,51 @@ class App extends Component {
         }
       })
       .then(friends => {
-        //console.log('getFriends',friends)
+        // console.log('getFriends',friends)
         this.setState({ friends: friends.data });
       })
       .catch(err => console.error(err));
-  }
+  };
 
-  getFavDestinations = (user_id) => {
+  getFavDestinations = user_id => {
     axios
       .get("/favDestinations", {
         params: {
-          user_id: user_id
+          user_id
         }
       })
       .then(destinations => {
         this.setState({ myFavDestinations: destinations.data });
       })
       .catch(err => console.error(err));
-  }
+  };
 
-  getVisitedDestinations = (user_id) => {
+  getVisitedDestinations = user_id => {
     axios
       .get("/visitedDestinations", {
         params: {
-          user_id: user_id
+          user_id
         }
       })
       .then(destinations => {
-        console.log("visited destination", destinations);
         this.setState({ myVisitedDestinations: destinations.data });
       })
       .catch(err => console.error(err));
-  }
+  };
+
+  getUserInfo = user_id => {
+    axios
+      .get("/userInfo", {
+        params: {
+          user_id
+        }
+      })
+      .then(myInfo => {
+        this.setState({
+          userInfo: myInfo.data
+        });
+      });
+  };
 
   render() {
     return (
@@ -149,6 +167,8 @@ class App extends Component {
           getPointsOfInterest={this.getPointsOfInterest}
           getAttractions={this.getAttractions}
           location={this.state.location}
+          getUserInfo={this.getUserInfo}
+          user_id={this.state.user_id}
         />
 
         <center>
@@ -186,6 +206,8 @@ class App extends Component {
               addDestinationsPast={this.addDestinationsPast}
               addDestinationsFuture={this.addDestinationsFuture}
               friends={this.state.friends}
+              userInfo={this.state.userInfo}
+              getUserInfo={this.getUserInfo}
             />
           </div>
         </center>
