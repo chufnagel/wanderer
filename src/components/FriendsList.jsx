@@ -7,22 +7,26 @@ import { Link } from "react-router-dom";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 
-const FriendsList = ({ friends }) => (
+const FriendsList = props => (
   <div>
     <Typography variant="headline">
       You don't have many friends, but here they are.
     </Typography>
-    {friends.map(friend => (
     <div>
-      <Link to="/profile">
-        <center>
-          <ListItemText primary={friend.username} />
-        </center>
-      </Link>
-      </div>
-    ))}
+      {props.friends.map(friend => (
+        <Link to="/profile">
+          <center>
+            <ListItemText primary={friend.username} />
+          </center>
+        </Link>
+      ))}
+    </div>
   </div>
 );
+
+FriendsList.propTypes = {
+  friends: PropTypes.arrayOf(PropTypes.object).isRequired
+};
 
 // Hard coded FriendsList (from before we had a DB set up)
 // const FriendsList = () => (
