@@ -14,7 +14,7 @@ const FriendsList = props => (
     </Typography>
     <div>
       {props.friends.map(friend => (
-        <Link to="/profile">
+        <Link to="/profile" onClick={() => {props.getUserInfo(friend.user_id)}}>
           <center>
             <ListItemText primary={friend.username} />
           </center>
