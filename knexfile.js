@@ -6,7 +6,7 @@ module.exports = {
     connection: {
       host: "127.0.0.1",
       user: "root",
-      password: "Macrostar914*",
+      password: "",
       database: "wanderer"
     },
     useNullAsDefault: true,
