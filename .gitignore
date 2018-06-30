@@ -19,7 +19,7 @@ Icon
 .Spotlight-V100
 .Trashes
 
-# dist/bundle.js
+dist/bundle.js
 
 .cache/
 .cache/*.json
@@ -30,4 +30,3 @@ Icon
 
 _README.md
 # knexfile.js
-knexfile.js
