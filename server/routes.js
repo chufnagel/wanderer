@@ -41,6 +41,14 @@ router.get("/friends", function (req, res) {
   })
 });
 
+router.get("/userInfo", function (req, res) {
+  console.log('req.query',req.query.user_id)
+  User.findByUserId(req.query.user_id, (userInfo) => {
+    res.send(userInfo)
+  })
+  //Destinations.User(req.query)
+});
+
 // Blog.retrieveBlogsByBlogId
 
 // Blog.retrieveBlogByBlogId

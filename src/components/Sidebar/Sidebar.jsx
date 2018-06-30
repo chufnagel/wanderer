@@ -39,7 +39,7 @@ const Sidebar = props => (
           </Link>
         </ListItem>
         <ListItem button>
-          <Link to="/profile">
+          <Link to="/profile" onClick={() => {props.getUserInfo(props.user_id)}}>
             <ListItemText primary="Profile" />
           </Link>
         </ListItem>
