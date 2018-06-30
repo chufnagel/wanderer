@@ -12,6 +12,8 @@ import Header from "./Header.jsx";
 // import Stats from "./Stats.jsx";
 import Main from "./Main.jsx";
 import GlobalMap from "./GlobalMap/GlobalMap";
+import { connect } from "react-redux";
+import { bindActionCreators } from "../../../../../../Library/Caches/typescript/2.9/node_modules/redux";
 
 class App extends Component {
     state = {
@@ -193,5 +195,21 @@ class App extends Component {
     );
   }
 }
+// connect root reducer to props
+function mapStateToProps(state) {
+  return {
+    blogs: state.blogs
+  };
+}
 
-export default hot(module)(App);
+// connect redux actions to props
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({
+    getBlogs: getBlogs,
+    addBlog: addBlog
+  }, dispatch);
+}
+
+// combine react hot loader with redux, let's see what happens
+export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(App));
+// export default connect(mapStateToProps, mapDispatchToProps)(App);

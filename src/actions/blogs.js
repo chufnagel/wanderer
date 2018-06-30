@@ -1,5 +1,5 @@
-import { ADD_BLOG, GET_BLOGS } from "./types";
 import axios from "axios";
+import { ADD_BLOG, GET_BLOGS } from "./types";
 
 // all logic in action creators and/or utility functions used by action creators!
 
@@ -17,7 +17,7 @@ export function addBlog(blog) {
   };
 }
 
-// helper method for action creator
+// // helper method for action creator
 function getBlogsAsync(blogs) {
   return {
     type: GET_BLOGS,
