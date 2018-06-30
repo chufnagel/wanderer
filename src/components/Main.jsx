@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import PropTypes from "prop-types";
 import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
@@ -83,17 +84,18 @@ const Main = props => {
           path="/destinations"
           render={() => {
             return (
-                <Destinations
-                  setNavFlagToDashboard={props.setNavFlagToDashboard}
-                  destinationsPast={props.destinationsPast}
-                  destinationsFuture={props.destinationsFuture}
-                />
+              <Destinations
+                setNavFlagToDashboard={props.setNavFlagToDashboard}
+                destinationsPast={props.destinationsPast}
+                destinationsFuture={props.destinationsFuture}
+              />
             );
           }}
         />
 
         <Route exact path="/explore" component={Explore} />
         <Route
+          exact
           path="/friends"
           render={() => {
             return <FriendsList friends={props.friends} />;
@@ -119,4 +121,9 @@ const Main = props => {
     </main>
   );
 };
+
+Main.propTypes = {
+  friends: PropTypes.arrayOf(PropTypes.object).isRequired
+};
+
 export default Main;

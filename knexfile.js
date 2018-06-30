@@ -1,25 +1,45 @@
+const path = require("path");
+
 module.exports = {
-  test: {
-    client: 'pg',
+  development: {
+    client: "mysql",
     connection: {
-      host: '127.0.0.1',
-      database: 'wanderer-test',
-      user: 'bodzin',
+      host: "127.0.0.1",
+      database: "wanderer"
+    },
+    useNullAsDefault: true,
+    pool: {
+      min: 1,
+      max: 9
+    },
+    migrations: {
+      directory: path.join(__dirname, "./migrations")
+    },
+    seeds: {
+      seeds: path.join(__dirname, "./seeds")
+    }
+  },
+  test: {
+    client: "pg",
+    connection: {
+      host: "127.0.0.1",
+      database: "wanderer-test",
+      user: "bodzin",
       port: 5432
     },
     migrations: {
-      directory: __dirname + './migrations'
+      directory: path.join(__dirname, "./migrations")
     },
     seeds: {
-      seeds: __dirname + './seeds/test'
+      seeds: path.join(__dirname, "./seeds/test")
     }
   },
-    development: {
-    client: 'pg',
+  developmentPostgres: {
+    client: "pg",
     connection: {
-      host: '127.0.0.1',
-      database: 'wanderer',
-      user: 'bodzin',
+      host: "127.0.0.1",
+      database: "wanderer",
+      user: "bodzin",
       port: 5432
     },
     useNullAsDefault: true,
@@ -28,20 +48,20 @@ module.exports = {
       max: 9
     },
     migrations: {
-      directory: "./migrations"
+      directory: path.join(__dirname, "./migrations")
     },
     seeds: {
-      directory: "./seeds/development"
+      directory: path.join(__dirname, "./seeds/development")
     }
   },
   production: {
-    client:  'pg',
+    client: "pg",
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: __dirname + './migrations'
+      directory: path.join(__dirname, "./migrations")
     },
     seeds: {
-      directory: __dirname + './seeds/production'
+      directory: path.join(__dirname, "./seeds/production")
     }
   }
 };

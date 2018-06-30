@@ -14,9 +14,7 @@ import Main from "./Main.jsx";
 import GlobalMap from "./GlobalMap/GlobalMap";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       countries: CountriesAll,
       location: "",
       pointsOfInterest: [],
@@ -44,17 +42,6 @@ class App extends Component {
       myVisitedDestinations: [],
       myFavDestinations: []
     };
-    this.handleSelectedLocation = this.handleSelectedLocation.bind(this);
-    this.getPointsOfInterest = this.getPointsOfInterest.bind(this);
-    this.getAttractions = this.getAttractions.bind(this);
-    this.setNavFlagToCountryorCity = this.setNavFlagToCountryorCity.bind(this);
-    this.setNavFlagToDashboard = this.setNavFlagToDashboard.bind(this);
-    this.addDestinationsPast = this.addDestinationsPast.bind(this);
-    this.addDestinationsFuture = this.addDestinationsFuture.bind(this);
-    this.getFriends = this.getFriends.bind(this)
-    this.getFavDestinations = this.getFavDestinations.bind(this)
-    this.getVisitedDestinations = this.getVisitedDestinations.bind(this)
-  }
 
   componentDidMount() {
     this.getFriends();
@@ -62,12 +49,12 @@ class App extends Component {
     this.getVisitedDestinations(this.state.user_id);
   }
 
-  handleSelectedLocation(event) {
+  handleSelectedLocation = (event) => {
     event.preventDefault();
     this.setState({ location: event.target.value });
   }
 
-  getPointsOfInterest() {
+  getPointsOfInterest = () => {
     axios
       .post("/getPointsOfInterest", { location: this.state.location })
       .then(data => this.setState({ pointsOfInterest: data.data }))
@@ -76,38 +63,38 @@ class App extends Component {
       );
   }
 
-  getAttractions() {
+  getAttractions = () => {
     axios
       .post("/getAttractions", { location: this.state.location })
       .then(data => this.setState({ attractions: data.data }))
       .catch(err => console.log("error getting attractions from app:", err));
   }
 
-  addDestinationsPast() {
+  addDestinationsPast = () => {
     this.setState({
       destinationsPast: [...this.state.destinationsPast, this.state.location]
     });
   }
 
-  addDestinationsFuture() {
+  addDestinationsFuture = () => {
     this.setState({
       destinationsFuture: [...this.state.destinationsFuture, this.state.location]
     });
   }
 
-  setNavFlagToCountryorCity() {
+  setNavFlagToCountryorCity = () => {
     this.setState({
       navFlag: "countryOrCity"
     });
   }
 
-  setNavFlagToDashboard() {
+  setNavFlagToDashboard = () => {
     this.setState({
       navFlag: "dashboard"
     });
   }
 
-  getFriends() {
+  getFriends = () => {
     axios
       .get("/friends", {
         params: {
@@ -121,7 +108,7 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
-  getFavDestinations(user_id) {
+  getFavDestinations = (user_id) => {
     axios
       .get("/favDestinations", {
         params: {
@@ -134,7 +121,7 @@ class App extends Component {
       .catch(err => console.error(err));
   }
 
-  getVisitedDestinations(user_id) {
+  getVisitedDestinations = (user_id) => {
     axios
       .get("/visitedDestinations", {
         params: {
@@ -198,6 +185,7 @@ class App extends Component {
               destinationsFuture={this.state.destinationsFuture}
               addDestinationsPast={this.addDestinationsPast}
               addDestinationsFuture={this.addDestinationsFuture}
+              friends={this.state.friends}
             />
           </div>
         </center>
