@@ -10,7 +10,6 @@ const methods =  {
 }
 
 const Profile = (props) => {
-  console.log('props profile',props)
   return (
     <div>
       <h2>{props.userInfo[0].username}</h2>

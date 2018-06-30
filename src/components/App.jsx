@@ -140,7 +140,6 @@ class App extends Component {
   };
 
   getUserInfo = user_id => {
-    console.log("user_id", user_id);
     axios
       .get("/userInfo", {
         params: {
