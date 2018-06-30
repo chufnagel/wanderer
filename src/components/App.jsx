@@ -198,6 +198,7 @@ class App extends Component {
               destinationsFuture={this.state.destinationsFuture}
               addDestinationsPast={this.addDestinationsPast}
               addDestinationsFuture={this.addDestinationsFuture}
+              friends={this.state.friends}
             />
           </div>
         </center>
