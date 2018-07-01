@@ -7,10 +7,10 @@ import axios from "axios";
 import Typography from "@material-ui/core/Typography";
 import CountriesAll from "./LocationProfile/CountriesAll";
 import Sidebar from "./Sidebar/Sidebar";
-import photos from "../../example data/pictures-of-japan.js";
-import Header from "./Header.jsx";
-// import Stats from "./Stats.jsx";
-import Main from "./Main.jsx";
+import photos from "../../example data/pictures-of-japan";
+import Header from "./Header";
+// import Stats from "./Stats";
+import Main from "./Main";
 import GlobalMap from "./GlobalMap/GlobalMap";
 
 class App extends Component {
@@ -51,11 +51,6 @@ class App extends Component {
     this.getUserInfo(this.state.user_id);
   }
 
-  handleSelectedLocation = event => {
-    event.preventDefault();
-    this.setState({ location: event.target.value });
-  };
-
   getPointsOfInterest = () => {
     axios
       .post("/getPointsOfInterest", { location: this.state.location })
@@ -70,21 +65,6 @@ class App extends Component {
       .post("/getAttractions", { location: this.state.location })
       .then(data => this.setState({ attractions: data.data }))
       .catch(err => console.log("error getting attractions from app:", err));
-  };
-
-  addDestinationsPast = () => {
-    this.setState({
-      destinationsPast: [...this.state.destinationsPast, this.state.location]
-    });
-  };
-
-  addDestinationsFuture = () => {
-    this.setState({
-      destinationsFuture: [
-        ...this.state.destinationsFuture,
-        this.state.location
-      ]
-    });
   };
 
   setNavFlagToCountryorCity = () => {
@@ -151,6 +131,26 @@ class App extends Component {
           userInfo: myInfo.data
         });
       });
+  };
+
+  addDestinationsPast = () => {
+    this.setState({
+      destinationsPast: [...this.state.destinationsPast, this.state.location]
+    });
+  };
+
+  addDestinationsFuture = () => {
+    this.setState({
+      destinationsFuture: [
+        ...this.state.destinationsFuture,
+        this.state.location
+      ]
+    });
+  };
+
+  handleSelectedLocation = event => {
+    event.preventDefault();
+    this.setState({ location: event.target.value });
   };
 
   render() {

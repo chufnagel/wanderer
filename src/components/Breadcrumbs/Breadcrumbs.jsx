@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Breadcrumbs from "react-breadcrumbs";
 
-const Breadcrumb = props => (
+const Breadcrumb = ({ routes, params }) => (
   <div>
-    <Breadcrumbs routes={props.routes} params={props.params} separator=" / " />
+    <Breadcrumbs routes={routes} params={params} separator=" / " />
   </div>
 );
 

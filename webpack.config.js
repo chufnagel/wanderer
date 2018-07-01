@@ -34,7 +34,8 @@ module.exports = env => {
           loader: "babel-loader"
         },
         {
-          test: /\.s?css$/,
+          // test: /\.s?css$/,
+          test: /\.css$/,
           use: [
             {
               loader: "css-loader",
@@ -42,12 +43,12 @@ module.exports = env => {
                 sourceMap: true
               }
             },
-            {
-              loader: "sass-loader",
-              options: {
-                sourceMap: true
-              }
-            },
+            // {
+            //   loader: "sass-loader",
+            //   options: {
+            //     sourceMap: true
+            //   }
+            // },
             {
               loader: "style-loader",
               options: {

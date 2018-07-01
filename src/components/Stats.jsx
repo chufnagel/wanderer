@@ -1,14 +1,11 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 
+// presently unused
 class Stats extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      items: []
-    };
-  }
-
+  state = {
+  items: []
+  };
   render() {
     return (
       <div>
