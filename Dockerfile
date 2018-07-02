@@ -20,8 +20,8 @@ WORKDIR $HOME/app
 # give non-root user access to dumb-init
 RUN chown -R nodejs:nodejs $HOME/* /usr/local && \
   chmod +x /usr/local/bin/dumb-init && \
-  npm install --silent --progress=false --production && \
-  chown -R nodejs:nodejs $HOME/*
+  chown -R nodejs:nodejs $HOME/* && \
+  npm install --silent --progress=false --production
 COPY . .
 
 # Switch to non-root user
