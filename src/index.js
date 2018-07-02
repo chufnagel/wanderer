@@ -6,12 +6,13 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
+import {ConnectedRouter} from 'react-router-redux'
 
 render(
   <Provider store={store}>
-    <BrowserRouter>
+    <ConnectedRouter>
       <App />
-    </BrowserRouter>
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );

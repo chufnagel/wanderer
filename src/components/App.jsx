@@ -13,7 +13,7 @@ import Header from "./Header";
 import Main from "./Main";
 import GlobalMap from "./GlobalMap/GlobalMap";
 import { connect } from "react-redux";
-import { bindActionCreators } from "../../../../../../Library/Caches/typescript/2.9/node_modules/redux";
+//import { bindActionCreators } from "../../../../../../Library/Caches/typescript/2.9/node_modules/redux";
 
 class App extends Component {
   state = {
@@ -224,12 +224,19 @@ function mapStateToProps(state) {
   };
 }
 
+
 // connect redux actions to props
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({
-    getBlogs: getBlogs,
-    addBlog: addBlog
-  }, dispatch);
+  return {
+    /*returning empty object as a placeholders as bindActionCreators
+    is throwing errors.
+
+    /.Do not delete code below.
+    /*return bindActionCreators({
+      getBlogs: getBlogs,
+      addBlog: addBlog
+    }, dispatch);*/
+  }
 }
 
 // combine react hot loader with redux, let's see what happens

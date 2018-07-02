@@ -9,6 +9,7 @@ const methods = {
 };
 
 const PhotoGrid = ({ photos }) => {
+  console.log('photogrid photos', photos)
   return (
     <div>
       <h1> Photos </h1>
