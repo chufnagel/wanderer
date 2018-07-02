@@ -1,35 +1,45 @@
-// import { applyMiddleware, createStore } from "redux";
-// import thunk from "redux-thunk";
-// import logger from "redux-logger";
-// import { composeWithDevTools } from "redux-devtools-extension";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import rootReducer from "./reducers/";
+import CountriesAll from "./components/LocationProfile/CountriesAll";
+import photos from "../example data/pictures-of-japan";
 
-// import { rootReducer } from "./reducers/index";
+/* eslint disable */
+const composeEnhancers =
+  process.env.NODE_ENV === "development"
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : null || compose;
+/* eslint enable */
 
-// const configureStore = createStore(
-//   rootReducer,
-//   composeWithDevTools(applyMiddleware(thunk, logger))
-// );
-
-// export default configureStore;
-
-
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers/';
-
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-let store = createStore(
+const store = createStore(
   rootReducer,
   {
-    currentText: 'Intializing...',
-    currentArticle: 'Hack Reactor',
-    articleList: [],
-    clickCounter: 0
+    currentText: "Intializing...",
+    countries: CountriesAll,
+    location: "",
+    navFlag: "dashboard",
+    blogs: [
+      {
+        blogId: "1",
+        blogTitle: "WELCOME TO NIHON",
+        blogAuthor: "BROICHI",
+        blogContents: "YOLO SWAG"
+      },
+      {
+        blogId: "2",
+        blogTitle: "Ebisu Brewery",
+        blogAuthor: "BROICHI",
+        blogContents: "とりあえず 生 なま ビルください"
+      }
+    ],
+    // photos: [],
+    photos,
+    pointsOfInterest: [],
+    userId: 1,
+    destinations: [{ favDestinations: [] }, { visitedDestinations: [] }]
   },
-  composeEnhancers(
-    applyMiddleware(thunk)
-  )
+  composeEnhancers(applyMiddleware(thunk, logger))
 );
 
 export default store;

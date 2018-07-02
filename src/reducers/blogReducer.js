@@ -1,4 +1,5 @@
 import { ADD_BLOG, GET_BLOGS } from "../actions/types";
+import { updateObject } from "../utility";
 
 export default function(state = [], action) {
   switch (action.type) {
