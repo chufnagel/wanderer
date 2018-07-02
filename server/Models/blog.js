@@ -13,6 +13,14 @@ Blog.addNewBlog = (title, contents, tags, userId) => {
     .catch(err => console.error(err));
 };
 
+//
+Blog.retrieveAllBlogs = () => {
+  return db("blogs")
+    .select("*")
+    .then(blogs => blogs)
+    .catch(err => console.log(err));
+};
+
 // retrieve Blogs by user id
 Blog.retrieveBlogsByUserId = userId => {
   return db("blogs")

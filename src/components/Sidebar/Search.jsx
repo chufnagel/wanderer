@@ -57,4 +57,11 @@ class Search extends Component {
   }
 }
 
+Search.propTypes = {
+  getPointsOfInterest: PropTypes.func.isRequired,
+  getAttractions: PropTypes.func.isRequired,
+  handleSelectedLocation: PropTypes.func.isRequired,
+  location: PropTypes.string.isRequired
+};
+
 export default Search;

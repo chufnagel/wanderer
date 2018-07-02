@@ -9,12 +9,15 @@ const methods = {
   }
 };
 
+const recentBlogs = "Your Friends' Popular/Recent blogs";
+const recentPhotos = "Your Friends' Popular/Recent photos";
+
 const Home = () => (
   <div>
     <Stats />
-    <br/>
-    <Typography variant="body1">Your Friends' Popular/Recent blogs</Typography>
-    <Typography variant="body1">Your Friends' Popular/Recent photos</Typography>
+    <br />
+    <Typography variant="body1">{recentBlogs}</Typography>
+    <Typography variant="body1">{recentPhotos}</Typography>
   </div>
 );
 export default lifecycle(methods)(Home);

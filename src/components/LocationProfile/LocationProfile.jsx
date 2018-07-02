@@ -1,7 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import PointsOfInterest from "../LocationProfile/PointsOfInterest";
 
-const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addDestinationsFuture }) => {
+const LocationProfile = ({
+  location,
+  pointsOfInterest,
+  addDestinationsPast,
+  addDestinationsFuture
+}) => {
   return (
     <div className="location-profile">
       <div className="main">
@@ -14,7 +20,9 @@ const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addD
 
         <div className="add-location-options">
           <button onClick={() => addDestinationsPast()}>I've Been Here</button>
-          <button onClick={() => addDestinationsFuture()}>I Want To Go Here!</button>
+          <button onClick={() => addDestinationsFuture()}>
+            I Want To Go Here!
+          </button>
         </div>
 
         <div className="location-info">
@@ -25,7 +33,10 @@ const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addD
           <p>Flag: </p>
         </div>
 
-        <PointsOfInterest pointsOfInterest={pointsOfInterest} location={location} />
+        <PointsOfInterest
+          pointsOfInterest={pointsOfInterest}
+          location={location}
+        />
 
         {/* <div>
           <h2>Fun Facts About {location}:</h2>
@@ -35,11 +46,16 @@ const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addD
             ))}
           </ul>
         </div> */}
-
       </div>
     </div> // close country-page div
   );
+};
 
+LocationProfile.propTypes = {
+  location: PropTypes.string.isRequired,
+  pointsOfInterest: PropTypes.arrayOf(PropTypes.object).isRequired,
+  addDestinationsPast: PropTypes.func.isRequired,
+  addDestinationsFuture: PropTypes.func.isRequired
 };
 
 export default LocationProfile;

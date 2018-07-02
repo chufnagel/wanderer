@@ -42,7 +42,7 @@ exports.up = (knex, Promise) =>
     }),
     knex.schema.createTable("media", table => {
       table.increments("media_id").primary();
-      table.string("link",10000);
+      table.string("link", 10000);
       table.integer("user_id");
     }),
     knex.schema.createTable("media_tags", table => {

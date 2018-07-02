@@ -1,24 +1,33 @@
-import React from 'react';
-import lifecycle from 'react-pure-lifecycle'
+import React from "react";
+import lifecycle from "react-pure-lifecycle";
+import PropTypes from "prop-types";
 
-const methods =  {
+const methods = {
   componentDidMount(props) {
-    props.setNavFlagToDashboard()
+    props.setNavFlagToDashboard();
   }
-}
+};
 
-const PhotoGrid = (props) => {
+const PhotoGrid = ({ photos }) => {
   return (
     <div>
       <h1> Photos </h1>
-      {props.photos.map((photo) => {
+      {photos.map(photo => {
         return (
-            <img src={photo.imageUrl} className="post-image"/>
-        )
+          <img
+            src={photo.imageUrl}
+            key={photo._id}
+            alt={photo.title}
+            className="post-image"
+          />
+        );
       })}
     </div>
-  )
+  );
+};
+
+PhotoGrid.propTypes = {
+  photos: PropTypes.arrayOf(PropTypes.object)
 }
 
 export default lifecycle(methods)(PhotoGrid);
-

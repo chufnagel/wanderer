@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import lifecycle from "react-pure-lifecycle";
 
 const methods = {
@@ -34,6 +35,11 @@ const Destinations = props => {
       </div>
     </div>
   );
+};
+
+Destinations.propTypes = {
+  destinationsPast: PropTypes.arrayOf(PropTypes.string),
+  destinationsFuture: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default lifecycle(methods)(Destinations);
