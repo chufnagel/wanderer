@@ -7,14 +7,19 @@ import { Link } from "react-router-dom";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
 
-const FriendsList = props => (
+const placeholder = "You don't have many friends, but here they are";
+const FriendsList = ({ friends, getUserInfo }) => (
   <div>
-    <Typography variant="headline">
-      You don't have many friends, but here they are.
-    </Typography>
+    <Typography variant="headline">{placeholder}</Typography>
     <div>
-      {props.friends.map(friend => (
-        <Link to="/profile">
+      {friends.map(friend => (
+        <Link
+          key={friend.user_id}
+          to="/profile"
+          onClick={() => {
+            getUserInfo(friend.user_id);
+          }}
+        >
           <center>
             <ListItemText primary={friend.username} />
           </center>
@@ -25,23 +30,8 @@ const FriendsList = props => (
 );
 
 FriendsList.propTypes = {
-  friends: PropTypes.arrayOf(PropTypes.object).isRequired
+  friends: PropTypes.arrayOf(PropTypes.object).isRequired,
+  getUserInfo: PropTypes.func.isRequired
 };
-
-// Hard coded FriendsList (from before we had a DB set up)
-// const FriendsList = () => (
-//   <div>
-//     <Typography variant="headline">
-//       We didn't think you'd have friends, but here they are.
-//     </Typography>
-//     <div>
-//       <center>
-//         <Link to="/profile">
-//           <ListItemText primary="Lina Luna Lei" />
-//         </Link>
-//       </center>
-//     </div>
-//   </div>
-// );
 
 export default FriendsList;

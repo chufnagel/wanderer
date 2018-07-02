@@ -1,10 +1,18 @@
 const router = require("express").Router();
 const User = require("./Models/user");
 const Blog = require("./Models/blog");
-const Destinations = require("./Models/destinations")
+const Destinations = require("./Models/destinations");
 let { getPointsOfInterest, getAttractions } = require("./helperFunctions");
-// const Tag = require("./Models/tag");
+const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
+
+const {
+  log,
+  chalkSuccess,
+  chalkError,
+  chalkWarning,
+  chalkInfo
+} = require("../chalkpresets");
 
 // calls the helper function to query Google Places API for points of interest for given location
 router.post("/getPointsOfInterest", (req, res) => {
@@ -18,40 +26,109 @@ router.post("/getPointsOfInterest", (req, res) => {
 });
 
 // User.retrieveUserByUserId
-router.get("/favDestinations", function (req, res) {
-  Destinations.retrieveFavByUserId(req.query.user_id, (countries) => {
-    console.log('favorite countries', countries)
-    res.send(countries)
-  })
+router.get("/favDestinations", (req, res) => {
+  Destinations.retrieveFavByUserId(req.query.user_id, countries => {
+    // console.log('favorite countries', countries)
+    res.send(countries);
+  });
 });
 
-router.get("/visitedDestinations", function (req, res) {
-  Destinations.retrieveVisitedByUserId(req.query.user_id, (countries) => {
-    console.log('visited countries', countries)
-    res.send(countries)
-  })
+router.get("/visitedDestinations", (req, res) => {
+  Destinations.retrieveVisitedByUserId(req.query.user_id, countries => {
+    // console.log('visited countries', countries)
+    res.status(200).send(countries);
+  }).catch(err => {
+    console.error(err);
+    res.status(404).send("Unable to retrieve visited destinations");
+  });
 });
 
-
-router.get("/friends", function (req, res) {
-  //console.log('*******',req.query)
-  User.retrieveFriendsByUserId(req.query.user_id, (friends) => {
-    //console.log("friends", friends)
-    res.send(friends)
-  })
+router.get("/friends", (req, res) => {
+  // console.log('*******',req.query)
+  User.retrieveFriendsByUserId(req.query.user_id, friends => {
+    // console.log("friends", friends)
+    res.status(200).send(friends);
+  }).catch(err => console.error(err));
 });
 
-// Blog.retrieveBlogsByBlogId
+router.get("/userInfo", async (req, res, next) => {
+  console.log(req.params);
+  try {
+    const userInfo = await User.findByUserId(req.query.user_id);
+    res.status(200).send(userInfo);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve user info");
+  }
+});
+
+// retrieveAllBlogs
+router.get("/blogs", async (req, res, next) => {
+  try {
+    const blogs = await Blog.retrieveAllBlogs();
+    res.status(200).send(blogs);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve blogs");
+  }
+});
+
+// Destinations.User(req.query)
+
+// Blog.retrieveBlogsByUserId
+router.get("/blogsByUserId", async (req, res, next) => {
+  try {
+    const blogs = await Blog.retrieveBlogsByUserId(req.query.user_id);
+    res.status(200).send(blogs);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve user's blogs");
+  }
+});
 
 // Blog.retrieveBlogByBlogId
 // used for looking up blogs and tags
+router.get("/blogsByBlogId", async (req, res, next) => {
+  try {
+    const blog = Blog.retrieveBlogsByBlogId(req.query.blog_id);
+    res.status(200).send(blog);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve blog");
+  }
+});
 
-// Tag.addTag (tags not yet implemented)
-// router.post("/tags", asyncMiddlware(async (req, res, next) => {
-//     const tag = await Tag.createNewTag(req.body.name);
-//     res.json(tag);
-//   })
-// );
-// BlogTag.addBlogTag
+// Tag.addTag - add check for whether tag already exists
+router.post("/tags", async (req, res, next) => {
+  try {
+    const newTag = await Tag.createNewTag(req.body.name);
+    res.status(200).send(newTag);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to create new tag");
+  }
+});
+
+// get individual tag
+// tag_id not yet implemented on front-end
+router.get("/getTag", async (req, res, next) => {
+  try {
+    const tag = await Tag.findByTagId(req.query.tag_id);
+    res.status(200).send(tag);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to locate tag");
+  }
+});
+
+router.get("/tags", async (req, res, next) => {
+  try {
+    const tags = await Tag.retrieveAllTags();
+    res.status(200).send(tags);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve tags");
+  }
+})
 
 module.exports = router;

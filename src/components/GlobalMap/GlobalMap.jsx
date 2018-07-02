@@ -22,13 +22,9 @@ const colorScale = chroma
   .colors(24);
 
 class GlobalMap extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      subregions: subregions
-    }
-  }
+  state = {
+    subregions: subregions
+  };
   render() {
     return (
       <div className="global-map" style={wrapperStyles}>

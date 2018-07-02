@@ -8,14 +8,14 @@ import lifecycle from 'react-pure-lifecycle'
 
 const methods =  {
   componentDidMount(props) {
-    console.log('props',props)
-    props.setNavFlagToDashboard()
+    // console.log('props', props)
+    props.setNavFlagToDashboard();
   }
 }
 
 // can eventually add blog media, user avatar, etc.
-const BlogList = props => {
-  const BlogEntry = props.blogs.map(blog => (
+const BlogList = ({ blogs }) => {
+  const BlogEntry = blogs.map(blog => (
     <Card key={blog.blogId}>
       <CardHeader title={blog.blogTitle} subheader={blog.blogAuthor} />
       <CardContent>
