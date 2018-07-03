@@ -3,12 +3,12 @@ import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
 const methods = {
-  componentDidMount(props) {
-    props.setNavFlagToDashboard();
+  componentDidMount({handleNavUpdate}) {
+    handleNavUpdate('dashboard');
   }
 };
 
-const PhotoGrid = ({ photos }) => {
+const PhotoGrid = ({ photos, navFlag }) => {
   return (
     <div>
       <h1> Photos </h1>

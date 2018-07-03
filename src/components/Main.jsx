@@ -10,6 +10,7 @@ import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
 import Profile from "./Profile/Profile";
+import PhotosContainer from "../containers/PhotosContainer.jsx";
 
 const Main = props => {
   return (
@@ -40,12 +41,10 @@ const Main = props => {
           exact
           path="/photos_videos"
           render={() => {
+            //console.log('helloooooooo')
             return (
               <div>
-                <PhotoGrid
-                  photos={props.photos}
-                  setNavFlagToDashboard={props.setNavFlagToDashboard}
-                />
+                <PhotosContainer/>
               </div>
             );
           }}
