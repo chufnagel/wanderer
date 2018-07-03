@@ -1,27 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-// gets props from Sidebar, which connects to Redux store (later)
 class Search extends Component {
-  constructor(props) {
-    super(props);
+  state: { field: "" };
 
-    this.state = {
-      field: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
+  handleChange = event => {
     event.preventDefault();
-    this.setState({
-      field: event.target.value
-    });
-  }
+    this.setState({ field: event.target.value });
+  };
 
   render() {
     return (
@@ -32,7 +21,7 @@ class Search extends Component {
           type="search"
           margin="normal"
           onChange={event => {
-            this.props.handleSelectedLocation(event);
+            this.handleChange;
           }}
         />
         <br />
@@ -59,9 +48,9 @@ class Search extends Component {
 
 Search.propTypes = {
   getPointsOfInterest: PropTypes.func.isRequired,
-  getAttractions: PropTypes.func.isRequired,
-  handleSelectedLocation: PropTypes.func.isRequired,
-  location: PropTypes.string.isRequired
+  getAttractions: PropTypes.func.isRequired
+  // handleSelectedLocation: PropTypes.func.isRequired,
+  // location: PropTypes.string.isRequired
 };
 
 export default Search;
