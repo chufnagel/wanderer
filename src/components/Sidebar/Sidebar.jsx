@@ -6,9 +6,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Search from "./Search";
 
-// Sidebar gets the search function as a prop from App
-// and passes it to the Search component
-
 const Sidebar = props => (
   <div>
     <Drawer variant="permanent" position="absolute" className="docked" anchor="left">
