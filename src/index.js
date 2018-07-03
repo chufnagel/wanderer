@@ -13,9 +13,9 @@ import { createBrowserHistory } from "history";
 // Replaced BrowserRouter with ConnectedRouter as the former does not seem to work with redux
 render(
   <Provider store={store}>
-    <ConnectedRouter history={createBrowserHistory()}>
+    <BrowserRouter>
       <Route component={App} />
-    </ConnectedRouter>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
