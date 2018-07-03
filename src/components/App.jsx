@@ -13,6 +13,8 @@ import Header from "./Header";
 import Main from "./Main";
 import GlobalMap from "./GlobalMap/GlobalMap";
 import { connect } from "react-redux";
+import store from "../store.js"
+import HeaderContainer from "../containers/HeaderContainer.jsx"
 //import { bindActionCreators } from "../../../../../../Library/Caches/typescript/2.9/node_modules/redux";
 
 class App extends Component {
@@ -195,7 +197,7 @@ class App extends Component {
               </button>
             </Link>
 
-            <Header navFlag={this.state.navFlag} />
+            <HeaderContainer/>
             <Main
               location={this.state.location}
               blogs={this.state.blogs}

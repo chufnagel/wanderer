@@ -4,6 +4,8 @@ import logger from "redux-logger";
 import rootReducer from "./reducers/";
 import CountriesAll from "./components/LocationProfile/CountriesAll";
 import photos from "../example data/pictures-of-japan";
+import {createBrowserHistory} from 'history'
+import {connectRouter, routerMiddleware} from 'connected-react-router'
 
 /* eslint disable */
 const composeEnhancers =
@@ -12,8 +14,10 @@ const composeEnhancers =
     : null || compose;
 /* eslint enable */
 
+const history = createBrowserHistory();
+
 const store = createStore(
-  rootReducer,
+  connectRouter(history)(rootReducer),
   {
     currentText: "Intializing...",
     countries: CountriesAll,
@@ -39,7 +43,7 @@ const store = createStore(
     userId: 1,
     destinations: [{ favDestinations: [] }, { visitedDestinations: [] }]
   },
-  composeEnhancers(applyMiddleware(thunk, logger))
+  composeEnhancers(applyMiddleware(routerMiddleware(history), thunk, logger))
 );
 
 export default store;

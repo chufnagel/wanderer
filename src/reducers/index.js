@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import blogReducer from "./blogReducer";
 import photoReducer from "./photoReducer.js"
+import navReducer from "./navReducer.js"
 
 // use map, filter, Object.assign() and array destructuring to
 // return new version of state!
@@ -9,15 +10,13 @@ import photoReducer from "./photoReducer.js"
 const rootReducer = combineReducers({
   blogs: blogReducer,
   photos: photoReducer,
-
-  //Below are placeholders and need to be updated
+  navFlag: navReducer,
+  //Below are placeholders and need to be updated. A reducer needs to be defined for each item in the store or else it will throw an error
   currentText: (state = {}) => state,
   countries: (state = {}) => state,
   location: (state = {}) => state,
-  navFlag: (state = {}) => state,
   photos: (state = {}) => state,
   pointsOfInterest: (state = {}) => state,
-  userId: (state = {}) => state,
   destinations: (state = {}) => state,
 });
 

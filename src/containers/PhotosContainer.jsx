@@ -1,14 +1,18 @@
 import { connect } from "react-redux";
-import Photos from "../components/PhotoGrid.jsx";
-import PhotoGrid from "../components/PhotoGrid.jsx"
+import PhotoGrid from "../components/PhotoGrid.jsx";
+import updateNav from "../actions/header.js";
 
-const mapStateToProps = (state) => {
-  console.log('photoscontainer', state)
-  /*{
+
+const mapStateToProps = state => ({
+  navFlag: state.navFlag,// console.log('photocontainer',state.photos)
   photos: state.photos
-}*/};
+});
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  handleNavUpdate: flag => {
+    dispatch(updateNav(flag));
+  }
+});
 
 const PhotosContainer = connect(
   mapStateToProps,
