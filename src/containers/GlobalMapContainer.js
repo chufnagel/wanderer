@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 // import relevant actions
-import GlobalMap from "../components/GlobalMap";
+import GlobalMap from "../components/GlobalMap/GlobalMap";
 
 const mapStateToProps = ({ state }) => {
   return {
