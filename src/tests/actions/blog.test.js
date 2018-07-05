@@ -2,7 +2,7 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 import fetchMock from "fetch-mock";
-import * as actions from "../../actions/async_blogs";
+import * as actions from "../../actions";
 import * as types from "../../actions/types";
 
 const middleware = [thunk];
@@ -22,7 +22,7 @@ describe("async actions", () => {
             blogTitle: "WELCOME TO NIHON",
             blogAuthor: "BROICHI",
             blogContents: "YOLO SWAG"
-          }
+          },
         ]
       },
       headers: { "content-type": "application/json" }
@@ -50,3 +50,22 @@ describe("async actions", () => {
     });
   });
 });
+
+
+// -     "body": Object {
+//   -       "blogs": Array [
+//   +     "payload": Array [
+//           Object {
+//   -           "blogAuthor": "BROICHI",
+//   -           "blogContents": "YOLO SWAG",
+//   -           "blogId": "1",
+//   -           "blogTitle": "WELCOME TO NIHON",
+//   +         "blog_id": 1,
+//   +         "content": "YOLO SWAG",
+//   +         "timestamp": "2018-06-30T23:46:49.000Z",
+//   +         "title": "WELCOME TO NIHON",
+//   +         "user_id": 1,
+//           },
+//         ],
+//   -     },
+//         "type": "GET_BLOG

@@ -45,21 +45,21 @@ export const getBlogsRequest = () => {
 export const getBlogsSuccess = blogs => {
   return {
     type: types.GET_BLOGS_SUCCESS,
-    payload: blogs
+    blogs
   };
 };
 
 export const getBlogsFailure = error => {
   return {
     type: types.GET_BLOGS_FAILURE,
-    payload: error
+    error
   };
 };
 
 export const getBlogs = () => {
   return dispatch => {
     dispatch(getBlogsRequest());
-    axios
+    return axios
       .get("/blogs")
       .then(res => {
         console.log(res);
