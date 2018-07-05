@@ -4,9 +4,9 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import SearchContainer from "../containers/SearchContainer";
+import SearchContainer from "../../containers/SearchContainer";
 
-const Sidebar = props => (
+const Sidebar = () => (
   <div>
     <Drawer
       variant="permanent"
@@ -35,12 +35,7 @@ const Sidebar = props => (
           </Link>
         </ListItem>
         <ListItem button>
-          <Link
-            to="/profile"
-            onClick={() => {
-              props.getUserInfo(props.user_id);
-            }}
-          >
+          <Link to="/profile">
             <ListItemText primary="Profile" />
           </Link>
         </ListItem>

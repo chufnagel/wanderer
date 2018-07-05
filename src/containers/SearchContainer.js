@@ -1,18 +1,20 @@
 import { connect } from "react-redux";
 import { getPointsOfInterest, getAttractions } from "../actions/search";
-import Search from "../components/Sidebar/Search";
-
-const mapDispatchToProps = dispatch => ({
-  getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
-  getAttractions: term => dispatch(getAttractions(term))
-});
+import Search from "../components/Search";
 
 const mapStateToProps = state => ({
   pointsOfInterest: state.pointsOfInterest,
   attractions: state.attractions
 });
 
-export default connect(
+const mapDispatchToProps = dispatch => ({
+  getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
+  getAttractions: term => dispatch(getAttractions(term))
+});
+
+const SearchContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Search);
+
+export default SearchContainer;

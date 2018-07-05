@@ -1,6 +1,6 @@
 import SET_HEADER from "../actions/types";
 
-function header(state = {}, action) {
+export default function header(state = {}, action) {
   switch (action.type) {
     case SET_HEADER:
       return Object.assign({}, state, {
@@ -10,5 +10,3 @@ function header(state = {}, action) {
       return state;
   }
 }
-
-export default header;
