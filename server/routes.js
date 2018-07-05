@@ -26,14 +26,14 @@ router.post("/getPointsOfInterest", (req, res) => {
 });
 
 // User.retrieveUserByUserId
-router.get("/favDestinations", (req, res) => {
+router.get("/destinationsFuture", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.user_id, countries => {
     // console.log('favorite countries', countries)
     res.send(countries);
   });
 });
 
-router.get("/visitedDestinations", (req, res) => {
+router.get("/destinationsPast", (req, res) => {
   Destinations.retrieveVisitedByUserId(req.query.user_id, countries => {
     // console.log('visited countries', countries)
     res.status(200).send(countries);

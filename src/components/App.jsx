@@ -99,7 +99,7 @@ class App extends Component {
 
   getFavDestinations = user_id => {
     axios
-      .get("/favDestinations", {
+      .get("/destinationsFuture", {
         params: {
           user_id
         }
@@ -112,7 +112,7 @@ class App extends Component {
 
   getVisitedDestinations = user_id => {
     axios
-      .get("/visitedDestinations", {
+      .get("/destinationsPast", {
         params: {
           user_id
         }
