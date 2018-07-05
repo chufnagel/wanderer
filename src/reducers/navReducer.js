@@ -1,6 +1,6 @@
-import Redux from "redux";
+// import necessary constants
 
-const navReducer = (state = null, action) => {
+const navReducer = (state, action) => {
   switch (action.type) {
     case "UPDATE_NAV":
       return action.navFlag || null;

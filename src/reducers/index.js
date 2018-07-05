@@ -10,18 +10,19 @@ import { pointsOfInterest, attractions } from "./searchReducer";
 // No mutations!
 
 const rootReducer = combineReducers({
-  pointsOfInterest,
   attractions,
+  pointsOfInterest,
   blogs,
   header
-  // photos: photoReducer,
-  // navFlag: navReducer,
-  //Below are placeholders and need to be updated. A reducer needs to be defined for each item in the store or else it will throw an error
-  // currentText: (state = {}) => state,
-  // countries: (state = {}) => state,
-  // location: (state = {}) => state,
-  // photos: (state = {}) => state,
-  // destinations: (state = {}) => state
 });
 
 export default rootReducer;
+
+// photos: photoReducer,
+// navFlag: navReducer,
+// Below are placeholders and need to be updated. A reducer needs to be defined for each item in the store or else it will throw an error
+// currentText: (state = {}) => state,
+// countries: (state = {}) => state,
+// location: (state = {}) => state,
+// photos: (state = {}) => state,
+// destinations: (state = {}) => state

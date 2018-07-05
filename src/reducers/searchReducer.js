@@ -21,4 +21,4 @@ function pointsOfInterest(state = [], action) {
   }
 }
 
-export { attractions, pointsOfInterest as default };
+export { attractions, pointsOfInterest };
