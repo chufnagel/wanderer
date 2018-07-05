@@ -3,18 +3,21 @@ import PropTypes from "prop-types";
 import lifecycle from "react-pure-lifecycle";
 
 const methods = {
-  componentDidMount(props) {
-    props.setNavFlagToDashboard();
+  componentDidMount({handleNavUpdate, getDestinationsFuture, getDestinationsPast}) {
+    handleNavUpdate('dashboard');
+    getDestinationsFuture(); 
+    getDestinationsPast();
   }
 };
 
-const Destinations = props => {
+const Destinations = ({destinationsFuture, destinationsPast}) => {
+  console.log('destinations future & past', destinationsFuture, destinationsPast)
   return (
     <div className="destinations">
       <h1>Destinations</h1>
       <div className="destinations-past">
         <h2>Places I've Been:</h2>
-        {props.destinationsPast.map(past => {
+        {destinationsPast.map(past => {
           return (
             <div>
               <p>☑ {past}</p>
@@ -25,7 +28,7 @@ const Destinations = props => {
 
       <div className="destinations-future">
         <h2>Places I Want To Visit:</h2>
-        {props.destinationsFuture.map(future => {
+        {destinationsFuture.map(future => {
           return (
             <div>
               <p>☐ {future}</p>

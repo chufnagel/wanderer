@@ -17,7 +17,8 @@ const rootReducer = combineReducers({
   location: (state = {}) => state,
   photos: (state = {}) => state,
   pointsOfInterest: (state = {}) => state,
-  destinations: (state = {}) => state,
+  destinationsFuture: (state = {}) => state,
+  destinationsPast: (state = {}) => state
 });
 
 export default rootReducer;

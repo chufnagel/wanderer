@@ -51,6 +51,8 @@ router.get("/friends", (req, res) => {
   }).catch(err => console.error(err));
 });
 
+/* KS: temporarily commenting out everything below as "async" does not run on HR pairing station 
+
 router.get("/userInfo", async (req, res, next) => {
   console.log(req.params);
   try {
@@ -130,5 +132,7 @@ router.get("/tags", async (req, res, next) => {
     res.status(404).send("Unable to retrieve tags");
   }
 })
+
+*/
 
 module.exports = router;
