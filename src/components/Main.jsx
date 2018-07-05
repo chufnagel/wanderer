@@ -1,7 +1,6 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
-import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
 import LocationProfile from "./LocationProfile/LocationProfile";
@@ -9,7 +8,7 @@ import Attractions from "./LocationProfile/Attractions";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
-import Profile from "./Profile/Profile";
+import Profile from "./Profile/UserProfile";
 import PhotosContainer from "../containers/PhotosContainer.jsx";
 
 const Main = props => {
