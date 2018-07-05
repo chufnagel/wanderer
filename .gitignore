@@ -30,3 +30,5 @@ dist/bundle.js
 
 _README.md
 knexfile.js
+
+wanderer.service
