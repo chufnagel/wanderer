@@ -24,7 +24,7 @@ class App extends Component {
     pointsOfInterest: [],
     attractions: [],
     destinationsPast: ["Iceland", "Panama"],
-    destinationsFuture: ["Hong Kong", "Kyoto"],
+    destinationsFuture: ["Australia", "Kyoto"],
     blogs: [
       {
         blogId: "1",
@@ -50,8 +50,8 @@ class App extends Component {
 
   componentDidMount() {
     this.getFriends();
-    this.getFavDestinations(this.state.user_id);
-    this.getVisitedDestinations(this.state.user_id);
+    //this.getFavDestinations(this.state.user_id);
+    //this.getVisitedDestinations(this.state.user_id);
     this.getUserInfo(this.state.user_id);
   }
 

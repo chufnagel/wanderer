@@ -6,16 +6,21 @@ import {getDestinationsFuture, getDestinationsPast} from "../actions/destination
 const mapStateToProps = state => ({
   navFlag: state.navFlag,// console.log('photocontainer',state.photos)
   destinationsFuture: state.destinationsFuture, 
-  destinationsPast: state.destinationsPast
+  destinationsPast: state.destinationsPast,
+  user_id: state.userId
 });
 
 const mapDispatchToProps = dispatch => ({
   handleNavUpdate: flag => {
     dispatch(updateNav(flag));
   }, 
-  getDestinationsFuture,
-  getDestinationsPast
-});
+  getDestinationsFuture: (user_id) => {
+    dispatch(getDestinationsFuture(user_id))
+  },
+  getDestinationsPast: (user_id) => {
+    dispatch(getDestinationsPast(user_id))
+  }
+})
 
 const DestinationsContainer = connect(
   mapStateToProps,

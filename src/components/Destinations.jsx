@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import lifecycle from "react-pure-lifecycle";
 
 const methods = {
-  componentDidMount({handleNavUpdate, getDestinationsFuture, getDestinationsPast}) {
+  componentDidMount({handleNavUpdate, getDestinationsFuture, getDestinationsPast, user_id}) {
+    console.log('getDestinationsPast',getDestinationsPast(user_id))
     handleNavUpdate('dashboard');
-    getDestinationsFuture(); 
-    getDestinationsPast();
+    getDestinationsFuture(user_id); 
+    getDestinationsPast(user_id);
   }
 };
 
@@ -20,7 +21,7 @@ const Destinations = ({destinationsFuture, destinationsPast}) => {
         {destinationsPast.map(past => {
           return (
             <div>
-              <p>☑ {past}</p>
+              <p>☑ {past.country}</p>
             </div>
           );
         })}
@@ -31,7 +32,7 @@ const Destinations = ({destinationsFuture, destinationsPast}) => {
         {destinationsFuture.map(future => {
           return (
             <div>
-              <p>☐ {future}</p>
+              <p>☐ {future.country}</p>
             </div>
           );
         })}

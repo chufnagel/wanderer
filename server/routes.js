@@ -34,6 +34,7 @@ router.get("/destinationsFuture", (req, res) => {
 });
 
 router.get("/destinationsPast", (req, res) => {
+  console.log('hallooo')
   Destinations.retrieveVisitedByUserId(req.query.user_id, countries => {
     // console.log('visited countries', countries)
     res.status(200).send(countries);
