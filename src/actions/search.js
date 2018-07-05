@@ -1,4 +1,7 @@
-import { GET_POINTS_OF_INTEREST_SUCCESS, GET_ATTRACTIONS_SUCCESS } from "./types";
+import {
+  GET_POINTS_OF_INTEREST_SUCCESS,
+  GET_ATTRACTIONS_SUCCESS
+} from "./types";
 
 function getPointsOfInterestSuccess(pointsOfInterest) {
   return {
@@ -40,5 +43,5 @@ export {
   getPointsOfInterestSuccess,
   getPointsOfInterest,
   getAttractionsSuccess,
-  getAttractions
-}
+  getAttractions as default
+};

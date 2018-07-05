@@ -1,14 +1,14 @@
 import React from "react";
-import lifecycle from "react-pure-lifecycle";
+// import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
-const methods = {
-  componentDidMount({handleNavUpdate}) {
-    handleNavUpdate('dashboard');
-  }
-};
+// const methods = {
+//   componentDidMount({handleNavUpdate}) {
+//     handleNavUpdate('dashboard');
+//   }
+// };
 
-const PhotoGrid = ({ photos, navFlag }) => {
+const PhotoGrid = ({ photos }) => {
   return (
     <div>
       <h1> Photos </h1>
@@ -30,4 +30,4 @@ PhotoGrid.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.object)
 }
 
-export default lifecycle(methods)(PhotoGrid);
+export default PhotoGrid;

@@ -1,17 +1,17 @@
 import React from "react";
-import lifecycle from "react-pure-lifecycle";
+// import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
 import PhotoGrid from "../PhotoGrid";
 import BlogList from "../BlogList/BlogList";
 
-const methods = {
-  componentDidMount(props) {
-    props.setNavFlagToDashboard();
-  }
-};
+// const methods = {
+//   componentDidMount(props) {
+//     props.setNavFlagToDashboard();
+//   }
+// };
 
-const Profile = ({ userInfo, setNavFlagToDashboard, blogs, photos }) => {
+const Profile = ({ userInfo, blogs, photos }) => {
   return (
     <div>
       <h2>{userInfo[0].username}</h2>
@@ -25,24 +25,20 @@ const Profile = ({ userInfo, setNavFlagToDashboard, blogs, photos }) => {
       </ul>
       <h1>Blogs</h1>
       <ul width="52%">
-        <BlogList setNavFlagToDashboard={setNavFlagToDashboard} blogs={blogs} />
+        <BlogList blogs={blogs} />
       </ul>
       <ul width="35%" />
       <span>
-        <PhotoGrid
-          photos={photos}
-          setNavFlagToDashboard={setNavFlagToDashboard}
-        />
+        <PhotoGrid photos={photos} />
       </span>
     </div>
   );
 };
 
 Profile.propTypes = {
-  setNavFlagToDashboard: PropTypes.func.isRequired,
   photos: PropTypes.arrayOf(PropTypes.object),
   blogs: PropTypes.arrayOf(PropTypes.object),
   userInfo: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default lifecycle(methods)(Profile);
+export default Profile;

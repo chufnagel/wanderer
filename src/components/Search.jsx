@@ -5,7 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 class Search extends Component {
-  state: { field: "" }
+  state: { field: null };
 
   handleChange = e => {
     e.preventDefault();
@@ -25,7 +25,7 @@ class Search extends Component {
           }}
         />
         <br />
-        <Link to={`/${this.state.field}`}>
+        <Link to={"/search"}>
           <center>
             <Button
               label="Search"
