@@ -4,7 +4,7 @@ import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import SearchContainer from "../containers/SearchContainer";
+import Search from "../Sidebar/Search";
 
 const Sidebar = props => (
   <div>
@@ -22,7 +22,7 @@ const Sidebar = props => (
           <img width="128px" height="128px" />
         </center>
         <br />
-        <SearchContainer />
+        <Search />
         <br />
         <ListItem button>
           <Link to="/">
@@ -35,12 +35,7 @@ const Sidebar = props => (
           </Link>
         </ListItem>
         <ListItem button>
-          <Link
-            to="/profile"
-            onClick={() => {
-              props.getUserInfo(props.user_id);
-            }}
-          >
+          <Link to="/profile">
             <ListItemText primary="Profile" />
           </Link>
         </ListItem>

@@ -41,10 +41,10 @@ const Main = props => {
           exact
           path="/photos_videos"
           render={() => {
-            //console.log('helloooooooo')
+            // console.log('helloooooooo')
             return (
               <div>
-                <PhotosContainer/>
+                <PhotosContainer />
               </div>
             );
           }}
@@ -63,20 +63,7 @@ const Main = props => {
           }}
         />
 
-        <Route
-          exact
-          path={`/${props.location}`}
-          render={() => {
-            return (
-              <LocationProfile
-                location={props.location}
-                pointsOfInterest={props.pointsOfInterest}
-                addDestinationsPast={props.addDestinationsPast}
-                addDestinationsFuture={props.addDestinationsFuture}
-              />
-            );
-          }}
-        />
+        <Route exact path="/search" component={LocationProfile} />
 
         <Route
           exact
@@ -97,7 +84,12 @@ const Main = props => {
           exact
           path="/friends"
           render={() => {
-            return <FriendsList friends={props.friends} getUserInfo={props.getUserInfo}/>;
+            return (
+              <FriendsList
+                friends={props.friends}
+                getUserInfo={props.getUserInfo}
+              />
+            );
           }}
         />
 
