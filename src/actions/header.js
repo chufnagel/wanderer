@@ -7,10 +7,10 @@ import SET_HEADER from "./types";
 
 // export default updateNav;
 
-function setHeader(filter) {
+function setHeader(setting) {
   return {
     type: SET_HEADER,
-    filter
+    setting
   };
 }
 
