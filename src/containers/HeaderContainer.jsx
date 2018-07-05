@@ -1,10 +1,18 @@
 import { connect } from "react-redux";
-import Header from "../components/Header.jsx";
+import setHeader from "../actions/header";
+import Header from "../components/Header";
 
 const mapStateToProps = state => ({
-  navFlag: state.navFlag //
+  navFlag: state.navFlag
 });
 
-const HeaderContainer = connect(mapStateToProps)(Header);
+const mapDispatchToProps = dispatch => ({
+  setHeader: setting => dispatch(setHeader(setting))
+});
+
+const HeaderContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);
 
 export default HeaderContainer;
