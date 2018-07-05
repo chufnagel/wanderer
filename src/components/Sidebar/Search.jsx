@@ -1,27 +1,16 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
-// gets props from Sidebar, which connects to Redux store (later)
 class Search extends Component {
-  constructor(props) {
-    super(props);
+  state: { field: "" }
 
-    this.state = {
-      field: ""
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    event.preventDefault();
-    this.setState({
-      field: event.target.value
-    });
-  }
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({ field: e.target.value });
+  };
 
   render() {
     return (
@@ -31,12 +20,12 @@ class Search extends Component {
           label="Search a city/country"
           type="search"
           margin="normal"
-          onChange={event => {
-            this.props.handleSelectedLocation(event);
+          onChange={e => {
+            this.handleChange(e);
           }}
         />
         <br />
-        <Link to={`/${this.props.location}`}>
+        <Link to={`/${this.state.field}`}>
           <center>
             <Button
               label="Search"
@@ -44,8 +33,8 @@ class Search extends Component {
               variant="raised"
               color="primary"
               onClick={() => {
-                this.props.getPointsOfInterest();
-                this.props.getAttractions();
+                this.props.getPointsOfInterest(this.state.field);
+                this.props.getAttractions(this.state.field);
               }}
             >
               Search
@@ -59,9 +48,7 @@ class Search extends Component {
 
 Search.propTypes = {
   getPointsOfInterest: PropTypes.func.isRequired,
-  getAttractions: PropTypes.func.isRequired,
-  handleSelectedLocation: PropTypes.func.isRequired,
-  location: PropTypes.string.isRequired
+  getAttractions: PropTypes.func.isRequired
 };
 
 export default Search;
