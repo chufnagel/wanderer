@@ -2,7 +2,7 @@
 so that we can keep track of what we have left to do */
 
 import React, { Component } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
 import axios from "axios";
 // import AppBar from "@material-ui/core/AppBar";
@@ -16,8 +16,6 @@ import Header from "./Header";
 import Main from "./Main";
 import GlobalMap from "./GlobalMap/GlobalMap";
 import { connect } from "react-redux";
-import store from "../store.js"
-import HeaderContainer from "../containers/HeaderContainer.jsx"
 //import { bindActionCreators } from "../../../../../../Library/Caches/typescript/2.9/node_modules/redux";
 
 class App extends Component {
@@ -200,7 +198,7 @@ class App extends Component {
               </button>
             </Link>
 
-            <HeaderContainer/>
+            <Header/>
             <Main
               location={this.state.location}
               blogs={this.state.blogs}

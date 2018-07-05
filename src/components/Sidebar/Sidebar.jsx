@@ -6,7 +6,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Search from "../Sidebar/Search";
 
-const Sidebar = props => (
+const Sidebar = () => (
   <div>
     <Drawer
       variant="permanent"
