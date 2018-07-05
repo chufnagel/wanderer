@@ -4,7 +4,8 @@ import ListItemText from "@material-ui/core/ListItemText";
 
 // The Header creates links that can be used to navigate
 // between routes.
-const Header = props => {
+
+const Header = (props) => {
   if (props.navFlag === "dashboard") {
     return (
       <header>

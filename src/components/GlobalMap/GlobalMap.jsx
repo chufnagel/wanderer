@@ -91,4 +91,9 @@ class GlobalMap extends Component {
   }
 }
 
+GlobalMap.propTypes = {
+  // does not currently have any props, but will
+  // when we have things in state like activeUser
+};
+
 export default GlobalMap;

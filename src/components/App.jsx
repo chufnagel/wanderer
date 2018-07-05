@@ -1,3 +1,6 @@
+/* mm: Let's comment out the functions as we refactor them to Redux,
+so that we can keep track of what we have left to do */
+
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
@@ -12,11 +15,15 @@ import Header from "./Header";
 // import Stats from "./Stats";
 import Main from "./Main";
 import GlobalMap from "./GlobalMap/GlobalMap";
+import { connect } from "react-redux";
+import store from "../store.js"
+import HeaderContainer from "../containers/HeaderContainer.jsx"
+//import { bindActionCreators } from "../../../../../../Library/Caches/typescript/2.9/node_modules/redux";
 
 class App extends Component {
   state = {
     countries: CountriesAll,
-    location: "",
+    selectedLocation: "",
     pointsOfInterest: [],
     attractions: [],
     destinationsPast: ["Iceland", "Panama"],
@@ -51,21 +58,21 @@ class App extends Component {
     this.getUserInfo(this.state.user_id);
   }
 
-  getPointsOfInterest = () => {
-    axios
-      .post("/getPointsOfInterest", { location: this.state.location })
-      .then(data => this.setState({ pointsOfInterest: data.data }))
-      .catch(err =>
-        console.log("error getting points of interest from app:", err)
-      );
-  };
+  // getPointsOfInterest = () => {
+  //   axios
+  //     .post("/getPointsOfInterest", { location: this.state.selectedLocation })
+  //     .then(data => this.setState({ pointsOfInterest: data.data }))
+  //     .catch(err =>
+  //       console.log("error getting points of interest from app:", err)
+  //     );
+  // };
 
-  getAttractions = () => {
-    axios
-      .post("/getAttractions", { location: this.state.location })
-      .then(data => this.setState({ attractions: data.data }))
-      .catch(err => console.log("error getting attractions from app:", err));
-  };
+  // getAttractions = () => {
+  //   axios
+  //     .post("/getAttractions", { location: this.state.selectedLocation })
+  //     .then(data => this.setState({ attractions: data.data }))
+  //     .catch(err => console.log("error getting attractions from app:", err));
+  // };
 
   setNavFlagToCountryorCity = () => {
     this.setState({
@@ -193,7 +200,7 @@ class App extends Component {
               </button>
             </Link>
 
-            <Header navFlag={this.state.navFlag} />
+            <HeaderContainer/>
             <Main
               location={this.state.location}
               blogs={this.state.blogs}
@@ -215,5 +222,28 @@ class App extends Component {
     );
   }
 }
+// connect root reducer to props
+function mapStateToProps(state) {
+  return {
+    blogs: state.blogs
+  };
+}
 
-export default hot(module)(App);
+
+// connect redux actions to props
+function mapDispatchToProps(dispatch) {
+  return {
+    /*returning empty object as a placeholders as bindActionCreators
+    is throwing errors.
+
+    /.Do not delete code below.
+    /*return bindActionCreators({
+      getBlogs: getBlogs,
+      addBlog: addBlog
+    }, dispatch);*/
+  }
+}
+
+// combine react hot loader with redux, let's see what happens
+export default hot(module)(connect(mapStateToProps, mapDispatchToProps)(App));
+// export default connect(mapStateToProps, mapDispatchToProps)(App);
