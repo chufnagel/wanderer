@@ -1,6 +1,15 @@
+
+![Travis](https://img.shields.io/travis/CoolStuffIncorporated/thesis.svg)
+[![Known Vulnerabilities](https://snyk.io/test/github/CoolStuffIncorporated/thesis/badge.svg?targetFile=package.json)](https://snyk.io/test/github/CoolStuffIncorporated/thesis?targetFile=package.json)
+![David](https://img.shields.io/david/CoolStuffIncorporated/thesis.svg)
+![David](https://img.shields.io/david/dev/CoolStuffIncorporated/thesis.svg)
+[![Greenkeeper badge](https://badges.greenkeeper.io/CoolStuffIncorporated/thesis.svg)](https://greenkeeper.io/)
+
+
+
 # Project Name
 
-> Pithy project description
+Wanderer: A Social Travel Diary
 
 ## Team
 
@@ -24,9 +33,9 @@
 
 ## Requirements
 
-- Node 0.10.x
+- Node.js 10.5.0
 - Redis 2.6.x
-- Postgresql 9.1.x
+- MariaDB 10.3.7 || MySql 8.0.11
 - etc
 - etc
 
@@ -37,9 +46,8 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
-bower install
+npm start
 ```
 
 ### Roadmap
