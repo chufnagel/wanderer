@@ -12,7 +12,9 @@ const mapStateToProps = state => ({
   attractions: state.attractions
 });
 
-export default connect(
+const SearchContainer = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Search);
+
+export default SearchContainer;
