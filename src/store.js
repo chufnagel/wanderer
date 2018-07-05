@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
-import rootReducer from "./reducers/";
+import rootReducer from "./reducers";
 import CountriesAll from "./components/LocationProfile/CountriesAll";
 import photos from "../example data/pictures-of-japan";
 

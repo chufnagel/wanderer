@@ -1,17 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
-import Search from "./Search";
+import SearchContainer from "../../containers/SearchContainer";
 
-// Sidebar gets the search function as a prop from App
-// and passes it to the Search component
-
-const Sidebar = props => (
+const Sidebar = () => (
   <div>
-    <Drawer variant="permanent" position="absolute" className="docked" anchor="left">
+    <Drawer
+      variant="permanent"
+      position="absolute"
+      className="docked"
+      anchor="left"
+    >
       <br />
       <br />
       <br />
@@ -20,13 +22,7 @@ const Sidebar = props => (
           <img width="128px" height="128px" />
         </center>
         <br />
-        <Search
-          handleSelectedLocation={props.handleSelectedLocation}
-          getPointsOfInterest={props.getPointsOfInterest}
-          location={props.location}
-          getAttractions={props.getAttractions}
-          setNavFlagToCountryorCity={props.setNavFlagToCountryorCity}
-        />
+        <SearchContainer />
         <br />
         <ListItem button>
           <Link to="/">
@@ -39,7 +35,7 @@ const Sidebar = props => (
           </Link>
         </ListItem>
         <ListItem button>
-          <Link to="/profile" onClick={() => {props.getUserInfo(props.user_id)}}>
+          <Link to="/profile">
             <ListItemText primary="Profile" />
           </Link>
         </ListItem>

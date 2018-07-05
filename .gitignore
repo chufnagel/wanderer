@@ -19,10 +19,7 @@ Icon
 .Spotlight-V100
 .Trashes
 
-dist/bundle.js
-
-.cache/
-.cache/*.json
+dist/
 
 .env.development
 .env.test
@@ -30,3 +27,7 @@ dist/bundle.js
 
 _README.md
 knexfile.js
+
+wanderer.service
+stats.json
+

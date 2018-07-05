@@ -1,7 +1,6 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import PropTypes from "prop-types";
-import PhotoGrid from "./PhotoGrid";
 import Home from "./Home";
 import BlogList from "./BlogList/BlogList";
 import LocationProfile from "./LocationProfile/LocationProfile";
@@ -9,7 +8,7 @@ import Attractions from "./LocationProfile/Attractions";
 import Destinations from "./Destinations";
 import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
-import Profile from "./Profile/Profile";
+import Profile from "./Profile/UserProfile";
 import PhotosContainer from "../containers/PhotosContainer.jsx";
 import DestinationsContainer from "../containers/DestinationsContainer.jsx";
 
@@ -42,10 +41,10 @@ const Main = props => {
           exact
           path="/photos_videos"
           render={() => {
-            //console.log('helloooooooo')
+            // console.log('helloooooooo')
             return (
               <div>
-                <PhotosContainer/>
+                <PhotosContainer />
               </div>
             );
           }}
@@ -64,20 +63,7 @@ const Main = props => {
           }}
         />
 
-        <Route
-          exact
-          path={`/${props.location}`}
-          render={() => {
-            return (
-              <LocationProfile
-                location={props.location}
-                pointsOfInterest={props.pointsOfInterest}
-                addDestinationsPast={props.addDestinationsPast}
-                addDestinationsFuture={props.addDestinationsFuture}
-              />
-            );
-          }}
-        />
+        <Route exact path="/search" component={LocationProfile} />
 
         <Route
           exact
@@ -94,7 +80,12 @@ const Main = props => {
           exact
           path="/friends"
           render={() => {
-            return <FriendsList friends={props.friends} getUserInfo={props.getUserInfo}/>;
+            return (
+              <FriendsList
+                friends={props.friends}
+                getUserInfo={props.getUserInfo}
+              />
+            );
           }}
         />
 

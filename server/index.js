@@ -27,7 +27,7 @@ const app = express();
 // Apply middleware
 app.use(bodyParser.json());
 app.use(cookieParser());
-app.use(compression());
+app.use(compression("gzip"));
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
