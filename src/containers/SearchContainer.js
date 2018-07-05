@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-// import the relevant actions -- getPointsOfInterest, getAttractions
+import { getPointsOfInterest, getAttractions } from "../actions/search";
 import Search from "../components/Sidebar/Search";
 
 const mapDispatchToProps = dispatch => ({
@@ -7,9 +7,9 @@ const mapDispatchToProps = dispatch => ({
   getAttractions: term => dispatch(getAttractions(term))
 });
 
-const mapStateToProps = ({state}) => ({
-  pointsOfInterest,
-  attractions
+const mapStateToProps = state => ({
+  pointsOfInterest: state.pointsOfInterest,
+  attractions: state.attractions
 });
 
 export default connect(

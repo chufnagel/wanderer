@@ -20,12 +20,12 @@ class Search extends Component {
           label="Search a city/country"
           type="search"
           margin="normal"
-          onChange={event => {
-            this.handleChange;
+          onChange={e => {
+            this.handleChange(e);
           }}
         />
         <br />
-        <Link to={`/${this.props.location}`}>
+        <Link to={`/${this.props.selectedLocation}`}>
           <center>
             <Button
               label="Search"

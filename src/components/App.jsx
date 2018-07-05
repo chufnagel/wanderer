@@ -1,3 +1,6 @@
+/* mm: Let's comment out the functions as we refactor them to Redux,
+so that we can keep track of what we have left to do */
+
 import React, { Component } from "react";
 import { Switch, Route, Link } from "react-router-dom";
 import { hot } from "react-hot-loader";
@@ -20,7 +23,7 @@ import HeaderContainer from "../containers/HeaderContainer.jsx"
 class App extends Component {
   state = {
     countries: CountriesAll,
-    location: "",
+    selectedLocation: "",
     pointsOfInterest: [],
     attractions: [],
     destinationsPast: ["Iceland", "Panama"],
@@ -55,21 +58,21 @@ class App extends Component {
     this.getUserInfo(this.state.user_id);
   }
 
-  getPointsOfInterest = () => {
-    axios
-      .post("/getPointsOfInterest", { location: this.state.location })
-      .then(data => this.setState({ pointsOfInterest: data.data }))
-      .catch(err =>
-        console.log("error getting points of interest from app:", err)
-      );
-  };
+  // getPointsOfInterest = () => {
+  //   axios
+  //     .post("/getPointsOfInterest", { location: this.state.selectedLocation })
+  //     .then(data => this.setState({ pointsOfInterest: data.data }))
+  //     .catch(err =>
+  //       console.log("error getting points of interest from app:", err)
+  //     );
+  // };
 
-  getAttractions = () => {
-    axios
-      .post("/getAttractions", { location: this.state.location })
-      .then(data => this.setState({ attractions: data.data }))
-      .catch(err => console.log("error getting attractions from app:", err));
-  };
+  // getAttractions = () => {
+  //   axios
+  //     .post("/getAttractions", { location: this.state.selectedLocation })
+  //     .then(data => this.setState({ attractions: data.data }))
+  //     .catch(err => console.log("error getting attractions from app:", err));
+  // };
 
   setNavFlagToCountryorCity = () => {
     this.setState({
