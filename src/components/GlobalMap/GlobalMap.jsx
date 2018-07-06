@@ -5,6 +5,7 @@ import {
   Geographies,
   Geography
 } from "react-simple-maps";
+import Tooltip from "@material-ui/core/Tooltip";
 import chroma from "chroma-js";
 import subregions from "./subregions";
 
@@ -30,7 +31,7 @@ class GlobalMap extends Component {
       <div className="global-map" style={wrapperStyles}>
         <ComposableMap
           projectionConfig={{
-            scale: 100,
+            scale: 110,
             rotation: [-11, 0, 0]
           }}
           width={980}
@@ -40,51 +41,51 @@ class GlobalMap extends Component {
             height: "auto"
           }}
         >
-          <ZoomableGroup center={[0, 20]}>
-            <Geographies geography={ "world-1.json" }>
-              {(geographies, projection) =>
-                geographies.map((geography, i) => (
-                  <Geography
-                    key={i}
-                    geography={geography}
-                    projection={projection}
-                    onClick={this.handleClick}
-                    style={{
-                      default: {
-                        fill:
-                          colorScale[
-                            subregions.indexOf(geography.properties.subregion)
-                          ],
-                        stroke: "#607D8B",
-                        strokeWidth: 0.75,
-                        outline: "none"
-                      },
-                      hover: {
-                        fill: chroma(
-                          colorScale[
-                            subregions.indexOf(geography.properties.subregion)
-                          ]
-                        ).darken(0.5),
-                        stroke: "#607D8B",
-                        strokeWidth: 0.75,
-                        outline: "none"
-                      },
-                      pressed: {
-                        fill: chroma(
-                          colorScale[
-                            subregions.indexOf(geography.properties.subregion)
-                          ]
-                        ).brighten(0.5),
-                        stroke: "#607D8B",
-                        strokeWidth: 0.75,
-                        outline: "none"
-                      }
-                    }}
-                  />
-                ))
-              }
-            </Geographies>
-          </ZoomableGroup>
+          <Geographies geography={ "world-1.json" }>
+            {(geographies, projection) =>
+              geographies.map((geography, i) => (
+                <Tooltip id="tooltip-country" title={geography.properties.name}>
+                <Geography
+                  key={i}
+                  geography={geography}
+                  projection={projection}
+                  onClick={this.handleClick}
+                  style={{
+                    default: {
+                      fill:
+                        colorScale[
+                          subregions.indexOf(geography.properties.subregion)
+                        ],
+                      stroke: "#607D8B",
+                      strokeWidth: 0.75,
+                      outline: "none"
+                    },
+                    hover: {
+                      fill: chroma(
+                        colorScale[
+                          subregions.indexOf(geography.properties.subregion)
+                        ]
+                      ).darken(0.5),
+                      stroke: "#607D8B",
+                      strokeWidth: 0.75,
+                      outline: "none"
+                    },
+                    pressed: {
+                      fill: chroma(
+                        colorScale[
+                          subregions.indexOf(geography.properties.subregion)
+                        ]
+                      ).brighten(0.5),
+                      stroke: "#607D8B",
+                      strokeWidth: 0.75,
+                      outline: "none"
+                    }
+                  }}
+                />
+                </Tooltip>
+              ))
+            }
+          </Geographies>
         </ComposableMap>
       </div>
     );
