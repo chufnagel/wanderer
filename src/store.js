@@ -36,7 +36,8 @@ const store = createStore(
     ],
     // photos,
     pointsOfInterest: [],
-    attractions: []
+    attractions: [],
+    locationBasicInfo: []
     // userId: 1,
     // destinations: [{ favDestinations: [] }, { visitedDestinations: [] }]
   },

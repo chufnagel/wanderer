@@ -2,7 +2,11 @@ const router = require("express").Router();
 const User = require("./Models/user");
 const Blog = require("./Models/blog");
 const Destinations = require("./Models/destinations");
-let { getPointsOfInterest, getAttractions } = require("./helperFunctions");
+const {
+  getPointsOfInterest,
+  getAttractions,
+  getBasicInfo
+} = require("./helperFunctions");
 const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
 
@@ -23,6 +27,15 @@ router.post("/getPointsOfInterest", (req, res) => {
       res.send(data);
     }
   });
+});
+
+// calls the helper function to query REST Countries API for basic info for given location
+router.post("/getBasicInfo", (req, res) => {
+  console.log('hit server endpoint for getting basic info:', req.body);
+  // getBasicInfo(req.body.location, (err, data) => {
+  //   if (err) console.log("error getting basic info from server", err);
+  //   else res.send(data);
+  // });
 });
 
 // User.retrieveUserByUserId
@@ -129,6 +142,6 @@ router.get("/tags", async (req, res, next) => {
     console.error(err);
     res.status(404).send("Unable to retrieve tags");
   }
-})
+});
 
 module.exports = router;
