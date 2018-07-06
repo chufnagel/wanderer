@@ -8,14 +8,14 @@ function getLocationBasicInfoSuccess(locationBasicInfo) {
   };
 }
 
-export function getLocationBasicInfo(term) {
+function getLocationBasicInfo(term) {
   console.log("hitting locationbasicinfo with:", term);
-  return dispatch => {
-    axios.post("/getLocationBasicInfo", { location: term }).then(data => {
-      const locationBasicInfo = data.map(info => info);
-      dispatch(getLocationBasicInfoSuccess(locationBasicInfo));
-    });
-  };
+  // return dispatch => {
+  //   axios.post("/getLocationBasicInfo", { location: term }).then(data => {
+  //     const locationBasicInfo = data.map(info => info);
+  //     dispatch(getLocationBasicInfoSuccess(locationBasicInfo));
+  //   });
+  // };
 }
 
 export default getLocationBasicInfo;

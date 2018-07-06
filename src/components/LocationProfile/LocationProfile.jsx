@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 // import PointsOfInterest from "./PointsOfInterest";
+import LocationBasicInfo from "./LocationBasicInfo";
 
 const LocationProfile = ({
   location
@@ -25,13 +26,14 @@ const LocationProfile = ({
         </button> */}
       </div>
 
-      <div className="location-info">
+      <LocationBasicInfo />
+      {/* <div className="location-info">
         <h2>Basic Info About {location}:</h2>
         <p>Population size: </p>
         <p>Language: </p>
         <p>Currency: </p>
         <p>Flag: </p>
-      </div>
+      </div> */}
 
       {/* <PointsOfInterest
         pointsOfInterest={pointsOfInterest}
