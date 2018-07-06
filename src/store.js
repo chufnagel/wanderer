@@ -3,7 +3,8 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import rootReducer from "./reducers";
 import CountriesAll from "./components/LocationProfile/CountriesAll";
-import photos from "../example data/pictures-of-japan";
+// import photos from "../example data/pictures-of-japan";
+import { HOME } from "./constants";
 
 /* eslint disable */
 const composeEnhancers =
@@ -15,10 +16,10 @@ const composeEnhancers =
 const store = createStore(
   rootReducer,
   {
-    currentText: "Intializing...",
+    // currentText: "Initializing...",
     countries: CountriesAll,
-    location: "",
-    navFlag: "dashboard",
+    // location: "",
+    headerSetting: HOME,
     blogs: [
       {
         blogId: "1",
@@ -33,11 +34,11 @@ const store = createStore(
         blogContents: "とりあえず 生 なま ビルください"
       }
     ],
-    // photos: [],
-    photos,
+    // photos,
     pointsOfInterest: [],
-    userId: 1,
-    destinations: [{ favDestinations: [] }, { visitedDestinations: [] }]
+    attractions: []
+    // userId: 1,
+    // destinations: [{ favDestinations: [] }, { visitedDestinations: [] }]
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
