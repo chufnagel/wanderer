@@ -11,6 +11,7 @@ class Search extends Component {
     this.state = {
       field: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = e => {
