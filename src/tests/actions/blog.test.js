@@ -15,32 +15,30 @@ describe("async actions", () => {
   });
   test("creates GET_BLOGS_SUCCESS when fetching has been done", () => {
     fetchMock.getOnce("/blogs", {
-      body: {
-        blogs: [
-          {
-            blogId: "1",
-            blogTitle: "WELCOME TO NIHON",
-            blogAuthor: "BROICHI",
-            blogContents: "YOLO SWAG"
-          },
-        ]
-      },
+      blogs: [
+        {
+          blog_id: 1,
+          content: "YOLO SWAG",
+          timestamp: "2018-06-30T23:46:49.000Z",
+          title: "WELCOME TO NIHON",
+          user_id: 1
+        }
+      ],
       headers: { "content-type": "application/json" }
     });
     const expectedActions = [
       { type: types.GET_BLOGS_REQUEST },
       {
         type: types.GET_BLOGS_SUCCESS,
-        body: {
-          blogs: [
-            {
-              blogId: "1",
-              blogTitle: "WELCOME TO NIHON",
-              blogAuthor: "BROICHI",
-              blogContents: "YOLO SWAG"
-            }
-          ]
-        }
+        blogs: [
+          {
+            blog_id: 1,
+            content: "YOLO SWAG",
+            timestamp: "2018-06-30T23:46:49.000Z",
+            title: "WELCOME TO NIHON",
+            user_id: 1
+          }
+        ]
       }
     ];
     const store = mockStore({ blogs: [] });
@@ -51,7 +49,6 @@ describe("async actions", () => {
   });
 });
 
-
 // -     "body": Object {
 //   -       "blogs": Array [
 //   +     "payload": Array [
@@ -60,11 +57,7 @@ describe("async actions", () => {
 //   -           "blogContents": "YOLO SWAG",
 //   -           "blogId": "1",
 //   -           "blogTitle": "WELCOME TO NIHON",
-//   +         "blog_id": 1,
-//   +         "content": "YOLO SWAG",
-//   +         "timestamp": "2018-06-30T23:46:49.000Z",
-//   +         "title": "WELCOME TO NIHON",
-//   +         "user_id": 1,
+
 //           },
 //         ],
 //   -     },
