@@ -2,6 +2,7 @@ import {
   GET_POINTS_OF_INTEREST_SUCCESS,
   GET_ATTRACTIONS_SUCCESS
 } from "./types";
+import axios from "axios";
 
 function getPointsOfInterestSuccess(pointsOfInterest) {
   return {

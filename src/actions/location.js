@@ -1,8 +1,8 @@
-import { CHANGE_SELECTED_LOCATION } from "./types";
+import * as actions from "./types";
 
 function changeSelectedLocation(location) {
   return {
-    type: CHANGE_SELECTED_LOCATION,
+    type: actions.CHANGE_SELECTED_LOCATION,
     location
   };
 }
