@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import blogs from "./blogReducer";
-import header from "./headerReducer";
 import location from "./locationReducer";
+import headerSetting from "./headerReducer";
 import { pointsOfInterest, attractions } from "./searchReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 // import navReducer from "./navReducer";
@@ -15,7 +15,10 @@ const rootReducer = combineReducers({
   attractions,
   pointsOfInterest,
   blogs,
-  header
+  headerSetting
+  // photos
+  // destinations
+  // userId
 });
 
 export default rootReducer;

@@ -20,6 +20,10 @@ Icon
 .Trashes
 
 dist/
+<<<<<<< HEAD
+.cache/
+=======
+>>>>>>> dev
 
 .env.development
 .env.test

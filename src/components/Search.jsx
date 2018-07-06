@@ -5,9 +5,16 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 class Search extends Component {
-  state: { field: "" };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      field: ""
+    };
+  }
 
   handleChange = e => {
+    console.log(this.state.field);
     e.preventDefault();
     this.setState({ field: e.target.value });
   };

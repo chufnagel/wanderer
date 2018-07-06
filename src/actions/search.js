@@ -1,17 +1,14 @@
-import {
-  GET_POINTS_OF_INTEREST_SUCCESS,
-  GET_ATTRACTIONS_SUCCESS
-} from "./types";
 import axios from "axios";
+import * as actions from "./types";
 
 function getPointsOfInterestSuccess(pointsOfInterest) {
   return {
-    type: GET_POINTS_OF_INTEREST_SUCCESS,
+    type: actions.GET_POINTS_OF_INTEREST_SUCCESS,
     pointsOfInterest
   };
 }
 
-function getPointsOfInterest(term) {
+export function getPointsOfInterest(term) {
   return dispatch => {
     axios.post("/getPointsOfInterest", { location: term }).then(({ data }) => {
       const pointsOfInterest = data.map(attraction => {
@@ -24,12 +21,12 @@ function getPointsOfInterest(term) {
 
 function getAttractionsSuccess(attractions) {
   return {
-    type: GET_ATTRACTIONS_SUCCESS,
+    type: actions.GET_ATTRACTIONS_SUCCESS,
     attractions
   };
 }
 
-function getAttractions(term) {
+export function getAttractions(term) {
   return dispatch => {
     axios.post("/getAttractions", { location: term }).then(({ data }) => {
       const attractions = data.map(attraction => {
@@ -39,10 +36,3 @@ function getAttractions(term) {
     });
   };
 }
-
-export {
-  getPointsOfInterestSuccess,
-  getPointsOfInterest,
-  getAttractionsSuccess,
-  getAttractions as default
-};
