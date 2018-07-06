@@ -5,9 +5,17 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 
 class Search extends Component {
-  state: { field: null };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      field: ""
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   handleChange = e => {
+    console.log(this.state.field);
     e.preventDefault();
     this.setState({ field: e.target.value });
   };
@@ -25,7 +33,7 @@ class Search extends Component {
           }}
         />
         <br />
-        <Link to={"/search"}>
+        <Link to="/search">
           <center>
             <Button
               label="Search"
@@ -33,6 +41,7 @@ class Search extends Component {
               variant="raised"
               color="primary"
               onClick={() => {
+                this.props.changeSelectedLocation(this.state.field);
                 this.props.getPointsOfInterest(this.state.field);
                 this.props.getAttractions(this.state.field);
               }}
@@ -47,6 +56,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
+  changeSelectedLocation: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,
   getAttractions: PropTypes.func.isRequired
 };

@@ -1,11 +1,11 @@
-import SET_HEADER from "../actions/types";
+import { SET_HEADER } from "../actions/types";
 
-export default function header(state = {}, action) {
+export default function headerSetting(state = "", action) {
   switch (action.type) {
     case SET_HEADER:
-      return Object.assign({}, state, {
-        headerSetting: action.setting
-      });
+      return action.setting === state.header
+        ? { headerSetting: action.setting }
+        : state;
     default:
       return state;
   }

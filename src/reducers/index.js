@@ -3,7 +3,8 @@ import photoReducer from "./photoReducer.js"
 import navReducer from "./navReducer.js"
 import {reducerPast, reducerFuture} from "./destinationsReducer.js"
 import blogs from "./blogReducer";
-import header from "./headerReducer";
+import location from "./locationReducer";
+import headerSetting from "./headerReducer";
 import { pointsOfInterest, attractions } from "./searchReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 // import navReducer from "./navReducer";
@@ -13,10 +14,14 @@ import { pointsOfInterest, attractions } from "./searchReducer";
 // No mutations!
 
 const rootReducer = combineReducers({
+  location,
   attractions,
   pointsOfInterest,
   blogs,
-  header
+  headerSetting
+  // photos
+  // destinations
+  // userId
 });
 
 export default rootReducer;

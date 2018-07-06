@@ -1,13 +1,16 @@
 import { connect } from "react-redux";
 import { getPointsOfInterest, getAttractions } from "../actions/search";
+import changeSelectedLocation from "../actions/location";
 import Search from "../components/Search";
 
 const mapStateToProps = state => ({
+  location: state.location,
   pointsOfInterest: state.pointsOfInterest,
   attractions: state.attractions
 });
 
 const mapDispatchToProps = dispatch => ({
+  changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
   getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
   getAttractions: term => dispatch(getAttractions(term))
 });
