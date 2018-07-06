@@ -1,5 +1,9 @@
 import axios from "../axios";
-import * as types from "./types";
+import {
+  GET_BLOGS_REQUEST,
+  GET_BLOGS_SUCCESS,
+  GET_BLOGS_FAILURE
+} from "./types";
 
 // all logic in action creators and/or utility functions used by action creators!
 
@@ -17,41 +21,22 @@ export function addBlog(blog) {
   };
 }
 
-// // helper method for action creator
-// function getBlogsAsync(blogs) {
-//   return {
-//     type: types.GET_BLOGS,
-//     payload: blogs
-//   };
-// }
-
-// export function getBlogs() {
-//   return dispatch => {
-//     axios.get("http://localhost:3000/blogs").then(res => {
-//       const blogs = res.data.map(blog => {
-//         return blog;
-//       });
-//       dispatch(getBlogsAsync(blogs));
-//     });
-//   };
-// }
-
 export const getBlogsRequest = () => {
   return {
-    type: types.GET_BLOGS_REQUEST
+    type: GET_BLOGS_REQUEST
   };
 };
 
 export const getBlogsSuccess = blogs => {
   return {
-    type: types.GET_BLOGS_SUCCESS,
+    type: GET_BLOGS_SUCCESS,
     blogs
   };
 };
 
 export const getBlogsFailure = error => {
   return {
-    type: types.GET_BLOGS_FAILURE,
+    type: GET_BLOGS_FAILURE,
     error
   };
 };

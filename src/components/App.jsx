@@ -8,7 +8,12 @@ import Header from "./Header";
 import Home from "./Home";
 import UserProfile from "./UserProfile/UserProfile";
 import LocationProfile from "./LocationProfile/LocationProfile";
-import Blogs from "../containers/BlogsContainer";
+// import Blogs from "../containers/BlogsContainer";
+import asyncComponent from "../hoc/asyncComponent";
+
+const asyncBlogs = asyncComponent(() => {
+  return import("../containers/BlogsContainer");
+});
 
 const App = () => (
   <div className="app">
@@ -24,7 +29,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/search" component={LocationProfile} />
-        <Route path="/blogs" component={Blogs} />
+        <Route path="/blogs" component={asyncBlogs} />
         <Redirect to="/" />
       </Switch>
     </center>
