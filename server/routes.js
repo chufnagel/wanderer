@@ -43,6 +43,16 @@ router.get("/destinationsPast", (req, res) => {
   });
 });
 
+router.post("/destinationsFuture", (req, res) => {
+  console.log(req.body)
+  Destinations.addFavByUserId(req.body.user_id, req.body.country)
+});
+
+router.post("/destinationsPast", (req, res) => {
+  console.log(req.body)
+  Destinations.addVisitedByUserId(req.body.user_id, req.body.country)
+});
+
 router.get("/friends", (req, res) => {
   // console.log('*******',req.query)
   User.retrieveFriendsByUserId(req.query.user_id, friends => {
