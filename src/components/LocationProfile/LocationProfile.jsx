@@ -51,11 +51,11 @@ const LocationProfile = ({
   );
 };
 
-LocationProfile.propTypes = {
-  location: PropTypes.string.isRequired,
-  pointsOfInterest: PropTypes.arrayOf(PropTypes.object).isRequired,
-  addDestinationsPast: PropTypes.func.isRequired,
-  addDestinationsFuture: PropTypes.func.isRequired
-};
+// LocationProfile.propTypes = {
+//   location: PropTypes.string.isRequired,
+//   pointsOfInterest: PropTypes.arrayOf(PropTypes.object).isRequired,
+//   addDestinationsPast: PropTypes.func.isRequired,
+//   addDestinationsFuture: PropTypes.func.isRequired
+// };
 
 export default LocationProfile;
