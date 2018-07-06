@@ -11,6 +11,7 @@ class Search extends Component {
     this.state = {
       field: ""
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange = e => {
@@ -40,6 +41,7 @@ class Search extends Component {
               variant="raised"
               color="primary"
               onClick={() => {
+                this.props.changeSelectedLocation(this.state.field);
                 this.props.getPointsOfInterest(this.state.field);
                 this.props.getAttractions(this.state.field);
               }}
@@ -54,6 +56,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
+  changeSelectedLocation: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,
   getAttractions: PropTypes.func.isRequired
 };

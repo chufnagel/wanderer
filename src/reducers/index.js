@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import blogs from "./blogReducer";
+import location from "./locationReducer";
 import headerSetting from "./headerReducer";
 import { pointsOfInterest, attractions } from "./searchReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
@@ -10,6 +11,7 @@ import { pointsOfInterest, attractions } from "./searchReducer";
 // No mutations!
 
 const rootReducer = combineReducers({
+  location,
   attractions,
   pointsOfInterest,
   blogs,
