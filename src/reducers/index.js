@@ -1,4 +1,7 @@
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
+import photoReducer from "./photoReducer.js"
+import navReducer from "./navReducer.js"
+import {reducerPast, reducerFuture} from "./destinationsReducer.js"
 import blogs from "./blogReducer";
 import location from "./locationReducer";
 import headerSetting from "./headerReducer";
@@ -31,3 +34,8 @@ export default rootReducer;
 // location: (state = {}) => state,
 // photos: (state = {}) => state,
 // destinations: (state = {}) => state
+// blogs: blogReducer,
+// photos: photoReducer,
+// navFlag: navReducer,
+// destinationsFuture: reducerPast, 
+// destinationsPast: reducerFuture,
