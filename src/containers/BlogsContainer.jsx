@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import BlogList from "../components/BlogList/BlogList";
 import axios from "../axios";

@@ -8,7 +8,17 @@ import Header from "./Header";
 import Home from "./Home";
 import UserProfile from "./UserProfile/UserProfile";
 import LocationProfile from "./LocationProfile/LocationProfile";
-import Blogs from "../containers/BlogsContainer";
+// import Blogs from "../containers/BlogsContainer";
+// import LocationProfile from "./LocationProfile/LocationProfile";
+import FriendsList from "./FriendsList";
+import Destinations from "./Destinations";
+import PhotosContainer from "../containers/PhotosContainer";
+import Explore from "./Explore/Explore";
+import asyncComponent from "../hoc/asyncComponent";
+
+const asyncBlogs = asyncComponent(() => {
+  return import("../containers/BlogsContainer");
+});
 
 const App = () => (
   <div className="app">
@@ -24,7 +34,13 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/search" component={LocationProfile} />
-        <Route path="/blogs" component={Blogs} />
+        <Route path="/blogs" component={asyncBlogs} />
+        {/* <Route exact path="/search" component={LocationProfile} /> */}
+        <Route exact path="/search" component={Explore} />
+        <Route exact path="/friends" component={FriendsList} />
+        <Route exact path="/photos" component={PhotosContainer} />
+        <Route exact path="/destinations" component={Destinations} />
+        <Route exact path="/explore" component={Explore} />
         <Redirect to="/" />
       </Switch>
     </center>

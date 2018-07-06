@@ -1,12 +1,9 @@
-import {
-  GET_ATTRACTIONS_SUCCESS,
-  GET_POINTS_OF_INTEREST_SUCCESS
-} from "../actions/types";
+import * as actions from "../actions/types";
 
 function attractions(state = [], action) {
   switch (action.type) {
-    case GET_ATTRACTIONS_SUCCESS:
-      return [...state, { attractions: action.attractions }];
+    case actions.GET_ATTRACTIONS_SUCCESS:
+      return action.attractions;
     default:
       return state;
   }
@@ -14,8 +11,8 @@ function attractions(state = [], action) {
 
 function pointsOfInterest(state = [], action) {
   switch (action.type) {
-    case GET_POINTS_OF_INTEREST_SUCCESS:
-      return [...state, { pointsOfInterest: action.pointsOfInterest }];
+    case actions.GET_POINTS_OF_INTEREST_SUCCESS:
+      return action.pointsOfInterest;
     default:
       return state;
   }
