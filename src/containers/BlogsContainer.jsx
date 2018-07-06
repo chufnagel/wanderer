@@ -1,9 +1,7 @@
-import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import BlogList from "../components/BlogList/BlogList";
 import axios from "../axios";
 import * as actions from "../actions/index";
-import withErrorHandler from "../hoc/withErrorHandler";
 
 const mapStateToProps = state => ({
   blogs: state.blogs,
@@ -21,4 +19,4 @@ const BlogsContainer = connect(
   mapDispatchToProps
 )(BlogList);
 
-export default withErrorHandler(BlogsContainer);
+export default BlogsContainer;

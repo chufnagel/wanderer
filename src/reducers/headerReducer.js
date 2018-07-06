@@ -1,4 +1,4 @@
-import SET_HEADER from "../actions/types";
+import { SET_HEADER } from "../actions/types";
 
 export default function headerSetting(state = "", action) {
   switch (action.type) {
