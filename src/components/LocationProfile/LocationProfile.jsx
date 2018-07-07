@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import PointsOfInterest from "./PointsOfInterest";
 import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
+import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
 
 const LocationProfile = ({
   location
-  // pointsOfInterest
+  // pointsOfInterest,
   // addDestinationsPast,
   // addDestinationsFuture
 }) => {
@@ -28,6 +28,7 @@ const LocationProfile = ({
 
       <LocationBasicInfoContainer />
 
+      <PointsOfInterestContainer />
       {/* <PointsOfInterest
         pointsOfInterest={pointsOfInterest}
         location={location}
