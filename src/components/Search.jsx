@@ -25,7 +25,7 @@ class Search extends Component {
       <form>
         <TextField
           id="search"
-          label="Search a city/country"
+          label="Search a country"
           type="search"
           margin="normal"
           onChange={e => {

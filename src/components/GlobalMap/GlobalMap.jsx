@@ -1,10 +1,6 @@
 import React, { Component } from "react";
-import {
-  ComposableMap,
-  ZoomableGroup,
-  Geographies,
-  Geography
-} from "react-simple-maps";
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import Tooltip from "@material-ui/core/Tooltip";
 import chroma from "chroma-js";
 import subregions from "./subregions";
 
@@ -15,22 +11,28 @@ const wrapperStyles = {
 };
 
 const colorScale = chroma
-  .scale([
-    "b6fbea", "ccccff", "663894"
-  ]) // icy teal, pastel lavender, dark purple
+  .scale(["b6fbea", "ccccff", "663894"]) // icy teal, pastel lavender, dark purple
   .mode("lch")
   .colors(24);
 
 class GlobalMap extends Component {
   state = {
-    subregions: subregions
+    subregions,
+    selectedCountry: ""
   };
+
+  changeSelectedCountry = c => {
+    this.setState({
+      selectedCountry: c
+    });
+  };
+
   render() {
     return (
       <div className="global-map" style={wrapperStyles}>
         <ComposableMap
           projectionConfig={{
-            scale: 100,
+            scale: 110,
             rotation: [-11, 0, 0]
           }}
           width={980}
@@ -40,10 +42,16 @@ class GlobalMap extends Component {
             height: "auto"
           }}
         >
-          <ZoomableGroup center={[0, 20]}>
-            <Geographies geography={ "world-1.json" }>
-              {(geographies, projection) =>
-                geographies.map((geography, i) => (
+          <Geographies geography={"world-1.json"}>
+            {(geographies, projection) =>
+              geographies.map((geography, i) => (
+                <Tooltip
+                  key={i}
+                  id="tooltip-country"
+                  title={geography.properties.name}
+                  placement="top-start"
+                  onOpen={e => this.changeSelectedCountry(e)}
+                >
                   <Geography
                     key={i}
                     geography={geography}
@@ -81,10 +89,10 @@ class GlobalMap extends Component {
                       }
                     }}
                   />
-                ))
-              }
-            </Geographies>
-          </ZoomableGroup>
+                </Tooltip>
+              ))
+            }
+          </Geographies>
         </ComposableMap>
       </div>
     );
