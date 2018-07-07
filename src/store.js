@@ -38,9 +38,9 @@ const store = createStore(
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: { languages: [{ name: "" }] , currencies: [{ name: "" }] },
-    // userId: 1,
-    // destinationsFuture: [],
-    // destinationsPast: []
+    userId: 1,
+    faveDestinations: [],
+    visitedDestinations: []
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
