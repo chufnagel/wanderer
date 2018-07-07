@@ -1,8 +1,8 @@
-import { SET_HEADER } from "./types";
+import * as types from "./types";
 
 export default function setHeader(setting) {
   return {
-    type: SET_HEADER,
+    type: types.SET_HEADER,
     setting
   };
 }

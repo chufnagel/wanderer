@@ -1,9 +1,9 @@
-import { SET_HEADER } from "../actions/types";
+import * as actions from "../actions/types";
 
-export default function headerSetting(state = "", action) {
+export default function headerSetting(state = "HOME", action) {
   switch (action.type) {
-    case SET_HEADER:
-      return action.setting === state.header
+    case actions.SET_HEADER:
+      return action.setting !== state.headerSetting
         ? { headerSetting: action.setting }
         : state;
     default:
