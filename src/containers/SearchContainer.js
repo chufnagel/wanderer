@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import { getPointsOfInterest, getAttractions } from "../actions/search";
+import { getPointsOfInterest, getAttractions, getLocationBasicInfo } from "../actions/search";
 import changeSelectedLocation from "../actions/location";
-import getLocationBasicInfo from "../actions/locationBasicInfo";
 import Search from "../components/Search";
 
 const mapStateToProps = state => ({
