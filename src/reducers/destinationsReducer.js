@@ -1,20 +1,25 @@
-import { ADD_BLOG, GET_BLOGS } from "../actions/types";
-import { updateObject } from "../utility";
+import * as actions from "../actions/types";
 
-export function reducerPast(state = [], action) {
+function faveDestinations(state = [], action) {
   switch (action.type) {
-    case "GET_DESTINATIONS_PAST":
-      return action.destinationsPast;
+    case actions.ADD_FAV_DESTINATION_SUCCESS:
+      return [...state, action.payload];
+    case actions.GET_FAV_DESTINATIONS_SUCCESS:
+      return action.faveDestinations;
     default:
       return state;
   }
 }
 
-export function reducerFuture(state = [], action) {
+function visitedDestinations(state = [], action) {
   switch (action.type) {
-    case "GET_DESTINATIONS_FUTURE":
-      return action.destinationsFuture;
+    case actions.ADD_VISITED_DESTINATION_SUCCESS:
+      return [...state, action.payload];
+    case actions.GET_VISITED_DESTINATIONS_SUCCESS:
+      return action.visitedDestinations;
     default:
       return state;
   }
 }
+
+export { faveDestinations, visitedDestinations };
