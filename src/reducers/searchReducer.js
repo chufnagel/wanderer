@@ -18,13 +18,13 @@ function pointsOfInterest(state = [], action) {
   }
 }
 
-const locationBasicInfo = (state = {}, action) => {
+function locationBasicInfo(state = {}, action) {
   switch (action.type) {
     case actions.GET_BASIC_LOCATION_INFO_SUCCESS:
       return action.locationBasicInfo;
     default:
       return state;
   }
-};
+}
 
 export { attractions, pointsOfInterest, locationBasicInfo };

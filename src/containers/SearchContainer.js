@@ -1,5 +1,9 @@
 import { connect } from "react-redux";
-import { getPointsOfInterest, getAttractions, getLocationBasicInfo } from "../actions/search";
+import {
+  getPointsOfInterest,
+  getAttractions,
+  getLocationBasicInfo
+} from "../actions/search";
 import changeSelectedLocation from "../actions/location";
 import Search from "../components/Search";
 
