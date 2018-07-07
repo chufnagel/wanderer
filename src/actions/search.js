@@ -36,3 +36,18 @@ export function getAttractions(term) {
     });
   };
 }
+
+function getLocationBasicInfoSuccess(locationBasicInfo) {
+  return {
+    type: actions.GET_BASIC_LOCATION_INFO_SUCCESS,
+    locationBasicInfo
+  };
+}
+
+export function getLocationBasicInfo(term) {
+  return dispatch => {
+    axios.post("/getLocationBasicInfo", { location: term }).then(({ data }) => {
+      dispatch(getLocationBasicInfoSuccess(data));
+    });
+  };
+}

@@ -1,12 +1,15 @@
-import { combineReducers } from 'redux';
-import photoReducer from "./photoReducer.js"
-import navReducer from "./navReducer.js"
-import {reducerPast, reducerFuture} from "./destinationsReducer.js"
+import { combineReducers } from "redux";
+// import photoReducer from "./photoReducer.js"
+// import navReducer from "./navReducer.js"
+// import {reducerPast, reducerFuture} from "./destinationsReducer.js"
 import blogs from "./blogReducer";
 import location from "./locationReducer";
-import locationBasicInfo from "./locationBasicInfoReducer";
 import headerSetting from "./headerReducer";
-import { pointsOfInterest, attractions } from "./searchReducer";
+import {
+  pointsOfInterest,
+  attractions,
+  locationBasicInfo
+} from "./searchReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 // import navReducer from "./navReducer";
 
@@ -39,5 +42,5 @@ export default rootReducer;
 // blogs: blogReducer,
 // photos: photoReducer,
 // navFlag: navReducer,
-// destinationsFuture: reducerPast, 
+// destinationsFuture: reducerPast,
 // destinationsPast: reducerFuture,
