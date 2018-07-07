@@ -18,7 +18,7 @@ const store = createStore(
   {
     // currentText: "Initializing...",
     countries: CountriesAll,
-    // location: "",
+    location: "",
     headerSetting: HOME,
     blogs: [
       {
@@ -37,10 +37,10 @@ const store = createStore(
     // photos,
     pointsOfInterest: [],
     attractions: [],
-    locationBasicInfo: { languages: [{ name: "" }] , currencies: [{ name: "" }] }
-    userId: 1,
-    destinationsFuture: [],
-    destinationsPast: []
+    locationBasicInfo: { languages: [{ name: "" }] , currencies: [{ name: "" }] },
+    // userId: 1,
+    // destinationsFuture: [],
+    // destinationsPast: []
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
