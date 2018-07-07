@@ -10,6 +10,7 @@ import Explore from "./Explore/Explore";
 import FriendsList from "./FriendsList";
 import Profile from "./Profile/UserProfile";
 import PhotosContainer from "../containers/PhotosContainer.jsx";
+import DestinationsContainer from "../containers/DestinationsContainer.jsx";
 
 const Main = props => {
   return (
@@ -69,11 +70,7 @@ const Main = props => {
           path="/destinations"
           render={() => {
             return (
-              <Destinations
-                setNavFlagToDashboard={props.setNavFlagToDashboard}
-                destinationsPast={props.destinationsPast}
-                destinationsFuture={props.destinationsFuture}
-              />
+              <DestinationsContainer/>
             );
           }}
         />

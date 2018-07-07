@@ -38,14 +38,14 @@ router.post("/getLocationBasicInfo", (req, res) => {
 });
 
 // User.retrieveUserByUserId
-router.get("/favDestinations", (req, res) => {
+router.get("/destinationsFuture", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.user_id, countries => {
     // console.log('favorite countries', countries)
     res.send(countries);
   });
 });
 
-router.get("/visitedDestinations", (req, res) => {
+router.get("/destinationsPast", (req, res) => {
   Destinations.retrieveVisitedByUserId(req.query.user_id, countries => {
     // console.log('visited countries', countries)
     res.status(200).send(countries);
@@ -55,6 +55,16 @@ router.get("/visitedDestinations", (req, res) => {
   });
 });
 
+router.post("/destinationsFuture", (req, res) => {
+  console.log(req.body)
+  Destinations.addFavByUserId(req.body.user_id, req.body.country)
+});
+
+router.post("/destinationsPast", (req, res) => {
+  console.log(req.body)
+  Destinations.addVisitedByUserId(req.body.user_id, req.body.country)
+});
+
 router.get("/friends", (req, res) => {
   // console.log('*******',req.query)
   User.retrieveFriendsByUserId(req.query.user_id, friends => {
@@ -62,6 +72,8 @@ router.get("/friends", (req, res) => {
     res.status(200).send(friends);
   }).catch(err => console.error(err));
 });
+
+/* KS: temporarily commenting out everything below as "async" does not run on HR pairing station 
 
 router.get("/userInfo", async (req, res, next) => {
   console.log(req.params);
@@ -142,5 +154,7 @@ router.get("/tags", async (req, res, next) => {
     res.status(404).send("Unable to retrieve tags");
   }
 });
+
+*/
 
 module.exports = router;
