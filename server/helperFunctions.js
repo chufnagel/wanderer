@@ -35,5 +35,10 @@ module.exports = {
       .catch(err =>
         console.log("helper function error getting attractions:", err)
       );
+  },
+  // query REST Countries API for basic country info for a given country
+  getLocationBasicInfo: (location, cb) => {
+    const queryStr = `https://restcountries.eu/rest/v2/name/${location}`;
+    axios.get(queryStr).then(result => cb(result.data[0])).catch(err => console.log("helper function error getting basic info:", err));
   }
 };

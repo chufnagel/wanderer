@@ -8,8 +8,8 @@ const PointsOfInterest = ({ pointsOfInterest, location }) => {
   return (
     <div className="points-of-interest-section">
       <h2>Top Places To Visit In {location}:</h2>
-      {sorted.map((place, ind) => (
-        <div className="point-of-interest" key={ind}>
+      {sorted.map((place) => (
+        <div className="point-of-interest" key={place.id}>
           <h3>{place.name}</h3>
           <p>Address: {place.formatted_address}</p>
           <p>Rating: {place.rating}</p>

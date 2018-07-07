@@ -4,6 +4,7 @@ import navReducer from "./navReducer.js"
 import {reducerPast, reducerFuture} from "./destinationsReducer.js"
 import blogs from "./blogReducer";
 import location from "./locationReducer";
+import locationBasicInfo from "./locationBasicInfoReducer";
 import headerSetting from "./headerReducer";
 import { pointsOfInterest, attractions } from "./searchReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
@@ -15,6 +16,7 @@ import { pointsOfInterest, attractions } from "./searchReducer";
 
 const rootReducer = combineReducers({
   location,
+  locationBasicInfo,
   attractions,
   pointsOfInterest,
   blogs,

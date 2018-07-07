@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-// import PointsOfInterest from "./PointsOfInterest";
+import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
+import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
 
 const LocationProfile = ({
   location
-  // pointsOfInterest
+  // pointsOfInterest,
   // addDestinationsPast,
   // addDestinationsFuture
 }) => {
@@ -25,14 +26,9 @@ const LocationProfile = ({
         </button> */}
       </div>
 
-      <div className="location-info">
-        <h2>Basic Info About {location}:</h2>
-        <p>Population size: </p>
-        <p>Language: </p>
-        <p>Currency: </p>
-        <p>Flag: </p>
-      </div>
+      <LocationBasicInfoContainer />
 
+      <PointsOfInterestContainer />
       {/* <PointsOfInterest
         pointsOfInterest={pointsOfInterest}
         location={location}
