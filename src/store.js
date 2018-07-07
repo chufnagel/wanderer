@@ -36,9 +36,9 @@ const store = createStore(
     ],
     // photos,
     pointsOfInterest: [],
-    attractions: []
-    // userId: 1,
-    // destinations: [{ favDestinations: [] }, { visitedDestinations: [] }]
+    userId: 1,
+    destinationsFuture: [],
+    destinationsPast: []
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
