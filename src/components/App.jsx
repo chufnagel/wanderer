@@ -8,6 +8,7 @@ import Header from "./Header";
 import Home from "./Home";
 import UserProfile from "./UserProfile/UserProfile";
 import LocationProfile from "./LocationProfile/LocationProfile";
+import AttractionsContainer from "../containers/AttractionsContainer";
 // import Blogs from "../containers/BlogsContainer";
 import FriendsList from "./FriendsList";
 import Destinations from "./Destinations";
@@ -33,6 +34,7 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/search" component={LocationProfile} />
+        <Route exact path="/attractions" component={AttractionsContainer} />
         <Route path="/blogs" component={asyncBlogs} />
         <Route exact path="/friends" component={FriendsList} />
         <Route exact path="/photos" component={PhotosContainer} />
