@@ -5,7 +5,7 @@ const Destinations = require("./Models/destinations");
 const {
   getPointsOfInterest,
   getAttractions,
-  getBasicInfo
+  getLocationBasicInfo
 } = require("./helperFunctions");
 const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
@@ -30,12 +30,11 @@ router.post("/getPointsOfInterest", (req, res) => {
 });
 
 // calls the helper function to query REST Countries API for basic info for given location
-router.post("/getBasicInfo", (req, res) => {
-  console.log('hit server endpoint for getting basic info:', req.body);
-  // getBasicInfo(req.body.location, (err, data) => {
-  //   if (err) console.log("error getting basic info from server", err);
-  //   else res.send(data);
-  // });
+router.post("/getLocationBasicInfo", (req, res) => {
+  getLocationBasicInfo(req.body.location, (data) => {
+    if (data) res.send(data);
+    // else (err) console.log("error getting basic info from server", err);
+  });
 });
 
 // User.retrieveUserByUserId
