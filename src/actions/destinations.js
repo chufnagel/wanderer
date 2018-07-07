@@ -1,65 +1,113 @@
 import axios from "axios";
-import { ADD_BLOG, GET_BLOGS } from "./types";
+import * as actions from "./types";
 
 // all logic in action creators and/or utility functions used by action creators!
 
-// helper method for action creator
-function updateDestinationsFutureAsync(destinations) {
+// helper function for addFaveDestination
+function addFaveDestinationSuccess(destination) {
   return {
-    type: UPDATE_DESTINATIONS,
-    destinationsFuture: DESTINATIONS 
+    type: actions.ADD_FAV_DESTINATION_SUCCESS,
+    payload: destination
   };
 }
 
-export function updateDestinationsFuture(destination) {
+// add a country to favorites by user id
+export function addFaveDestination(userId, country) {
   return dispatch => {
-    dispatch(updateDestinationsFuture(destination));
+    axios
+      .post("/favorites", {
+        userId,
+        country
+      })
+      .then(() => dispatch(addFaveDestinationSuccess));
   };
 }
 
-//helper method for action creator
-function getDestinationsFutureAsync(destinations) {
-  console.log('destinatons future******************', destinations)
+// helper function for getFaveDestinations
+function getFaveDestinationsSuccess(faveDestinations) {
   return {
-    type: "GET_DESTINATIONS_FUTURE",
-    destinationsFuture: destinations
+    type: actions.GET_FAV_DESTINATIONS_SUCCESS,
+    faveDestinations
   };
 }
 
-export function getDestinationsFuture(user_id) {
+// get list of favorite destinations by user id
+export function getFaveDestinations(userId) {
   return dispatch => {
-    axios.get("http://localhost:3000/destinationsFuture", {
-      params: {
-      user_id 
-      }
-    }).then(destinations => {
-      console.log('destinationsFuture***', destinations)
-      dispatch(getDestinationsFutureAsync(destinations.data));
-    });
-  };
-}
-
-function getDestinationsPastAsync(destinations) {
-    console.log('destinations*(*', destinations)
-    return {
-      type: "GET_DESTINATIONS_PAST",
-      destinationsPast: destinations
-    };
-  }
-
-
-
-export function getDestinationsPast(user_id) {
-  return dispatch => {
-      axios.get("http://localhost:3000/destinationsPast", {
+    axios
+      .get("/favorites", {
         params: {
-        user_id 
+          userId
         }
-      }).then(destinations => {
-        console.log('destinationsPast***', destinations)
-        dispatch(getDestinationsPastAsync(destinations.data));
+      })
+      .then(({ data }) => {
+        const destinations = data.map(destination => {
+          return destination;
+        });
+        dispatch(getFaveDestinationsSuccess(destinations));
       });
-    };
+  };
 }
- 
 
+// helper function for addVisitedDestinations
+function addVisitedDestinationSuccess(destination) {
+  return {
+    type: actions.ADD_VISITED_DESTINATION_SUCCESS,
+    payload: destination
+  };
+}
+
+// add a country to visited destinations by user id
+export function addVisitedDestination(userId, country) {
+  return dispatch => {
+    axios
+      .get("http://localhost:3000/destinationsPast", {
+        params: {
+          userId,
+          country
+        }
+      })
+      .then(() => {
+        dispatch(addVisitedDestinationSuccess(country));
+      });
+  };
+}
+
+// helper function for getVisitedDestinations
+function getVisitedDestinationsSuccess(visitedDestinations) {
+  return {
+    type: actions.GET_VISITED_DESTINATIONS_SUCCESS,
+    visitedDestinations
+  };
+}
+
+// get list of visited countries by user id
+export function getVisitedDestinations(userId) {
+  return dispatch => {
+    axios
+      .get("/visited", {
+        params: {
+          userId
+        }
+      })
+      .then(({ data }) => {
+        const destinations = data.map(destination => {
+          return destination;
+        });
+        dispatch(getVisitedDestinationsSuccess(destinations));
+      });
+  };
+}
+
+// function updateDestinationsFutureAsync(destinations) {
+//   return {
+//     type: UPDATE_DESTINATIONS,
+//     destinationsFuture: DESTINATIONS
+//   };
+// }
+
+// export function updateDestinationsFuture(destination) {
+//   return dispatch => {
+//     dispatch(updateDestinationsFutureAsync(destination));
+//   };
+// }
