@@ -37,6 +37,8 @@ router.post("/getLocationBasicInfo", (req, res) => {
   });
 });
 
+router.get("/visited", )
+
 // User.retrieveUserByUserId
 router.get("/favorites", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.userId, countries => {
@@ -73,8 +75,6 @@ router.get("/friends", (req, res) => {
   }).catch(err => console.error(err));
 });
 
-/* KS: temporarily commenting out everything below as "async" does not run on HR pairing station
-
 router.get("/userInfo", async (req, res, next) => {
   console.log(req.params);
   try {
@@ -83,6 +83,17 @@ router.get("/userInfo", async (req, res, next) => {
   } catch (err) {
     console.error(err);
     res.status(404).send("Unable to retrieve user info");
+  }
+});
+
+// addBlog
+router.post("/blogs", async (req, res, next) => {
+  try {
+    const newBlog = await Blog.addNewBlog(req.body);
+    res.status(200).send(newBlog);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to add new blog");
   }
 });
 
@@ -154,7 +165,5 @@ router.get("/tags", async (req, res, next) => {
     res.status(404).send("Unable to retrieve tags");
   }
 });
-
-*/
 
 module.exports = router;
