@@ -37,8 +37,6 @@ router.post("/getLocationBasicInfo", (req, res) => {
   });
 });
 
-router.get("/visited", )
-
 // User.retrieveUserByUserId
 router.get("/favorites", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.userId, countries => {
