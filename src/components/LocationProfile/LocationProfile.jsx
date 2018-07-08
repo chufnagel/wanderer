@@ -15,10 +15,8 @@ const LocationProfile = ({ location }) => {
       </div>
 
       <div className="add-location-options">
-        {/* <button onClick={() => addDestinationsPast()}>I've Been Here</button>
-        <button onClick={() => addDestinationsFuture()}>
-          I Want To Go Here!
-        </button> */}
+        <button>I've Been Here</button>
+        <button>I Want To Go Here!</button>
       </div>
 
       <LocationBasicInfoContainer />
