@@ -10,7 +10,6 @@ const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
 const router = require("./routes");
-const { getPointsOfInterest, getAttractions } = require("./helperFunctions");
 
 const {
   log,
@@ -32,23 +31,6 @@ app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use("/", router);
-
-// calls the helper function to query Google Places API for points of interest for given location
-// app.post("/getPointsOfInterest", (req, res) => {
-//   getPointsOfInterest(req.body.location, (err, data) => {
-//     if (err) {
-//       console.log("server error getting points of interest from API", err);
-//     } else {
-//       res.send(data);
-//     }
-//   });
-// });
-
-app.post("/getAttractions", (req, res) => {
-  getAttractions(req.body.location, data => {
-    res.send(data);
-  });
-});
 
 // development error handler
 // will print stack trace

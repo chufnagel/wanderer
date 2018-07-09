@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Attractions = ({ location, attractions }) => (
   <div className="attractions">
@@ -10,7 +10,7 @@ const Attractions = ({ location, attractions }) => (
     </h2>
 
     {attractions.map(attraction => (
-      <div className="attraction">
+      <div className="attraction" key={attraction.path}>
         <h3>{attraction.name}</h3>
         <p>{attraction.location}</p>
         <p>{attraction.description}</p>

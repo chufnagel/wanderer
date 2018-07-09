@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 module.exports = {
-  // query Google API for points of interest for a particular country or city
+  // query Google API for points of interest for a particular location
   getPointsOfInterest: (location, cb) => {
     const locationWords = location.split(" ");
     if (locationWords.length > 1) {
@@ -11,13 +11,13 @@ module.exports = {
         }
       });
       location = locationWords.join("+");
-      console.log("querying this location:", location);
     }
     const queryStr = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}+points+of+interest&language=en&key=${
       process.env.GOOGLEPLACES_API_KEY
     }`;
     axios.get(queryStr).then(({ data }) => cb(null, data.results));
   },
+  // query Atlas Obscura for attractions for a given country
   getAttractions: (location, cb) => {
     const locationWords = location.split(" ");
     if (locationWords.length > 1) {
@@ -41,7 +41,11 @@ module.exports = {
     const queryStr = `https://restcountries.eu/rest/v2/name/${location}`;
     axios
       .get(queryStr)
+<<<<<<< HEAD
       .then(({ data }) => cb(data[0]))
+=======
+      .then(result => cb(result.data[0]))
+>>>>>>> dev
       .catch(err =>
         console.log("helper function error getting basic info:", err)
       );

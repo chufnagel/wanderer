@@ -42,8 +42,8 @@ const store = createStore(
       currencies: [{ name: "" }]
     },
     userId: 1,
-    faveDestinations: [],
-    visitedDestinations: []
+    faveDestinations: ["Iceland", "Japan"],
+    visitedDestinations: ["Hong Kong", "Argentina"]
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );

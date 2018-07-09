@@ -20,7 +20,7 @@ function pointsOfInterest(state = [], action) {
 
 function locationBasicInfo(state = {}, action) {
   switch (action.type) {
-    case action.GET_BASIC_LOCATION_INFO_SUCCESS:
+    case actions.GET_BASIC_LOCATION_INFO_SUCCESS:
       return action.locationBasicInfo;
     default:
       return state;
