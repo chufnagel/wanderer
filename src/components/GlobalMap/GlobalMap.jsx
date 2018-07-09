@@ -1,24 +1,20 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import Tooltip from "@material-ui/core/Tooltip";
 import chroma from "chroma-js";
 import continents from "./continents";
 
-const wrapperStyles = {
-  width: "100%",
-  maxWidth: 980,
-  margin: "0 auto"
-};
-
 const continentColors = [
   chroma("F4C8D9"), // queen pink // Asia
-  chroma("BCFF93"), // mint green // Africa
+  chroma("B1E590"), // granny smith apple // Africa
   chroma("DBCBF4"), // pale lavender // North America
   chroma("79E0C8"), // pearl aqua // South America
   chroma("9BE6F1"), // winter wizard (icy blue) // Antarctica
   chroma("9BBEFF"), // baby blue eyes // Europe
-  chroma("FFEBBC"), // lemon meringue // Oceania
-  chroma("FFEBBC") // white // black // Seven seas (open oceans)
+  chroma("FFE575"), // yellow // Oceania
+  chroma("FFF") // white // Seven seas (open oceans)
 ];
 class GlobalMap extends Component {
   state = {
@@ -33,8 +29,23 @@ class GlobalMap extends Component {
   };
 
   render() {
+    const {
+      // userId,
+      changeSelectedLocation,
+      getPointsOfInterest,
+      getAttractions,
+      getLocationBasicInfo
+      // addFaveDestination
+    } = this.props;
     return (
-      <div className="global-map" style={wrapperStyles}>
+      <div
+        className="global-map"
+        style={{
+          width: "100%",
+          maxWidth: 980,
+          margin: "0 auto"
+        }}
+      >
         <ComposableMap
           projectionConfig={{
             scale: 110,
@@ -47,53 +58,56 @@ class GlobalMap extends Component {
             height: "auto"
           }}
         >
-          <Geographies geography={"world-1.json"}>
+          <Geographies geography="world-1.json">
             {(geographies, projection) =>
-              geographies.map((geography, i) => (
+              geographies.map(geography => (
                 <Tooltip
-                  key={geographies[i]}
+                  key={geography.properties.name}
                   id="tooltip-country"
                   title={geography.properties.name}
                   placement="top-start"
-                  onOpen={e => this.changeSelectedCountry(e)}
-                  onClose={() => this.changeSelectedCountry(null)}
                 >
-                  <Geography
-                    geography={geography}
-                    projection={projection}
-                    onClick={e => this.handleClick(e)}
-                    style={{
-                      default: {
-                        fill:
-                          continentColors[
+                  <Link to="/search">
+                    <Geography
+                      geography={geography}
+                      projection={projection}
+                      style={{
+                        default: {
+                          fill:
+                            continentColors[
+                              continents.indexOf(geography.properties.continent)
+                            ],
+                          stroke: "#607D8B",
+                          strokeWidth: 0.75,
+                          outline: "none"
+                        },
+                        hover: {
+                          fill: continentColors[
                             continents.indexOf(geography.properties.continent)
-                          ],
-                        stroke: "#607D8B",
-                        strokeWidth: 0.75,
-                        outline: "none"
-                      },
-                      hover: {
-                        fill: continentColors[
-                          continents.indexOf(geography.properties.continent)
-                        ]
-                          .brighten(0.5)
-                          .saturate(0.3),
-                        stroke: "#607D8B",
-                        strokeWidth: 0.75,
-                        outline: "none"
-                      },
-                      pressed: {
-                        fill: continentColors[
-                          continents.indexOf(geography.properties.continent)
-                        ]
-                          .darken()
-                          .saturate(0.5),
-                        stroke: "#607D8B",
-                        strokeWidth: 0.75,
-                        outline: "none"
-                      }
-                    }}
-                  />
+                          ]
+                            .brighten(0.6)
+                            .saturate(0.2),
+                          stroke: "#607D8B",
+                          strokeWidth: 0.75,
+                          outline: "none"
+                        },
+                        pressed: {
+                          fill: continentColors[
+                            continents.indexOf(geography.properties.continent)
+                          ].luminance(0.5, "hsl"),
+                          stroke: "#607D8B",
+                          strokeWidth: 0.75,
+                          outline: "none"
+                        }
+                      }}
+                      onClick={() => {
+                        changeSelectedLocation(geography.properties.name);
+                        getLocationBasicInfo(geography.properties.name);
+                        getPointsOfInterest(geography.properties.name);
+                        getAttractions(geography.properties.name);
+                      }}
+                    />
+                  </Link>
                 </Tooltip>
               ))
             }
@@ -105,8 +119,12 @@ class GlobalMap extends Component {
 }
 
 GlobalMap.propTypes = {
-  // does not currently have any props, but will
-  // when we have things in state like activeUser
+  // userId: PropTypes.string.isRequired,
+  changeSelectedLocation: PropTypes.func.isRequired,
+  getPointsOfInterest: PropTypes.func.isRequired,
+  getAttractions: PropTypes.func.isRequired,
+  getLocationBasicInfo: PropTypes.func.isRequired
+  // addFaveDestination: PropTypes.func.isRequired
 };
 
 export default GlobalMap;
