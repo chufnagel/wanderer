@@ -17,9 +17,9 @@ const store = createStore(
   rootReducer,
   {
     // currentText: "Initializing...",
+    headerSetting: HOME,
     countries: CountriesAll,
     location: "",
-    headerSetting: HOME,
     blogs: [
       {
         blogId: "1",

@@ -1,16 +1,15 @@
 import { connect } from "react-redux";
-// import relevant actions
+import { addVisitedDestination } from "../actions/destinations";
 import GlobalMap from "../components/GlobalMap/GlobalMap";
 
 const mapStateToProps = ({ state }) => {
   return {
-    // whatever it is that i need from state
-    // maybe activeUser or something
+    visitedDestinations: state.visitedDestinations
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  // name of prop: (parameter) => dispatch(the imported action)
+  addVisitedDestination: country => dispatch(addVisitedDestination(country))
 });
 
 export default connect(
