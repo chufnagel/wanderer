@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { faveDestinations, visitedDestinations } from "./destinationsReducer";
 import blogs from "./blogReducer";
+import userId from "./userId";
 import location from "./locationReducer";
 import headerSetting from "./headerReducer";
 import {
@@ -20,6 +21,7 @@ const rootReducer = combineReducers({
   attractions,
   pointsOfInterest,
   blogs,
+  userId,
   headerSetting,
   faveDestinations,
   visitedDestinations

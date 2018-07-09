@@ -19,7 +19,7 @@ export function addFaveDestination(userId, country) {
         userId,
         country
       })
-      .then(() => dispatch(addFaveDestinationSuccess));
+      .then(() => dispatch(addFaveDestinationSuccess(country)));
   };
 }
 

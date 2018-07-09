@@ -11,11 +11,11 @@ import PropTypes from "prop-types";
 //   }
 // };
 
-const Destinations = ({ faveDestinations, visitedDestinations }) => {
+const Destinations = ({ visitedDestinations, faveDestinations }) => {
   console.log(
     "destinations future & past",
-    faveDestinations,
-    visitedDestinations
+    visitedDestinations,
+    faveDestinations
   );
   return (
     <div className="destinations">
