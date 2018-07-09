@@ -14,6 +14,8 @@ import FriendsList from "./FriendsList";
 import DestinationsContainer from "../containers/DestinationsContainer";
 import PhotosContainer from "../containers/PhotosContainer";
 import Explore from "./Explore/Explore";
+import NotFoundPage from "./NotFoundPage";
+import LoginPage from "./LoginPage";
 import asyncComponent from "../hoc/asyncComponent";
 
 const asyncBlogs = asyncComponent(() => {
@@ -40,7 +42,7 @@ const App = () => (
         <Route exact path="/photos" component={PhotosContainer} />
         <Route exact path="/destinations" component={DestinationsContainer} />
         <Route exact path="/explore" component={Explore} />
-        <Redirect to="/" />
+        <Route component={NotFoundPage} />
       </Switch>
     </center>
   </div>

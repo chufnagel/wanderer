@@ -1,5 +1,5 @@
 import * as firebase from 'firebase';
-import * as firebaseui from 'firebaseui';
+// import * as firebaseui from 'firebaseui';
 
 const config = {
   apiKey: process.env.FIREBASE_API_KEY,
