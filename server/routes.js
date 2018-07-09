@@ -9,6 +9,7 @@ const {
 } = require("./helperFunctions");
 const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
+const axios = require("axios")
 
 const {
   log,
@@ -162,6 +163,12 @@ router.get("/tags", async (req, res, next) => {
     console.error(err);
     res.status(404).send("Unable to retrieve tags");
   }
+});
+
+router.post("/create", (req, res) => {
+  console.log('halloooo', req.files)
+  const file = req.files.file;
+  console.log('file', file)
 });
 
 module.exports = router;

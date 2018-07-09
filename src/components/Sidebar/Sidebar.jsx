@@ -5,6 +5,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchContainer from "../../containers/SearchContainer";
+import ProfilePhotoContainer from "../../containers/ProfilePhotoContainer.jsx";
 
 const Sidebar = () => (
   <div>
@@ -19,7 +20,7 @@ const Sidebar = () => (
       <br />
       <List component="nav">
         <center>
-          <img width="128px" height="128px" />
+          <ProfilePhotoContainer />
         </center>
         <br />
         <SearchContainer />
