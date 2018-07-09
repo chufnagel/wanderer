@@ -20,6 +20,13 @@ class Search extends Component {
   };
 
   render() {
+    const {
+      changeSelectedLocation,
+      getLocationBasicInfo,
+      getPointsOfInterest,
+      getAttractions
+    } = this.props;
+    const { field } = this.state;
     return (
       <form>
         <TextField
@@ -40,10 +47,10 @@ class Search extends Component {
               variant="raised"
               color="primary"
               onClick={() => {
-                this.props.changeSelectedLocation(this.state.field);
-                this.props.getLocationBasicInfo(this.state.field);
-                this.props.getPointsOfInterest(this.state.field);
-                this.props.getAttractions(this.state.field);
+                changeSelectedLocation(field);
+                getLocationBasicInfo(field);
+                getPointsOfInterest(field);
+                getAttractions(field);
               }}
             >
               Search
