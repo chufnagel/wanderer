@@ -1,26 +1,29 @@
 import { connect } from "react-redux";
-import Destinations from "../components/Destinations.jsx";
-import updateNav from "../actions/header.js";
-import {getDestinationsFuture, getDestinationsPast} from "../actions/destinations.js";
+import Destinations from "../components/Destinations";
+import updateNav from "../actions/header";
+import {
+  getFaveDestinations,
+  getVisitedDestinations
+} from "../actions/destinations";
 
 const mapStateToProps = state => ({
-  navFlag: state.navFlag,// console.log('photocontainer',state.photos)
-  destinationsFuture: state.destinationsFuture, 
-  destinationsPast: state.destinationsPast,
-  user_id: state.userId
+  navFlag: state.navFlag,
+  faveDestinations: state.faveDestinations,
+  visitedDestinations: state.visitedDestinations,
+  userId: state.userId
 });
 
 const mapDispatchToProps = dispatch => ({
   handleNavUpdate: flag => {
     dispatch(updateNav(flag));
-  }, 
-  getDestinationsFuture: (user_id) => {
-    dispatch(getDestinationsFuture(user_id))
   },
-  getDestinationsPast: (user_id) => {
-    dispatch(getDestinationsPast(user_id))
+  getFaveDestinations: userId => {
+    dispatch(getFaveDestinations(userId));
+  },
+  getVisitedDestinations: userId => {
+    dispatch(getVisitedDestinations(userId));
   }
-})
+});
 
 const DestinationsContainer = connect(
   mapStateToProps,

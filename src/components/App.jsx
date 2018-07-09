@@ -8,9 +8,10 @@ import Home from "./Home";
 import HeaderContainer from "../containers/HeaderContainer";
 import UserProfile from "./UserProfile/UserProfile";
 import LocationProfile from "./LocationProfile/LocationProfile";
+import AttractionsContainer from "../containers/AttractionsContainer";
 // import Blogs from "../containers/BlogsContainer";
 import FriendsList from "./FriendsList";
-import Destinations from "./Destinations";
+import DestinationsContainer from "../containers/DestinationsContainer";
 import PhotosContainer from "../containers/PhotosContainer";
 import Explore from "./Explore/Explore";
 import asyncComponent from "../hoc/asyncComponent";
@@ -33,10 +34,11 @@ const App = () => (
         <Route exact path="/" component={Home} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/search" component={LocationProfile} />
+        <Route exact path="/attractions" component={AttractionsContainer} />
         <Route path="/blogs" component={asyncBlogs} />
         <Route exact path="/friends" component={FriendsList} />
         <Route exact path="/photos" component={PhotosContainer} />
-        <Route exact path="/destinations" component={Destinations} />
+        <Route exact path="/destinations" component={DestinationsContainer} />
         <Route exact path="/explore" component={Explore} />
         <Redirect to="/" />
       </Switch>
