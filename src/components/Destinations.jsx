@@ -25,7 +25,7 @@ const Destinations = ({ faveDestinations, visitedDestinations }) => {
         {visitedDestinations.map(visited => {
           return (
             <div>
-              <p>☑ {visited.country}</p>
+              <p>☑ {visited}</p>
             </div>
           );
         })}
@@ -36,7 +36,7 @@ const Destinations = ({ faveDestinations, visitedDestinations }) => {
         {faveDestinations.map(fave => {
           return (
             <div>
-              <p>☐ {fave.country}</p>
+              <p>☐ {fave}</p>
             </div>
           );
         })}

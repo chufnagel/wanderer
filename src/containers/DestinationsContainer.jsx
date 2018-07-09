@@ -7,7 +7,7 @@ import {
 } from "../actions/destinations";
 
 const mapStateToProps = state => ({
-  navFlag: state.navFlag, // console.log('photocontainer',state.photos)
+  navFlag: state.navFlag,
   faveDestinations: state.faveDestinations,
   visitedDestinations: state.visitedDestinations,
   userId: state.userId
