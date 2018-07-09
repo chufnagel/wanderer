@@ -13,14 +13,15 @@ function addFaveDestinationSuccess(destination) {
 
 // add a country to favorites by user id
 export function addFaveDestination(userId, country) {
-  return dispatch => {
-    axios
-      .post("/favorites", {
-        userId,
-        country
-      })
-      .then(() => dispatch(addFaveDestinationSuccess(country)));
-  };
+  console.log('hit action', userId, country);
+  // return dispatch => {
+  //   axios
+  //     .post("/favorites", {
+  //       userId,
+  //       country
+  //     })
+  //     .then(() => dispatch(addFaveDestinationSuccess(country)));
+  // };
 }
 
 // helper function for getFaveDestinations

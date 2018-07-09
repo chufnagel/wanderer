@@ -9,6 +9,7 @@ const {
 // const Tag = require("./Models/tag");
 // const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
+const bodyParser = require("body-parser");
 
 const {
   log,
@@ -17,6 +18,8 @@ const {
   chalkWarning,
   chalkInfo
 } = require("../chalkpresets");
+
+router.use(bodyParser.json());
 
 // call the helper function to query Google Places API for points of interest for given location
 router.post("/getPointsOfInterest", (req, res) => {
@@ -62,8 +65,8 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  console.log(req.body);
-  Destinations.addFavByUserId(req.body.userId, req.body.country);
+  console.log('reqbody of favorites post route', req.body);
+  // Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {

@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
 import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
-import { addFaveDestination } from "../../actions/destinations";
+import {
+  addVisitedDestination,
+  addFaveDestination
+} from "../../actions/destinations";
 
 const LocationProfile = ({ location, userId }) => {
   return (
@@ -16,8 +19,18 @@ const LocationProfile = ({ location, userId }) => {
       </div>
 
       <div className="add-location-options">
-        <button onClick={() => addVisitedDestination(userId, location)}>I've Been Here</button>
-        <button onClick={() => console.log(location)}>I Want To Go Here!</button>
+        <button
+          type="submit"
+          onClick={() => addVisitedDestination(userId, location)}
+        >
+          I've Been Here
+        </button>
+        <button
+          type="submit"
+          onClick={() => addFaveDestination(userId, location)}
+        >
+          I Want To Go Here!
+        </button>
       </div>
 
       <LocationBasicInfoContainer />
@@ -44,15 +57,15 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  addVisitedDestination: location => dispatch(addVisitedDestination(location)),
-  addFaveDestination: location => dispatch(addFaveDestination(location))
+  addVisitedDestination: (userId, location) =>
+    dispatch(addVisitedDestination(userId, location)),
+  addFaveDestination: (userId, location) =>
+    dispatch(addFaveDestination(userId, location))
 });
 
 LocationProfile.propTypes = {
   location: PropTypes.string.isRequired,
-  userId: PropTypes.number.isRequired,
-  addVisitedDestination: PropTypes.func.isRequired,
-  addFaveDestination: PropTypes.func.isRequired
+  userId: PropTypes.number.isRequired
 };
 
 export default connect(
