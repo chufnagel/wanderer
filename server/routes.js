@@ -10,6 +10,8 @@ const {
 const Tag = require("./Models/tag");
 // const BlogTag = require("./Models/blogtag");
 const axios = require("axios")
+;
+const ec2path = "http://ec2-52-91-143-214.compute-1.amazonaws.com:3000";
 
 const {
   log,
@@ -166,9 +168,15 @@ router.get("/tags", async (req, res, next) => {
 });
 
 router.post("/create", (req, res) => {
-  console.log('halloooo', req.files)
   const file = req.files.file;
-  console.log('file', file)
+  console.log("file", file);
+  axios
+    .post(`${ec2path}/create`, {
+      file
+    })
+    .then(imageinfo => {
+      console.log("imageinfo", imageinfo);
+    });
 });
 
 module.exports = router;
