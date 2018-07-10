@@ -18,7 +18,7 @@ const store = createStore(
   {
     // currentText: "Initializing...",
     headerSetting: HOME,
-    countries: CountriesAll,
+    // countries: CountriesAll,
     location: "",
     blogs: [
       {
