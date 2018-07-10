@@ -21,6 +21,8 @@ const {
   chalkInfo
 } = require("../chalkpresets");
 
+// LOCATION PROFILE ROUTES ===========================================================================
+
 // call the helper function to query Google Places API for points of interest for given location
 router.post("/getPointsOfInterest", (req, res) => {
   getPointsOfInterest(req.body.location, (err, data) => {
@@ -46,7 +48,8 @@ router.post("/getLocationBasicInfo", (req, res) => {
   });
 });
 
-// User.retrieveUserByUserId
+// DESTINATIONS ROUTES ===========================================================================
+
 router.get("/favorites", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.userId, countries => {
     // console.log('favorite countries', countries)
@@ -74,6 +77,8 @@ router.post("/visited", (req, res) => {
   Destinations.addVisitedByUserId(req.body.userId, req.body.country);
 });
 
+// FRIENDS ROUTES ===========================================================================
+
 router.get("/friends", (req, res) => {
   // console.log('*******',req.query)
   User.retrieveFriendsByUserId(req.query.userId, friends => {
@@ -81,6 +86,8 @@ router.get("/friends", (req, res) => {
     res.status(200).send(friends);
   }).catch(err => console.error(err));
 });
+
+// USER ROUTES ===========================================================================
 
 router.get("/userInfo", async (req, res, next) => {
   console.log(req.params);
@@ -92,6 +99,29 @@ router.get("/userInfo", async (req, res, next) => {
     res.status(404).send("Unable /#/to retrieve user info");
   }
 });
+
+router.get("/retrieve", (req, res) => {
+  const userId = req.query.userId;
+  User.retrieveProfilePhotoByUserId(userId, userInfo => {
+    axios
+      .get(`${ec2path}/retrieve`, {
+        params: {
+          eTag: userInfo[0].etag,
+          key: userInfo[0].image_key
+        }
+      })
+      .then(photo => {
+        console.log('success retrieve', photo.data)
+        res.send(photo.data);
+      })
+      .catch(err => {
+        console.error(err);
+        res.sendStatus(404);
+      });
+  });
+});
+
+// BLOGS ROUTES ===========================================================================
 
 // addBlog
 router.post("/blogs", async (req, res, next) => {
@@ -115,9 +145,7 @@ router.get("/blogs", async (req, res, next) => {
   }
 });
 
-// Destinations.User(req.query)
-
-// Blog.retrieveBlogsByUserId
+// retrieveBlogsByUserId
 router.get("/blogsByUserId", async (req, res, next) => {
   try {
     const blogs = await Blog.retrieveBlogsByUserId(req.query.user_id);
@@ -140,6 +168,8 @@ router.get("/blogsByBlogId", async (req, res, next) => {
     res.status(404).send("Unable to retrieve blog");
   }
 });
+
+// TAGS ROUTES ===========================================================================
 
 // Tag.addTag - add check for whether tag already exists
 router.post("/tags", async (req, res, next) => {
@@ -186,27 +216,6 @@ router.post("/create", (req, res) => {
         res.sendStatus(200)
       );
     });
-});
-
-router.get("/retrieve", (req, res) => {
-  const userId = req.query.userId;
-  User.retrieveProfilePhotoByUserId(userId, userInfo => {
-    axios
-      .get(`${ec2path}/retrieve`, {
-        params: {
-          eTag: userInfo[0].etag,
-          key: userInfo[0].image_key
-        }
-      })
-      .then(photo => {
-        console.log('success retrieve', photo.data)
-        res.send(photo.data);
-      })
-      .catch(err => {
-        console.error(err);
-        res.sendStatus(404);
-      });
-  });
 });
 
 module.exports = router;
