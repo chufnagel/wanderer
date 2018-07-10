@@ -1,10 +1,11 @@
 import { connect } from "react-redux";
+import changeSelectedLocation from "../actions/location";
+import setHeader from "../actions/header";
 import {
   getPointsOfInterest,
   getAttractions,
   getLocationBasicInfo
 } from "../actions/search";
-import changeSelectedLocation from "../actions/location";
 import Search from "../components/Search";
 
 const mapStateToProps = state => ({
@@ -15,6 +16,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
+  setHeader: term => dispatch(setHeader(term)),
   getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term)),
   getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
   getAttractions: term => dispatch(getAttractions(term))

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { LOCATION_PROFILE } from "../constants";
 
 class Search extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Search extends Component {
 
   render() {
     const {
+      setHeader,
       changeSelectedLocation,
       getLocationBasicInfo,
       getPointsOfInterest,
@@ -47,6 +49,7 @@ class Search extends Component {
               variant="raised"
               color="primary"
               onClick={() => {
+                setHeader(LOCATION_PROFILE);
                 changeSelectedLocation(field);
                 getLocationBasicInfo(field);
                 getPointsOfInterest(field);
@@ -63,6 +66,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
+  setHeader: PropTypes.func.isRequired,
   changeSelectedLocation: PropTypes.func.isRequired,
   getLocationBasicInfo: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,

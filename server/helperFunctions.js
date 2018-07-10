@@ -41,11 +41,7 @@ module.exports = {
     const queryStr = `https://restcountries.eu/rest/v2/name/${location}`;
     axios
       .get(queryStr)
-<<<<<<< HEAD
       .then(({ data }) => cb(data[0]))
-=======
-      .then(result => cb(result.data[0]))
->>>>>>> dev
       .catch(err =>
         console.log("helper function error getting basic info:", err)
       );

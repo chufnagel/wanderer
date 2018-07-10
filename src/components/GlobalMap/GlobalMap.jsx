@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import Tooltip from "@material-ui/core/Tooltip";
 import chroma from "chroma-js";
 import continents from "./continents";
+import { LOCATION_PROFILE } from "../../constants";
 
 const continentColors = [
   chroma("F4C8D9"), // queen pink // Asia
@@ -16,110 +17,100 @@ const continentColors = [
   chroma("FFE575"), // yellow // Oceania
   chroma("FFF") // white // Seven seas (open oceans)
 ];
-class GlobalMap extends Component {
-  state = {
-    continents,
-    selectedCountry: ""
-  };
-
-  changeSelectedCountry = c => {
-    this.setState({
-      selectedCountry: c
-    });
-  };
-
-  render() {
-    const {
-      // userId,
-      changeSelectedLocation,
-      getPointsOfInterest,
-      getAttractions,
-      getLocationBasicInfo
-      // addFaveDestination
-    } = this.props;
-    return (
-      <div
-        className="global-map"
+const GlobalMap = props => {
+  const {
+    // userId,
+    setHeader,
+    changeSelectedLocation,
+    getPointsOfInterest,
+    getAttractions,
+    getLocationBasicInfo
+    // addFaveDestination
+  } = props;
+  return (
+    <div
+      className="global-map"
+      style={{
+        width: "100%",
+        maxWidth: 980,
+        margin: "0 auto"
+      }}
+    >
+      <ComposableMap
+        projectionConfig={{
+          scale: 110,
+          rotation: [-11, 0, 0]
+        }}
+        width={980}
+        height={360}
         style={{
           width: "100%",
-          maxWidth: 980,
-          margin: "0 auto"
+          height: "auto"
         }}
       >
-        <ComposableMap
-          projectionConfig={{
-            scale: 110,
-            rotation: [-11, 0, 0]
-          }}
-          width={980}
-          height={360}
-          style={{
-            width: "100%",
-            height: "auto"
-          }}
-        >
-          <Geographies geography="world-1.json">
-            {(geographies, projection) =>
-              geographies.map(geography => (
-                <Tooltip
-                  key={geography.properties.name}
-                  id="tooltip-country"
-                  title={geography.properties.name}
-                  placement="top-start"
-                >
-                  <Link to="/search">
-                    <Geography
-                      geography={geography}
-                      projection={projection}
-                      style={{
-                        default: {
-                          fill:
-                            continentColors[
-                              continents.indexOf(geography.properties.continent)
-                            ],
-                          stroke: "#607D8B",
-                          strokeWidth: 0.75,
-                          outline: "none"
-                        },
-                        hover: {
-                          fill: continentColors[
+        <Geographies geography="world-1.json">
+          {(geographies, projection) =>
+            geographies.map(geography => (
+              <Tooltip
+                key={geography.properties.name}
+                id="tooltip-country"
+                title={geography.properties.name}
+                placement="top-start"
+              >
+                <Link to="/search">
+                  <Geography
+                    geography={geography}
+                    projection={projection}
+                    style={{
+                      default: {
+                        fill:
+                          continentColors[
                             continents.indexOf(geography.properties.continent)
-                          ]
-                            .brighten(0.6)
-                            .saturate(0.2),
-                          stroke: "#607D8B",
-                          strokeWidth: 0.75,
-                          outline: "none"
-                        },
-                        pressed: {
-                          fill: continentColors[
-                            continents.indexOf(geography.properties.continent)
-                          ].luminance(0.5, "hsl"),
-                          stroke: "#607D8B",
-                          strokeWidth: 0.75,
-                          outline: "none"
-                        }
-                      }}
-                      onClick={() => {
-                        changeSelectedLocation(geography.properties.name);
-                        getLocationBasicInfo(geography.properties.name);
-                        getPointsOfInterest(geography.properties.name);
-                        getAttractions(geography.properties.name);
-                      }}
-                    />
-                  </Link>
-                </Tooltip>
-              ))
-            }
-          </Geographies>
-        </ComposableMap>
-      </div>
-    );
-  }
-}
+                          ],
+                        stroke: "#607D8B",
+                        strokeWidth: 0.75,
+                        outline: "none"
+                      },
+                      hover: {
+                        fill: continentColors[
+                          continents.indexOf(geography.properties.continent)
+                        ]
+                          .brighten(0.6)
+                          .saturate(0.2),
+                        stroke: "#607D8B",
+                        strokeWidth: 0.75,
+                        outline: "none"
+                      },
+                      pressed: {
+                        fill: continentColors[
+                          continents.indexOf(geography.properties.continent)
+                        ].luminance(0.5, "hsl"),
+                        stroke: "#607D8B",
+                        strokeWidth: 0.75,
+                        outline: "none"
+                      }
+                    }}
+                    onClick={() => {
+                      setHeader(LOCATION_PROFILE);
+                      changeSelectedLocation(geography.properties.name);
+                      getLocationBasicInfo(geography.properties.name);
+                      getPointsOfInterest(geography.properties.name);
+                      getAttractions(geography.properties.name);
+                    }}
+                  />
+                </Link>
+              </Tooltip>
+            ))
+          }
+        </Geographies>
+      </ComposableMap>
+    </div>
+  );
+};
 
 GlobalMap.propTypes = {
   // userId: PropTypes.string.isRequired,
+  setHeader: PropTypes.func.isRequired,
   changeSelectedLocation: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,
   getAttractions: PropTypes.func.isRequired,
