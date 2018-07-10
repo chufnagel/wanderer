@@ -3,13 +3,7 @@ import PropTypes from "prop-types";
 import lifecycle from "react-pure-lifecycle";
 
 const methods = {
-  componentDidMount({
-    // handleNavUpdate,
-    getFaveDestinations,
-    getVisitedDestinations,
-    userId
-  }) {
-    // handleNavUpdate("dashboard");
+  componentDidMount({ getFaveDestinations, getVisitedDestinations, userId }) {
     getFaveDestinations(userId);
     getVisitedDestinations(userId);
   }
