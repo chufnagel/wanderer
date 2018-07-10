@@ -9,7 +9,7 @@ const {
 // const Tag = require("./Models/tag");
 // const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 
 const {
   log,
@@ -19,7 +19,7 @@ const {
   chalkInfo
 } = require("../chalkpresets");
 
-router.use(bodyParser.json());
+// router.use(bodyParser.json());
 
 // call the helper function to query Google Places API for points of interest for given location
 router.post("/getPointsOfInterest", (req, res) => {
@@ -46,12 +46,17 @@ router.post("/getLocationBasicInfo", (req, res) => {
   });
 });
 
+router.get("/favoritestest", (req, res) => {
+  console.log('hit get favoritetest with:', req.body);
+});
+
 // User.retrieveUserByUserId
 router.get("/favorites", (req, res) => {
-  Destinations.retrieveFavByUserId(req.query.userId, countries => {
-    // console.log('favorite countries', countries)
-    res.send(countries);
-  });
+  console.log('hit get favorites endpoint with:', req.body);
+  // Destinations.retrieveFavByUserId(req.query.userId, countries => {
+  //   // console.log('favorite countries', countries)
+  //   res.send(countries);
+  // });
 });
 
 router.get("/visited", (req, res) => {

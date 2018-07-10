@@ -4,24 +4,26 @@ import * as actions from "./types";
 // all logic in action creators and/or utility functions used by action creators!
 
 // helper function for addFaveDestination
-function addFaveDestinationSuccess(destination) {
+function addFaveDestinationSuccess(faveDestinations) {
   return {
     type: actions.ADD_FAV_DESTINATION_SUCCESS,
-    payload: destination
+    faveDestinations
   };
 }
 
 // add a country to favorites by user id
 export function addFaveDestination(userId, country) {
   console.log('hit action', userId, country);
-  // return dispatch => {
-  //   axios
-  //     .post("/favorites", {
-  //       userId,
-  //       country
-  //     })
-  //     .then(() => dispatch(addFaveDestinationSuccess(country)));
-  // };
+  return dispatch => {
+    axios
+      .post("/favorites", {
+        userId,
+        country
+      })
+      .then(({ faveDestinations }) =>
+        dispatch(addFaveDestinationSuccess(faveDestinations))
+      );
+  };
 }
 
 // helper function for getFaveDestinations
@@ -34,9 +36,10 @@ function getFaveDestinationsSuccess(faveDestinations) {
 
 // get list of favorite destinations by user id
 export function getFaveDestinations(userId) {
+  console.log('hit on destinations actions', userId);
   return dispatch => {
     axios
-      .get("/favorites", {
+      .get("http://localhost:3000/favoritestest", {
         params: {
           userId
         }

@@ -1,14 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
 import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
-import {
-  addVisitedDestination,
-  addFaveDestination
-} from "../../actions/destinations";
 
-const LocationProfile = ({ location, userId }) => {
+const LocationProfile = ({ location, userId, getFaveDestinations }) => {
   return (
     <div className="location-profile">
       <h1>{location}</h1>
@@ -31,6 +26,7 @@ const LocationProfile = ({ location, userId }) => {
         >
           I Want To Go Here!
         </button>
+        <button onClick={() => getFaveDestinations(userId)}>TEST RETRIEVE FAV DEST</button>
       </div>
 
       <LocationBasicInfoContainer />
@@ -49,26 +45,9 @@ const LocationProfile = ({ location, userId }) => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    location: state.location,
-    userId: state.userId
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  addVisitedDestination: (userId, location) =>
-    dispatch(addVisitedDestination(userId, location)),
-  addFaveDestination: (userId, location) =>
-    dispatch(addFaveDestination(userId, location))
-});
-
 LocationProfile.propTypes = {
   location: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LocationProfile);
+export default LocationProfile;
