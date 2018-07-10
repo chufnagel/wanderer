@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
 import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
 
-const LocationProfile = ({ location, userId, getFaveDestinations }) => {
+const LocationProfile = ({ location, userId }) => {
   return (
     <div className="location-profile">
       <h1>{location}</h1>
@@ -26,7 +26,6 @@ const LocationProfile = ({ location, userId, getFaveDestinations }) => {
         >
           I Want To Go Here!
         </button>
-        <button onClick={() => getFaveDestinations(userId)}>TEST RETRIEVE FAV DEST</button>
       </div>
 
       <LocationBasicInfoContainer />

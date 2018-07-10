@@ -13,7 +13,6 @@ function addFaveDestinationSuccess(faveDestinations) {
 
 // add a country to favorites by user id
 export function addFaveDestination(userId, country) {
-  console.log('hit action', userId, country);
   return dispatch => {
     axios
       .post("/favorites", {
@@ -36,10 +35,9 @@ function getFaveDestinationsSuccess(faveDestinations) {
 
 // get list of favorite destinations by user id
 export function getFaveDestinations(userId) {
-  console.log('hit on destinations actions', userId);
   return dispatch => {
     axios
-      .get("http://localhost:3000/favoritestest", {
+      .get("/favorites", {
         params: {
           userId
         }

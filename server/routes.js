@@ -46,17 +46,12 @@ router.post("/getLocationBasicInfo", (req, res) => {
   });
 });
 
-router.get("/favoritestest", (req, res) => {
-  console.log('hit get favoritetest with:', req.body);
-});
-
 // User.retrieveUserByUserId
 router.get("/favorites", (req, res) => {
-  console.log('hit get favorites endpoint with:', req.body);
-  // Destinations.retrieveFavByUserId(req.query.userId, countries => {
-  //   // console.log('favorite countries', countries)
-  //   res.send(countries);
-  // });
+  Destinations.retrieveFavByUserId(req.query.userId, countries => {
+    // console.log('favorite countries', countries)
+    res.status(200).send(countries);
+  });
 });
 
 router.get("/visited", (req, res) => {
@@ -70,8 +65,8 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  console.log('reqbody of favorites post route', req.body);
-  // Destinations.addFavByUserId(req.body.userId, req.body.country);
+  // console.log('reqbody of favorites post route', req.body);
+  Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {
