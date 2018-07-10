@@ -41,7 +41,7 @@ User.addProfilePhotoByUserId = (imageinfo, user_id) => {
     });
 };
 
-User.retrieveProfilePhotoByUserId = (user_id,cb) => {
+User.retrieveProfilePhotoByUserId = (user_id, cb) => {
   console.log("user_id", user_id);
   return db("users")
     .where({ user_id })
