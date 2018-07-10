@@ -15,7 +15,7 @@ module.exports = {
     const queryStr = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}+points+of+interest&language=en&key=${
       process.env.GOOGLEPLACES_API_KEY
     }`;
-    axios.get(queryStr).then(data => cb(null, data.data.results));
+    axios.get(queryStr).then(({ data }) => cb(null, data.results));
   },
   // query Atlas Obscura for attractions for a given country
   getAttractions: (location, cb) => {
@@ -31,7 +31,7 @@ module.exports = {
     const queryStr = `https://atlas-obscura-api.herokuapp.com/api/atlas/attractions/${location}`;
     axios
       .get(queryStr)
-      .then(result => cb(result.data.Attractions))
+      .then(({ data }) => cb(data.Attractions))
       .catch(err =>
         console.log("helper function error getting attractions:", err)
       );
@@ -41,7 +41,7 @@ module.exports = {
     const queryStr = `https://restcountries.eu/rest/v2/name/${location}`;
     axios
       .get(queryStr)
-      .then(result => cb(result.data[0]))
+      .then(({ data }) => cb(data[0]))
       .catch(err =>
         console.log("helper function error getting basic info:", err)
       );
