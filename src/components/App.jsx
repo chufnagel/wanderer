@@ -7,13 +7,15 @@ import GlobalMapContainer from "../containers/GlobalMapContainer";
 import Home from "./Home";
 import HeaderContainer from "../containers/HeaderContainer";
 import UserProfile from "./UserProfile/UserProfile";
-import LocationProfile from "./LocationProfile/LocationProfile";
+import LocationProfileContainer from "../containers/LocationProfileContainer";
 import AttractionsContainer from "../containers/AttractionsContainer";
 // import Blogs from "../containers/BlogsContainer";
 import FriendsList from "./FriendsList";
 import DestinationsContainer from "../containers/DestinationsContainer";
 import PhotosContainer from "../containers/PhotosContainer";
 import Explore from "./Explore/Explore";
+// import NotFoundPage from "./NotFoundPage";
+// import LoginPage from "./LoginPage";
 import asyncComponent from "../hoc/asyncComponent";
 
 const asyncBlogs = asyncComponent(() => {
@@ -33,7 +35,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/profile" component={UserProfile} />
-        <Route exact path="/search" component={LocationProfile} />
+        <Route exact path="/search" component={LocationProfileContainer} />
         <Route exact path="/attractions" component={AttractionsContainer} />
         <Route path="/blogs" component={asyncBlogs} />
         <Route exact path="/friends" component={FriendsList} />

@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { faveDestinations, visitedDestinations } from "./destinationsReducer";
 import blogs from "./blogReducer";
+import userId from "./userId";
 import location from "./locationReducer";
 import headerSetting from "./headerReducer";
 import {
@@ -8,6 +9,7 @@ import {
   attractions,
   locationBasicInfo
 } from "./searchReducer";
+import profilePhoto from "./photoReducer"
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
 // use map, filter, Object.assign() and array destructuring to
@@ -20,10 +22,11 @@ const rootReducer = combineReducers({
   attractions,
   pointsOfInterest,
   blogs,
+  userId,
   headerSetting,
   faveDestinations,
-  visitedDestinations
-  // photos
+  visitedDestinations,
+  profilePhoto
   // userId
 });
 
