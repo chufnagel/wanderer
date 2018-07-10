@@ -24,9 +24,6 @@ const Header = ({ headerSetting }) => (
           <Link to="/destinations">
             <ListItemText primary="destinations" />
           </Link>
-          <Link to="/attractions">
-            <ListItemText primary="obscure attractions" />
-          </Link>
         </nav>
       ) : null}
       {settings.LOCATION_PROFILE === headerSetting ? (

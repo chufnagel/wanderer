@@ -37,10 +37,14 @@ const store = createStore(
     // photos,
     pointsOfInterest: [],
     attractions: [],
-    locationBasicInfo: { languages: [{ name: "" }] , currencies: [{ name: "" }] },
+    locationBasicInfo: {
+      languages: [{ name: "" }],
+      currencies: [{ name: "" }]
+    },
     userId: 1,
     faveDestinations: [],
-    visitedDestinations: []
+    visitedDestinations: [],
+    profilePhoto: ""
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );

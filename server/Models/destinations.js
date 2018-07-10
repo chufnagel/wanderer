@@ -62,13 +62,12 @@ Destinations.addFavByUserId = (userId, country) => {
             return db("favorite_destinations")
             .insert({'user_id': userId, 'destination_id': country[0].country_id})
           } else {
-            console.log("record already exists")
+            console.log("record already exists");
           }
         })
-        .catch((err) => {
+        .catch(err => {
           console.error(err);
-        })
-
+        });
     })
     .catch(err => console.error(err));
 };
