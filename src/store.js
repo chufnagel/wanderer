@@ -42,6 +42,7 @@ const store = createStore(
       currencies: [{ name: "" }]
     },
     userId: 1,
+    friends: [],
     faveDestinations: ["Iceland", "Japan"],
     visitedDestinations: ["Hong Kong", "Argentina"]
   },
