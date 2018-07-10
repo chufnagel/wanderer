@@ -65,12 +65,12 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  // console.log('reqbody of favorites post route', req.body);
+  console.log('2. hit server post route to fav:', req.body.country);
   Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {
-  console.log(req.body);
+  console.log('2. hit server post route to visited:', req.body);
   Destinations.addVisitedByUserId(req.body.userId, req.body.country);
 });
 

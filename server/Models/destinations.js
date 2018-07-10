@@ -43,58 +43,61 @@ Destinations.retrieveVisitedByUserId = (userId, cb) => {
 };
 
 Destinations.addFavByUserId = (userId, country) => {
+  console.log("3. hit addFavByUserId DB model:", country);
   // console.log("userId", userId);
   return db("countries")
-    .where({ country: country }).select('country_id')
+    .where({ country })
+    .select("country_id")
     .then(country => {
-      console.log('countryId', country)
+      // console.log('countryId', country)
       db("favorite_destinations")
         .where({
-          destination_id: country[0].country_id, 
+          destination_id: country[0].country_id,
           user_id: userId
         })
-        .then((rows) => {
+        .then(rows => {
           if (rows.length === 0) {
-            //no matching records
-            console.log('no matching record') 
+            // no matching records
+            console.log("no matching record");
             return db("favorite_destinations")
             .insert({'user_id': userId, 'destination_id': country[0].country_id})
           } else {
-            console.log('record already exists')
+            console.log("record already exists")
           }
         })
         .catch((err) => {
-          console.error(err)
+          console.error(err);
         })
-      
+
     })
     .catch(err => console.error(err));
 };
 
 Destinations.addVisitedByUserId = (userId, country) => {
+  console.log("3. hit addVisitedByUserId DB model:", country);
   // console.log("userId", userId);
   return db("countries")
-    .where({ country: country }).select('country_id')
+    .where({ country })
+    .select("country_id")
     .then(country => {
-      console.log('countryId', country)
+      console.log("countryId", country);
       return db("visited_destinations")
         .where({
-          destination_id: country[0].country_id, 
+          destination_id: country[0].country_id,
           user_id: userId
         })
-        .then((rows) => {
+        .then(rows => {
           if (rows.length === 0) {
-            //no matching recoreds
+            // no matching recoreds
             return db("visited_destinations")
             .insert({'user_id': userId, 'destination_id': country[0].country_id})
           } else {
-            console.log('record already exists')
+            console.log("record already exists");
           }
         })
-        .catch((err) => {
-          console.error(err)
-        })
-      
+        .catch(err => {
+          console.error(err);
+        });
     })
     .catch(err => console.error(err));
 };

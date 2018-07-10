@@ -2,8 +2,7 @@ import { connect } from "react-redux";
 import LocationProfile from "../components/LocationProfile/LocationProfile";
 import {
   addVisitedDestination,
-  addFaveDestination,
-  getFaveDestinations
+  addFaveDestination
 } from "../actions/destinations";
 
 const mapStateToProps = state => {
@@ -17,8 +16,7 @@ const mapDispatchToProps = dispatch => ({
   addVisitedDestination: (userId, location) =>
     dispatch(addVisitedDestination(userId, location)),
   addFaveDestination: (userId, location) =>
-    dispatch(addFaveDestination(userId, location)),
-  getFaveDestinations: userId => dispatch(getFaveDestinations(userId))
+    dispatch(addFaveDestination(userId, location))
 });
 
 const LocationProfileContainer = connect(

@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
 import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
 
-const LocationProfile = ({ location, userId }) => {
+const LocationProfile = ({
+  location,
+  userId,
+  addVisitedDestination,
+  addFaveDestination
+}) => {
   return (
     <div className="location-profile">
       <h1>{location}</h1>
@@ -46,7 +51,9 @@ const LocationProfile = ({ location, userId }) => {
 
 LocationProfile.propTypes = {
   location: PropTypes.string.isRequired,
-  userId: PropTypes.number.isRequired
+  userId: PropTypes.number.isRequired,
+  addVisitedDestination: PropTypes.func.isRequired,
+  addFaveDestination: PropTypes.func.isRequired
 };
 
 export default LocationProfile;
