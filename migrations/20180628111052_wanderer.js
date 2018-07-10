@@ -60,7 +60,6 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("countries", table => {
       table.increments("country_id").primary();
       table.string("country");
-      table.string("acronym");
     }),
     knex.schema.createTable("favorite_destinations", table => {
       table.increments("favorite_destination_id").primary();

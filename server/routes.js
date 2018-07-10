@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const axios = require("axios");
 const User = require("./Models/user");
 const Destinations = require("./Models/destinations");
 const {
@@ -10,7 +11,6 @@ const Media = require("./Models/media")
 // const Tag = require("./Models/tag");
 // const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
-const axios = require("axios");
 
 const ec2path = "http://ec2-52-91-143-214.compute-1.amazonaws.com:3000";
 
@@ -51,7 +51,7 @@ router.post("/getLocationBasicInfo", (req, res) => {
 router.get("/favorites", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.userId, countries => {
     // console.log('favorite countries', countries)
-    res.send(countries);
+    res.status(200).send(countries);
   });
 });
 
@@ -66,12 +66,12 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  console.log(req.body);
+  console.log('2. hit server post route to fav:', req.body.country);
   Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {
-  console.log(req.body);
+  console.log('2. hit server post route to visited:', req.body);
   Destinations.addVisitedByUserId(req.body.userId, req.body.country);
 });
 
