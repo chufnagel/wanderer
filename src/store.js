@@ -1,8 +1,8 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
-import logger from "../../../Library/Caches/typescript/2.9/node_modules/@types/redux-logger";
+import logger from "redux-logger";
 import rootReducer from "./reducers";
-import CountriesAll from "./components/LocationProfile/CountriesAll";
+// import CountriesAll from "./components/LocationProfile/CountriesAll";
 // import photos from "../example data/pictures-of-japan";
 import { HOME } from "./constants";
 
@@ -35,7 +35,7 @@ const store = createStore(
       }
     ],
     // photos,
-    userInfo: {},
+    userInfo: 1,
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {

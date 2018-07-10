@@ -15,7 +15,7 @@ const LoginPage = () => (
     <Typography variant="headline">Welcome back!</Typography>
     <Typography variant="body2">Click below to sign back in.</Typography>
     <Link to="/home" style={{ textDecoration: "none" }}>
-      <Button type="submit" variant="raised" color="success">
+      <Button type="submit" variant="raised" color="secondary">
         Sign<br />in
       </Button>
     </Link>

@@ -40,7 +40,7 @@ const App = () => (
         <Route exact path="/attractions" component={AttractionsContainer} />
         <Route path="/blogs" component={asyncBlogs} />
         <Route exact path="/friends" component={FriendsList} />
-        <Route exact path="/photos" component={PhotosContainer} />
+        <Route exact path="/photos_videos" component={PhotosContainer} />
         <Route exact path="/destinations" component={DestinationsContainer} />
         <Route exact path="/explore" component={Explore} />
         <Redirect to="/" />

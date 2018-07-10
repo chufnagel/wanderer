@@ -3,10 +3,8 @@ import {
   getFaveDestinations,
   getVisitedDestinations
 } from "../actions/destinations";
-import {
-  getUserById,
-  getBlogsByUserId
-} from "../actions/user";
+import getUserInfo from "../actions/userInfo";
+
 import FriendsList from "../components/FriendsList";
 
 const mapStateToProps = state => {
@@ -16,8 +14,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getUserById: userId => dispatch(getUserById(userId)),
-  getBlogsByUserId: userId => dispatch(getBlogsByUserId(userId)),
+  getUserInfo: userId => dispatch(getUserInfo(userId)),
+  // getBlogsByUserId: userId => dispatch(getBlogsByUserId(userId)),
   getVisitedDestinations: userId => dispatch(getVisitedDestinations(userId)),
   getFaveDestinations: userId => dispatch(getFaveDestinations(userId))
 });

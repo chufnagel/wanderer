@@ -21,7 +21,7 @@ const Header = ({ headerSetting }) => (
             flexWrap: "nowrap"
           }}
         >
-          <Link to="/" style={linkStyles}>
+          <Link to="/home" style={linkStyles}>
             <Typography>dashboard</Typography>
           </Link>
           <span> | </span>
@@ -73,7 +73,7 @@ const Header = ({ headerSetting }) => (
             flexWrap: "nowrap"
           }}
         >
-          <Link to="/" style={linkStyles}>
+          <Link to="/profile" style={linkStyles}>
             <Typography>overview</Typography>
           </Link>
           <span> | </span>

@@ -10,12 +10,7 @@ const FriendsList = ({ friends }) => (
     <Typography variant="headline">{placeholder}</Typography>
     <div>
       {friends.map(friend => (
-        <Link
-          key={friend.userId}
-          to="/profile"
-          onClick={() => {
-          }}
-        >
+        <Link key={friend.userId} to="/profile">
           <center>
             <ListItemText primary={friend.username} />
           </center>

@@ -29,7 +29,6 @@ const rootReducer = combineReducers({
   faveDestinations,
   visitedDestinations,
   profilePhoto
-  // userId
 });
 
 export default rootReducer;
