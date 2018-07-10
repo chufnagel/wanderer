@@ -1,13 +1,13 @@
 const router = require("express").Router();
 const User = require("./Models/user");
-const Blog = require("./Models/blog");
 const Destinations = require("./Models/destinations");
 const {
   getPointsOfInterest,
   getAttractions,
   getLocationBasicInfo
 } = require("./helperFunctions");
-const Tag = require("./Models/tag");
+// const Tag = require("./Models/tag");
+// const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
 const axios = require("axios");
 
@@ -21,7 +21,7 @@ const {
   chalkInfo
 } = require("../chalkpresets");
 
-// calls the helper function to query Google Places API for points of interest for given location
+// call the helper function to query Google Places API for points of interest for given location
 router.post("/getPointsOfInterest", (req, res) => {
   getPointsOfInterest(req.body.location, (err, data) => {
     if (err) {
@@ -32,11 +32,17 @@ router.post("/getPointsOfInterest", (req, res) => {
   });
 });
 
-// calls the helper function to query REST Countries API for basic info for given location
+// call the helper function to query Atlas Obscura for attractions for given location
+router.post("/getAttractions", (req, res) => {
+  getAttractions(req.body.location, data => {
+    res.send(data);
+  });
+});
+
+// call the helper function to query REST Countries API for basic info for given location
 router.post("/getLocationBasicInfo", (req, res) => {
   getLocationBasicInfo(req.body.location, data => {
     if (data) res.send(data);
-    // else (err) console.log("error getting basic info from server", err);
   });
 });
 
