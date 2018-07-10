@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import Drawer from "@material-ui/core/Drawer";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchContainer from "../../containers/SearchContainer";
+import { HOME } from "../../constants";
 
-const Sidebar = () => (
+const Sidebar = ({ setHeader }) => (
   <div>
     <Drawer
       variant="permanent"
@@ -19,29 +21,29 @@ const Sidebar = () => (
       <br />
       <List component="nav">
         <center>
-          <img width="128px" height="128px" />
+          <img width="128px" height="128px" alt="Profile pic" />
         </center>
         <br />
         <SearchContainer />
         <br />
         <ListItem button>
           <Link to="/">
-            <ListItemText primary="Home" />
+            <ListItemText primary="Home" onClick={() => setHeader(HOME)} />
           </Link>
         </ListItem>
         <ListItem button>
           <Link to="/friends">
-            <ListItemText primary="Friends" />
+            <ListItemText primary="Friends" onClick={() => setHeader(HOME)} />
           </Link>
         </ListItem>
         <ListItem button>
           <Link to="/profile">
-            <ListItemText primary="Profile" />
+            <ListItemText primary="Profile" onClick={() => setHeader(HOME)} />
           </Link>
         </ListItem>
         <ListItem button>
           <Link to="/explore">
-            <ListItemText primary="Explore" />
+            <ListItemText primary="Explore" onClick={() => setHeader(HOME)} />
           </Link>
         </ListItem>
         <br />
@@ -49,5 +51,9 @@ const Sidebar = () => (
     </Drawer>
   </div>
 );
+
+Sidebar.propTypes = {
+  setHeader: PropTypes.func.isRequired
+};
 
 export default Sidebar;

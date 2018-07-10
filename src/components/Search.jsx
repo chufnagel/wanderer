@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import { LOCATION_PROFILE } from "../constants";
 
 class Search extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class Search extends Component {
     this.state = {
       field: ""
     };
+
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -20,6 +22,14 @@ class Search extends Component {
   };
 
   render() {
+    const {
+      setHeader,
+      changeSelectedLocation,
+      getLocationBasicInfo,
+      getPointsOfInterest,
+      getAttractions
+    } = this.props;
+    const { field } = this.state;
     return (
       <form>
         <TextField
@@ -40,10 +50,11 @@ class Search extends Component {
               variant="raised"
               color="primary"
               onClick={() => {
-                this.props.changeSelectedLocation(this.state.field);
-                this.props.getLocationBasicInfo(this.state.field);
-                this.props.getPointsOfInterest(this.state.field);
-                this.props.getAttractions(this.state.field);
+                setHeader(LOCATION_PROFILE);
+                changeSelectedLocation(field);
+                getLocationBasicInfo(field);
+                getPointsOfInterest(field);
+                getAttractions(field);
               }}
             >
               Search
@@ -56,6 +67,7 @@ class Search extends Component {
 }
 
 Search.propTypes = {
+  setHeader: PropTypes.func.isRequired,
   changeSelectedLocation: PropTypes.func.isRequired,
   getLocationBasicInfo: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,

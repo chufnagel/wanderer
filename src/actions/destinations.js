@@ -61,11 +61,9 @@ function addVisitedDestinationSuccess(destination) {
 export function addVisitedDestination(userId, country) {
   return dispatch => {
     axios
-      .get("http://localhost:3000/destinationsPast", {
-        params: {
-          userId,
-          country
-        }
+      .post("/visited", {
+        userId,
+        country
       })
       .then(() => {
         dispatch(addVisitedDestinationSuccess(country));
