@@ -3,7 +3,7 @@ import setHeader from "../actions/header";
 import Sidebar from "../components/Sidebar/Sidebar";
 
 const mapDispatchToProps = dispatch => ({
-  setHeader: dispatch(setting => setHeader(setting))
+  setHeader: term => dispatch(setHeader(term))
 });
 
 const SidebarContainer = connect(
