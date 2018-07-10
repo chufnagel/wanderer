@@ -34,7 +34,7 @@ module.exports = env => {
       splitChunks: {
         chunks: "all"
       },
-      //minimize: true
+      minimize: true
     },
     module: {
       rules: [
