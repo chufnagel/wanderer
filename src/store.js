@@ -42,17 +42,10 @@ const store = createStore(
       currencies: [{ name: "" }]
     },
     userId: 1,
-<<<<<<< HEAD
     faveDestinations: ["Iceland", "Japan"],
     visitedDestinations: ["Hong Kong", "Argentina"],
     profilePhoto: "",
-    albumPhotos:[],
-    friends: [2,3,4]
-=======
-    faveDestinations: [],
-    visitedDestinations: [],
-    profilePhoto: ""
->>>>>>> a64326d914c7178a0f7052d543294ae76ac9eaec
+    albumPhotos:[]
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
