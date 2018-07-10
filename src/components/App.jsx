@@ -2,7 +2,7 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import Sidebar from "./Sidebar/Sidebar";
+import SidebarContainer from "../containers/SidebarContainer";
 import GlobalMapContainer from "../containers/GlobalMapContainer";
 import Home from "./Home";
 import HeaderContainer from "../containers/HeaderContainer";
@@ -27,7 +27,7 @@ const App = () => (
       <br />
       <GlobalMapContainer />
     </center>
-    <Sidebar />
+    <SidebarContainer />
     <center>
       <HeaderContainer />
       <Switch>
