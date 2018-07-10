@@ -21,16 +21,6 @@ const handleUploadFile = (event, userId, updateProfilePhoto) => {
         }
       })
       .then(photo => {
-        console.log("photo data***", photo.data.Body);
-
-        // const image = Buffer.from(photo.data.Body.data).toString('base64')
-        // //btoa(String.fromCharCode.apply(null, photo.data.Body.data));
-        // console.log(`data:image/png;base64,${image}`)
-
-        // /*var bytes = new Uint8Array(photo.data.Body.data)
-
-        // var image = 'data:image/png;base64'+encode(bytes)*/
-
         let image = String.fromCharCode.apply(null, new Uint16Array(photo.data.Body.data));
 
         updateProfilePhoto(`data:image/png;base64,${image}`);
