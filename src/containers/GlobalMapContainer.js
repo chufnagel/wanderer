@@ -1,15 +1,27 @@
 import { connect } from "react-redux";
-import { addVisitedDestination } from "../actions/destinations";
+import changeSelectedLocation from "../actions/location";
+import setHeader from "../actions/header";
+import {
+  getPointsOfInterest,
+  getAttractions,
+  getLocationBasicInfo
+} from "../actions/search";
 import GlobalMap from "../components/GlobalMap/GlobalMap";
 
-const mapStateToProps = ({ state }) => {
+const mapStateToProps = state => {
   return {
-    visitedDestinations: state.visitedDestinations
+    location: state.location,
+    pointsOfInterest: state.pointsOfInterest,
+    attractions: state.attractions
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  addVisitedDestination: country => dispatch(addVisitedDestination(country))
+  setHeader: term => dispatch(setHeader(term)),
+  changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
+  getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
+  getAttractions: term => dispatch(getAttractions(term)),
+  getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term))
 });
 
 export default connect(
