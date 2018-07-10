@@ -111,6 +111,24 @@ exports.seed = (knex, Promise) => {
       },
       {
         user_id: 2,
+        country_id: 1,
+        image_url:
+          "https://s3.amazonaws.com/griffyndor/Japan-McMandy/Doraemon-.jpg"
+      },
+      {
+        user_id: 2,
+        country_id: 1,
+        image_url:
+          "https://s3.amazonaws.com/griffyndor/Japan-McMandy/girls_in_japan.jpg"
+      },
+      {
+        user_id: 2,
+        country_id: 1,
+        image_url:
+          "https://s3.amazonaws.com/griffyndor/Japan-McMandy/ramen.jpg"
+      },
+      {
+        user_id: 2,
         country_id: 8,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Russia/Russia1.jpg"
