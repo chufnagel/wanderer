@@ -85,7 +85,7 @@ router.get("/friends", (req, res) => {
 router.get("/userInfo", async (req, res, next) => {
   console.log(req.params);
   try {
-    const userInfo = await User.findByUserId(req.query.user_id);
+    const userInfo = await User.findByUserId(req.query.userId);
     res.status(200).send(userInfo);
   } catch (err) {
     console.error(err);
@@ -120,7 +120,7 @@ router.get("/blogs", async (req, res, next) => {
 // Blog.retrieveBlogsByUserId
 router.get("/blogsByUserId", async (req, res, next) => {
   try {
-    const blogs = await Blog.retrieveBlogsByUserId(req.query.user_id);
+    const blogs = await Blog.retrieveBlogsByUserId(req.query.userId);
     res.status(200).send(blogs);
   } catch (err) {
     console.error(err);
@@ -133,7 +133,7 @@ router.get("/blogsByUserId", async (req, res, next) => {
 router.get("/blogsByBlogId", async (req, res, next) => {
   try {
     /#/;
-    const blog = Blog.retrieveBlogsByBlogId(req.query.blog_id);
+    const blog = Blog.retrieveBlogsByBlogId(req.query.blogId);
     res.status(200).send(blog);
   } catch (err) {
     console.error(err);
@@ -156,7 +156,7 @@ router.post("/tags", async (req, res, next) => {
 // tag_id not yet implemented on front-end
 router.get("/getTag", async (req, res, next) => {
   try {
-    const tag = await Tag.findByTagId(req.query.tag_id);
+    const tag = await Tag.findByTagId(req.query.tagId);
     res.status(200).send(tag);
   } catch (err) {
     console.error(err);
@@ -176,7 +176,7 @@ router.get("/tags", async (req, res, next) => {
 
 router.post("/create", (req, res) => {
   const file = req.files.file;
-  const userId = req.body.user_id;
+  const userId = req.body.userId;
   axios
     .post(`${ec2path}/create`, {
       file
