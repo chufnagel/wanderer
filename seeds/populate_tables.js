@@ -58,16 +58,6 @@ exports.seed = (knex, Promise) => {
       { blog_tags_id: 2, tag_id: 2, blog_id: 1 }
     ]),
     knex("countries").insert([
-<<<<<<< HEAD
-      { country_id: 1, country: "Japan", acronym: "JPN" },
-      { country_id: 2, country: "Hong Kong", acronym: "HKG" },
-      { country_id: 3, country: "Panama", acronym: "PAN" },
-      { country_id: 4, country: "Singapore", acronym: "SGP" },
-      { country_id: 5, country: "England", acronym: "ENG" },
-      { country_id: 6, country: "France", acronym: "FRA" },
-      { country_id: 7, country: "Germany", acronym: "GER" },
-      { country_id: 8, country: "Russia", acronym: "RUS" },
-=======
       { country_id: 1, country: "Afghanistan" },
       { country_id: 2, country: "Albania" },
       { country_id: 3, country: "Algeria" },
@@ -276,7 +266,6 @@ exports.seed = (knex, Promise) => {
       { country_id: 206, country: "Yemen" },
       { country_id: 207, country: "Zambia" },
       { country_id: 208, country: "Zimbabwe" }
->>>>>>> a64326d914c7178a0f7052d543294ae76ac9eaec
     ]),
     knex("favorite_destinations").insert([
       { favorite_destination_id: 1, destination_id: 1, user_id: 1 },

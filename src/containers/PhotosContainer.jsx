@@ -4,7 +4,9 @@ import { getAlbumPhotos } from "../actions/photos";
 
 const mapStateToProps = state => ({
   albumPhotos: state.albumPhotos,
-  userId: state.userId
+  userId: state.userId,
+  friendsId: state.friendsId,
+  headerSetting: state.headerSetting
 });
 
 const mapDispatchToProps = dispatch => ({

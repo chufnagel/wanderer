@@ -5,6 +5,7 @@ export const GET_OWN_BLOGS = "GET_OWN_BLOGS"; // not yet needed
 export const ADD_BLOG = "ADD_BLOG";
 
 export const CHANGE_USERID = "CHANGE_USERID";
+export const CHANGE_FRIENDSID = "CHANGE_FRIENDSID";
 
 export const CHANGE_SELECTED_LOCATION = "CHANGE_SELECTED_LOCATION";
 

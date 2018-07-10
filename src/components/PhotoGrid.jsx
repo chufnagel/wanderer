@@ -3,8 +3,12 @@ import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
 const methods = {
-  componentDidMount({ userId, getAlbumPhotos }) {
-    getAlbumPhotos(userId);
+  componentDidMount({ userId, friendsId, getAlbumPhotos, headerSetting }) {
+    if (headerSetting === "HOME") {
+      getAlbumPhotos(userId);
+    } else {
+      getAlbumPhotos(friendsId.concat([userId]));
+    }
   }
 };
 
@@ -13,12 +17,7 @@ const PhotoGrid = ({ albumPhotos }) => {
     <div>
       <h1> Photos </h1>
       {albumPhotos.map(photo => {
-        return (
-          <img
-            src={photo.image_url}
-            className="post-image"
-          />
-        );
+        return <img src={photo.image_url} className="post-image" />;
       })}
     </div>
   );

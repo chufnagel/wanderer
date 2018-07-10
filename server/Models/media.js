@@ -3,7 +3,7 @@ const Media = {};
 
 Media.retrieveMediaByUserId = userId => {
   return db("media")
-    .where({ user_id: userId })
+    .whereIn("user_id", userId)
     .select("*")
     .then(media => media)
     .catch(err => console.error(err));
