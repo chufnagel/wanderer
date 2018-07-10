@@ -1,23 +1,21 @@
 import React from "react";
-// import lifecycle from "react-pure-lifecycle";
+import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
-// const methods = {
-//   componentDidMount({handleNavUpdate}) {
-//     handleNavUpdate('dashboard');
-//   }
-// };
+const methods = {
+  componentDidMount({ userId, getAlbumPhotos }) {
+    getAlbumPhotos(userId);
+  }
+};
 
-const PhotoGrid = ({ photos }) => {
+const PhotoGrid = ({ albumPhotos }) => {
   return (
     <div>
       <h1> Photos </h1>
-      {photos.map(photo => {
+      {albumPhotos.map(photo => {
         return (
           <img
-            src={photo.imageUrl}
-            key={photo._id}
-            alt={photo.title}
+            src={photo.image_url}
             className="post-image"
           />
         );
@@ -28,6 +26,6 @@ const PhotoGrid = ({ photos }) => {
 
 PhotoGrid.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.object)
-}
+};
 
-export default PhotoGrid;
+export default lifecycle(methods)(PhotoGrid);

@@ -6,6 +6,7 @@ const {
   getAttractions,
   getLocationBasicInfo
 } = require("./helperFunctions");
+const Media = require("./Models/media")
 // const Tag = require("./Models/tag");
 // const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
@@ -207,6 +208,16 @@ router.get("/retrieve", (req, res) => {
         res.sendStatus(404);
       });
   });
+});
+
+router.get("/mediaByUserId", async (req, res, next) => {
+  try {
+    const media = await Media.retrieveMediaByUserId(req.query.userId);
+    res.status(200).send(media);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve user's media files");
+  }
 });
 
 module.exports = router;

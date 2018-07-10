@@ -18,7 +18,7 @@ const Header = ({ headerSetting }) => (
           <Link to="/blogs">
             <ListItemText primary="blog posts" />
           </Link>
-          <Link to="/photos_videos">
+          <Link to="/photos">
             <ListItemText primary="photos & videos" />
           </Link>
           <Link to="/destinations">
