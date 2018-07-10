@@ -6,9 +6,11 @@ const photosReducer = (state = null, action) => {
 
 const profilePhoto = (state = null, action) => {
   switch (action.type) {
-    case actions.UPDATE_PROFILE_PHOTO:
+    case "UPDATE_PROFILE_PHOTO":
       return action.profilePhoto;
     default:
       return state;
   }
-}
+};
+
+export default profilePhoto;

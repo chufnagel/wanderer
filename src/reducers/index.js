@@ -8,7 +8,7 @@ import {
   attractions,
   locationBasicInfo
 } from "./searchReducer";
-import {profilePhoto} from "./photoReducer"
+import profilePhoto from "./photoReducer"
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
 // use map, filter, Object.assign() and array destructuring to

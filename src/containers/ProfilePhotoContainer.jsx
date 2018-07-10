@@ -5,7 +5,8 @@ import { updateProfilePhoto } from "../actions/photos.js";
 const mapStateToProps = state => ({
   navFlag: state.navFlag, // console.log('photocontainer',state.photos)
   profile: state.photos,
-  userId: state.userId
+  userId: state.userId,
+  profilePhoto: state.profilePhoto
 });
 
 const mapDispatchToProps = dispatch => ({
