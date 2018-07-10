@@ -9,7 +9,8 @@ import {
   attractions,
   locationBasicInfo
 } from "./searchReducer";
-import profilePhoto from "./photoReducer"
+import profilePhoto from "./photoReducer";
+import userInfo from "./userInfoReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
 // use map, filter, Object.assign() and array destructuring to
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   pointsOfInterest,
   blogs,
   userId,
+  userInfo,
   headerSetting,
   faveDestinations,
   visitedDestinations,

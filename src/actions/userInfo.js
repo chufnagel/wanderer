@@ -1,20 +1,24 @@
 import axios from "axios";
-import * as actions from "./types";
+import {
+  GET_USER_INFO_REQUEST,
+  GET_USER_INFO_SUCCESS,
+  GET_USER_INFO_FAILURE
+} from "./types";
 
 function getUserInfoRequest() {
   return {
-    type: actions.GET_USER_INFO_REQUEST
+    type: GET_USER_INFO_REQUEST
   };
 }
 function getUserInfoSuccess(userInfo) {
   return {
-    type: actions.GET_USER_INFO_SUCCESS,
+    type: GET_USER_INFO_SUCCESS,
     payload: userInfo
   };
 }
 function getUserInfoFailure(err) {
   return {
-    type: actions.GET_USER_INFO_FAILURE,
+    type: GET_USER_INFO_FAILURE,
     err
   };
 }
