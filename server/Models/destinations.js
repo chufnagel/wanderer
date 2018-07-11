@@ -60,9 +60,9 @@ Destinations.addFavByUserId = (userId, country) => {
               user_id: userId,
               destination_id: results[0].country_id
             });
-          } else {
-            console.log("record already exists");
           }
+            console.log("record already exists");
+
         })
         .catch(err => {
           console.error(err);
@@ -90,9 +90,9 @@ Destinations.addVisitedByUserId = (userId, country) => {
               user_id: userId,
               destination_id: results[0].country_id
             });
-          } else {
-            console.log("record already exists");
           }
+            console.log("record already exists");
+
         })
         .catch(err => {
           console.error(err);
@@ -141,4 +141,14 @@ Destinations.getFaveCount = (country, cb) => {
     .catch(() => cb(0));
 };
 
+Destinations.getCountryIdByName = location => {
+  // console.log("3. hit addVisitedByUserId DB model:", country);
+  return db("countries")
+    .where({ country: location })
+    .select("country_id")
+    .then(country_id => {
+      return country_id;
+    })
+    .catch(err => console.error(err));
+};
 module.exports = Destinations;
