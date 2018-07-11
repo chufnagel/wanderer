@@ -6,7 +6,6 @@ import {
 import { updateObject } from "../utility";
 
 const initialState = {
-  userInfo: [],
   loading: false
 };
 
@@ -15,10 +14,7 @@ function userInfo(state = initialState, action) {
     case GET_USER_INFO_REQUEST:
       return updateObject(state, { loading: true });
     case GET_USER_INFO_SUCCESS:
-      return updateObject(state, {
-        userInfo: action.userInfo,
-        loading: false
-      });
+      return action.userInfo[0];
     case GET_USER_INFO_FAILURE:
       return updateObject(state, { loading: false });
     default:

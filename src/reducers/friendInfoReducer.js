@@ -6,7 +6,6 @@ import {
 import { updateObject } from "../utility";
 
 const initialState = {
-  friendInfo: [],
   loading: false
 };
 
@@ -15,10 +14,7 @@ function friendInfo(state = initialState, action) {
     case GET_FRIEND_INFO_REQUEST:
       return updateObject(state, { loading: true });
     case GET_FRIEND_INFO_SUCCESS:
-      return updateObject(state, {
-        friendInfo: action.friendInfo,
-        loading: false
-      });
+      return action.userInfo[0];
     case GET_FRIEND_INFO_FAILURE:
       return updateObject(state, { loading: false });
     default:

@@ -14,7 +14,7 @@ function getUserInfoRequest() {
 function getUserInfoSuccess(userInfo) {
   return {
     type: GET_USER_INFO_SUCCESS,
-    payload: userInfo
+    userInfo
   };
 }
 
