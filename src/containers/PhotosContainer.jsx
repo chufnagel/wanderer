@@ -6,12 +6,13 @@ const mapStateToProps = state => ({
   albumPhotos: state.albumPhotos,
   userId: state.userId,
   friendsId: state.friendsId,
+  location: state.location,
   headerSetting: state.headerSetting
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAlbumPhotos: userId => {
-    dispatch(getAlbumPhotos(userId));
+  getAlbumPhotos: (userId, location) => {
+    dispatch(getAlbumPhotos(userId, location));
   }
 });
 

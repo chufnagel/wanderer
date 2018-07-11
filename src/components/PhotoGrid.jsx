@@ -3,11 +3,11 @@ import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
 const methods = {
-  componentDidMount({ userId, friendsId, getAlbumPhotos, headerSetting }) {
+  componentDidMount({ userId, friendsId, getAlbumPhotos, location, headerSetting }) {
     if (headerSetting === "HOME") {
-      getAlbumPhotos(userId);
+      getAlbumPhotos(userId, null);
     } else {
-      getAlbumPhotos(friendsId.concat([userId]));
+      getAlbumPhotos(friendsId.concat([userId]), location);
     }
   }
 };

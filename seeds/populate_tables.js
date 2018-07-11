@@ -287,69 +287,69 @@ exports.seed = (knex, Promise) => {
     knex("media").insert([
       {
         user_id: 1,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/demand-response-Japan.jpg"
       },
       {
         user_id: 1,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/download.jpeg"
       },
       {
         user_id: 1,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/japan_rail_pass_03.jpg"
       },
       {
         user_id: 1,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/images.jpeg"
       },
       {
         user_id: 2,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Japan-McMandy/Doraemon-.jpg"
       },
       {
         user_id: 2,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Japan-McMandy/girls_in_japan.jpg"
       },
       {
         user_id: 2,
-        country_id: 1,
+        country_id: 97,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Japan-McMandy/ramen.jpg"
       },
       {
         user_id: 2,
-        country_id: 8,
+        country_id: 155,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Russia/Russia1.jpg"
       },
       {
         user_id: 2,
-        country_id: 8,
+        country_id: 155,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Russia/Russia2.jpg"
       },
 
       {
         user_id: 2,
-        country_id: 8,
+        country_id: 155,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Russia/Russia3.jpg"
       },
 
       {
         user_id: 2,
-        country_id: 8,
+        country_id: 155,
         image_url:
           "https://s3.amazonaws.com/griffyndor/Russia/Russia4.jpeg"
       }

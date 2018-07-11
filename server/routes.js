@@ -212,7 +212,11 @@ router.get("/retrieve", (req, res) => {
 
 router.get("/mediaByUserId", async (req, res, next) => {
   try {
-    const media = await Media.retrieveMediaByUserId(req.query.userId);
+    const location_name = req.query.location;
+    console.log("location name", location_name)
+    const country_id = await Destinations.getCountryIdByName(location_name)
+    const media = await Media.retrieveMediaByUserId(req.query.userId, country_id);
+    console.log('meida',media)
     res.status(200).send(media);
   } catch (err) {
     console.error(err);

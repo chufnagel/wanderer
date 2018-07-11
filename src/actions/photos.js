@@ -14,13 +14,14 @@ export function updateProfilePhoto(profilePhoto) {
   };
 }
 
-export function getAlbumPhotos(userId) {
-  console.log('userId****',userId)
+export function getAlbumPhotos(userId, location) {
+  console.log('location****',location)
   return dispatch => {
     axios
       .get("/mediaByUserId", {
         params: {
-          userId
+          userId,
+          location
         }
       })
       .then(({ data }) => {
