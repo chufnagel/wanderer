@@ -1,17 +1,25 @@
 import React from "react";
-import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
+import axios from "axios"
 
-const methods = {};
+const handleUploadFile = (e, userId, updatePhotoOne) => {
+  updatePhotoOne(e.target.files[0]);
+  const data = new FormData();
+  data.append("file", e.target.files[0]);
+  data.append("user_id", userId);
+  // '/files' is your node.js route that triggers our middleware
+  axios.post("/createAlbum", data).then(response => {
+    console.log("response", response);
+  });
+};
 
-const PhotoUploader = ({ photoOne, updatePhotoOne }) => {
+const PhotoUploader = ({ photoOne, userId, updatePhotoOne }) => {
   return (
     <div>
       <input
         type="file"
         onChange={e => {
-          console.log("photouploader e", e.target.files[0]);
-          updatePhotoOne(e.target.files[0]);
+          handleUploadFile(e, userId, updatePhotoOne);
         }}
       />
       <img src={photoOne} />
@@ -23,4 +31,4 @@ PhotoUploader.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default lifecycle(methods)(PhotoUploader);
+export default PhotoUploader;

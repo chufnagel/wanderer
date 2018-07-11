@@ -228,4 +228,20 @@ router.get("/mediaByUserId", async (req, res, next) => {
   }
 });
 
+router.post("/createAlbum", (req, res) => {
+  const file = req.files.file;
+  const userId = req.body.userId;
+  axios
+    .post(`${ec2path}/create`, {
+      file
+    })
+    .then(imageinfo => {
+      console.log("create album", imageinfo)
+      /*User.addAlbumPhotoByUserIdAndCountry(imageinfo.data, userId).then(
+        res.sendStatus(200)
+      );*/
+    });
+});
+
+
 module.exports = router;

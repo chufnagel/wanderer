@@ -3,7 +3,8 @@ import PhotoUploader from "../components/PhotoUploader";
 import { updatePhotoOne } from "../actions/photos";
 
 const mapStateToProps = state => ({
-  photoOne: state.photoOne
+  photoOne: state.photoOne,
+  userId: state.userId
   // albumPhotos: state.albumPhotos,
   // userId: state.userId,
   // friendsId: state.friendsId,
