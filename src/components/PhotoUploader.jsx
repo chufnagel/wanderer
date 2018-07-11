@@ -17,6 +17,7 @@ const handleUploadFile = (e, userId, updatePhotoOne, location) => {
 const PhotoUploader = ({ photoOne, userId, updatePhotoOne, location }) => {
   return (
     <div>
+      <h2>Upload Photo</h2>
       <input
         type="file"
         onChange={e => {
