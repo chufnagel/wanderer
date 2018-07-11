@@ -33,14 +33,78 @@ exports.seed = (knex, Promise) => {
         name: "Lina Luna Lei",
         email: "sarusaru@gmail.com",
         bio: "I love anime, dos toros, pokemon"
+      },
+      {
+        user_id: 5,
+        username: "MJDawg",
+        password: "moseph",
+        name: "Moseph Jartin",
+        email: "mjdawg@gmail.com",
+        bio: "I love to code in my sleep too."
+      },
+      {
+        user_id: 6,
+        username: "HanyHulk",
+        password: "woktowalk",
+        name: "Hany Hulk",
+        email: "hanyhulk@gmail.com",
+        bio: "I go to Wok To Walk for breakfast, lunch, and dinner :)"
+      },
+      {
+        user_id: 7,
+        username: "HawaiiMike",
+        password: "iluv2surf",
+        name: "Michaela",
+        email: "hawaiimike@gmail.com",
+        bio:
+          "My hobbies include surfing, playing the ukelele, and watching videos of girls."
+      },
+      {
+        user_id: 8,
+        username: "SingerJohn",
+        password: "johnjohn",
+        name: "John Cynn",
+        email: "johncynn@gmail.com",
+        bio: "I love to sing!! Ask me to sing A Whole New World!"
+      },
+      {
+        user_id: 9,
+        username: "NickOfBoylanSoda",
+        password: "espanol",
+        name: "Nick Boylan-Soda",
+        email: "nickb@gmail.com",
+        bio:
+          "I lived in Argentina for a year and would love to go back there someday!"
       }
     ]),
     knex("blogs").insert([
       {
         blog_id: 1,
         title: "WELCOME TO NIHON",
-        content: "YOLO SWAG",
+        content:
+          "I LOVE JAPAN! I love to talk about and share anything Japan-related with my friends! I have introduced many Japanese food places around school to my classmates and gotten them hooked on Japanese food! Especially Nick Rogers...red bean mochi fanatic!",
         user_id: 1
+      },
+      {
+        blog_id: 2,
+        title: "When to Travel to Japan",
+        content:
+          "If you have a flexible travel schedule, aim for traveling to Japan in the spring or autumn! \n  Spring is one of the best times of year to be in Japan. The temperatures are warm but not hot, there's not too much rain, and March-April brings the justly famous cherry blossoms (sakura) and is a time of revelry and festivals.\n  Summer starts with a dreary rainy season (known as tsuyu or baiu) in June and turns into a steambath in July-August, with extreme humidity and the temperature heading as high as 35°C. Avoid, or head to northern Hokkaido or the mountains of Chubu and Tohoku to escape. The upside, though, is a slew of fireworks shows (hanabi taikai) and festivals big and small.\n  Autumn, starting in September, is also an excellent time to be in Japan. Temperatures and humidity become more tolerable, fair days are common and fall colors can be just as impressive as cherry blossoms. However, in early autumn typhoons often hit the southern parts of Japan and bring everything to a standstill.\n  Winter is a good time to go skiing or hot-spring hopping, but as some buildings lack central heating, it's often miserably cold indoors. Heading south to Okinawa provides some relief. There is usually heavy snow in Hokkaido and northeast Japan due to the cold wind blasts from Siberia. Note that the Pacific coast of Honshu (where most major cities are located) has milder winters than the Sea of Japan coast: it may be snowing in Kyoto while it is cloudy or sprinkling rain in Osaka, an hour away.",
+        user_id: 2
+      },
+      {
+        blog_id: 3,
+        title: "Japan's Awesome Transport System!",
+        content:
+          "Japan has one of the world's best transport systems, and getting around is usually a breeze, with the train being the favored for most locations. Although travelling around Japan is expensive, there are a variety of passes for foreigner visits that can make travel more affordable. \nFor sorting through transport schedules and fares, Hitachi's Hyperdia is an invaluable companion; it computes directions including all the various connecting train options. While most useful for advanced planning of longer routes, it is also quite useful for navigating the complex networks of the major cities. You’ll also tend to get better results with this tool than ticket officers will find for you if you simply rely on them to choose your route.  \nGoogle Maps is also great for navigating, but not all transit systems have schedules in the app.  \nJorudan is a similar service, but with fewer options for exploring alternate routes. The paper version of these is the Daijikokuhyō, a phonebook-sized tome available for browsing in every train station and most hotels, but it's a little challenging to use as the content is entirely in microscopic Japanese. A lighter version that just includes limited express, sleeper and bullet trains (shinkansen) is available from the Japan National Tourist Organization's overseas offices. English timetables are available on the websites of JR Hokkaido, JR East, JR Central and JR Kyushu. Timetables for the Tokaido, Sanyo and Kyushu shinkansen can also be viewed in English at Macoto's Tabi-o-ji timetable site. Both Hyperdia and Tabi-o-ji offer schedule searches that exclude Nozomi and Mizuho services, which will benefit holders of the Japan Rail Pass.  \nWhile the search tools find the best connections, having the timetable for an infrequently served station handy can make for a pleasant trip when going to more scenic destinations. Also note that as a tourist unfamiliar with the stations, the best connection might be tough to make. Especially for larger stations, figuring out where you are and where you need to go with luggage can take longer than the best connection time. If you have the JR Pass, there is no need to run for your train, you can always take the next one. You should also note that, in smaller stations, there is usually a large sign or poster with the timetable near the gate which you can quickly take a photo of with your phone or digital camera for easy reference later.   \nJapan is well known for the punctuality of its transportation system so you can plan your itineraries with ease! :)",
+        user_id: 3
+      },
+      {
+        blog_id: 4,
+        title: "Language in Japan",
+        content:
+          "The National language of Japan is Japanese, although Japan has no Official Language. Most Japanese under 40 have studied English for at least 6 years, but the instruction tends to focus on formal grammar and writing rather than actual conversation. As a result, outside of major tourist attractions and establishments that cater specifically to foreigners, it is rare to find people who are conversant in English. Reading and writing tends to come much better though, and many younger Japanese are able to understand a great deal of written English despite not being able to speak it. English and Chinese are often spoken by a some clerks in establishments such as major stores.  \nIf lost, it can be practical to write out a question on paper in simple words and give it to someone young, preferably high school or college students, who will likely be able to point you in the right direction. It can also be helpful to carry a hotel business card or matchbook with you, to show a taxi driver or someone if you lose your way. Take comfort in the fact that many Japanese will go to extraordinary lengths to understand what you want and to help you, and try to pick up at least basic greetings and thank yous to put people at ease. Google Translate isn't perfect, but it can definitely help you if you are stuck in a situation where there is not enough to communicate. The app isn't great at reading text using the camera, but typing in a simple message can work.  \nJapanese is a language with several distinct dialects, although standard Japanese, which is based on the Tokyo dialect, is taught in schools and known by most people throughout the country. The slang-heavy dialect of the Kansai region is particularly famous in Japanese pop culture. On the southern islands of Okinawa, many dialects of the closely related Ryukyuan languages are spoken, mostly by the elderly, while in northern Hokkaido a rare few still speak Ainu.  \nJapanese is written using a convoluted mix of three different scripts: kanji or Chinese characters, together with native hiragana and katakana syllabaries, which were in fact derived from Chinese characters more than one thousand years ago. However, hiragana and katakana do not carry the meaning of the original Chinese characters they were derived from and are simply phonetic characters. There are thousands of kanji in everyday use and even the Japanese spend years learning them, but the kana have only 50 syllables each and can be learned with a reasonable amount of effort. Of the two, katakana are probably more useful for the visitor as they are used to write words of foreign origin other than Chinese, and thus can be used to figure out words like basu (bus), kamera (camera) or konpyūtā (computer). However, some words like terebi (television), depāto (department store), wāpuro (word processor) and sūpā (supermarket) may be harder to figure out. Knowing Chinese will also be a great head start for tackling kanji, but not all words mean what they seem so pay attention!",
+        user_id: 4
       }
     ]),
     knex("tags").insert([
