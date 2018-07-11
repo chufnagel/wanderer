@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import rootReducer from "./reducers";
-import CountriesAll from "./components/LocationProfile/CountriesAll";
+// import CountriesAll from "./components/LocationProfile/CountriesAll";
 // import photos from "../example data/pictures-of-japan";
 import { HOME } from "./constants";
 
@@ -35,6 +35,7 @@ const store = createStore(
       }
     ],
     // photos,
+    userInfo: 1,
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {
@@ -43,10 +44,10 @@ const store = createStore(
     },
     userId: 1,
     friendsId: [2,3,4],
-    faveDestinations: ["Iceland", "Japan"],
-    visitedDestinations: ["Hong Kong", "Argentina"],
     profilePhoto: "",
     albumPhotos:[],
+    faveDestinations: [],
+    visitedDestinations: []
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
