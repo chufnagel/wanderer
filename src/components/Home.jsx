@@ -1,13 +1,13 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import Stats from "./Stats";
+// import Stats from "./Stats";
 
 const recentBlogs = "Your Friends' Popular/Recent blogs";
 const recentPhotos = "Your Friends' Popular/Recent photos";
 
 const Home = () => (
   <div>
-    <Stats />
+    {/* <LocationProfileStats /> */}
     <br />
     <Typography variant="body1">{recentBlogs}</Typography>
     <Typography variant="body1">{recentPhotos}</Typography>

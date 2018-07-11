@@ -9,18 +9,20 @@ import * as settings from "../constants";
 const linkStyles = {
   textDecoration: "none"
 };
+
+const headerStyles = {
+  width: 400,
+  display: "flex",
+  justifyContent: "space-between",
+  flexWrap: "nowrap"
+};
+
 const Header = ({ headerSetting }) => (
   <header>
     <center>
+      {settings.OTHER === headerSetting ? null : null}
       {settings.HOME === headerSetting ? (
-        <span
-          style={{
-            width: 400,
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "nowrap"
-          }}
-        >
+        <span style={headerStyles}>
           <Link to="/home" style={linkStyles}>
             <Typography>dashboard</Typography>
           </Link>
@@ -39,14 +41,7 @@ const Header = ({ headerSetting }) => (
         </span>
       ) : null}
       {settings.LOCATION_PROFILE === headerSetting ? (
-        <span
-          style={{
-            width: 400,
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "nowrap"
-          }}
-        >
+        <span style={headerStyles}>
           <Link to="/search" style={linkStyles}>
             <Typography>overview</Typography>
           </Link>
@@ -65,14 +60,7 @@ const Header = ({ headerSetting }) => (
         </span>
       ) : null}
       {settings.USER_PROFILE === headerSetting ? (
-        <span
-          style={{
-            width: 400,
-            display: "flex",
-            justifyContent: "space-between",
-            flexWrap: "nowrap"
-          }}
-        >
+        <span style={headerStyles}>
           <Link to="/profile" style={linkStyles}>
             <Typography>overview</Typography>
           </Link>
