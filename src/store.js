@@ -47,7 +47,8 @@ const store = createStore(
     profilePhoto: "",
     albumPhotos:[],
     faveDestinations: [],
-    visitedDestinations: []
+    visitedDestinations: [],
+    photoOne: null
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );

@@ -14,6 +14,13 @@ export function updateProfilePhoto(profilePhoto) {
   };
 }
 
+export function updatePhotoOne(photoOne) {
+  return {
+    type: "UPDATE_PHOTO_ONE",
+    photoOne
+  };
+}
+
 export function getAlbumPhotos(userId, location) {
   console.log("location****", location);
   return dispatch => {

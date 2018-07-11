@@ -1,6 +1,7 @@
 import React from "react";
 import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
+import PhotoUploaderContainer from "../containers/PhotoUploaderContainer"
 
 const methods = {
   componentDidMount({
@@ -26,6 +27,7 @@ const PhotoGrid = ({ albumPhotos }) => {
       {albumPhotos.map(photo => {
         return <img src={photo.image_url} className="post-image" />;
       })}
+      <PhotoUploaderContainer />
     </div>
   );
 };

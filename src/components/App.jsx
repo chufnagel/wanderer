@@ -17,6 +17,7 @@ import Explore from "./Explore/Explore";
 // import NotFoundPage from "./NotFoundPage";
 import LoginPage from "./LoginPage";
 import asyncComponent from "../hoc/asyncComponent";
+import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
 
 const asyncBlogs = asyncComponent(() => {
   return import("../containers/BlogsContainer");
@@ -43,6 +44,7 @@ const App = () => (
         <Route exact path="/photos_videos" component={PhotosContainer} />
         <Route exact path="/destinations" component={DestinationsContainer} />
         <Route exact path="/explore" component={Explore} />
+        <Route exact path="/addMemory" component={PhotoUploaderContainer} />
         <Redirect to="/" />
       </Switch>
     </center>

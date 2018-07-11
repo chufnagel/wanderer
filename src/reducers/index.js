@@ -9,7 +9,7 @@ import {
   attractions,
   locationBasicInfo
 } from "./searchReducer";
-import { profilePhoto, albumPhotos } from "./photoReducer";
+import { profilePhoto, albumPhotos, photoOne } from "./photoReducer";
 import userInfo from "./userInfoReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
@@ -30,7 +30,8 @@ const rootReducer = combineReducers({
   faveDestinations,
   visitedDestinations,
   profilePhoto,
-  albumPhotos
+  albumPhotos,
+  photoOne
   // userId
 });
 
