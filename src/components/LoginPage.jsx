@@ -10,7 +10,7 @@ import Typography from "@material-ui/core/Typography";
 // import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
-const LoginPage = ({ getUserInfo, getBlogs }) => {
+const LoginPage = ({ getUserInfo }) => {
   return (
     <div>
       <Typography variant="headline">Welcome back!</Typography>
@@ -22,7 +22,6 @@ const LoginPage = ({ getUserInfo, getBlogs }) => {
           color="secondary"
           onClick={() => {
             getUserInfo(1);
-            getBlogs();
           }}
         >
           Sign<br />in
@@ -33,9 +32,8 @@ const LoginPage = ({ getUserInfo, getBlogs }) => {
 };
 
 LoginPage.propTypes = {
+  getUserInfo: PropTypes.func.isRequired
   // startLogin: PropTypes.func.isRequired
-  getUserInfo: PropTypes.func.isRequired,
-  getBlogs: PropTypes.func.isRequired
 };
 
 // <Button onClick={startLogin}>Login</Button>

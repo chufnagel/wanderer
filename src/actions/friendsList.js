@@ -1,16 +1,16 @@
 import axios from "axios";
-import * as actions from "./types";
+import { GET_FRIENDS_LIST_SUCCESS, GET_FRIENDS_LIST_FAILURE } from "./types";
 
 function getFriendsListSuccess(friends) {
   return {
-    type: actions.GET_FRIENDS_LIST_SUCCESS,
+    type: GET_FRIENDS_LIST_SUCCESS,
     friends
   };
 }
 
 function getFriendsListFailure(err) {
   return {
-    type: actions.GET_FRIENDS_LIST_FAILURE,
+    type: GET_FRIENDS_LIST_FAILURE,
     err
   };
 }

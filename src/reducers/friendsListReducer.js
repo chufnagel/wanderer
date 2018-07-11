@@ -1,12 +1,18 @@
-import * as actions from "../actions/types";
+import {
+  GET_FRIENDS_LIST_SUCCESS,
+  GET_FRIENDS_LIST_FAILURE
+} from "../actions/types";
+import { updateObject } from "../utility";
 
-export default function friends(state = [], action) {
+function friends(state = [], action) {
   switch (action.type) {
-    case actions.GET_FRIENDS_LIST_SUCCESS:
+    case GET_FRIENDS_LIST_SUCCESS:
       return action.friends;
-    case actions.GET_FRIENDS_LIST_FAILURE:
-      return state;
+    case GET_FRIENDS_LIST_FAILURE:
+      return updateObject(state, { loading: false });
     default:
       return state;
   }
 }
+
+export default friends;
