@@ -3,8 +3,8 @@ import LocationStats from "../components/LocationProfile/LocationStats";
 
 const mapStateToProps = state => {
   return {
-    visitedDestinationsCount: state.visitedDestinationsCount,
-    faveDestinationsCount: state.faveDestinationsCount
+    visitedCount: state.visitedCount,
+    faveCount: state.faveCount
   };
 };
 

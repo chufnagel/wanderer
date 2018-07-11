@@ -43,7 +43,9 @@ const store = createStore(
     },
     userId: 1,
     faveDestinations: [],
+    faveCount: 0,
     visitedDestinations: [],
+    visitedCount: 0,
     profilePhoto: ""
   },
   composeEnhancers(applyMiddleware(thunk, logger))

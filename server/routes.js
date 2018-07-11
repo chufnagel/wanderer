@@ -50,7 +50,7 @@ router.post("/getLocationBasicInfo", (req, res) => {
 
 // retrieve number of Wanderers who have been to a given country
 router.get("/getVisitedCount", (req, res) => {
-  Destinations.getVisitedCount(req.query.country, visitedCount => {
+  Destinations.getVisitedCount(req.query.location, visitedCount => {
     console.log("visitedCount: ", visitedCount);
     res.send(visitedCount.toString());
   });
@@ -58,7 +58,7 @@ router.get("/getVisitedCount", (req, res) => {
 
 // retrieve number of Wanderers who want to go to a given country
 router.get("/getFaveCount", (req, res) => {
-  Destinations.getFaveCount(req.query.country, faveCount => {
+  Destinations.getFaveCount(req.query.location, faveCount => {
     console.log("faveCount: ", faveCount);
     res.send(faveCount.toString());
   });

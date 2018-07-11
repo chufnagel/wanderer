@@ -116,9 +116,9 @@ Destinations.getVisitedCount = (country, cb) => {
           // console.log("getVisited resultCount:", resultCount[0]["count(*)"]);
           cb(resultCount[0]["count(*)"])
         )
-        .catch(err => console.error(err));
+        .catch(() => cb(0));
     })
-    .catch(err => console.log("error on getVisitedCount countries table", err));
+    .catch(() => cb(0));
 };
 
 Destinations.getFaveCount = (country, cb) => {
@@ -136,9 +136,9 @@ Destinations.getFaveCount = (country, cb) => {
           // console.log("getFave resultCount:", resultCount[0]["count(*)"]);
           cb(resultCount[0]["count(*)"]);
         })
-        .catch(err => console.error(err));
+        .catch(() => cb(0));
     })
-    .catch(err => console.log("error on getFaveCount countries table", err));
+    .catch(() => cb(0));
 };
 
 module.exports = Destinations;
