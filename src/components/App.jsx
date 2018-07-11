@@ -10,12 +10,12 @@ import UserProfile from "./UserProfile/UserProfile";
 import LocationProfileContainer from "../containers/LocationProfileContainer";
 import AttractionsContainer from "../containers/AttractionsContainer";
 // import Blogs from "../containers/BlogsContainer";
-import FriendsList from "./FriendsList";
+import FriendsListContainer from "../containers/FriendsListContainer";
 import DestinationsContainer from "../containers/DestinationsContainer";
 import PhotosContainer from "../containers/PhotosContainer";
 import Explore from "./Explore/Explore";
 // import NotFoundPage from "./NotFoundPage";
-import LoginPage from "./LoginPage";
+import LoginContainer from "../containers/LoginContainer";
 import asyncComponent from "../hoc/asyncComponent";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
 
@@ -34,13 +34,13 @@ const App = () => (
     <center>
       <HeaderContainer />
       <Switch>
-        <Route exact path="/" component={LoginPage} />
+        <Route exact path="/" component={LoginContainer} />
         <Route exact path="/home" component={Home} />
         <Route exact path="/profile" component={UserProfile} />
         <Route exact path="/search" component={LocationProfileContainer} />
         <Route exact path="/attractions" component={AttractionsContainer} />
         <Route path="/blogs" component={asyncBlogs} />
-        <Route exact path="/friends" component={FriendsList} />
+        <Route exact path="/friends" component={FriendsListContainer} />
         <Route exact path="/photos_videos" component={PhotosContainer} />
         <Route exact path="/destinations" component={DestinationsContainer} />
         <Route exact path="/explore" component={Explore} />

@@ -10,12 +10,14 @@ function getUserInfoRequest() {
     type: GET_USER_INFO_REQUEST
   };
 }
+
 function getUserInfoSuccess(userInfo) {
   return {
     type: GET_USER_INFO_SUCCESS,
-    payload: userInfo
+    userInfo
   };
 }
+
 function getUserInfoFailure(err) {
   return {
     type: GET_USER_INFO_FAILURE,
@@ -27,7 +29,7 @@ export default function getUserInfo(userId) {
   return dispatch => {
     dispatch(getUserInfoRequest());
     axios
-      .get("/getUserInfo", {
+      .get("/userInfo", {
         params: {
           userId
         }

@@ -7,10 +7,14 @@ import headerSetting from "./headerReducer";
 import {
   pointsOfInterest,
   attractions,
-  locationBasicInfo
+  locationBasicInfo,
+  visitedCount,
+  faveCount
 } from "./searchReducer";
 import { profilePhoto, albumPhotos, photoOne } from "./photoReducer";
 import userInfo from "./userInfoReducer";
+import friendInfo from "./friendInfoReducer";
+import friends from "./friendsListReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
 // use map, filter, Object.assign() and array destructuring to
@@ -22,10 +26,14 @@ const rootReducer = combineReducers({
   locationBasicInfo,
   attractions,
   pointsOfInterest,
+  visitedCount,
+  faveCount,
   blogs,
   userId,
   friendsId,
   userInfo,
+  friendInfo,
+  friends,
   headerSetting,
   faveDestinations,
   visitedDestinations,

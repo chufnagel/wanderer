@@ -20,6 +20,7 @@ const store = createStore(
     headerSetting: HOME,
     // countries: CountriesAll,
     location: "",
+    friends: [],
     blogs: [
       {
         blogId: "1",
@@ -35,7 +36,8 @@ const store = createStore(
       }
     ],
     // photos,
-    userInfo: 1,
+    friendInfo: {},
+    userInfo: {},
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {
@@ -43,12 +45,14 @@ const store = createStore(
       currencies: [{ name: "" }]
     },
     userId: 1,
-    friendsId: [2,3,4],
     profilePhoto: "",
-    albumPhotos:[],
+    albumPhotos: [],
     faveDestinations: [],
     visitedDestinations: [],
-    photoOne: null
+    photoOne: null,
+    faveCount: 0,
+    visitedCount: 0,
+    friendsId: [2,3,4] //placeholder for photo component to render properly
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );
