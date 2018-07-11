@@ -43,11 +43,13 @@ const store = createStore(
       currencies: [{ name: "" }]
     },
     userId: 1,
-    friendsId: [2,3,4],
+    friendsId: [2, 3, 4],
     profilePhoto: "",
-    albumPhotos:[],
+    albumPhotos: [],
     faveDestinations: [],
-    visitedDestinations: []
+    faveCount: 0,
+    visitedDestinations: [],
+    visitedCount: 0
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );

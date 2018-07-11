@@ -7,7 +7,9 @@ import headerSetting from "./headerReducer";
 import {
   pointsOfInterest,
   attractions,
-  locationBasicInfo
+  locationBasicInfo,
+  visitedCount,
+  faveCount
 } from "./searchReducer";
 import { profilePhoto, albumPhotos } from "./photoReducer";
 import userInfo from "./userInfoReducer";
@@ -22,6 +24,8 @@ const rootReducer = combineReducers({
   locationBasicInfo,
   attractions,
   pointsOfInterest,
+  visitedCount,
+  faveCount,
   blogs,
   userId,
   friendsId,
