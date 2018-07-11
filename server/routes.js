@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const axios = require("axios");
 const User = require("./Models/user");
 const Destinations = require("./Models/destinations");
 const {
@@ -10,7 +11,6 @@ const Media = require("./Models/media")
 // const Tag = require("./Models/tag");
 // const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
-const axios = require("axios");
 
 const ec2path = "http://ec2-52-91-143-214.compute-1.amazonaws.com:3000";
 
@@ -51,7 +51,7 @@ router.post("/getLocationBasicInfo", (req, res) => {
 router.get("/favorites", (req, res) => {
   Destinations.retrieveFavByUserId(req.query.userId, countries => {
     // console.log('favorite countries', countries)
-    res.send(countries);
+    res.status(200).send(countries);
   });
 });
 
@@ -66,12 +66,12 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  console.log(req.body);
+  console.log('2. hit server post route to fav:', req.body.country);
   Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {
-  console.log(req.body);
+  console.log('2. hit server post route to visited:', req.body);
   Destinations.addVisitedByUserId(req.body.userId, req.body.country);
 });
 
@@ -86,7 +86,7 @@ router.get("/friends", (req, res) => {
 router.get("/userInfo", async (req, res, next) => {
   console.log(req.params);
   try {
-    const userInfo = await User.findByUserId(req.query.user_id);
+    const userInfo = await User.findByUserId(req.query.userId);
     res.status(200).send(userInfo);
   } catch (err) {
     console.error(err);
@@ -121,7 +121,7 @@ router.get("/blogs", async (req, res, next) => {
 // Blog.retrieveBlogsByUserId
 router.get("/blogsByUserId", async (req, res, next) => {
   try {
-    const blogs = await Blog.retrieveBlogsByUserId(req.query.user_id);
+    const blogs = await Blog.retrieveBlogsByUserId(req.query.userId);
     res.status(200).send(blogs);
   } catch (err) {
     console.error(err);
@@ -134,7 +134,7 @@ router.get("/blogsByUserId", async (req, res, next) => {
 router.get("/blogsByBlogId", async (req, res, next) => {
   try {
     /#/;
-    const blog = Blog.retrieveBlogsByBlogId(req.query.blog_id);
+    const blog = Blog.retrieveBlogsByBlogId(req.query.blogId);
     res.status(200).send(blog);
   } catch (err) {
     console.error(err);
@@ -157,7 +157,7 @@ router.post("/tags", async (req, res, next) => {
 // tag_id not yet implemented on front-end
 router.get("/getTag", async (req, res, next) => {
   try {
-    const tag = await Tag.findByTagId(req.query.tag_id);
+    const tag = await Tag.findByTagId(req.query.tagId);
     res.status(200).send(tag);
   } catch (err) {
     console.error(err);
@@ -177,7 +177,7 @@ router.get("/tags", async (req, res, next) => {
 
 router.post("/create", (req, res) => {
   const file = req.files.file;
-  const userId = req.body.user_id;
+  const userId = req.body.userId;
   axios
     .post(`${ec2path}/create`, {
       file
