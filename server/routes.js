@@ -175,8 +175,7 @@ router.get("/tags", async (req, res, next) => {
   }
 });
 
-
-//route for posting profile photo
+// route for posting profile photo
 router.post("/create", (req, res) => {
   const file = req.files.file;
   const userId = req.body.user_id;
@@ -219,7 +218,10 @@ router.get("/mediaByUserId", async (req, res, next) => {
     if (location_name !== undefined) {
       country_id = await Destinations.getCountryIdByName(location_name);
     }
-    const media = await Media.retrieveMediaByUserId(req.query.userId, country_id);
+    const media = await Media.retrieveMediaByUserId(
+      req.query.userId,
+      country_id
+    );
     console.log("meida", media);
     res.status(200).send(media);
   } catch (err) {
@@ -228,22 +230,31 @@ router.get("/mediaByUserId", async (req, res, next) => {
   }
 });
 
-
-//routes for posting travel photos
-router.post("/createAlbum", (req, res) => {
+// routes for posting travel photos
+router.post("/createAlbum", async (req, res, next) => {
   const file = req.files.file;
-  const userId = req.body.userId;
-  axios
-    .post(`${ec2path}/create`, {
+  const userId = req.body.user_id;
+  let location = req.body.location;
+
+  //placeholder
+  location = "Russia"
+
+  try {
+    let country_id = await Destinations.getCountryIdByName(location);
+
+    let imageinfo = await axios
+    .post(`${ec2path}/createAlbum`, {
       file
     })
-    .then(imageinfo => {
-      console.log("create album", imageinfo.data)
-      /*User.addAlbumPhotoByUserIdAndCountry(imageinfo.data, userId).then(
-        res.sendStatus(200)
-      );*/
-    });
-});
 
+    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data)
+
+    res.status(200).send(country_id);
+
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve user's media files");
+  }
+});
 
 module.exports = router;

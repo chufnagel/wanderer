@@ -4,7 +4,8 @@ import { updatePhotoOne } from "../actions/photos";
 
 const mapStateToProps = state => ({
   photoOne: state.photoOne,
-  userId: state.userId
+  userId: state.userId,
+  location: state.location
   // albumPhotos: state.albumPhotos,
   // userId: state.userId,
   // friendsId: state.friendsId,
