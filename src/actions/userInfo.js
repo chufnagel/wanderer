@@ -10,12 +10,14 @@ function getUserInfoRequest() {
     type: GET_USER_INFO_REQUEST
   };
 }
+
 function getUserInfoSuccess(userInfo) {
   return {
     type: GET_USER_INFO_SUCCESS,
     payload: userInfo
   };
 }
+
 function getUserInfoFailure(err) {
   return {
     type: GET_USER_INFO_FAILURE,
