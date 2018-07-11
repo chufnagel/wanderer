@@ -6,12 +6,25 @@ import Typography from "@material-ui/core/Typography";
 
 const message = "Here are your friends.";
 
-const FriendsList = ({ friends }) => (
+const FriendsList = ({
+  friends,
+  getFriendInfo,
+  getFaveDestinations,
+  getVisitedDestinations
+}) => (
   <div>
     <Typography variant="headline">{message}</Typography>
     <div>
       {friends.map(friend => (
-        <Link key={friend.userId} to="/profile">
+        <Link
+          key={friend.user_id}
+          onClick={({ key }) => {
+            getFriendInfo({ key });
+            getFaveDestinations({ key });
+            getVisitedDestinations({ key });
+          }}
+          to="/profile"
+        >
           <center>
             <ListItemText primary={friend.username} />
           </center>
@@ -22,7 +35,10 @@ const FriendsList = ({ friends }) => (
 );
 
 FriendsList.propTypes = {
-  friends: PropTypes.arrayOf(PropTypes.object).isRequired
+  friends: PropTypes.arrayOf(PropTypes.object).isRequired,
+  getFriendInfo: PropTypes.func.isRequired,
+  getFaveDestinations: PropTypes.func.isRequired,
+  getVisitedDestinations: PropTypes.func.isRequired
 };
 
 export default FriendsList;
