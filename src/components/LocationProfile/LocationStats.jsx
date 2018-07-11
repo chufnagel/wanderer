@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const LocationStats = ({ visitedCount = 0, faveCount = 0}) => {
   return (
-    <div>
+    <div className="location-stats">
       <p>[{visitedCount}] Wanderers have visited here.</p>
       <p>[{faveCount}] Wanderers want to visit here.</p>
     </div>
