@@ -20,6 +20,7 @@ const store = createStore(
     headerSetting: HOME,
     // countries: CountriesAll,
     location: "",
+    friends: [],
     blogs: [
       {
         blogId: "1",

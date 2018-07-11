@@ -1,15 +1,5 @@
 import axios from "axios";
-import {
-  GET_FRIENDS_LIST_REQUEST,
-  GET_FRIENDS_LIST_SUCCESS,
-  GET_FRIENDS_LIST_FAILURE
-} from "./types";
-
-function getFriendsListRequest() {
-  return {
-    type: GET_FRIENDS_LIST_REQUEST
-  };
-}
+import { GET_FRIENDS_LIST_SUCCESS, GET_FRIENDS_LIST_FAILURE } from "./types";
 
 function getFriendsListSuccess(friends) {
   return {
@@ -27,7 +17,6 @@ function getFriendsListFailure(err) {
 
 export default function getFriendsList(userId) {
   return dispatch => {
-    dispatch(getFriendsListRequest());
     axios
       .get("/friends", {
         params: {

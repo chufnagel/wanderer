@@ -33,9 +33,7 @@ export default function getFriendInfo(userId) {
         }
       })
       .then(({ data }) => {
-        const friendInfo = data.map(info => {
-          return info;
-        });
+        const friendInfo = data;
         dispatch(getFriendInfoSuccess(friendInfo));
       })
       .catch(err => {
