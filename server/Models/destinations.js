@@ -107,18 +107,38 @@ Destinations.getVisitedCount = (country, cb) => {
     .select("country_id")
     .where({ country })
     .then(results => {
-      // console.log("getvisitedcount result countryid:", results[0].country_id);
+      // console.log("getVisitedCount result countryid:", results[0].country_id);
       const countryId = results[0].country_id;
       return db("visited_destinations")
         .count("*")
         .where({ destination_id: countryId })
         .then(resultCount =>
-          // console.log("resultCount:", resultCount[0]["count(*)"]);
+          // console.log("getVisited resultCount:", resultCount[0]["count(*)"]);
           cb(resultCount[0]["count(*)"])
         )
         .catch(err => console.error(err));
     })
     .catch(err => console.log("error on getVisitedCount countries table", err));
+};
+
+Destinations.getFaveCount = (country, cb) => {
+  // `select count(*) from fave_destinations where destination_id = (select country_id from countries where country = country)`
+  return db("countries")
+    .select("country_id")
+    .where({ country })
+    .then(results => {
+      // console.log("getFaveCount result countryid:", results[0].country_id);
+      const countryId = results[0].country_id;
+      return db("favorite_destinations")
+        .count("*")
+        .where({ destination_id: countryId })
+        .then(resultCount => {
+          // console.log("getFave resultCount:", resultCount[0]["count(*)"]);
+          cb(resultCount[0]["count(*)"]);
+        })
+        .catch(err => console.error(err));
+    })
+    .catch(err => console.log("error on getFaveCount countries table", err));
 };
 
 module.exports = Destinations;

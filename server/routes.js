@@ -48,12 +48,19 @@ router.post("/getLocationBasicInfo", (req, res) => {
   });
 });
 
-// retrieve number of people who have been to a given country
+// retrieve number of Wanderers who have been to a given country
 router.get("/getVisitedCount", (req, res) => {
-  // console.log("hit getVisitedCount route with req.body:", req.body);
   Destinations.getVisitedCount(req.query.country, visitedCount => {
     console.log("visitedCount: ", visitedCount);
     res.send(visitedCount.toString());
+  });
+});
+
+// retrieve number of Wanderers who want to go to a given country
+router.get("/getFaveCount", (req, res) => {
+  Destinations.getFaveCount(req.query.country, faveCount => {
+    console.log("faveCount: ", faveCount);
+    res.send(faveCount.toString());
   });
 });
 
