@@ -12,7 +12,7 @@ module.exports = {
       });
       location = locationWords.join("+");
     }
-    const queryStr = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}+points+of+interest&language=en&key=${
+    const queryStr = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${location}+country+points+of+interest&language=en&key=${
       process.env.GOOGLEPLACES_API_KEY
     }`;
     axios.get(queryStr).then(({ data }) => cb(null, data.results));

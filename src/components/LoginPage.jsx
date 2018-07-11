@@ -3,16 +3,14 @@
 // is successfully logged in or re-prompted to enter their login information
 
 import React from "react";
-import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import getFriendsList from "../actions/friendsList";
 // import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
-const LoginPage = props => {
+const LoginPage = ({ getFriendsList }) => {
   return (
     <div>
       <Typography variant="headline">Welcome back!</Typography>
@@ -31,25 +29,9 @@ const LoginPage = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    userId: state.userId
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  getFriendsList: userId => dispatch(getFriendsList(userId))
-  // startLogin: () => dispatch(startLogin())
-});
-
 LoginPage.propTypes = {
   // startLogin: PropTypes.func.isRequired
   getFriendsList: PropTypes.func.isRequired
 };
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(LoginPage);
 
 // <Button onClick={startLogin}>Login</Button>
