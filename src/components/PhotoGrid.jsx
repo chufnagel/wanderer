@@ -3,7 +3,13 @@ import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
 
 const methods = {
-  componentDidMount({ userId, friendsId, getAlbumPhotos, location, headerSetting }) {
+  componentDidMount({
+    userId,
+    friendsId,
+    getAlbumPhotos,
+    location,
+    headerSetting
+  }) {
     if (headerSetting === "HOME") {
       getAlbumPhotos([userId], null);
     } else {
@@ -13,6 +19,7 @@ const methods = {
 };
 
 const PhotoGrid = ({ albumPhotos }) => {
+  console.log("albumPhotos", albumPhotos);
   return (
     <div>
       <h1> Photos </h1>

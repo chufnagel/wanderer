@@ -1,10 +1,10 @@
-import axios from "axios"
+import axios from "axios";
 
 function updateAlbumPhotos(albumPhotos) {
   return {
     type: "UPDATE_ALBUM_PHOTOS",
     albumPhotos
-  }
+  };
 }
 
 export function updateProfilePhoto(profilePhoto) {
@@ -15,7 +15,7 @@ export function updateProfilePhoto(profilePhoto) {
 }
 
 export function getAlbumPhotos(userId, location) {
-  console.log('location****',location)
+  console.log("location****", location);
   return dispatch => {
     axios
       .get("/mediaByUserId", {
@@ -25,10 +25,10 @@ export function getAlbumPhotos(userId, location) {
         }
       })
       .then(({ data }) => {
-        console.log('data*****',data)
+        console.log("data*****", data);
         /*const destinations = data.map(destination => {
           return destination;
-        });*/
+        }); */
         dispatch(updateAlbumPhotos(data));
       });
   };
