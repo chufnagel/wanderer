@@ -7,6 +7,7 @@ const {
   getAttractions,
   getLocationBasicInfo
 } = require("./helperFunctions");
+const Media = require("./Models/media");
 // const Tag = require("./Models/tag");
 // const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
@@ -65,12 +66,12 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  console.log('2. hit server post route to fav:', req.body.country);
+  console.log("2. hit server post route to fav:", req.body.country);
   Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {
-  console.log('2. hit server post route to visited:', req.body);
+  console.log("2. hit server post route to visited:", req.body);
   Destinations.addVisitedByUserId(req.body.userId, req.body.country);
 });
 
@@ -199,7 +200,7 @@ router.get("/retrieve", (req, res) => {
         }
       })
       .then(photo => {
-        console.log('success retrieve', photo.data)
+        console.log("success retrieve", photo.data);
         res.send(photo.data);
       })
       .catch(err => {
@@ -207,6 +208,24 @@ router.get("/retrieve", (req, res) => {
         res.sendStatus(404);
       });
   });
+});
+
+router.get("/mediaByUserId", async (req, res, next) => {
+  try {
+    const location_name = req.query.location;
+    console.log("location name", location_name);
+    let country_id = null;
+
+    if (location_name !== undefined) {
+      country_id = await Destinations.getCountryIdByName(location_name);
+    }
+    const media = await Media.retrieveMediaByUserId(req.query.userId, country_id);
+    console.log("meida", media);
+    res.status(200).send(media);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve user's media files");
+  }
 });
 
 module.exports = router;

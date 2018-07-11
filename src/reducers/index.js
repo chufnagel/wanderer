@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { faveDestinations, visitedDestinations } from "./destinationsReducer";
 import blogs from "./blogReducer";
-import userId from "./userId";
+import { userId, friendsId } from "./userId";
 import location from "./locationReducer";
 import headerSetting from "./headerReducer";
 import {
@@ -9,7 +9,7 @@ import {
   attractions,
   locationBasicInfo
 } from "./searchReducer";
-import profilePhoto from "./photoReducer";
+import { profilePhoto, albumPhotos } from "./photoReducer";
 import userInfo from "./userInfoReducer";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
@@ -24,11 +24,14 @@ const rootReducer = combineReducers({
   pointsOfInterest,
   blogs,
   userId,
+  friendsId,
   userInfo,
   headerSetting,
   faveDestinations,
   visitedDestinations,
-  profilePhoto
+  profilePhoto,
+  albumPhotos
+  // userId
 });
 
 export default rootReducer;
