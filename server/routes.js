@@ -175,9 +175,11 @@ router.get("/tags", async (req, res, next) => {
   }
 });
 
+
+//route for posting profile photo
 router.post("/create", (req, res) => {
   const file = req.files.file;
-  const userId = req.body.userId;
+  const userId = req.body.user_id;
   axios
     .post(`${ec2path}/create`, {
       file
@@ -200,7 +202,6 @@ router.get("/retrieve", (req, res) => {
         }
       })
       .then(photo => {
-        console.log("success retrieve", photo.data);
         res.send(photo.data);
       })
       .catch(err => {
@@ -213,7 +214,6 @@ router.get("/retrieve", (req, res) => {
 router.get("/mediaByUserId", async (req, res, next) => {
   try {
     const location_name = req.query.location;
-    console.log("location name", location_name);
     let country_id = null;
 
     if (location_name !== undefined) {
@@ -228,6 +228,8 @@ router.get("/mediaByUserId", async (req, res, next) => {
   }
 });
 
+
+//routes for posting travel photos
 router.post("/createAlbum", (req, res) => {
   const file = req.files.file;
   const userId = req.body.userId;
@@ -236,7 +238,7 @@ router.post("/createAlbum", (req, res) => {
       file
     })
     .then(imageinfo => {
-      console.log("create album", imageinfo)
+      console.log("create album", imageinfo.data)
       /*User.addAlbumPhotoByUserIdAndCountry(imageinfo.data, userId).then(
         res.sendStatus(200)
       );*/
