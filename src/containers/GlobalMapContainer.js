@@ -12,9 +12,7 @@ import GlobalMap from "../components/GlobalMap/GlobalMap";
 
 const mapStateToProps = state => {
   return {
-    location: state.location,
-    pointsOfInterest: state.pointsOfInterest,
-    attractions: state.attractions
+    location: state.location
   };
 };
 

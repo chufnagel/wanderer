@@ -11,9 +11,7 @@ import {
 import Search from "../components/Search";
 
 const mapStateToProps = state => ({
-  location: state.location,
-  pointsOfInterest: state.pointsOfInterest,
-  attractions: state.attractions
+  location: state.location
 });
 
 const mapDispatchToProps = dispatch => ({
