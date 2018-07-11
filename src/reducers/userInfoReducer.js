@@ -6,7 +6,7 @@ import {
 import { updateObject } from "../utility";
 
 const initialState = {
-  userInfo: {},
+  userInfo: [],
   loading: false
 };
 

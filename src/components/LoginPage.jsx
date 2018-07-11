@@ -1,3 +1,7 @@
+// Eventually, we will have to send some sort of request to the server
+// that checks to see whether the user and pw match, then
+// is successfully logged in or re-prompted to enter their login information
+
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -8,9 +12,6 @@ import getFriendsList from "../actions/friendsList";
 // import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
-// Eventually, we will have to send some sort of request to the server
-// that checks to see whether the user and pw match, then
-// is successfully logged in or re-prompted to enter their login information
 const LoginPage = props => {
   return (
     <div>
@@ -21,7 +22,7 @@ const LoginPage = props => {
           type="submit"
           variant="raised"
           color="secondary"
-          onClick={() => props.getFriendsList(1)}
+          onClick={getFriendsList(1)}
         >
           Sign<br />in
         </Button>

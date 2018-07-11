@@ -29,7 +29,7 @@ export default function getUserInfo(userId) {
   return dispatch => {
     dispatch(getUserInfoRequest());
     axios
-      .get("/getUserInfo", {
+      .get("/userInfo", {
         params: {
           userId
         }

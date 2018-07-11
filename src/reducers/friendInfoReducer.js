@@ -6,7 +6,7 @@ import {
 import { updateObject } from "../utility";
 
 const initialState = {
-  friendInfo: {},
+  friendInfo: [],
   loading: false
 };
 
