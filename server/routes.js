@@ -177,7 +177,6 @@ router.get("/blogsByUserId", async (req, res, next) => {
 // used for looking up blogs and tags
 router.get("/blogsByBlogId", async (req, res, next) => {
   try {
-    /#/;
     const blog = Blog.retrieveBlogsByBlogId(req.query.blogId);
     res.status(200).send(blog);
   } catch (err) {
