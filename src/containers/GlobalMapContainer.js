@@ -4,7 +4,9 @@ import setHeader from "../actions/header";
 import {
   getPointsOfInterest,
   getAttractions,
-  getLocationBasicInfo
+  getLocationBasicInfo,
+  getVisitedCount,
+  getFaveCount
 } from "../actions/search";
 import GlobalMap from "../components/GlobalMap/GlobalMap";
 
@@ -21,7 +23,9 @@ const mapDispatchToProps = dispatch => ({
   changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
   getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
   getAttractions: term => dispatch(getAttractions(term)),
-  getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term))
+  getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term)),
+  getVisitedCount: term => dispatch(getVisitedCount(term)),
+  getFaveCount: term => dispatch(getFaveCount(term))
 });
 
 export default connect(
