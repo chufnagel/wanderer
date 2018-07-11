@@ -100,4 +100,25 @@ Destinations.addVisitedByUserId = (userId, country) => {
     })
     .catch(err => console.error(err));
 };
+
+Destinations.getVisitedCount = (country, cb) => {
+  // `select count(*) from visited_destinations where destination_id = (select country_id from countries where country = country)`;
+  return db("countries")
+    .select("country_id")
+    .where({ country })
+    .then(results => {
+      // console.log("getvisitedcount result countryid:", results[0].country_id);
+      const countryId = results[0].country_id;
+      return db("visited_destinations")
+        .count("*")
+        .where({ destination_id: countryId })
+        .then(resultCount =>
+          // console.log("resultCount:", resultCount[0]["count(*)"]);
+          cb(resultCount[0]["count(*)"])
+        )
+        .catch(err => console.error(err));
+    })
+    .catch(err => console.log("error on getVisitedCount countries table", err));
+};
+
 module.exports = Destinations;
