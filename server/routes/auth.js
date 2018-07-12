@@ -1,6 +1,6 @@
-const jwt = require("jsonwebtoken");
+// const jwt = require("jsonwebtoken");
 
-const User = "../models/User";
+// const User = "../models/User";
 
 // module.exports = (req, res, next) => {
 //   const header =

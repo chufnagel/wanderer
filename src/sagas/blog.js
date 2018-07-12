@@ -33,7 +33,7 @@ function blogCreateApi(userInfo, blog) {
   return handleRequest(request);
 }
 
-function* blogCreateFlow(action) {
+export function* blogCreateFlow(action) {
   try {
     const { userId, blog } = action;
     const createdBlog = yield call(blogCreateApi, userId, blog);
@@ -43,8 +43,8 @@ function* blogCreateFlow(action) {
   }
 }
 
-function* blogWatcher() {
-  yield [takeLatest(BLOG_CREATING, blogCreateFlow)];
-}
+// function* blogWatcher() {
+//   yield [takeLatest(BLOG_CREATING, blogCreateFlow)];
+// }
 
-export default blogWatcher;
+// export default blogWatcher;

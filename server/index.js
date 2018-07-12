@@ -1,4 +1,3 @@
-const auth = require("./routes/auth");
 const express = require("express");
 const path = require("path");
 
@@ -12,6 +11,7 @@ const logger = require("morgan");
 const cors = require("cors");
 const busboy = require("connect-busboy");
 const busboyBodyParser = require("busboy-body-parser");
+// const auth = require("./routes/auth");
 const router = require("./routes");
 
 const { log, chalkSuccess } = require("../chalkpresets");
@@ -36,7 +36,6 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use(busboy());
 app.use(busboyBodyParser({ limit: "50mb" }));
-app.use("/auth", auth);
 app.use("/", router);
 
 // development error handler

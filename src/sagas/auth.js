@@ -12,7 +12,8 @@ import {
   authFail
 } from "../actions/index";
 
-const { authUrl } = process.env.authUrl;
+// const { authUrl } = process.env.authUrl;
+const authUrl = "localhost:3000";
 
 export function* logoutSaga(action) {
   yield call([localStorage, "removeItem"], "token");

@@ -15,6 +15,7 @@ import { profilePhoto, albumPhotos, photoOne } from "./photoReducer";
 import userInfo from "./userInfoReducer";
 import friendInfo from "./friendInfoReducer";
 import friends from "./friendsListReducer";
+import auth from "./auth";
 // import photoReducer from "./photoReducer"; -- currently an empty reducer
 
 // use map, filter, Object.assign() and array destructuring to
@@ -39,7 +40,8 @@ const rootReducer = combineReducers({
   visitedDestinations,
   profilePhoto,
   albumPhotos,
-  photoOne
+  photoOne,
+  auth
   // userId
 });
 
