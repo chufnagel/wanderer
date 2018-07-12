@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import PhotoGrid from "../components/PhotoGrid";
-import { getAlbumPhotos } from "../actions/photos";
+import { getAlbumPhotos } from "../actions";
 
 const mapStateToProps = state => ({
   albumPhotos: state.albumPhotos,

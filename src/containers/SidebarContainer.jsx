@@ -1,8 +1,6 @@
 import { connect } from "react-redux";
-import setHeader from "../actions/header";
-import getFriendsList from "../actions/friendsList";
-import changeSelectedLocation from "../actions/location";
 import Sidebar from "../components/Sidebar/Sidebar";
+import { setHeader, getFriendsList, changeSelectedLocation } from "../actions"
 
 const mapStateToProps = state => {
   return {

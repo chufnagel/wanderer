@@ -1,9 +1,9 @@
 import React from "react";
 // import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
 import BlogsContainer from "../../containers/BlogsContainer";
 import PhotosContainer from "../../containers/PhotosContainer";
-
 // const methods = {
 //   componentDidMount(props) {
 //     props.setNavFlagToDashboard();
@@ -11,9 +11,9 @@ import PhotosContainer from "../../containers/PhotosContainer";
 // };
 
 const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
-  console.log("userInfo", userInfo);
-  console.log("friendInfo", friendInfo);
-  console.log("headerSetting", headerSetting);
+  // console.log("userInfo", userInfo);
+  // console.log("friendInfo", friendInfo);
+  // console.log("headerSetting", headerSetting);
   return (
     <div>
       <h2>
@@ -31,7 +31,9 @@ const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
         width="33%"
       />
 
-      <h1>Blogs</h1>
+      <Typography variant="title" gutterBottom>
+        {"Blogs"}
+      </Typography>
       <ul width="52%">
         <BlogsContainer />
       </ul>

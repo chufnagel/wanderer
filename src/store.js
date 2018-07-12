@@ -1,7 +1,9 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import createSagaMiddleware from "redux-saga";
 import rootReducer from "./reducers";
+import RootSaga from "./sagas";
 // import CountriesAll from "./components/LocationProfile/CountriesAll";
 // import photos from "../example data/pictures-of-japan";
 import { OTHER } from "./constants";
@@ -11,6 +13,8 @@ const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window 
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
 /* eslint-enable */
+
+const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
@@ -76,7 +80,9 @@ const store = createStore(
     visitedCount: 0,
     friendsId: [2, 3, 4] // placeholder for photo component to render properly
   },
-  composeEnhancers(applyMiddleware(thunk, logger))
+  composeEnhancers(applyMiddleware(thunk, sagaMiddleware, logger))
 );
+
+sagaMiddleware.run(RootSaga);
 
 export default store;

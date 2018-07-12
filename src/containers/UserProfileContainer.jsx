@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
-import setHeader from "../actions/header";
-import getFriendsList from "../actions/friendsList";
 import UserProfile from "../components/UserProfile/UserProfile";
+import { getFriendsList, setHeader } from "../actions";
 
 const mapStateToProps = state => {
   return {

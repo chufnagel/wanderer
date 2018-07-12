@@ -3,7 +3,7 @@ import {
   GET_FRIEND_INFO_REQUEST,
   GET_FRIEND_INFO_FAILURE
 } from "../actions/types";
-import { updateObject } from "../utility";
+import { updateObject } from "../lib/utility";
 
 const initialState = {
   loading: false

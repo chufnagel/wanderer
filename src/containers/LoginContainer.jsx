@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
 import LoginPage from "../components/LoginPage";
-import getUserInfo from "../actions/userInfo";
-import { changeUserId } from "../actions/userId";
-import setHeader from "../actions/header";
-import { getBlogs } from "../actions/blogs";
+import { getBlogs, setHeader, changeUserId, getUserInfo } from "../actions";
 
 const mapStateToProps = state => ({
   userId: state.userId

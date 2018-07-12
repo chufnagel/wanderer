@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ProfilePhoto from "../components/ProfilePhoto";
-import { updateProfilePhoto } from "../actions/photos";
+import { updateProfilePhoto } from "../actions";
 
 const mapStateToProps = state => ({
   navFlag: state.navFlag, // console.log('photocontainer',state.photos)

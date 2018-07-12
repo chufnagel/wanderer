@@ -1,5 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
+// import Checkbox from "@material-ui/core/Checkbox";
+import Switch from "@material-ui/core/Switch";
 import lifecycle from "react-pure-lifecycle";
 
 const methods = {
@@ -13,27 +17,37 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
   // console.log("visited and fave dest:", visitedDestinations, faveDestinations);
   return (
     <div className="destinations">
-      <h1>Destinations</h1>
+      <Typography variant="display2" gutterBottom>
+        {"Destinations"}
+      </Typography>
       <div className="visited-destinations">
-        <h2>Places I've Been:</h2>
-        {visitedDestinations.map(visited => {
-          return (
-            <div key={visited.country_id}>
-              <p>☑ {visited.country}</p>
-            </div>
-          );
-        })}
+        <Toolbar>
+          <Typography variant="title" color="inherit">
+            {"Places I've Been:"}
+          </Typography>
+          {visitedDestinations.map(visited => {
+            return (
+              <div key={visited.country_id}>
+                <Switch value={visited.country} />
+              </div>
+            );
+          })}
+        </Toolbar>
       </div>
 
       <div className="fave-destinations">
-        <h2>Places I Want To Visit:</h2>
-        {faveDestinations.map(fave => {
-          return (
-            <div key={fave.country_id}>
-              <p>☐ {fave.country}</p>
-            </div>
-          );
-        })}
+        <Toolbar>
+          <Typography variant="title" color="inherit">
+            {"Places I Want To Visit:"}
+          </Typography>
+          {faveDestinations.map(fave => {
+            return (
+              <div key={fave.country_id}>
+                <p>☐ {fave.country}</p>
+              </div>
+            );
+          })}
+        </Toolbar>
       </div>
     </div>
   );

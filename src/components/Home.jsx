@@ -6,14 +6,13 @@ import PhotosContainer from "../containers/PhotosContainer";
 const recentBlogs = "Recent blogs";
 const recentPhotos = "Recent photos";
 
-const Home = ({ userInfo }) => (
+const Home = () => (
   <div>
     <Typography variant="display1">
-      Welcome, <strong>{userInfo.name}</strong>!
+      Welcome, <strong>friend</strong>!
     </Typography>
     <br />
     <Typography variant="headline">{recentPhotos}</Typography>
-    <PhotosContainer />
     <Typography variant="headline">{recentBlogs}</Typography>
   </div>
 );

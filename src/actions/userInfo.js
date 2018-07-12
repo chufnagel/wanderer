@@ -5,27 +5,27 @@ import {
   GET_USER_INFO_FAILURE
 } from "./types";
 
-function getUserInfoRequest() {
+export function getUserInfoRequest() {
   return {
     type: GET_USER_INFO_REQUEST
   };
 }
 
-function getUserInfoSuccess(userInfo) {
+export function getUserInfoSuccess(userInfo) {
   return {
     type: GET_USER_INFO_SUCCESS,
     userInfo
   };
 }
 
-function getUserInfoFailure(err) {
+export function getUserInfoFailure(err) {
   return {
     type: GET_USER_INFO_FAILURE,
     err
   };
 }
 
-export default function getUserInfo(userId) {
+export function getUserInfo(userId) {
   return dispatch => {
     dispatch(getUserInfoRequest());
     axios

@@ -4,7 +4,7 @@ import * as actions from "./types";
 // all logic in action creators and/or utility functions used by action creators!
 
 // helper function for addFaveDestination
-function addFaveDestinationSuccess(faveDestinations) {
+export function addFaveDestinationSuccess(faveDestinations) {
   return {
     type: actions.ADD_FAV_DESTINATION_SUCCESS,
     faveDestinations
@@ -26,7 +26,7 @@ export function addFaveDestination(userId, country) {
 }
 
 // helper function for getFaveDestinations
-function getFaveDestinationsSuccess(faveDestinations) {
+export function getFaveDestinationsSuccess(faveDestinations) {
   return {
     type: actions.GET_FAV_DESTINATIONS_SUCCESS,
     faveDestinations
@@ -52,7 +52,7 @@ export function getFaveDestinations(userId) {
 }
 
 // helper function for addVisitedDestinations
-function addVisitedDestinationSuccess(visitedDestinations) {
+export function addVisitedDestinationSuccess(visitedDestinations) {
   return {
     type: actions.ADD_VISITED_DESTINATION_SUCCESS,
     visitedDestinations
@@ -74,7 +74,7 @@ export function addVisitedDestination(userId, country) {
 }
 
 // helper function for getVisitedDestinations
-function getVisitedDestinationsSuccess(visitedDestinations) {
+export function getVisitedDestinationsSuccess(visitedDestinations) {
   return {
     type: actions.GET_VISITED_DESTINATIONS_SUCCESS,
     visitedDestinations
