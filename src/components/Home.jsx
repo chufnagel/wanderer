@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
-import BlogsContainer from "../containers/BlogsContainer";
 import PhotosContainer from "../containers/PhotosContainer";
 
 const recentBlogs = "Recent blogs";
@@ -14,7 +13,6 @@ const Home = ({ userInfo }) => (
     </Typography>
     <br />
     <Typography variant="headline">{recentBlogs}</Typography>
-    <BlogsContainer />
     <PhotosContainer />
     <Typography variant="headline">{recentPhotos}</Typography>
   </div>
