@@ -1,6 +1,6 @@
 import { CHANGE_USERID, CHANGE_FRIENDSID } from "../actions/types";
 
-function userId(state = 0, action) {
+function userId(state = null, action) {
   switch (action.type) {
     case CHANGE_USERID:
       return action.userId;
@@ -9,7 +9,7 @@ function userId(state = 0, action) {
   }
 }
 
-function friendsId(state = 0, action) {
+function friendsId(state = null, action) {
   switch (action.type) {
     case CHANGE_FRIENDSID:
       return action.friendsId;
