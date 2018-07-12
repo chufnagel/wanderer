@@ -1,21 +1,21 @@
-import { connect } from "react-redux";;
+import { connect } from "react-redux";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { setHeader, getFriendsList } from "../actions"
+import { setHeader, getFriendsList, changeSelectedLocation } from "../actions"
 
 const mapStateToProps = state => {
   return {
-    userId: state.userId
+    headerSetting: state.headerSetting,
+    userInfo: state.userInfo
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   setHeader: term => dispatch(setHeader(term)),
+  changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
   getFriendsList: id => dispatch(getFriendsList(id))
 });
 
-const SidebarContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Sidebar);
-
-export default SidebarContainer;
