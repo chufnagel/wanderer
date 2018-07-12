@@ -189,6 +189,38 @@ exports.seed = (knex, Promise) => {
           "English Canadians may be mystified if you ask where you can get Canadian food. English Canadian cuisine varies from region to region. Some specialties include maple syrup, Nanaimo bars (chocolate-topped no-bake squares with custard or vanilla butter filling and crumb base), butter tarts (tarts made with butter, sugar, and eggs), beaver tails (fried dough topped with icing sugar), fiddleheads (curled heads of young ferns), peameal bacon (a type of back bacon made from lean boneless pork loin, trimmed fine, wet cured, and rolled in cornmeal; eaten at breakfast with eggs or for lunch as a sandwich), and Halifax donairs (sliced beef meatloaf wrapped in pitas and garnished with onions, tomatoes, and a sweet condensed milk sauce). They are an important, if somewhat humble, part of the Canadian culinary landscape. In other respects, English Canadian cuisine is similar to that of the northern United States. Canadians may be unaware that they even have national dishes, especially in the more urbanized areas; that said, there is a rising trend among Canadian chefs and restaurateurs to offer locally produced ingredients, and most major cities have bistros that specialize in local and national cuisine. These specialties may even include game meat dishes, such as caribou, grouse, moose, venison, or wild turkey prepared in a variety of European styles.  \n To many Canadians and non-Canadians, Maple syrup is the prominent element of Canadian cuisine. It is most often used on breakfasts (e.g. pancakes or crèpes), but can also be used as a sweetener for baked goods, warm milk for coffee, mixed with mustards or other sauces, etc. However, a lesser known tree syrup that is produced in the more northerly parts of Canada, closer to the boreal forests, is Birch syrup (which some from parts of Scandinavia may also recognize). It is usually not commercially produced to the same extent as maple syrup, but can be found in certain specialized stores in the southern cities, although typically at a higher price point than it's maple counterpart. It is almost always darker and has a more intense, molasses-y flavour than maple syrup.",
         user_id: 6,
         country_id: 35
+      },
+      {
+        blog_id: 15,
+        title: "Brazil's Climate",
+        content:
+          "Brazil is a huge country with different climate zones. In the North, near the equator there is a wet and a dry season; from about São Paulo down to the south there is spring/summer/fall/winter. The weather constantly changes and is sometimes a surprise. It can be scorching hot, then simmer down, and get very cold. It could be sunny 1 minute, and start raining the second minute. The warm climate is perfect for the beach and playing outside.",
+        user_id: 7,
+        country_id: 27
+      },
+      {
+        blog_id: 16,
+        title: "Languages of Brazil",
+        content:
+          "The official language of Brazil is Portuguese, spoken by the entire population (except for a few, very remotely located tribes). Indeed, Brazil has had immigrants from all parts of the world for centuries, whose descendants now speak Portuguese as their mother tongue.  \nBrazilian Portuguese has a number of pronunciation differences with that spoken in Portugal (and within, between the regions there are some quite extreme accent and slang differences), but speakers of either can understand each other. However, European Portuguese (Luso) is more difficult for Brazilians to understand than the reverse, as many Brazilian television programs are shown in Portugal. Notice that a few words can have a totally different meaning in Brazil and Portugal, usually slang words. An example of this is 'Rapariga' which in Portugal means young girl, and in Brazil means a prostitute.  \nEnglish is not widely spoken except in some touristy areas. Don't expect bus or taxi drivers to understand English, so it may be a good idea to write down the address you are heading to before getting the cab. In most big and luxurious hotels, it is very likely that the taxi fleet will speak some English.  \nSpanish has some similarity with Portuguese. Brazilian tourists are able to make basic questions and give basic answers when visiting Spain or other Latin American countries and vice-versa. Of course such communication is quite awkward (mainly due to tilded vowels and semivowelization of 'e' and 'o' when being the last vowel of a Portuguese word), so take a phrase book and be prepared for slow communication with a lot of interpretive gestures.",
+        user_id: 7,
+        country_id: 27
+      },
+      {
+        blog_id: 17,
+        title: "A Short Intro to Japan's Beautiful Kyoto",
+        content:
+          "Nestled among the mountains of Western Honshu, Kyoto was the capital of Japan and the residence of the Emperor from 794 until the Meiji Restoration of 1868, when the capital was moved to Tokyo. During its millennium at the center of Japanese power, culture, tradition, and religion, it accumulated an unparalleled collection of palaces, temples and shrines, built for emperors, shoguns, and monks. Kyoto was among the few Japanese cities that escaped the allied bombings of World War II and as a result, Kyoto still has an abundance of prewar buildings, such as the traditional townhouses known as machiya. However the city is continuously undergoing modernization with some of the traditional Kyoto buildings being replaced by newer architecture, such as the Kyoto Station complex.",
+        user_id: 9,
+        country_id: 27
+      },
+      {
+        blog_id: 18,
+        title: "Some Information on Studying in Australia",
+        content:
+          "If you are intending to study in Australia, you may need to be on a visa class that allows this, rather than a tourist visa. Students and academics invited to visit Australian universities will generally also need an appropriate visa, even if their visit is of a short enough period to be covered by a tourist electronic visa. For extremely short term or part time courses, check with your Australian consulate or embassy.  \nAustralian students attend high school for six years, and enter university at seventeen or eighteen years of age. (In Australia, neither school nor college are used to refer to tertiary institutions; they are referred to only as universities - in fact, some primary and secondary educational institutions are referred to as 'colleges'). Australian undergraduate programs are usually three to four years in length. A fifth year is compulsory in some professional undergraduate programs such as engineering, law, medicine and dentistry. Students in three-year degree programs can take an optional fourth year known as honours if they want to proceed into a postgraduate research program, whereas students enrolled in four year programs can typically incorporate their honours thesis into their fourth year.  \nAll tuition at university level is in English, save for courses that specifically focus on other languages. Students who have not previously earned a qualification in an English speaking program (or passed high school English) will have to take one of a number of English competency tests before being allowed to enroll. \nPostgraduate studies in Australia fall into two classes: coursework and research. Coursework degrees are generally at the Masters level. Research degrees are at the Masters and Doctoral level.",
+        user_id: 9,
+        country_id: 27
       }
     ]),
     knex("tags").insert([
