@@ -4,8 +4,6 @@ import PropTypes from "prop-types";
 import BlogsContainer from "../../containers/BlogsContainer";
 import PhotosContainer from "../../containers/PhotosContainer";
 
-import BlogList from "../BlogList/BlogList";
-
 // const methods = {
 //   componentDidMount(props) {
 //     props.setNavFlagToDashboard();
@@ -46,13 +44,14 @@ const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
 };
 
 UserProfile.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.object),
-  blogs: PropTypes.arrayOf(PropTypes.object),
-  userInfo: PropTypes.arrayOf(PropTypes.object)
+  friendInfo: PropTypes.arrayOf(PropTypes.object),
+  userInfo: PropTypes.arrayOf(PropTypes.object),
+  profilePhoto: PropTypes.string.isRequired,
+  headerSetting: PropTypes.string.isRequired
 };
 
 export default UserProfile;
 
 /* <ul className="profile-image" width="15%" fontSize="150%">
 {visitedCount}&#x2714;<br />{faveCount}&#10084;
-</ul>*/
+</ul> */
