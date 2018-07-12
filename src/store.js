@@ -53,17 +53,18 @@ const store = createStore(
       username: "DoctorC",
       version_id: null
     },
-    userInfo: {
-      bio: "I am a placeholder bio",
-      email: "s.koichi@gmail.com",
-      etag: null,
-      image_key: null,
-      name: "Broichi Slope-Roll",
-      password: "gangbusters",
-      user_id: 1,
-      username: "BROICHI",
-      version_id: null
-    },
+    userInfo: {},
+    // userInfo: {
+    //   bio: "I am a placeholder bio",
+    //   email: "s.koichi@gmail.com",
+    //   etag: null,
+    //   image_key: null,
+    //   name: "Broichi Slope-Roll",
+    //   password: "gangbusters",
+    //   user_id: 0,
+    //   username: "BROICHI",
+    //   version_id: null
+    // },
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {
