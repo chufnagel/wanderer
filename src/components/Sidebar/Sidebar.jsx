@@ -52,7 +52,7 @@ const Sidebar = ({
               primary="Friends"
               onClick={() => {
                 setHeader(HOME);
-                getFriendsList(userInfo.name);
+                getFriendsList(userInfo.user_id);
               }}
             />
           </Link>
