@@ -4,20 +4,16 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import SidebarContainer from "../containers/SidebarContainer";
 import GlobalMapContainer from "../containers/GlobalMapContainer";
-import Home from "./Home";
-import HeaderContainer from "../containers/HeaderContainer";
-// import UserProfile from "./UserProfile/UserProfile";
-// import LocationProfileContainer from "../containers/LocationProfileContainer";
-// import AttractionsContainer from "../containers/AttractionsContainer";
-// import Blogs from "../containers/BlogsContainer";
-// import FriendsListContainer from "../containers/FriendsListContainer";
-// import DestinationsContainer from "../containers/DestinationsContainer";
-// import PhotosContainer from "../containers/PhotosContainer";
 import Explore from "./Explore/Explore";
 // import NotFoundPage from "./NotFoundPage";
-import LoginContainer from "../containers/LoginContainer";
+import asyncLogin from "../containers/LoginContainer";
 import asyncComponent from "../hoc/asyncComponent";
 // import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
+import HeaderContainer from "../containers/HeaderContainer";
+
+const asyncHome = asyncComponent(() => {
+  return import("../containers/HomeContainer");
+});
 
 const asyncLocationProfile = asyncComponent(() => {
   return import("../containers/LocationProfileContainer");
@@ -62,8 +58,8 @@ const App = () => (
     <center>
       <HeaderContainer />
       <Switch>
-        <Route exact path="/" component={LoginContainer} />
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/" component={asyncLogin} />
+        <Route exact path="/home" component={asyncHome} />
         <Route exact path="/profile" component={asyncProfile} />
         <Route exact path="/search" component={asyncLocationProfile} />
         <Route exact path="/attractions" component={asyncAttractions} />
