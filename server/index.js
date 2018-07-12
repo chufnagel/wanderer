@@ -1,3 +1,4 @@
+const auth = require("./routes/auth");
 const express = require("express");
 const path = require("path");
 
@@ -35,6 +36,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use(busboy());
 app.use(busboyBodyParser({ limit: "50mb" }));
+app.use("/auth", auth);
 app.use("/", router);
 
 // development error handler
