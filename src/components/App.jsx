@@ -3,7 +3,7 @@ import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
-import Home from "./Home";
+import Home from "../containers/HomeContainer";
 import Header from "../containers/HeaderContainer";
 import Sidebar from "../containers/SidebarContainer";
 import Explore from "./Explore/Explore";

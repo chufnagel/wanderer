@@ -55,3 +55,14 @@ export {
   getUserInfoFailure,
   getUserInfo
 } from "./userInfo";
+export {
+  authStart,
+  authSuccess,
+  authFail,
+  logout,
+  logoutSucceed,
+  checkAuthTimeout,
+  auth,
+  setAuthRedirectPath,
+  authCheckState
+} from "./auth";
