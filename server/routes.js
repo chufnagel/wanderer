@@ -9,18 +9,18 @@ const {
 } = require("./helperFunctions");
 const Media = require("./Models/media");
 // const Tag = require("./Models/tag");
-// const Blog = require("./Models/blog");
+const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
 
 const ec2path = "http://ec2-52-91-143-214.compute-1.amazonaws.com:3000";
 
-const {
-  log,
-  chalkSuccess,
-  chalkError,
-  chalkWarning,
-  chalkInfo
-} = require("../chalkpresets");
+// const {
+//   log,
+//   chalkSuccess,
+//   chalkError,
+//   chalkWarning,
+//   chalkInfo
+// } = require("../chalkpresets");
 
 // LOCATION PROFILE ROUTES ===========================================================================
 
