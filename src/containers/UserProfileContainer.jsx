@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import setHeader from "../actions/header";
 import getFriendsList from "../actions/friendsList";
-import Profile from "../components/UserProfile/Profile.jsx";
+import UserProfile from "../components/UserProfile/UserProfile.jsx";
 
 const mapStateToProps = state => {
   return {
@@ -12,13 +12,14 @@ const mapStateToProps = state => {
     visitedCount: state.visitedCount,
     profilePhoto: state.profilePhoto,
     friendInfo: state.friendInfo,
-    userInfo: state.userInfo
+    userInfo: state.userInfo,
+    headerSetting: state.headerSetting
   };
 };
 
 const UserProfileContainer = connect(
   mapStateToProps,
   null
-)(Profile);
+)(UserProfile);
 
 export default UserProfileContainer;

@@ -6,7 +6,7 @@ import SidebarContainer from "../containers/SidebarContainer";
 import GlobalMapContainer from "../containers/GlobalMapContainer";
 import Home from "./Home";
 import HeaderContainer from "../containers/HeaderContainer";
-import UserProfile from "./UserProfile/UserProfile";
+import UserProfileContainer from "../containers/UserProfileContainer";
 import LocationProfileContainer from "../containers/LocationProfileContainer";
 import AttractionsContainer from "../containers/AttractionsContainer";
 // import Blogs from "../containers/BlogsContainer";
@@ -36,7 +36,7 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={LoginContainer} />
         <Route exact path="/home" component={Home} />
-        <Route exact path="/profile" component={UserProfile} />
+        <Route exact path="/profile" component={UserProfileContainer} />
         <Route exact path="/search" component={LocationProfileContainer} />
         <Route exact path="/attractions" component={AttractionsContainer} />
         <Route path="/blogs" component={asyncBlogs} />

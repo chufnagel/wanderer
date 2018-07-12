@@ -23,21 +23,44 @@ const store = createStore(
     friends: [],
     blogs: [
       {
-        blogId: "1",
-        blogTitle: "WELCOME TO NIHON",
-        blogAuthor: "BROICHI",
-        blogContents: "YOLO SWAG"
+        blog_Id: 1,
+        title: "WELCOME TO NIHON",
+        content: "I went to sky stree",
+        timestamp: "BROICHI",
+        user_id: 1,
       },
       {
-        blogId: "2",
-        blogTitle: "Ebisu Brewery",
-        blogAuthor: "BROICHI",
-        blogContents: "とりあえず 生 なま ビルください"
+        blog_Id: 1,
+        title: "I just came back from Germany",
+        content: "I went to see the soccer game",
+        timestamp: "LinaLuna",
+        user_id: 1,
       }
     ],
     // photos,
-    friendInfo: {},
-    userInfo: {},
+    friendInfo: [
+      {
+      bio: "I am a former data scientist",
+      email: "charlie@gmail.com",
+      etag: null,
+      image_key: null,
+      name: "Sakafunagel",
+      password:"hydrate",
+      user_id:2 ,
+      username: "DoctorC",
+      version_id: null
+    }],
+    userInfo: [{
+        bio: "I am a placeholder bio",
+        email: "s.koichi@gmail.com",
+        etag: null,
+        image_key: null,
+        name: "Broichi Slope-Roll",
+        password:"gangbusters",
+        user_id:1,
+        username: "BROICHI",
+        version_id: null
+      }],
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {

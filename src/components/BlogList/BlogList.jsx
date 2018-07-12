@@ -9,9 +9,9 @@ import Typography from "@material-ui/core/Typography";
 const BlogList = ({ blogs }) => {
   const BlogEntry = blogs.map(blog => (
     <Card key={blog.blogId}>
-      <CardHeader title={blog.blogTitle} subheader={blog.blogAuthor} />
+      <CardHeader title={blog.title} subheader={blog.blogAuthor} />
       <CardContent>
-        <Typography paragraph>{blog.blogContents}</Typography>
+        <Typography paragraph>{blog.content}</Typography>
       </CardContent>
     </Card>
   ));

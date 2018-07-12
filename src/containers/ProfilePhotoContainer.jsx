@@ -6,7 +6,10 @@ const mapStateToProps = state => ({
   navFlag: state.navFlag, // console.log('photocontainer',state.photos)
   profile: state.photos,
   userId: state.userId,
-  profilePhoto: state.profilePhoto
+  profilePhoto: state.profilePhoto,
+  friendInfo: state.friendInfo,
+  userInfo: state.userInfo,
+  blogs: state.blogs
 });
 
 const mapDispatchToProps = dispatch => ({

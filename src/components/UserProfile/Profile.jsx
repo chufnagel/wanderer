@@ -11,21 +11,42 @@ import BlogList from "../BlogList/BlogList";
 //   }
 // };
 
-const Profile = ({ profilePhoto, blogs, photos }) => {
+const Profile = ({
+  albumPhotos,
+  blogs,
+  faveCount,
+  visitedCount,
+  profilePhoto,
+  friendInfo,
+  userInfo,
+  headerSetting
+}) => {
   return (
     <div>
-      <h2>{userInfo[0].username}</h2>
-      <img src={profilePhoto} alt={userInfo[0].username} width="33%" />
+      <h2>
+        {headerSetting === "HOME"
+          ? userInfo[0].username
+          : friendInfo[0].username}
+      </h2>
+      <img
+        src={profilePhoto}
+        alt={
+          headerSetting === "HOME"
+            ? userInfo[0].username
+            : friendInfo[0].username
+        }
+        width="33%"
+      />
       <ul className="profile-image" width="15%" fontSize="150%">
         25&#x2714;<br />5&#10084;
       </ul>
       <h1>Blogs</h1>
       <ul width="52%">
-        <BlogList blogs={blogs} />
+        <BlogsContainer/>
       </ul>
       <ul width="35%" />
       <span>
-        <PhotoGrid photos={photos} />
+        <PhotosContainer />
       </span>
     </div>
   );
