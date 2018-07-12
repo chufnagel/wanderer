@@ -17,12 +17,6 @@ const handleUploadFile = (event, userId, updateProfilePhoto) => {
         }
       })
       .then(photo => {
-        console.log("profile photo", photo);
-        /*
-        const image = String.fromCharCode.apply(
-          null,
-          new Uint16Array(photo.data.Body.data)
-        );*/
         updateProfilePhoto(photo.data[0].image_url);
       });
   });
