@@ -11,15 +11,11 @@ import BlogList from "../BlogList/BlogList";
 //   }
 // };
 
-const Profile = ({ userInfo, blogs, photos }) => {
+const Profile = ({ profilePhoto, blogs, photos }) => {
   return (
     <div>
       <h2>{userInfo[0].username}</h2>
-      <img
-        src="https://pbs.twimg.com/profile_images/585086002466795521/HgNCKU0D_400x400.jpg"
-        alt={userInfo[0].username}
-        width="33%"
-      />
+      <img src={profilePhoto} alt={userInfo[0].username} width="33%" />
       <ul className="profile-image" width="15%" fontSize="150%">
         25&#x2714;<br />5&#10084;
       </ul>
