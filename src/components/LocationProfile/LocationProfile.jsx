@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 
 import {
-  AsyncLocationStats,
-  AsyncLocationBasicInfo,
-  AsyncPointsOfInterest
+  LocationStats,
+  LocationBasicInfo,
+  PointsOfInterest
 } from "../WrappedContainers";
 
 const LocationProfile = ({
@@ -18,7 +18,7 @@ const LocationProfile = ({
     <div className="location-profile">
       <h1>{location}</h1>
 
-      <AsyncLocationStats />
+      <LocationStats />
 
       <div className="add-location-options">
         <Button
@@ -41,9 +41,9 @@ const LocationProfile = ({
         </Button>
       </div>
 
-      <AsyncLocationBasicInfo />
+      <LocationBasicInfo />
 
-      <AsyncPointsOfInterest />
+      <PointsOfInterest />
 
       {/* <div>
         <h2>Fun Facts About {location}:</h2>

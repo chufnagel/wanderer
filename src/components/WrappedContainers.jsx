@@ -1,57 +1,45 @@
 import asyncComponent from "../hoc/asyncComponent";
 
-export const AsyncSidebar = asyncComponent(() => {
-  return import("../containers/SidebarContainer");
-});
-
-export const AsyncHome = asyncComponent(() => {
-  return import("../containers/HomeContainer");
-});
-
-export const AsyncLocationProfile = asyncComponent(() => {
+export const LocationProfile = asyncComponent(() => {
   return import("../containers/LocationProfileContainer");
 });
 
-export const AsyncLogin = asyncComponent(() => {
-  return import("../containers/LoginContainer");
-});
-
-export const AsyncAttractions = asyncComponent(() => {
+export const Attractions = asyncComponent(() => {
   return import("../containers/AttractionsContainer");
 });
 
-export const AsyncFriendsList = asyncComponent(() => {
+export const FriendsList = asyncComponent(() => {
   return import("../containers/FriendsListContainer");
 });
 
-export const AsyncDestinations = asyncComponent(() => {
+export const Destinations = asyncComponent(() => {
   return import("../containers/DestinationsContainer");
 });
 
-export const AsyncPhotos = asyncComponent(() => {
+export const Photos = asyncComponent(() => {
   return import("../containers/PhotosContainer");
 });
 
-export const AsyncBlogs = asyncComponent(() => {
+export const Blogs = asyncComponent(() => {
   return import("../containers/BlogsContainer");
 });
 
-export const AsyncProfile = asyncComponent(() => {
+export const Profile = asyncComponent(() => {
   return import("../containers/UserProfileContainer");
 });
 
-export const AsyncPhotoUploader = asyncComponent(() => {
+export const PhotoUploader = asyncComponent(() => {
   return import("../containers/PhotoUploaderContainer");
 });
 
-export const AsyncLocationStats = asyncComponent(() => {
+export const LocationStats = asyncComponent(() => {
   return import("../containers/LocationStatsContainer");
 });
 
-export const AsyncLocationBasicInfo = asyncComponent(() => {
+export const LocationBasicInfo = asyncComponent(() => {
   return import("../containers/LocationBasicInfoContainer");
 });
 
-export const AsyncPointsOfInterest = asyncComponent(() => {
+export const PointsOfInterest = asyncComponent(() => {
   return import("../containers/PointsOfInterestContainer");
 });
