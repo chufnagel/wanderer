@@ -6,12 +6,11 @@ import rootReducer from "./reducers";
 // import photos from "../example data/pictures-of-japan";
 import { HOME } from "./constants";
 
-/* eslint disable */
-const composeEnhancers =
-  process.env.NODE_ENV === "development"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : null || compose;
-/* eslint enable */
+/*eslint-disable */
+const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+/* eslint-enable */
 
 const store = createStore(
   rootReducer,
@@ -23,18 +22,18 @@ const store = createStore(
     friends: [],
     blogs: [
       {
-        blog_Id: 1,
+        blogId: 1,
         title: "WELCOME TO NIHON",
         content: "I went to sky stree",
         timestamp: "BROICHI",
-        user_id: 1
+        userId: 1
       },
       {
-        blog_Id: 1,
+        blogId: 1,
         title: "I just came back from Germany",
         content: "I went to see the soccer game",
         timestamp: "LinaLuna",
-        user_id: 1
+        userId: 1
       }
     ],
     // photos,
