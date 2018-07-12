@@ -1,6 +1,10 @@
 import { connect } from "react-redux";
 import FriendsList from "../components/FriendsList";
 import getFriendInfo from "../actions/friendInfo";
+import {
+  getVisitedDestinations,
+  getFaveDestinations
+} from "../actions/destinations";
 
 const mapStateToProps = state => {
   return {
@@ -9,10 +13,10 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  getFriendInfo: userId => dispatch(getFriendInfo(userId))
+  getFriendInfo: userId => dispatch(getFriendInfo(userId)),
   // getBlogsByUserId: userId => dispatch(getBlogsByUserId(userId)),
-  // getVisitedDestinations: userId => dispatch(getVisitedDestinations(userId)),
-  // getFaveDestinations: userId => dispatch(getFaveDestinations(userId))
+  getVisitedDestinations: userId => dispatch(getVisitedDestinations(userId)),
+  getFaveDestinations: userId => dispatch(getFaveDestinations(userId))
 });
 
 const FriendsListContainer = connect(

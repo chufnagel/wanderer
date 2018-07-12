@@ -3,7 +3,6 @@ import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
-import Home from "./Home";
 import Header from "../containers/HeaderContainer";
 import Sidebar from "../containers/SidebarContainer";
 import Explore from "./Explore/Explore";
@@ -34,7 +33,7 @@ const App = () => (
       <Header />
       <Switch>
         <Route exact path="/" component={AsyncLogin} />
-        <Route exact path="/home" component={Home} />
+        <Route exact path="/home" component={AsyncHome} />
         <Route exact path="/profile" component={AsyncProfile} />
         <Route exact path="/search" component={AsyncLocationProfile} />
         <Route exact path="/attractions" component={AsyncAttractions} />

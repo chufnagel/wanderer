@@ -4,7 +4,7 @@ import logger from "redux-logger";
 import rootReducer from "./reducers";
 // import CountriesAll from "./components/LocationProfile/CountriesAll";
 // import photos from "../example data/pictures-of-japan";
-import { HOME } from "./constants";
+import { OTHER } from "./constants";
 
 /*eslint-disable */
 const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window === 'object' &&
@@ -16,7 +16,7 @@ const store = createStore(
   rootReducer,
   {
     // currentText: "Initializing...",
-    headerSetting: HOME,
+    headerSetting: OTHER,
     // countries: CountriesAll,
     location: "",
     friends: [],
