@@ -19,17 +19,18 @@ const methods = {
 };
 
 const PhotoGrid = ({ albumPhotos }) => {
+  console.log("albumphotos", albumPhotos)
   return (
     <div>
-      {/* {albumPhotos.map(photo => {
+      {albumPhotos.map(photo => {
         return (
           <img
             src={photo.image_url}
-            alt={photo_image_url}
+            alt={photo.image_url}
             className="post-image"
           />
         );
-      })} */}
+      })}
     </div>
   );
 };
