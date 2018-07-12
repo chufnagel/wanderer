@@ -13,7 +13,6 @@ function addFaveDestinationSuccess(faveDestinations) {
 
 // add a country to favorites by user id
 export function addFaveDestination(userId, country) {
-  console.log('1. hit destinations action to add fave');
   return dispatch => {
     axios
       .post("/favorites", {
@@ -62,7 +61,6 @@ function addVisitedDestinationSuccess(visitedDestinations) {
 
 // add a country to visited destinations by user id
 export function addVisitedDestination(userId, country) {
-  console.log('1. hit destinations action to add visited');
   return dispatch => {
     axios
       .post("/visited", {
@@ -100,16 +98,3 @@ export function getVisitedDestinations(userId) {
       });
   };
 }
-
-// function updateDestinationsFutureAsync(destinations) {
-//   return {
-//     type: UPDATE_DESTINATIONS,
-//     destinationsFuture: DESTINATIONS
-//   };
-// }
-
-// export function updateDestinationsFuture(destination) {
-//   return dispatch => {
-//     dispatch(updateDestinationsFutureAsync(destination));
-//   };
-// }
