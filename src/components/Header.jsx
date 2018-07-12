@@ -1,55 +1,90 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ListItemText from "@material-ui/core/ListItemText";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import * as settings from "../constants";
 
 // The Header creates links that can be used to navigate
 // between routes.
-const Header = props => {
-  if (props.navFlag === "dashboard") {
-    return (
-      <header>
-        <center>
-          <nav>
-            <Link to="/">
-              <ListItemText primary="home" />
-            </Link>
-            <Link to="/blogs">
-              <ListItemText primary="blog posts" />
-            </Link>
-            <Link to="/photos_videos">
-              <ListItemText primary="photos & videos" />
-            </Link>
-            <Link to="/destinations">
-              <ListItemText primary="destinations" />
-            </Link>
-          </nav>
-        </center>
-      </header>
-    );
-  }
+const linkStyles = {
+  textDecoration: "none"
+};
 
-  if (props.navFlag === "countryOrCity") {
-    return (
-      <header>
-        <center>
-          <nav>
-            <Link to="/">
-              <ListItemText primary="information" />
-            </Link>
-            <Link to="/attractions">
-              <ListItemText primary="attractions" />
-            </Link>
-            <Link to="/blogs">
-              <ListItemText primary="blog posts" />
-            </Link>
-            <Link to="/photos_videos">
-              <ListItemText primary="photos & videos" />
-            </Link>
-          </nav>
-        </center>
-      </header>
-    );
-  }
+const headerStyles = {
+  width: 400,
+  display: "flex",
+  justifyContent: "space-between",
+  flexWrap: "nowrap"
+};
+
+const Header = ({ headerSetting }) => (
+  <header>
+    <center>
+      {settings.OTHER === headerSetting ? null : null}
+      {settings.HOME === headerSetting ? (
+        <span style={headerStyles}>
+          <Link to="/home" style={linkStyles}>
+            <Typography>dashboard</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/blogs" style={linkStyles}>
+            <Typography>blog posts</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/photos_videos" style={linkStyles}>
+            <Typography>photos & videos</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/destinations" style={linkStyles}>
+            <Typography>destinations</Typography>
+          </Link>
+        </span>
+      ) : null}
+      {settings.LOCATION_PROFILE === headerSetting ? (
+        <span style={headerStyles}>
+          <Link to="/search" style={linkStyles}>
+            <Typography>overview</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/attractions" style={linkStyles}>
+            <Typography>obscure attractions</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/photos_videos" style={linkStyles}>
+            <Typography>photos & videos</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/blogs" style={linkStyles}>
+            <Typography>blog posts</Typography>
+          </Link>
+        </span>
+      ) : null}
+      {settings.USER_PROFILE === headerSetting ? (
+        <span style={headerStyles}>
+          <Link to="/profile" style={linkStyles}>
+            <Typography>overview</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/blogs" style={linkStyles}>
+            <Typography>blog posts</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/photos_videos" style={linkStyles}>
+            <Typography>photos & videos</Typography>
+          </Link>
+          <span> | </span>
+          <Link to="/destinations" style={linkStyles}>
+            <Typography>destinations</Typography>
+          </Link>
+        </span>
+      ) : null}
+    </center>
+    <br />
+  </header>
+);
+
+Header.propTypes = {
+  headerSetting: PropTypes.string.isRequired
 };
 
 export default Header;

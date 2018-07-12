@@ -23,11 +23,14 @@ exports.up = (knex, Promise) =>
       table.string("name");
       table.string("email");
       table.string("bio");
+      table.string("etag");
+      table.string("image_key");
+      table.string("version_id");
     }),
     knex.schema.createTable("blogs", table => {
       table.increments("blog_id").primary();
       table.string("title");
-      table.string("content");
+      table.string("content", 10000);
       table.timestamp("timestamp");
       table.integer("user_id");
     }),
@@ -42,13 +45,12 @@ exports.up = (knex, Promise) =>
     }),
     knex.schema.createTable("media", table => {
       table.increments("media_id").primary();
-      table.string("link",10000);
       table.integer("user_id");
-    }),
-    knex.schema.createTable("media_tags", table => {
-      table.increments("media_tags_id").primary();
-      table.integer("tag_id");
-      table.integer("media_id");
+      table.integer("country_id");
+      table.timestamp("created_at").defaultTo(knex.fn.now());
+      table.string("image_url");
+      // table.string("etag"); currently not using metadata to pull down photos
+      // table.string("key"); currently not using metadata to pull down photos
     }),
     knex.schema.createTable("user_friends", table => {
       table.increments("user_friend_id").primary();
@@ -58,7 +60,6 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("countries", table => {
       table.increments("country_id").primary();
       table.string("country");
-      table.string("acronym");
     }),
     knex.schema.createTable("favorite_destinations", table => {
       table.increments("favorite_destination_id").primary();
@@ -69,7 +70,7 @@ exports.up = (knex, Promise) =>
       table.increments("visited_destination_id").primary();
       table.integer("destination_id"); // references countries_id for purposes of mvp
       table.integer("user_id");
-    }),
+    })
   ]);
 
 exports.down = (knex, Promise) =>

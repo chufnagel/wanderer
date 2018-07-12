@@ -4,22 +4,14 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
-import lifecycle from 'react-pure-lifecycle'
-
-const methods =  {
-  componentDidMount(props) {
-    console.log('props',props)
-    props.setNavFlagToDashboard()
-  }
-}
 
 // can eventually add blog media, user avatar, etc.
-const BlogList = props => {
-  const BlogEntry = props.blogs.map(blog => (
-    <Card key={blog.blogId}>
-      <CardHeader title={blog.blogTitle} subheader={blog.blogAuthor} />
+const BlogList = ({ blogs }) => {
+  const BlogEntry = blogs.map(blog => (
+    <Card key={blog.blog_id}>
+      <CardHeader title={blog.title} />
       <CardContent>
-        <Typography paragraph>{blog.blogContents}</Typography>
+        <Typography paragraph>{blog.content}</Typography>
       </CardContent>
     </Card>
   ));
@@ -41,4 +33,4 @@ BlogList.defaultProps = {
   ]
 };
 
-export default lifecycle(methods)(BlogList);
+export default BlogList;

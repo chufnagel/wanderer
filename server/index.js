@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
@@ -8,60 +9,55 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
+const busboy = require("connect-busboy");
+const busboyBodyParser = require("busboy-body-parser");
 const router = require("./routes");
-let { getPointsOfInterest, getAttractions } = require("./helperFunctions");
 
-const {
-  log,
-  chalkSuccess,
-  chalkError,
-  chalkWarning,
-  chalkInfo
-} = require("../chalkpresets");
+const { log, chalkSuccess } = require("../chalkpresets");
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
 // Apply middleware
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cookieParser());
-app.use(compression());
-app.use(logger("dev"));
+app.use(compression("gzip"));
+app.use(
+  logger("combined", {
+    skip(req, res) {
+      return res.statusCode < 400;
+    }
+  })
+);
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
+app.use(busboy());
+app.use(busboyBodyParser({ limit: "50mb" }));
 app.use("/", router);
 
+// development error handler
+// will print stack trace
+if (app.get("env") === "development") {
+  app.use((err, req, res, next) => {
+    res.status(err.status || 500);
+    res.json({
+      message: err.message,
+      error: err
+    });
+  });
+}
 
-
+// production error handler
+// no stack traces leaked to user
 app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Server error");
-});
-// app.use(express.static("dist"));
-
-// calls the helper function to query Google Places API for points of interest for given location
-app.post("/getPointsOfInterest", (req, res) => {
-  getPointsOfInterest(req.body.location, (err, data) => {
-    if (err) {
-      console.log("server error getting points of interest from API", err);
-    } else {
-      res.send(data);
-    }
+  res.status(err.status || 500);
+  res.json({
+    message: err.message,
+    error: {}
   });
 });
-
-// calls the helper function to query Atlas Obscura API for obscure attractions for given location
-app.post("/getAttractions", (req, res) => {
-  getAttractions(req.body.location, (data) => {
-    res.send(data);
-  });
-});
-
-// app.use((err, req, res, next) => {
-//   console.error(err.stack);
-//   res.status(500).send("Server error");
-// });
 
 app.listen(PORT, () => {
   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));

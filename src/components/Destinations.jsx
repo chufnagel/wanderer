@@ -1,39 +1,61 @@
 import React from "react";
+import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
+// import Checkbox from "@material-ui/core/Checkbox";
+import Switch from "@material-ui/core/Switch";
 import lifecycle from "react-pure-lifecycle";
 
 const methods = {
-  componentDidMount(props) {
-    props.setNavFlagToDashboard();
+  componentDidMount({ getFaveDestinations, getVisitedDestinations, userId }) {
+    getFaveDestinations(userId);
+    getVisitedDestinations(userId);
   }
 };
 
-const Destinations = props => {
+const Destinations = ({ visitedDestinations, faveDestinations }) => {
+  // console.log("visited and fave dest:", visitedDestinations, faveDestinations);
   return (
     <div className="destinations">
-      <h1>Destinations</h1>
-      <div className="destinations-past">
-        <h2>Places I've Been:</h2>
-        {props.destinationsPast.map(past => {
-          return (
-            <div>
-              <p>☑ {past}</p>
-            </div>
-          );
-        })}
+      <Typography variant="display2" gutterBottom>
+        {"Destinations"}
+      </Typography>
+      <div className="visited-destinations">
+        <Toolbar>
+          <Typography variant="title" color="inherit">
+            {"Places I've Been:"}
+          </Typography>
+          {visitedDestinations.map(visited => {
+            return (
+              <div key={visited.country_id}>
+                <Switch value={visited.country} />
+              </div>
+            );
+          })}
+        </Toolbar>
       </div>
 
-      <div className="destinations-future">
-        <h2>Places I Want To Visit:</h2>
-        {props.destinationsFuture.map(future => {
-          return (
-            <div>
-              <p>☐ {future}</p>
-            </div>
-          );
-        })}
+      <div className="fave-destinations">
+        <Toolbar>
+          <Typography variant="title" color="inherit">
+            {"Places I Want To Visit:"}
+          </Typography>
+          {faveDestinations.map(fave => {
+            return (
+              <div key={fave.country_id}>
+                <p>☐ {fave.country}</p>
+              </div>
+            );
+          })}
+        </Toolbar>
       </div>
     </div>
   );
+};
+
+Destinations.propTypes = {
+  visitedDestinations: PropTypes.arrayOf(PropTypes.object).isRequired,
+  faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default lifecycle(methods)(Destinations);

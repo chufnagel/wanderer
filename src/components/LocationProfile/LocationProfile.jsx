@@ -1,45 +1,67 @@
 import React from "react";
-import PointsOfInterest from "../LocationProfile/PointsOfInterest";
+import PropTypes from "prop-types";
+import Button from "@material-ui/core/Button";
 
-const LocationProfile = ({ location, pointsOfInterest, addDestinationsPast, addDestinationsFuture }) => {
+import {
+  LocationStats,
+  LocationBasicInfo,
+  PointsOfInterest
+} from "../WrappedContainers";
+
+const LocationProfile = ({
+  location,
+  userId,
+  addVisitedDestination,
+  addFaveDestination
+}) => {
   return (
     <div className="location-profile">
-      <div className="main">
-        <h1>{location}</h1>
+      <h1>{location}</h1>
 
-        <div>
-          <p>[37] Wanderers have visited here.</p>
-          <p>[58] Wanderers want to visit here.</p>
-        </div>
+      <LocationStats />
 
-        <div className="add-location-options">
-          <button onClick={() => addDestinationsPast()}>I've Been Here</button>
-          <button onClick={() => addDestinationsFuture()}>I Want To Go Here!</button>
-        </div>
-
-        <div className="location-info">
-          <h2>Basic Info About {location}:</h2>
-          <p>Population size: </p>
-          <p>Language: </p>
-          <p>Currency: </p>
-          <p>Flag: </p>
-        </div>
-
-        <PointsOfInterest pointsOfInterest={pointsOfInterest} location={location} />
-
-        {/* <div>
-          <h2>Fun Facts About {location}:</h2>
-          <ul>
-            {this.state.funFacts.map((fact, ind) => (
-              <li key={ind}>{fact}</li>
-            ))}
-          </ul>
-        </div> */}
-
+      <div className="add-location-options">
+        <Button
+          type="submit"
+          variant="raised"
+          color="primary"
+          size="small"
+          onClick={() => addVisitedDestination(userId, location)}
+        >
+          {"I've Been Here"}
+        </Button>
+        <Button
+          type="submit"
+          variant="raised"
+          color="primary"
+          size="small"
+          onClick={() => addFaveDestination(userId, location)}
+        >
+          {"I Want To Go Here!"}
+        </Button>
       </div>
+
+      <LocationBasicInfo />
+
+      <PointsOfInterest />
+
+      {/* <div>
+        <h2>Fun Facts About {location}:</h2>
+        <ul>
+          {this.state.funFacts.map((fact, ind) => (
+            <li key={ind}>{fact}</li>
+          ))}
+        </ul>
+      </div> */}
     </div> // close country-page div
   );
+};
 
+LocationProfile.propTypes = {
+  location: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
+  addVisitedDestination: PropTypes.func.isRequired,
+  addFaveDestination: PropTypes.func.isRequired
 };
 
 export default LocationProfile;

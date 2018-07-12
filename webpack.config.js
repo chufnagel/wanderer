@@ -1,8 +1,10 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
 
-const SRC_DIR = path.join(__dirname, "/src");
-const DIST_DIR = path.join(__dirname, "/dist");
+const SRC_DIR = path.resolve(__dirname, "src");
+const DIST_DIR = path.resolve(__dirname, "dist");
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 if (process.env.NODE_ENV === "test") {
@@ -12,18 +14,27 @@ if (process.env.NODE_ENV === "test") {
 }
 
 module.exports = env => {
-  const isProduction = env === "production";
+  // const isProduction = env === "production";
 
   return {
+    devtool: "cheap-module-source-map",
     entry: `${SRC_DIR}/index.js`,
-    mode: "development",
+    mode: "production",
     output: {
-      filename: "bundle.js",
-      path: DIST_DIR
+      path: DIST_DIR,
+      filename: "index.js",
+      chunkFilename: "[id].js",
+      publicPath: ""
     },
     context: __dirname,
     resolve: {
       extensions: [".js", ".jsx", ".json", "*"]
+    },
+    optimization: {
+      splitChunks: {
+        chunks: "all"
+      },
+      minimize: true
     },
     module: {
       rules: [
@@ -34,39 +45,43 @@ module.exports = env => {
           loader: "babel-loader"
         },
         {
-          test: /\.s?css$/,
+          test: /\.css$/,
+          exclude: /node_modules/,
           use: [
+            { loader: "style-loader" },
             {
               loader: "css-loader",
               options: {
-                sourceMap: true
+                importLoaders: 1,
+                modules: true,
+                localIdentName: "[name]__[local]__[hash:base64:5]"
               }
             },
             {
-              loader: "sass-loader",
+              loader: "postcss-loader",
               options: {
-                sourceMap: true
-              }
-            },
-            {
-              loader: "style-loader",
-              options: {
-                sourceMap: true
+                ident: "postcss",
+                plugins: () => [
+                  autoprefixer({
+                    browsers: ["> 1%", "last 2 versions"]
+                  })
+                ]
               }
             }
           ]
         },
         {
-          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: "url-loader?limit=10000&mimetype=application/font-woff"
-        },
-        {
-          test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: "file-loader"
+          test: /\.(png|jpe?g|gif)$/,
+          loader: "url-loader?limit=8000&name=images/[name].[ext]"
         }
       ]
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        template: `${SRC_DIR}/index.html`,
+        filename: "index.html",
+        inject: "body"
+      }),
       new webpack.DefinePlugin({
         "process.env.FIREBASE_API_KEY": JSON.stringify(
           process.env.FIREBASE_API_KEY
@@ -87,12 +102,7 @@ module.exports = env => {
           process.env.GOOGLEPLACES_API_KEY
         )
       })
-    ],
-    devtool: isProduction ? "source-map" : "inline-source-map",
-    devServer: {
-      contentBase: DIST_DIR,
-      historyApiFallback: true,
-      publicPath: "/dist"
-    }
+    ]
+    // devtool: isProduction ? "source-map" : "inline-source-map"
   };
 };
