@@ -4,7 +4,7 @@
 ![David](https://img.shields.io/david/CoolStuffIncorporated/thesis.svg)
 ![David](https://img.shields.io/david/dev/CoolStuffIncorporated/thesis.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/CoolStuffIncorporated/thesis.svg)](https://greenkeeper.io/)
-
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/392a68b96c844076b2d8c626024eaafa)](https://www.codacy.com/app/chufnagel/thesis?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=CoolStuffIncorporated/thesis&amp;utm_campaign=Badge_Grade)
 
 
 # Project Name
@@ -32,12 +32,8 @@ Wanderer: A Social Travel Diary
 > Some usage instructions
 
 ## Requirements
-
 - Node.js 10.5.0
-- Redis 2.6.x
 - MariaDB 10.3.7 || MySql 8.0.11
-- etc
-- etc
 
 ## Development
 
@@ -57,4 +53,4 @@ View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
 ## Contributing
 
-See [CONTRIBUTING.md](_CONTRIBUTING.md) for contribution guidelines.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
