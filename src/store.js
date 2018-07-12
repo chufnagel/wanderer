@@ -25,14 +25,15 @@ const store = createStore(
         blogId: 1,
         title: "WELCOME TO NIHON",
         content: "I went to sky stree",
-        timestamp: "BROICHI",
+        timestamp: "2018-06-30 19:46:49",
         userId: 1
       },
       {
-        blogId: 1,
+        blogId: 2,
         title: "I just came back from Germany",
+        author: "BROICHI",
         content: "I went to see the soccer game",
-        timestamp: "LinaLuna",
+        timestamp: "2018-06-30 19:46:49",
         userId: 1
       }
     ],

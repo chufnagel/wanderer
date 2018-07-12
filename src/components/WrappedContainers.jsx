@@ -4,16 +4,8 @@ export const AsyncSidebar = asyncComponent(() => {
   return import("../containers/SidebarContainer");
 });
 
-export const AsyncGlobalMap = asyncComponent(() => {
-  return import("../containers/GlobalMapContainer");
-});
-
 export const AsyncHome = asyncComponent(() => {
   return import("./Home");
-});
-
-export const AsyncHeader = asyncComponent(() => {
-  return import("../containers/HeaderContainer");
 });
 
 export const AsyncLocationProfile = asyncComponent(() => {
@@ -50,10 +42,6 @@ export const AsyncProfile = asyncComponent(() => {
 
 export const AsyncPhotoUploader = asyncComponent(() => {
   return import("../containers/PhotoUploaderContainer");
-});
-
-export const AsyncExplore = asyncComponent(() => {
-  return import("../components/Explore/Explore");
 });
 
 export const AsyncLocationStats = asyncComponent(() => {

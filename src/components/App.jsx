@@ -3,14 +3,16 @@ import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 
+import Home from "./Home";
+import Header from "../containers/HeaderContainer";
+import Sidebar from "../containers/SidebarContainer";
+import Explore from "./Explore/Explore";
+import GlobalMap from "../containers/GlobalMapContainer";
+
 import {
-  AsyncSidebar,
-  AsyncGlobalMap,
   AsyncHome,
-  AsyncHeader,
   AsyncLogin,
   AsyncLocationProfile,
-  AsyncExplore,
   AsyncAttractions,
   AsyncFriendsList,
   AsyncDestinations,
@@ -25,14 +27,14 @@ const App = () => (
     <center>
       <Typography variant="display2">Wanderer</Typography>
       <br />
-      <AsyncGlobalMap />
+      <GlobalMap />
     </center>
-    <AsyncSidebar />
+    <Sidebar />
     <center>
-      <AsyncHeader />
+      <Header />
       <Switch>
         <Route exact path="/" component={AsyncLogin} />
-        <Route exact path="/home" component={AsyncHome} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/profile" component={AsyncProfile} />
         <Route exact path="/search" component={AsyncLocationProfile} />
         <Route exact path="/attractions" component={AsyncAttractions} />
@@ -40,7 +42,7 @@ const App = () => (
         <Route exact path="/friends" component={AsyncFriendsList} />
         <Route exact path="/photos_videos" component={AsyncPhotos} />
         <Route exact path="/destinations" component={AsyncDestinations} />
-        <Route exact path="/explore" component={AsyncExplore} />
+        <Route exact path="/explore" component={Explore} />
         <Route exact path="/addMemory" component={AsyncPhotoUploader} />
         <Redirect to="/" />
       </Switch>

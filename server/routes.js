@@ -102,7 +102,7 @@ router.get("/friends", (req, res) => {
   User.retrieveFriendsByUserId(req.query.userId, friends => {
     // console.log("friends", friends)
     res.status(200).send(friends);
-  }).catch(err => console.error(err));
+  }).catch(err => res.status(404).send("unable to retrieve friends"));
 });
 
 // USER ROUTES ===========================================================================
@@ -147,7 +147,7 @@ router.post("/blogs", async (req, res, next) => {
     const newBlog = await Blog.addNewBlog(req.body);
     res.status(200).send(newBlog);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to add new blog");
   }
 });
@@ -158,7 +158,7 @@ router.get("/blogs", async (req, res, next) => {
     const blogs = await Blog.retrieveAllBlogs();
     res.status(200).send(blogs);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to retrieve blogs");
   }
 });
@@ -169,7 +169,7 @@ router.get("/blogsByUserId", async (req, res, next) => {
     const blogs = await Blog.retrieveBlogsByUserId(req.query.userId);
     res.status(200).send(blogs);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to retrieve user's blogs");
   }
 });
@@ -181,7 +181,7 @@ router.get("/blogsByBlogId", async (req, res, next) => {
     const blog = Blog.retrieveBlogsByBlogId(req.query.blogId);
     res.status(200).send(blog);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to retrieve blog");
   }
 });
@@ -194,7 +194,7 @@ router.post("/tags", async (req, res, next) => {
     const newTag = await Tag.createNewTag(req.body.name);
     res.status(200).send(newTag);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to create new tag");
   }
 });
@@ -206,7 +206,7 @@ router.get("/getTag", async (req, res, next) => {
     const tag = await Tag.findByTagId(req.query.tagId);
     res.status(200).send(tag);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to locate tag");
   }
 });
@@ -216,7 +216,7 @@ router.get("/tags", async (req, res, next) => {
     const tags = await Tag.retrieveAllTags();
     res.status(200).send(tags);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to retrieve tags");
   }
 });
@@ -250,7 +250,7 @@ router.get("/retrieve", (req, res) => {
         res.send(photo.data);
       })
       .catch(err => {
-        console.error(err);
+        // console.error(err);
         res.sendStatus(404);
       });
   });
@@ -268,10 +268,10 @@ router.get("/mediaByUserId", async (req, res, next) => {
       req.query.userId,
       country_id
     );
-    console.log("meida", media);
+    // console.log("media", media);
     res.status(200).send(media);
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to retrieve user's media files");
   }
 });
@@ -282,23 +282,21 @@ router.post("/createAlbum", async (req, res, next) => {
   const userId = req.body.user_id;
   let location = req.body.location;
 
-  //placeholder
-  location = "Russia"
+  // placeholder
+  location = "Russia";
 
   try {
-    let country_id = await Destinations.getCountryIdByName(location);
+    const country_id = await Destinations.getCountryIdByName(location);
 
-    let imageinfo = await axios
-    .post(`${ec2path}/createAlbum`, {
+    const imageinfo = await axios.post(`${ec2path}/createAlbum`, {
       file
-    })
+    });
 
-    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data)
+    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data);
 
     res.status(200).send(country_id);
-
   } catch (err) {
-    console.error(err);
+    // console.error(err);
     res.status(404).send("Unable to retrieve user's media files");
   }
 });
