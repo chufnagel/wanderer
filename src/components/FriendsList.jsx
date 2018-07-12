@@ -18,10 +18,10 @@ const FriendsList = ({
       {friends.map(friend => (
         <Link
           key={friend.user_id}
-          onClick={({ key }) => {
-            getFriendInfo({ key });
-            getFaveDestinations({ key });
-            getVisitedDestinations({ key });
+          onClick={() => {
+            getFriendInfo(friend.user_id);
+            getFaveDestinations(friend.user_id);
+            getVisitedDestinations(friend.user_id);
           }}
           to="/profile"
         >
