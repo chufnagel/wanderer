@@ -16,6 +16,7 @@ const linkStyles = {
 };
 
 const Sidebar = ({
+  headerSetting,
   userInfo,
   setHeader,
   getFriendsList,
@@ -77,22 +78,32 @@ const Sidebar = ({
         <br />
         <br />
         <br />
-        <br /><center>
-          <Button
-            label="sign-out"
-            type="submit"
-            variant="raised"
-            color="inherit"
-            onClick={() => {
-              setHeader(OTHER);
-              changeSelectedLocation(null);
-            }}
-          >
-            <Link to="/" style={linkStyles}><center>
-              <ListItemText primary="Sign out" style={linkStyles} />
+        <br />
+        <br />
+        <br />
+        <br />
+        {headerSetting === OTHER ? null : (
+          <center>
+            <Button
+              component={Link}
+              to="/"
+              style={linkStyles}
+              label="sign-out"
+              type="submit"
+              size="small"
+              variant="outlined"
+              color="default"
+              onClick={() => {
+                setHeader(OTHER);
+                changeSelectedLocation(null);
+              }}
+            >
+              <center>
+                <ListItemText primary="   Sign out" />
+              </center>
+            </Button>
           </center>
-            </Link>
-          </Button></center>
+        )}
         <br />
       </List>
     </Drawer>
@@ -100,6 +111,7 @@ const Sidebar = ({
 );
 
 Sidebar.propTypes = {
+  headerSetting: PropTypes.string.isRequired,
   userInfo: PropTypes.shape({
     bio: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
@@ -107,6 +119,7 @@ Sidebar.propTypes = {
     user_id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired
   }).isRequired,
+
   setHeader: PropTypes.func.isRequired,
   getFriendsList: PropTypes.func.isRequired,
   changeSelectedLocation: PropTypes.func.isRequired
