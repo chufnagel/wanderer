@@ -10,7 +10,7 @@ import {
 // helper method for action creator
 function addBlogAsync(blog) {
   return {
-    type: types.ADD_BLOG,
+    type: ADD_BLOG,
     payload: blog
   };
 }
