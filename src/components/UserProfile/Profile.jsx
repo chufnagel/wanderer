@@ -1,9 +1,8 @@
 import React from "react";
 // import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
-
-import PhotoGrid from "../PhotoGrid";
-import BlogList from "../BlogList/BlogList";
+import BlogsContainer from "../../containers/BlogsContainer";
+import PhotosContainer from "../../containers/PhotosContainer"
 
 // const methods = {
 //   componentDidMount(props) {
@@ -12,10 +11,6 @@ import BlogList from "../BlogList/BlogList";
 // };
 
 const Profile = ({
-  albumPhotos,
-  blogs,
-  faveCount,
-  visitedCount,
   profilePhoto,
   friendInfo,
   userInfo,

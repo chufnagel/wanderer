@@ -1,10 +1,8 @@
 import React from "react";
 // import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
-
 import BlogsContainer from "../../containers/BlogsContainer";
-import PhotosContainer from "../../containers/BlogsContainer";
-
+import PhotosContainer from "../../containers/PhotosContainer";
 
 import BlogList from "../BlogList/BlogList";
 
@@ -14,18 +12,10 @@ import BlogList from "../BlogList/BlogList";
 //   }
 // };
 
-const UserProfile = ({
-  albumPhotos,
-  blogs,
-  faveCount,
-  visitedCount,
-  profilePhoto,
-  friendInfo,
-  userInfo,
-  headerSetting
-}) => {
-  console.log('userInfo', userInfo)
-  console.log('friendInfo', friendInfo)
+const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
+  console.log("userInfo", userInfo);
+  console.log("friendInfo", friendInfo);
+  console.log("headerSetting", headerSetting);
   return (
     <div>
       <h2>
@@ -45,7 +35,7 @@ const UserProfile = ({
 
       <h1>Blogs</h1>
       <ul width="52%">
-        <BlogsContainer/>
+        <BlogsContainer />
       </ul>
       <ul width="35%" />
       <span>
@@ -63,6 +53,6 @@ UserProfile.propTypes = {
 
 export default UserProfile;
 
-/*<ul className="profile-image" width="15%" fontSize="150%">
+/* <ul className="profile-image" width="15%" fontSize="150%">
 {visitedCount}&#x2714;<br />{faveCount}&#10084;
 </ul>*/
