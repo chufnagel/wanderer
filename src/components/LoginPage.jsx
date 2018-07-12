@@ -22,8 +22,8 @@ const LoginPage = ({ changeUserId, getUserInfo, setHeader, getBlogs }) => {
           variant="raised"
           color="secondary"
           onClick={() => {
-            changeUserId(1);
             getUserInfo(1);
+            changeUserId(1);
             setHeader(HOME);
             getBlogs();
           }}

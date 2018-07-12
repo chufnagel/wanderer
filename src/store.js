@@ -42,33 +42,28 @@ const store = createStore(
       }
     ],
     // photos,
-    friendInfo: [
-      {
-        bio: "I am a former data scientist",
-        email: "charlie@gmail.com",
-        etag: null,
-        image_key: null,
-        name: "Sakafunagel",
-        password: "hydrate",
-        user_id: 2,
-        username: "DoctorC",
-        version_id: null
-      }
-    ],
-    userInfo: [
-      {
-        bio: "I am a placeholder bio",
-        email: "s.koichi@gmail.com",
-        etag: null,
-        image_key: null,
-        name: "Broichi Slope-Roll",
-        password: "gangbusters",
-        user_id: 1,
-        username: "BROICHI",
-        version_id: null,
-        token: null
-      }
-    ],
+    friendInfo: {
+      bio: "I am a former data scientist",
+      email: "charlie@gmail.com",
+      etag: null,
+      image_key: null,
+      name: "Sakafunagel",
+      password: "hydrate",
+      user_id: 2,
+      username: "DoctorC",
+      version_id: null
+    },
+    userInfo: {
+      bio: "I am a placeholder bio",
+      email: "s.koichi@gmail.com",
+      etag: null,
+      image_key: null,
+      name: "Broichi Slope-Roll",
+      password: "gangbusters",
+      user_id: 1,
+      username: "BROICHI",
+      version_id: null
+    },
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {
