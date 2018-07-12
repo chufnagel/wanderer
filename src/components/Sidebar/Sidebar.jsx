@@ -62,19 +62,14 @@ const Sidebar = ({
             <ListItemText primary="Profile" onClick={() => setHeader(HOME)} />
           </Link>
         </ListItem>
-        <ListItem button>
-          <Link to="/explore" style={linkStyles}>
-            <ListItemText primary="Explore" onClick={() => setHeader(HOME)} />
-          </Link>
-        </ListItem>
-        <ListItem button>
+        {/* <ListItem button>
           <Link to="/addMemory" style={linkStyles}>
             <ListItemText
               primary="Add Memory"
               onClick={() => setHeader(HOME)}
             />
           </Link>
-        </ListItem>
+        </ListItem> */}
         <br />
         <br />
         <br />
