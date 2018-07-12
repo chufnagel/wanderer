@@ -34,6 +34,7 @@ exports.up = (knex, Promise) =>
       table.string("content", 10000);
       table.timestamp("timestamp");
       table.integer("user_id");
+      table.integer("country_id");
     }),
     knex.schema.createTable("tags", table => {
       table.increments("tag_id").primary();
