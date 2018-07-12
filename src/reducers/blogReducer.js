@@ -77,10 +77,11 @@ const getBlogsRequest = (state, action) => {
 };
 
 const getBlogsSuccess = (state, action) => {
-  return updateObject(state, {
-    blogs: action.blogs,
-    loading: false
-  });
+  // return updateObject(state, {
+  //   blogs: action.blogs,
+  //   loading: false
+  // });
+  return action.blogs;
 };
 
 const getBlogsFail = (state, action) => {

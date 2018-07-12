@@ -7,10 +7,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { HOME } from "../constants";
 // import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
-const LoginPage = ({ getUserInfo }) => {
+const LoginPage = ({ changeUserId, getUserInfo, setHeader, getBlogs }) => {
   return (
     <div>
       <Typography variant="headline">Welcome back!</Typography>
@@ -21,7 +22,10 @@ const LoginPage = ({ getUserInfo }) => {
           variant="raised"
           color="secondary"
           onClick={() => {
+            changeUserId(1);
             getUserInfo(1);
+            setHeader(HOME);
+            getBlogs();
           }}
         >
           Sign<br />in
@@ -32,7 +36,10 @@ const LoginPage = ({ getUserInfo }) => {
 };
 
 LoginPage.propTypes = {
-  getUserInfo: PropTypes.func.isRequired
+  changeUserId: PropTypes.func.isRequired,
+  getUserInfo: PropTypes.func.isRequired,
+  setHeader: PropTypes.func.isRequired,
+  getBlogs: PropTypes.func.isRequired
   // startLogin: PropTypes.func.isRequired
 };
 

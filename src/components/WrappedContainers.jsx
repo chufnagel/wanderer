@@ -5,7 +5,7 @@ export const AsyncSidebar = asyncComponent(() => {
 });
 
 export const AsyncHome = asyncComponent(() => {
-  return import("./Home");
+  return import("../containers/HomeContainer");
 });
 
 export const AsyncLocationProfile = asyncComponent(() => {

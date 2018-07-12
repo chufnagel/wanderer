@@ -14,7 +14,7 @@ function friendInfo(state = initialState, action) {
     case GET_FRIEND_INFO_REQUEST:
       return updateObject(state, { loading: true });
     case GET_FRIEND_INFO_SUCCESS:
-      return action.userInfo[0];
+      return action.friendInfo[0];
     case GET_FRIEND_INFO_FAILURE:
       return updateObject(state, { loading: false });
     default:

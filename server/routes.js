@@ -108,7 +108,6 @@ router.get("/friends", (req, res) => {
 // USER ROUTES ===========================================================================
 
 router.get("/userInfo", async (req, res, next) => {
-  // console.log(req.params);
   try {
     const userInfo = await User.findByUserId(req.query.userId);
     res.status(200).send(userInfo);
