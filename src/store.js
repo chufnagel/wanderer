@@ -64,7 +64,7 @@ const store = createStore(
     //   user_id: 0,
     //   username: "BROICHI",
     //   version_id: null
-    },
+    // },
     pointsOfInterest: [],
     attractions: [],
     locationBasicInfo: {
