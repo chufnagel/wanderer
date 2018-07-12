@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import ListItemText from "@material-ui/core/ListItemText";
 import Typography from "@material-ui/core/Typography";
+import setHeader from "../actions/header";
+import { USER_PROFILE } from "../constants";
 
 const message = "Here are your friends.";
 
@@ -19,6 +21,7 @@ const FriendsList = ({
         <Link
           key={friend.user_id}
           onClick={() => {
+            setHeader(USER_PROFILE);
             getFriendInfo(friend.user_id);
             getFaveDestinations(friend.user_id);
             getVisitedDestinations(friend.user_id);

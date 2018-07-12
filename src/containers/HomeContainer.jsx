@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import Home from "../components/Home";
 
 const mapStateToProps = state => ({
+  userId: state.userId,
   userInfo: state.userInfo,
   blogs: state.blogs,
   visitedDestinations: state.visitedDestinations,

@@ -11,7 +11,7 @@ import { HOME } from "../constants";
 // import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
-const LoginPage = ({ getUserInfo, setHeader }) => {
+const LoginPage = ({ changeUserId, getUserInfo, setHeader }) => {
   return (
     <div>
       <Typography variant="headline">Welcome back!</Typography>
@@ -22,6 +22,7 @@ const LoginPage = ({ getUserInfo, setHeader }) => {
           variant="raised"
           color="secondary"
           onClick={() => {
+            changeUserId(1);
             getUserInfo(1);
             setHeader(HOME);
           }}
@@ -34,6 +35,7 @@ const LoginPage = ({ getUserInfo, setHeader }) => {
 };
 
 LoginPage.propTypes = {
+  changeUserId: PropTypes.func.isRequired,
   getUserInfo: PropTypes.func.isRequired,
   setHeader: PropTypes.func.isRequired
   // startLogin: PropTypes.func.isRequired
