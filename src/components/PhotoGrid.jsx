@@ -19,7 +19,6 @@ const methods = {
 };
 
 const PhotoGrid = ({ albumPhotos }) => {
-  console.log("albumPhotos", albumPhotos);
   return (
     <div>
       <h1> Photos </h1>
@@ -31,7 +30,7 @@ const PhotoGrid = ({ albumPhotos }) => {
 };
 
 PhotoGrid.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.object)
+  albumPhotos: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default lifecycle(methods)(PhotoGrid);

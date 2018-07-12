@@ -45,7 +45,7 @@ export const AsyncBlogs = asyncComponent(() => {
 });
 
 export const AsyncProfile = asyncComponent(() => {
-  return import("./UserProfile/UserProfile");
+  return import("../containers/UserProfileContainer");
 });
 
 export const AsyncPhotoUploader = asyncComponent(() => {
