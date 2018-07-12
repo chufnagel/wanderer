@@ -1,12 +1,11 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Input from "@material-ui/core/Input";
 import Button from "@material-ui/core/Button";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import purple from "@material-ui/core/colors/purple";
-import Spinner from "../../components/UI/Spinner/Spinner";
-import classes from "./Auth.css";
 import * as actions from "../../actions/index";
 import { updateObject, checkValidity } from "../../lib/utility";
 
@@ -145,9 +144,13 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onAuth: (email, password, isSignup) =>
-      dispatch(actions.auth(email, password, isSignup)),
-    onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath("/"))
+      dispatch(auth(email, password, isSignup)),
+    onSetAuthRedirectPath: () => dispatch(setAuthRedirectPath("/"))
   };
+};
+
+Auth.propTypes = {
+  authRedirectPath: PropTypes.func.isRequired,
 };
 
 export default connect(
