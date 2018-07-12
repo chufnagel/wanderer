@@ -19,7 +19,7 @@ module.exports = env => {
   return {
     devtool: "cheap-module-source-map",
     entry: `${SRC_DIR}/index.js`,
-    mode: "development",
+    mode: "production",
     output: {
       path: DIST_DIR,
       filename: "index.js",
