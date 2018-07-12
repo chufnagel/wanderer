@@ -1,19 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
-import PhotosContainer from "../containers/PhotosContainer";
+import BlogsContainer from "../containers/PhotosContainer";
 
 const recentBlogs = "Recent blogs";
 const recentPhotos = "Recent photos";
 
-const Home = () => (
+const Home = ({ userInfo }) => (
   <div>
     <Typography variant="display1">
-      Welcome, <strong>friend</strong>!
+      Welcome, <strong>{userInfo.name}</strong>!
     </Typography>
     <br />
-    <Typography variant="headline">{recentPhotos}</Typography>
+    <Typography variant="headline">{recentPhotos}</Typography><br />
     <Typography variant="headline">{recentBlogs}</Typography>
+    <BlogsContainer />
   </div>
 );
 
