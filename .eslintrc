@@ -11,7 +11,7 @@
     "prettier"
   ],
   "parserOptions": {
-    "ecmaVersion": "9",
+    "ecmaVersion": 9,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -25,7 +25,8 @@
     "prettier/prettier": "error",
     "linebreak-style": 0,
     "react/jsx-filename-extension": 0,
-    "no-console": "off",
-    "arrow-body-style": "off"
+    "arrow-body-style": "off",
+    "no-unused-vars": "off",
+    "camelcase": "off"
   }
 }

@@ -8,8 +8,13 @@ import Typography from "@material-ui/core/Typography";
 // can eventually add blog media, user avatar, etc.
 const BlogList = ({ blogs }) => {
   const BlogEntry = blogs.map(blog => (
+<<<<<<< HEAD
     <Card key={blog.blog_id}>
       <CardHeader title={blog.title} />
+=======
+    <Card key={blog.blogId}>
+      <CardHeader title={blog.title} subheader={blog.blogAuthor} />
+>>>>>>> dev
       <CardContent>
         <Typography paragraph>{blog.content}</Typography>
       </CardContent>

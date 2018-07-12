@@ -2,73 +2,47 @@ import React from "react";
 import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-import SidebarContainer from "../containers/SidebarContainer";
-import GlobalMapContainer from "../containers/GlobalMapContainer";
+
+import Header from "../containers/HeaderContainer";
+import Sidebar from "../containers/SidebarContainer";
 import Explore from "./Explore/Explore";
-// import NotFoundPage from "./NotFoundPage";
-import asyncLogin from "../containers/LoginContainer";
-import asyncComponent from "../hoc/asyncComponent";
-// import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
-import HeaderContainer from "../containers/HeaderContainer";
+import GlobalMap from "../containers/GlobalMapContainer";
 
-const asyncHome = asyncComponent(() => {
-  return import("../containers/HomeContainer");
-});
-
-const asyncLocationProfile = asyncComponent(() => {
-  return import("../containers/LocationProfileContainer");
-});
-
-const asyncAttractions = asyncComponent(() => {
-  return import("../containers/AttractionsContainer.jsx");
-});
-
-const asyncFriendsList = asyncComponent(() => {
-  return import("../containers/FriendsListContainer.js");
-});
-
-const asyncDestinations = asyncComponent(() => {
-  return import("../containers/DestinationsContainer");
-});
-
-const asyncPhotos = asyncComponent(() => {
-  return import("../containers/PhotosContainer.jsx");
-});
-
-const asyncBlogs = asyncComponent(() => {
-  return import("../containers/BlogsContainer");
-});
-
-const asyncProfile = asyncComponent(() => {
-  return import("./UserProfile/UserProfile");
-})
-
-const asyncPhotoUploader = asyncComponent(() => {
-  return import("../containers/PhotoUploaderContainer.jsx");
-});
+import {
+  AsyncHome,
+  AsyncLogin,
+  AsyncLocationProfile,
+  AsyncAttractions,
+  AsyncFriendsList,
+  AsyncDestinations,
+  AsyncPhotos,
+  AsyncBlogs,
+  AsyncProfile,
+  AsyncPhotoUploader
+} from "./WrappedContainers";
 
 const App = () => (
   <div className="app">
     <center>
       <Typography variant="display2">Wanderer</Typography>
       <br />
-      <GlobalMapContainer />
+      <GlobalMap />
     </center>
-    <SidebarContainer />
+    <Sidebar />
     <center>
-      <HeaderContainer />
+      <Header />
       <Switch>
-        <Route exact path="/" component={asyncLogin} />
-        <Route exact path="/home" component={asyncHome} />
-        <Route exact path="/profile" component={asyncProfile} />
-        <Route exact path="/search" component={asyncLocationProfile} />
-        <Route exact path="/attractions" component={asyncAttractions} />
-        <Route path="/blogs" component={asyncBlogs} />
-        <Route exact path="/friends" component={asyncFriendsList} />
-        <Route exact path="/photos_videos" component={asyncPhotos} />
-        <Route exact path="/destinations" component={asyncDestinations} />
+        <Route exact path="/" component={AsyncLogin} />
+        <Route exact path="/home" component={AsyncHome} />
+        <Route exact path="/profile" component={AsyncProfile} />
+        <Route exact path="/search" component={AsyncLocationProfile} />
+        <Route exact path="/attractions" component={AsyncAttractions} />
+        <Route path="/blogs" component={AsyncBlogs} />
+        <Route exact path="/friends" component={AsyncFriendsList} />
+        <Route exact path="/photos_videos" component={AsyncPhotos} />
+        <Route exact path="/destinations" component={AsyncDestinations} />
         <Route exact path="/explore" component={Explore} />
-        <Route exact path="/addMemory" component={asyncPhotoUploader} />
+        <Route exact path="/addMemory" component={AsyncPhotoUploader} />
         <Redirect to="/" />
       </Switch>
     </center>

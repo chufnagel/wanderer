@@ -15,10 +15,8 @@ const mapStateToProps = state => ({
 
 // remove line 20 and uncomment line 19 when we
 // have actions & reducers for getting blog posts by user id
-const HomeContainer = connect(
+export default connect(
   mapStateToProps,
   // mapDispatchToProps
   null
 )(Home);
-
-export default HomeContainer;

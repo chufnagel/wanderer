@@ -1,19 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { encode } from "punycode";
 
 const handleUploadFile = (event, userId, updateProfilePhoto) => {
-  console.log("updateProfilePhoto", updateProfilePhoto);
   const data = new FormData();
   data.append("file", event.target.files[0]);
   data.append("user_id", userId);
   // '/files' is your node.js route that triggers our middleware
-  axios.post("/create", data).then(response => {
-    console.log("response", response);
-
+  axios.post("/create", data).then(() => {
     // in the app, need to save response.ETag and Key to the user database
-
     axios
       .get("/retrieve", {
         params: {
@@ -21,7 +17,10 @@ const handleUploadFile = (event, userId, updateProfilePhoto) => {
         }
       })
       .then(photo => {
-        let image = String.fromCharCode.apply(null, new Uint16Array(photo.data.Body.data));
+        const image = String.fromCharCode.apply(
+          null,
+          new Uint16Array(photo.data.Body.data)
+        );
 
         updateProfilePhoto(`data:image/png;base64,${image}`);
       });
@@ -46,6 +45,9 @@ const ProfilePhoto = ({ userId, updateProfilePhoto, profilePhoto }) => {
 
 ProfilePhoto.propTypes = {
   // photos: PropTypes.arrayOf(PropTypes.object)
+  userId: PropTypes.number.isRequired,
+  updateProfilePhoto: PropTypes.func.isRequired,
+  profilePhoto: PropTypes.string.isRequired
 };
 
 export default ProfilePhoto;
