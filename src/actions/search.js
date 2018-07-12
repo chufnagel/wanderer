@@ -8,9 +8,9 @@ function getPointsOfInterestSuccess(pointsOfInterest) {
   };
 }
 
-export function getPointsOfInterest(term) {
+export function getPointsOfInterest(location) {
   return dispatch => {
-    axios.post("/getPointsOfInterest", { location: term }).then(({ data }) => {
+    axios.post("/getPointsOfInterest", { location }).then(({ data }) => {
       const pointsOfInterest = data.map(attraction => {
         return attraction;
       });
@@ -26,9 +26,9 @@ function getAttractionsSuccess(attractions) {
   };
 }
 
-export function getAttractions(term) {
+export function getAttractions(location) {
   return dispatch => {
-    axios.post("/getAttractions", { location: term }).then(({ data }) => {
+    axios.post("/getAttractions", { location }).then(({ data }) => {
       const attractions = data.map(attraction => {
         return attraction;
       });
@@ -44,9 +44,9 @@ function getLocationBasicInfoSuccess(locationBasicInfo) {
   };
 }
 
-export function getLocationBasicInfo(term) {
+export function getLocationBasicInfo(location) {
   return dispatch => {
-    axios.post("/getLocationBasicInfo", { location: term }).then(({ data }) => {
+    axios.post("/getLocationBasicInfo", { location }).then(({ data }) => {
       dispatch(getLocationBasicInfoSuccess(data));
     });
   };

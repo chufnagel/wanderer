@@ -24,7 +24,9 @@ const GlobalMap = props => {
     changeSelectedLocation,
     getPointsOfInterest,
     getAttractions,
-    getLocationBasicInfo
+    getLocationBasicInfo,
+    getVisitedCount,
+    getFaveCount
     // addFaveDestination
   } = props;
   return (
@@ -96,6 +98,8 @@ const GlobalMap = props => {
                       getLocationBasicInfo(geography.properties.name);
                       getPointsOfInterest(geography.properties.name);
                       getAttractions(geography.properties.name);
+                      getVisitedCount(geography.properties.name);
+                      getFaveCount(geography.properties.name);
                     }}
                   />
                 </Link>
@@ -114,7 +118,9 @@ GlobalMap.propTypes = {
   changeSelectedLocation: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,
   getAttractions: PropTypes.func.isRequired,
-  getLocationBasicInfo: PropTypes.func.isRequired
+  getLocationBasicInfo: PropTypes.func.isRequired,
+  getVisitedCount: PropTypes.func.isRequired,
+  getFaveCount: PropTypes.func.isRequired
   // addFaveDestination: PropTypes.func.isRequired
 };
 

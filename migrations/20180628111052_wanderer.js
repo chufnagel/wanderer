@@ -30,7 +30,7 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("blogs", table => {
       table.increments("blog_id").primary();
       table.string("title");
-      table.string("content");
+      table.string("content", 10000);
       table.timestamp("timestamp");
       table.integer("user_id");
     }),
@@ -70,7 +70,7 @@ exports.up = (knex, Promise) =>
       table.increments("visited_destination_id").primary();
       table.integer("destination_id"); // references countries_id for purposes of mvp
       table.integer("user_id");
-    }),
+    })
   ]);
 
 exports.down = (knex, Promise) =>
