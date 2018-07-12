@@ -151,7 +151,17 @@ router.get("/blogs", async (req, res, next) => {
 // retrieveBlogsByUserId
 router.get("/blogsByUserId", async (req, res, next) => {
   try {
-    const blogs = await Blog.retrieveBlogsByUserId(req.query.userId);
+    const location_name = req.query.location;
+    let country_id = null;
+
+    if (location_name !== undefined) {
+      country_id = await Destinations.getCountryIdByName(location_name);
+    }
+
+    const blogs = await Blog.retrieveBlogsByUserId(
+      req.query.userId,
+      country_id
+    );
     res.status(200).send(blogs);
   } catch (err) {
     console.error(err);
@@ -236,7 +246,6 @@ router.get("/mediaByUserId", async (req, res, next) => {
       req.query.userId,
       country_id
     );
-    console.log("meida", media);
     res.status(200).send(media);
   } catch (err) {
     console.error(err);
