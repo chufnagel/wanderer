@@ -220,9 +220,10 @@ router.get("/tags", async (req, res, next) => {
   }
 });
 
+// route for posting profile photo
 router.post("/create", (req, res) => {
   const file = req.files.file;
-  const userId = req.body.userId;
+  const userId = req.body.user_id;
   axios
     .post(`${ec2path}/create`, {
       file
@@ -245,7 +246,6 @@ router.get("/retrieve", (req, res) => {
         }
       })
       .then(photo => {
-        console.log("success retrieve", photo.data);
         res.send(photo.data);
       })
       .catch(err => {
@@ -258,15 +258,44 @@ router.get("/retrieve", (req, res) => {
 router.get("/mediaByUserId", async (req, res, next) => {
   try {
     const location_name = req.query.location;
-    console.log("location name", location_name);
     let country_id = null;
 
     if (location_name !== undefined) {
       country_id = await Destinations.getCountryIdByName(location_name);
     }
-    const media = await Media.retrieveMediaByUserId(req.query.userId, country_id);
+    const media = await Media.retrieveMediaByUserId(
+      req.query.userId,
+      country_id
+    );
     console.log("meida", media);
     res.status(200).send(media);
+  } catch (err) {
+    console.error(err);
+    res.status(404).send("Unable to retrieve user's media files");
+  }
+});
+
+// routes for posting travel photos
+router.post("/createAlbum", async (req, res, next) => {
+  const file = req.files.file;
+  const userId = req.body.user_id;
+  let location = req.body.location;
+
+  //placeholder
+  location = "Russia"
+
+  try {
+    let country_id = await Destinations.getCountryIdByName(location);
+
+    let imageinfo = await axios
+    .post(`${ec2path}/createAlbum`, {
+      file
+    })
+
+    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data)
+
+    res.status(200).send(country_id);
+
   } catch (err) {
     console.error(err);
     res.status(404).send("Unable to retrieve user's media files");

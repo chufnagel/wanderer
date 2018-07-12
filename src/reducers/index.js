@@ -11,7 +11,7 @@ import {
   visitedCount,
   faveCount
 } from "./searchReducer";
-import { profilePhoto, albumPhotos } from "./photoReducer";
+import { profilePhoto, albumPhotos, photoOne } from "./photoReducer";
 import userInfo from "./userInfoReducer";
 import friendInfo from "./friendInfoReducer";
 import friends from "./friendsListReducer";
@@ -38,7 +38,8 @@ const rootReducer = combineReducers({
   faveDestinations,
   visitedDestinations,
   profilePhoto,
-  albumPhotos
+  albumPhotos,
+  photoOne
   // userId
 });
 

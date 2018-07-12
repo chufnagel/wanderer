@@ -12,7 +12,7 @@ Media.retrieveMediaByUserId = (userId, location) => {
       .select("*")
       .then(media => media)
       .catch(err => console.error(err));
-  } else {
+  }
     return db("media")
       .whereIn("user_id", userId)
       .select("*")
@@ -20,7 +20,22 @@ Media.retrieveMediaByUserId = (userId, location) => {
         return media;
       })
       .catch(err => console.error(err));
-  }
+
+};
+
+Media.addMediaByUserIdAndCountryId = (userId, locationId, imageinfo) => {
+  console.log('user_id', userId)
+  console.log('locationId', locationId)
+  console.log('imageinfo', imageinfo)
+  return db("media")
+    .insert({
+      user_id: userId,
+      country_id: locationId[0].country_id,
+      image_url: imageinfo.Location
+    })
+    .select("*")
+    .then(media => media)
+    .catch(err => console.error(err));
 };
 
 module.exports = Media;

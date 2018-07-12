@@ -30,8 +30,6 @@ User.retrieveFriendsByUserId = (userId, cb) => {
 };
 
 User.addProfilePhotoByUserId = (imageinfo, user_id) => {
-  console.log("imageinfo", imageinfo);
-  console.log("user_id", user_id);
   return db("users")
     .where({ user_id })
     .update({
@@ -42,7 +40,6 @@ User.addProfilePhotoByUserId = (imageinfo, user_id) => {
 };
 
 User.retrieveProfilePhotoByUserId = (user_id, cb) => {
-  console.log("user_id", user_id);
   return db("users")
     .where({ user_id })
     .then(user => cb(user))
