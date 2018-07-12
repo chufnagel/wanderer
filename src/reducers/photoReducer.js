@@ -18,4 +18,13 @@ const profilePhoto = (state = null, action) => {
   }
 };
 
-export { albumPhotos, profilePhoto };
+const photoOne = (state = null, action) => {
+  switch (action.type) {
+    case "UPDATE_PHOTO_ONE":
+      return action.photoOne;
+    default:
+      return state;
+  }
+};
+
+export { albumPhotos, profilePhoto, photoOne };

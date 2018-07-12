@@ -48,9 +48,11 @@ const store = createStore(
     profilePhoto: "",
     albumPhotos: [],
     faveDestinations: [],
-    faveCount: 0,
     visitedDestinations: [],
-    visitedCount: 0
+    photoOne: null,
+    faveCount: 0,
+    visitedCount: 0,
+    friendsId: [2,3,4] //placeholder for photo component to render properly
   },
   composeEnhancers(applyMiddleware(thunk, logger))
 );

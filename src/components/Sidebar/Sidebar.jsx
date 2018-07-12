@@ -53,6 +53,14 @@ const Sidebar = ({ userId, setHeader, getFriendsList }) => (
             <ListItemText primary="Explore" onClick={() => setHeader(HOME)} />
           </Link>
         </ListItem>
+        <ListItem button>
+          <Link to="/addMemory">
+            <ListItemText
+              primary="Add Memory"
+              onClick={() => setHeader(HOME)}
+            />
+          </Link>
+        </ListItem>
         <br />
       </List>
     </Drawer>

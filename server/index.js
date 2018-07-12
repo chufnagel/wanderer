@@ -26,15 +26,15 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // Apply middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}))
+app.use(bodyParser.json({limit: '50mb'}))
 app.use(cookieParser());
 app.use(compression("gzip"));
 app.use(logger("dev"));
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use(busboy());
-app.use(busboyBodyParser());
+app.use(busboyBodyParser({limit: '50mb'}));
 app.use("/", router);
 
 // development error handler
