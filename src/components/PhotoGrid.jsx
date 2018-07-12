@@ -21,7 +21,6 @@ const methods = {
 const PhotoGrid = ({ albumPhotos }) => {
   return (
     <div>
-      <h1> Photos </h1>
       {albumPhotos.map(photo => {
         return <img src={photo.image_url} className="post-image" />;
       })}

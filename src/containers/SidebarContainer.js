@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar/Sidebar";
 
 const mapStateToProps = state => {
   return {
-    userId: state.userId
+    userInfo: state.userInfo
   };
 };
 
@@ -14,9 +14,7 @@ const mapDispatchToProps = dispatch => ({
   getFriendsList: id => dispatch(getFriendsList(id))
 });
 
-const SidebarContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Sidebar);
-
-export default SidebarContainer;
