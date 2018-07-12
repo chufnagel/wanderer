@@ -3,7 +3,7 @@ import thunk from "redux-thunk";
 import logger from "redux-logger";
 import createSagaMiddleware from "redux-saga";
 import rootReducer from "./reducers";
-import RootSaga from "./sagas";
+import { watchAuth, watchBlog } from "./sagas";
 // import CountriesAll from "./components/LocationProfile/CountriesAll";
 // import photos from "../example data/pictures-of-japan";
 import { OTHER } from "./constants";
@@ -84,6 +84,7 @@ const store = createStore(
   composeEnhancers(applyMiddleware(thunk, sagaMiddleware, logger))
 );
 
-sagaMiddleware.run(RootSaga);
+sagaMiddleware.run(watchAuth);
+sagaMiddleware.run(watchBlog);
 
 export default store;

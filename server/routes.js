@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const axios = require("axios");
+const jwt = require("jsonwebtoken");
 const User = require("./Models/user");
 const Destinations = require("./Models/destinations");
 const {
@@ -136,6 +137,16 @@ router.get("/retrieve", (req, res) => {
         res.sendStatus(404);
       });
   });
+});
+
+// user auth placeholder
+// expected inputs: authData = { email: whatever, password: whatever, returnSecureToken: true }
+router.post("/signup", async (req, res, next) => {
+  try {
+    //
+  } catch (err) {
+    //
+  }
 });
 
 // BLOGS ROUTES ===========================================================================
