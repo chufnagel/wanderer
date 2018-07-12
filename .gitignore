@@ -32,3 +32,4 @@ knexfile.js
 
 wanderer.service
 stats.json
+firebaseAdminSecret.json
