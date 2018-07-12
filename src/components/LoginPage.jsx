@@ -11,7 +11,7 @@ import { HOME } from "../constants";
 // import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
-const LoginPage = ({ changeUserId, getUserInfo, setHeader }) => {
+const LoginPage = ({ changeUserId, getUserInfo, setHeader, getBlogs }) => {
   return (
     <div>
       <Typography variant="headline">Welcome back!</Typography>
@@ -25,6 +25,7 @@ const LoginPage = ({ changeUserId, getUserInfo, setHeader }) => {
             changeUserId(1);
             getUserInfo(1);
             setHeader(HOME);
+            getBlogs();
           }}
         >
           Sign<br />in
@@ -37,7 +38,8 @@ const LoginPage = ({ changeUserId, getUserInfo, setHeader }) => {
 LoginPage.propTypes = {
   changeUserId: PropTypes.func.isRequired,
   getUserInfo: PropTypes.func.isRequired,
-  setHeader: PropTypes.func.isRequired
+  setHeader: PropTypes.func.isRequired,
+  getBlogs: PropTypes.func.isRequired
   // startLogin: PropTypes.func.isRequired
 };
 
