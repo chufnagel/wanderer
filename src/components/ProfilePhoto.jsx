@@ -28,7 +28,7 @@ const handleUploadFile = (event, userId, updateProfilePhoto) => {
 };
 
 const ProfilePhoto = ({ userId, updateProfilePhoto, profilePhoto }) => {
-  console.log("profile photo", profilePhoto);
+  // console.log("profile photo", profilePhoto);
   return (
     <div>
       <img src={profilePhoto} alt="img" width="128px" height="128px" />

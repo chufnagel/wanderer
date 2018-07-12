@@ -1,32 +1,32 @@
 import { connect } from "react-redux";
-import changeSelectedLocation from "../actions/location";
-import setHeader from "../actions/header";
 import {
   getPointsOfInterest,
   getAttractions,
   getLocationBasicInfo,
   getVisitedCount,
-  getFaveCount
-} from "../actions/search";
-import Search from "../components/Search";
+  getFaveCount,
+  setHeader,
+  changeSelectedLocation
+} from "../actions";
+import GlobalMap from "../components/GlobalMap/GlobalMap";
 
-const mapStateToProps = state => ({
-  location: state.location
-});
+const mapStateToProps = state => {
+  return {
+    location: state.location
+  };
+};
 
 const mapDispatchToProps = dispatch => ({
-  changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
   setHeader: term => dispatch(setHeader(term)),
-  getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term)),
+  changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
   getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
   getAttractions: term => dispatch(getAttractions(term)),
+  getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term)),
   getVisitedCount: term => dispatch(getVisitedCount(term)),
   getFaveCount: term => dispatch(getFaveCount(term))
 });
 
-const SearchContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Search);
-
-export default SearchContainer;
+)(GlobalMap);

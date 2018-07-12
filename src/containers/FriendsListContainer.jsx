@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import FriendsList from "../components/FriendsList";
-import getFriendInfo from "../actions/friendInfo";
 import {
   getVisitedDestinations,
-  getFaveDestinations
-} from "../actions/destinations";
+  getFaveDestinations,
+  getFriendInfo
+} from "../actions";
 
 const mapStateToProps = state => {
   return {

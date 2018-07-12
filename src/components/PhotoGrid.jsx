@@ -23,14 +23,20 @@ const PhotoGrid = ({ albumPhotos }) => {
     <div>
       <h1> Photos </h1>
       {albumPhotos.map(photo => {
-        return <img src={photo.image_url} className="post-image" />;
+        return (
+          <img
+            src={photo.image_url}
+            alt={photo_image_url}
+            className="post-image"
+          />
+        );
       })}
     </div>
   );
 };
 
 PhotoGrid.propTypes = {
-  albumPhotos: PropTypes.arrayOf(PropTypes.object)
+  albumPhotos: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default lifecycle(methods)(PhotoGrid);

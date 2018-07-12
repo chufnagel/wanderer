@@ -1,18 +1,4 @@
-import { updateObject } from "../utility";
-
-// export default function blogs(state = [], action) {
-//   switch (action.type) {
-//     case types.ADD_BLOG:
-//       return [action.payload, ...state];
-
-//     case types.GET_BLOGS:
-//       return action.payload;
-
-//     default:
-//       return state;
-//   }
-// }
-
+import { updateObject } from "../lib/utility";
 import {
   BLOG_CREATING,
   BLOG_CREATE_SUCCESS,

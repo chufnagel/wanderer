@@ -7,25 +7,25 @@ import {
   GET_FRIEND_INFO_FAILURE
 } from "./types";
 
-function getFriendInfoRequest() {
+export function getFriendInfoRequest() {
   return {
     type: GET_FRIEND_INFO_REQUEST
   };
 }
-function getFriendInfoSuccess(friendInfo) {
+export function getFriendInfoSuccess(friendInfo) {
   return {
     type: GET_FRIEND_INFO_SUCCESS,
     friendInfo
   };
 }
-function getFriendInfoFailure(err) {
+export function getFriendInfoFailure(err) {
   return {
     type: GET_FRIEND_INFO_FAILURE,
     err
   };
 }
 
-export default function getFriendInfo(userId) {
+export function getFriendInfo(userId) {
   return dispatch => {
     dispatch(getFriendInfoRequest());
     axios

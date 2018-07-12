@@ -11,10 +11,10 @@ import {
 // all logic in action creators and/or utility functions used by action creators!
 
 // export const blogCreate = (client, blog) => {
-export const blogCreate = blog => {
+export const blogCreate = (userInfo, blog) => {
   return {
     type: BLOG_CREATING,
-    // client,
+    userInfo,
     blog
   };
 };

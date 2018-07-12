@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import PhotoUploader from "../components/PhotoUploader";
-import { updatePhotoOne } from "../actions/photos";
+import { updatePhotoOne } from "../actions";
 
 const mapStateToProps = state => ({
   photoOne: state.photoOne,

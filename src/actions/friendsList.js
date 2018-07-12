@@ -1,21 +1,21 @@
 import axios from "axios";
 import { GET_FRIENDS_LIST_SUCCESS, GET_FRIENDS_LIST_FAILURE } from "./types";
 
-function getFriendsListSuccess(friends) {
+export function getFriendsListSuccess(friends) {
   return {
     type: GET_FRIENDS_LIST_SUCCESS,
     friends
   };
 }
 
-function getFriendsListFailure(err) {
+export function getFriendsListFailure(err) {
   return {
     type: GET_FRIENDS_LIST_FAILURE,
     err
   };
 }
 
-export default function getFriendsList(userId) {
+export function getFriendsList(userId) {
   return dispatch => {
     axios
       .get("/friends", {

@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
 import Destinations from "../components/Destinations";
-import {
-  getVisitedDestinations,
-  getFaveDestinations
-} from "../actions/destinations";
+import { getVisitedDestinations, getFaveDestinations } from "../actions";
 
 const mapStateToProps = state => ({
   visitedDestinations: state.visitedDestinations,

@@ -1,9 +1,6 @@
 import { connect } from "react-redux";
 import LocationProfile from "../components/LocationProfile/LocationProfile";
-import {
-  addVisitedDestination,
-  addFaveDestination
-} from "../actions/destinations";
+import { addVisitedDestination, addFaveDestination } from "../actions";
 
 const mapStateToProps = state => {
   return {

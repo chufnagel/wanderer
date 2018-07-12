@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import axios from "axios"
+import axios from "axios";
 
 const handleUploadFile = (e, userId, updatePhotoOne, location) => {
   updatePhotoOne(e.target.files[0]);

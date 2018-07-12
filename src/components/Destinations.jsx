@@ -3,20 +3,23 @@ import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Toolbar from "@material-ui/core/Toolbar";
 // import Checkbox from "@material-ui/core/Checkbox";
-// import lifecycle from "react-pure-lifecycle";
+import Switch from "@material-ui/core/Switch";
+import lifecycle from "react-pure-lifecycle";
 
-// const methods = {
-//   componentDidMount({ getFaveDestinations, getVisitedDestinations, userId }) {
-//     getFaveDestinations(userId);
-//     getVisitedDestinations(userId);
-//   }
-// };
+const methods = {
+  componentDidMount({ getFaveDestinations, getVisitedDestinations, userId }) {
+    getFaveDestinations(userId);
+    getVisitedDestinations(userId);
+  }
+};
 
 const Destinations = ({ visitedDestinations, faveDestinations }) => {
   // console.log("visited and fave dest:", visitedDestinations, faveDestinations);
   return (
     <div className="destinations">
-      <h1>Destinations</h1>
+      <Typography variant="display2" gutterBottom>
+        {"Destinations"}
+      </Typography>
       <div className="visited-destinations">
         <Toolbar>
           <Typography variant="title" color="inherit">
@@ -25,7 +28,7 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
           {visitedDestinations.map(visited => {
             return (
               <div key={visited.country_id}>
-                <p>☑ {visited.country}</p>
+                <Switch value={visited.country} />
               </div>
             );
           })}
@@ -55,5 +58,4 @@ Destinations.propTypes = {
   faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-// export default lifecycle(methods)(Destinations);
-export default Destinations;
+export default lifecycle(methods)(Destinations);

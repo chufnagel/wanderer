@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as actions from "./types";
 
-function getPointsOfInterestSuccess(pointsOfInterest) {
+export function getPointsOfInterestSuccess(pointsOfInterest) {
   return {
     type: actions.GET_POINTS_OF_INTEREST_SUCCESS,
     pointsOfInterest
@@ -19,7 +19,7 @@ export function getPointsOfInterest(location) {
   };
 }
 
-function getAttractionsSuccess(attractions) {
+export function getAttractionsSuccess(attractions) {
   return {
     type: actions.GET_ATTRACTIONS_SUCCESS,
     attractions
@@ -37,7 +37,7 @@ export function getAttractions(location) {
   };
 }
 
-function getLocationBasicInfoSuccess(locationBasicInfo) {
+export function getLocationBasicInfoSuccess(locationBasicInfo) {
   return {
     type: actions.GET_BASIC_LOCATION_INFO_SUCCESS,
     locationBasicInfo
@@ -52,7 +52,7 @@ export function getLocationBasicInfo(location) {
   };
 }
 
-function getVisitedCountSuccess(visitedCount) {
+export function getVisitedCountSuccess(visitedCount) {
   return {
     type: actions.GET_VISITED_COUNT,
     visitedCount
@@ -73,7 +73,7 @@ export function getVisitedCount(location) {
   };
 }
 
-function getFaveCountSuccess(faveCount) {
+export function getFaveCountSuccess(faveCount) {
   return {
     type: actions.GET_FAVE_COUNT,
     faveCount
