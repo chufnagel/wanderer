@@ -7,7 +7,7 @@ import GlobalMapContainer from "../containers/GlobalMapContainer";
 import Home from "./Home";
 import HeaderContainer from "../containers/HeaderContainer";
 // import UserProfile from "./UserProfile/UserProfile";
-// import LocationProfileContainer from "../containers/LocationProfileContainer";
+import LocationProfileContainer from "../containers/LocationProfileContainer";
 // import AttractionsContainer from "../containers/AttractionsContainer";
 // import Blogs from "../containers/BlogsContainer";
 // import FriendsListContainer from "../containers/FriendsListContainer";
@@ -19,60 +19,45 @@ import LoginContainer from "../containers/LoginContainer";
 import asyncComponent from "../hoc/asyncComponent";
 // import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
 
-const asyncLocationProfile = asyncComponent(() => {
-  return import("../containers/LocationProfileContainer");
-});
-
-const asyncAttractions = asyncComponent(() => {
-  return import("../containers/AttractionsContainer.jsx");
-});
-
-const asyncFriendsList = asyncComponent(() => {
-  return import("../containers/FriendsListContainer.js");
-});
-
-const asyncDestinations = asyncComponent(() => {
-  return import("../containers/DestinationsContainer");
-});
-
-const asyncPhotos = asyncComponent(() => {
-  return import("../containers/PhotosContainer.jsx");
-});
-
-const asyncBlogs = asyncComponent(() => {
-  return import("../containers/BlogsContainer");
-});
-
-const asyncProfile = asyncComponent(() => {
-  return import("./UserProfile/UserProfile");
-})
-
-const asyncPhotoUploader = asyncComponent(() => {
-  return import("../containers/PhotoUploaderContainer.jsx");
-});
+import {
+  AsyncSidebar,
+  AsyncGlobalMap,
+  AsyncHome,
+  AsyncHeader,
+  AsyncLogin,
+  AsyncLocationProfile,
+  AsyncExplore,
+  AsyncAttractions,
+  AsyncFriendsList,
+  AsyncDestinations,
+  AsyncPhotos,
+  AsyncBlogs,
+  AsyncProfile,
+  AsyncPhotoUploader
+} from "./WrappedContainers";
 
 const App = () => (
   <div className="app">
     <center>
       <Typography variant="display2">Wanderer</Typography>
       <br />
-      <GlobalMapContainer />
+      <AsyncGlobalMap />
     </center>
-    <SidebarContainer />
+    <AsyncSidebar />
     <center>
-      <HeaderContainer />
+      <AsyncHeader />
       <Switch>
-        <Route exact path="/" component={LoginContainer} />
-        <Route exact path="/home" component={Home} />
-        <Route exact path="/profile" component={asyncProfile} />
-        <Route exact path="/search" component={asyncLocationProfile} />
-        <Route exact path="/attractions" component={asyncAttractions} />
-        <Route path="/blogs" component={asyncBlogs} />
-        <Route exact path="/friends" component={asyncFriendsList} />
-        <Route exact path="/photos_videos" component={asyncPhotos} />
-        <Route exact path="/destinations" component={asyncDestinations} />
-        <Route exact path="/explore" component={Explore} />
-        <Route exact path="/addMemory" component={asyncPhotoUploader} />
+        <Route exact path="/" component={AsyncLogin} />
+        <Route exact path="/home" component={AsyncHome} />
+        <Route exact path="/profile" component={AsyncProfile} />
+        <Route exact path="/search" component={AsyncLocationProfile} />
+        <Route exact path="/attractions" component={AsyncAttractions} />
+        <Route path="/blogs" component={AsyncBlogs} />
+        <Route exact path="/friends" component={AsyncFriendsList} />
+        <Route exact path="/photos_videos" component={AsyncPhotos} />
+        <Route exact path="/destinations" component={AsyncDestinations} />
+        <Route exact path="/explore" component={AsyncExplore} />
+        <Route exact path="/addMemory" component={AsyncPhotoUploader} />
         <Redirect to="/" />
       </Switch>
     </center>

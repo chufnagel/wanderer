@@ -8,7 +8,7 @@ const {
   getLocationBasicInfo
 } = require("./helperFunctions");
 const Media = require("./Models/media");
-// const Tag = require("./Models/tag");
+const Tag = require("./Models/tag");
 const Blog = require("./Models/blog");
 // const BlogTag = require("./Models/blogtag");
 
@@ -27,12 +27,14 @@ const ec2path = "http://ec2-52-91-143-214.compute-1.amazonaws.com:3000";
 // call the helper function to query Google Places API for points of interest for given location
 router.post("/getPointsOfInterest", (req, res) => {
   getPointsOfInterest(req.body.location, (err, data) => {
-    if (err) {
-      console.log("error getting points of interest from server", err);
-    } else {
-      res.send(data);
-    }
+    res.status(200).send(data);
+  }).catch(err => {
+    res.send(404).send("Unable to get points of interest");
   });
+  // if (err) {
+  //   console.log("error getting points of interest from server", err);
+  // } else {
+  //   res.send(data);
 });
 
 // call the helper function to query Atlas Obscura for attractions for given location
@@ -128,7 +130,7 @@ router.get("/retrieve", (req, res) => {
         }
       })
       .then(photo => {
-        console.log('success retrieve', photo.data)
+        console.log("success retrieve", photo.data);
         res.send(photo.data);
       })
       .catch(err => {
@@ -282,20 +284,18 @@ router.post("/createAlbum", async (req, res, next) => {
   let location = req.body.location;
 
   //placeholder
-  location = "Russia"
+  location = "Russia";
 
   try {
     let country_id = await Destinations.getCountryIdByName(location);
 
-    let imageinfo = await axios
-    .post(`${ec2path}/createAlbum`, {
+    let imageinfo = await axios.post(`${ec2path}/createAlbum`, {
       file
-    })
+    });
 
-    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data)
+    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data);
 
     res.status(200).send(country_id);
-
   } catch (err) {
     console.error(err);
     res.status(404).send("Unable to retrieve user's media files");

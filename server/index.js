@@ -9,32 +9,32 @@ const cookieParser = require("cookie-parser");
 const compression = require("compression");
 const logger = require("morgan");
 const cors = require("cors");
-const busboy = require('connect-busboy')
-const busboyBodyParser = require('busboy-body-parser')
+const busboy = require("connect-busboy");
+const busboyBodyParser = require("busboy-body-parser");
 const router = require("./routes");
 
-const {
-  log,
-  chalkSuccess,
-  chalkError,
-  chalkWarning,
-  chalkInfo
-} = require("../chalkpresets");
+const { log, chalkSuccess } = require("../chalkpresets");
 
 const PORT = process.env.PORT || 3000;
 
 const app = express();
 
 // Apply middleware
-app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}))
-app.use(bodyParser.json({limit: '50mb'}))
+app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
+app.use(bodyParser.json({ limit: "50mb" }));
 app.use(cookieParser());
 app.use(compression("gzip"));
-app.use(logger("dev"));
+app.use(
+  logger("combined", {
+    skip(req, res) {
+      return res.statusCode < 400;
+    }
+  })
+);
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
 app.use(busboy());
-app.use(busboyBodyParser({limit: '50mb'}));
+app.use(busboyBodyParser({ limit: "50mb" }));
 app.use("/", router);
 
 // development error handler

@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
-import LocationStatsContainer from "../../containers/LocationStatsContainer";
-import LocationBasicInfoContainer from "../../containers/LocationBasicInfoContainer";
-import PointsOfInterestContainer from "../../containers/PointsOfInterestContainer";
+
+import {
+  AsyncLocationStats,
+  AsyncLocationBasicInfo,
+  AsyncPointsOfInterest
+} from "../WrappedContainers";
 
 const LocationProfile = ({
   location,
@@ -15,7 +18,7 @@ const LocationProfile = ({
     <div className="location-profile">
       <h1>{location}</h1>
 
-      <LocationStatsContainer />
+      <AsyncLocationStats />
 
       <div className="add-location-options">
         <Button
@@ -25,7 +28,7 @@ const LocationProfile = ({
           size="small"
           onClick={() => addVisitedDestination(userId, location)}
         >
-          I've Been Here
+          {"I've Been Here"}
         </Button>
         <Button
           type="submit"
@@ -34,13 +37,13 @@ const LocationProfile = ({
           size="small"
           onClick={() => addFaveDestination(userId, location)}
         >
-          I Want To Go Here!
+          {"I Want To Go Here!"}
         </Button>
       </div>
 
-      <LocationBasicInfoContainer />
+      <AsyncLocationBasicInfo />
 
-      <PointsOfInterestContainer />
+      <AsyncPointsOfInterest />
 
       {/* <div>
         <h2>Fun Facts About {location}:</h2>
