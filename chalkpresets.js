@@ -1,7 +1,6 @@
 const chalk = require("chalk");
 
 // chalk logging
-
 const log = console.log;
 const chalkSuccess = chalk.bold.green.bgWhite;
 const chalkError = chalk.bold.red.bgBlack;
