@@ -94,13 +94,11 @@ const Sidebar = ({
               style={{ textDecoration: "none" }}
               label="sign-out"
               color="secondary"
-              size="small"
               onClick={() => {
                 setHeader(OTHER);
                 changeSelectedLocation(null);
               }}
-            >
-              <ListItemText primary="   Sign out" />
+            >Sign out
             </Button>
           </center>
           <br />

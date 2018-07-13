@@ -63,7 +63,7 @@ class Home extends Component {
           variant="contained"
           name="blogFormActive"
           value={blogFormActive}
-          color="primary"
+          color="default"
           onClick={this.toggleForm}
         >
           write
