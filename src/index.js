@@ -10,9 +10,9 @@ import store from "./store";
 /* global document */
 render(
   <Provider store={store}>
-    <BrowserRouter>
+    <HashRouter>
       <Route component={App} />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById("root")
 );
