@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import PhotoUploader from "../components/PhotoUploader";
-import { updatePhotoOne } from "../actions";
+import { updatePhotoOne, changeSelectedLocation } from "../actions";
 
 const mapStateToProps = state => ({
   photoOne: state.photoOne,
@@ -16,7 +16,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   updatePhotoOne: photo => {
     dispatch(updatePhotoOne(URL.createObjectURL(photo)));
-  }
+  },
+  changeSelectedLocation: term => dispatch(changeSelectedLocation(term))
 });
 
 const PhotoUploaderContainer = connect(

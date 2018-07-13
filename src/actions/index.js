@@ -3,6 +3,8 @@ export {
   getBlogsRequest,
   getBlogsSuccess,
   getBlogsFailure,
+  getBlogsByUser,
+  getBlogsByLocation,
   blogCreate,
   blogCreateSuccess,
   blogCreateError

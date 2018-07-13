@@ -6,11 +6,10 @@ import Button from "@material-ui/core/Button";
 // import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
-import Blogs from "./WrappedContainers";
+import { Blogs } from "./WrappedContainers";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
-
-const recentBlogs = "Recent blogs";
-const recentPhotos = "Recent photos";
+import PhotosContainer from "../containers/PhotosContainer";
+import BlogForm from "./BlogForm";
 
 const linkStyles = {
   textDecoration: "none"
@@ -24,7 +23,7 @@ class Home extends Component {
       uploaderActive: false,
       blogFormActive: false
     };
-
+    this.toggleForm = this.toggleForm.bind(this);
     this.toggleUploader = this.toggleUploader.bind(this);
   }
 
@@ -44,7 +43,6 @@ class Home extends Component {
   render() {
     const { userInfo } = this.props;
     const { uploaderActive, blogFormActive } = this.state;
-
     return (
       <div>
         <Typography variant="display1">
@@ -66,7 +64,7 @@ class Home extends Component {
           name="blogFormActive"
           value={blogFormActive}
           color="primary"
-          onClick={this.toggleUploader}
+          onClick={this.toggleForm}
         >
           write
           <CreateIcon />
@@ -75,16 +73,13 @@ class Home extends Component {
         <br />
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
-        {blogFormActive === true ? (
-          <span>This is where the blog form will go when it is ready</span>
-        ) : (
-          <span>
-            This is where the blog form will go when blogFormActive is true
-          </span>
-        )}
-        <Typography variant="headline">{recentBlogs}</Typography>
-        {/* <Blogs /> */}
-        <Typography variant="headline">{recentPhotos}</Typography>
+        {blogFormActive === true ? <BlogForm /> : null}
+        <Typography variant="headline">recentBlogs</Typography>
+        <Blogs />
+        <Typography variant="headline">
+          {"recentPhotos"}
+          <PhotosContainer />
+        </Typography>
         <br />
       </div>
     );
