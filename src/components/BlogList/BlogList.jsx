@@ -5,10 +5,15 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 
+const styles = {
+  marginLeft: "130px",
+  marginRight: "130px"
+};
+
 // can eventually add blog media, user avatar, etc.
 const BlogList = ({ blogs }) => {
   return blogs.blogs.map((blog) => (
-    <Card key={blog.blog_id}>
+    <Card key={blog.blog_id} style={styles}>
       <CardHeader title={blog.title} />
       <CardContent>
         <Typography paragraph>{blog.content}</Typography>
