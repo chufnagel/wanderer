@@ -15,14 +15,13 @@ const methods = {
   }
 };
 
-const flexContainer = {
+const styling = {
   display: "inline-block",
   "vertical-align": "top",
   border: "1px solid black",
   "border-radius": "5%",
   margin: "2%",
   padding: "1%"
-  // flexDirection: "row"
 };
 
 const Destinations = ({ visitedDestinations, faveDestinations }) => {
@@ -34,7 +33,7 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
       </Typography>
 
       <div className="visited-and-fave-destinations">
-        <div className="visited-destinations" style={flexContainer}>
+        <div className="visited-destinations" style={styling}>
           <Typography variant="title" color="inherit">
             {"Places I've Been:"}
           </Typography>
@@ -51,7 +50,7 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
           </List>
         </div>
 
-        <div className="fave-destinations" style={flexContainer}>
+        <div className="fave-destinations" style={styling}>
           <Typography variant="title" color="inherit">
             {"Places I Want To Visit:"}
           </Typography>
