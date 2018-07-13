@@ -21,6 +21,7 @@ const Sidebar = ({
   getFriendsList,
   changeSelectedLocation,
   getAlbumPhotos,
+  getBlogsByLocation,
   userId,
   friendsId
 }) => (
@@ -49,7 +50,8 @@ const Sidebar = ({
                 primary="Home"
                 onClick={() => {
                   setHeader(HOME);
-                  getAlbumPhotos(friendsId.concat(userId));
+                  getAlbumPhotos(friendsId.concat(userId))
+                  getBlogsByLocation(friendsId.concat(userId))
                 }}
               />
             </Link>
@@ -72,6 +74,7 @@ const Sidebar = ({
                 onClick={() => {
                   getAlbumPhotos([1]);
                   setHeader(HOME);
+                  getBlogsByLocation([1]);
                 }}
               />
             </Link>

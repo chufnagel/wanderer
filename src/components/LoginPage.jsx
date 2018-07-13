@@ -32,7 +32,7 @@ const LoginPage = ({
             getUserInfo(1);
             changeUserId(1);
             setHeader(HOME);
-            getBlogs();
+            getBlogs(friendsId.concat(1), null);
             getAlbumPhotos(friendsId.concat(1), null);
           }}
         >

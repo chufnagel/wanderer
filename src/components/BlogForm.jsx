@@ -1,26 +1,27 @@
-import React, { Component } from 'react';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+import React, { Component } from "react";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import axios from "axios"
 
 class BlogForm extends Component {
   state = {
     open: false,
-    title: '',
-    content: ''
+    title: "",
+    contents: ""
   };
 
   handleClickOpen = () => {
-    this.setState({ open: true })
-  }
+    this.setState({ open: true });
+  };
 
   handleClose = () => {
-    this.setState({ open: false })
-  }
+    this.setState({ open: false });
+  };
 
   // handleClose = () => {
   //   event.preventDefault();
@@ -40,9 +41,7 @@ class BlogForm extends Component {
         >
           <DialogTitle id="form-dialog-title">Create new blog</DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              {"Add a blog post"}
-            </DialogContentText>
+            <DialogContentText>{"Add a blog post"}</DialogContentText>
             <TextField
               autoFocus
               margin="dense"
@@ -50,6 +49,11 @@ class BlogForm extends Component {
               label="title"
               type="text"
               fullWidth
+              onChange={(text) => {
+                this.setState({
+                  title: text.target.value
+                })
+              }}
             />
             <TextField
               autoFocus
@@ -58,14 +62,27 @@ class BlogForm extends Component {
               label="content"
               type="text"
               fullWidth
-              />
+              onChange={(text) => {
+                this.setState({
+                  contents: text.target.value
+                })
+              }}
+            />
           </DialogContent>
           <DialogActions>
-          <Button onClick={this.handleClose} color="primary">
-          Cancel
-          </Button>
-          <Button onClick={() => this.props.addBlog
-            (this.state.title, this.state.contents)} color="primary">
+            <Button onClick={this.handleClose} color="primary">
+              Cancel
+            </Button>
+            <Button
+              onClick={() => {
+                axios.post("/blogs", {
+                  title: this.state.title,
+                  contents: this.state.contents,
+                  userId: 1
+                })
+              }}
+              color="primary"
+            >
               {"Submit Blog"}
             </Button>
           </DialogActions>

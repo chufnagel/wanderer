@@ -28,6 +28,7 @@ const GlobalMap = props => {
     getVisitedCount,
     getFaveCount,
     getAlbumPhotos,
+    getBlogsByLocation,
     userId,
     friendsId
     // addFaveDestination
@@ -103,7 +104,14 @@ const GlobalMap = props => {
                       getAttractions(geography.properties.name);
                       getVisitedCount(geography.properties.name);
                       getFaveCount(geography.properties.name);
-                      getAlbumPhotos(friendsId.concat(userId), geography.properties.name);
+                      getAlbumPhotos(
+                        friendsId.concat(userId),
+                        geography.properties.name
+                      );
+                      getBlogsByLocation(
+                        friendsId.concat(userId),
+                        geography.properties.name
+                      );
                     }}
                   />
                 </Link>

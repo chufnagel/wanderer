@@ -9,7 +9,8 @@ exports.seed = (knex, Promise) => {
         name: "Broichi Slope-Roll",
         email: "s.koichi@gmail.com",
         bio: "I am a placeholder bio",
-        token: "test-token"
+        idToken: "test-token",
+        image_url: "https://s3.amazonaws.com/griffyndor/Koichi.jpeg"
       },
       {
         user_id: 2,
@@ -18,7 +19,7 @@ exports.seed = (knex, Promise) => {
         name: "makster",
         email: "McMandy@gmail.com",
         bio: "I am so awsome",
-        token: "test-token"
+        idToken: "test-token"
       },
       {
         user_id: 3,
@@ -27,7 +28,7 @@ exports.seed = (knex, Promise) => {
         name: "knowsitall",
         email: "huffy@gmail.com",
         bio: "Former data scientist",
-        token: "test-token"
+        idToken: "test-token"
       },
       {
         user_id: 4,
@@ -36,7 +37,7 @@ exports.seed = (knex, Promise) => {
         name: "Lina Luna Lei",
         email: "sarusaru@gmail.com",
         bio: "I love anime, dos toros, pokemon",
-        token: "test-token"
+        idToken: "test-token"
       },
       {
         user_id: 5,
@@ -44,7 +45,8 @@ exports.seed = (knex, Promise) => {
         password: "moseph",
         name: "Moseph Jartin",
         email: "mjdawg@gmail.com",
-        bio: "I love to code in my sleep too."
+        bio: "I love to code in my sleep too.",
+        idToken: "test-token"
       },
       {
         user_id: 6,
@@ -53,7 +55,7 @@ exports.seed = (knex, Promise) => {
         name: "Hany Hulk",
         email: "hanyhulk@gmail.com",
         bio: "I go to Wok To Walk for breakfast, lunch, and dinner :)",
-        token: "test-token"
+        idToken: "test-token"
       },
       {
         user_id: 7,
@@ -63,7 +65,7 @@ exports.seed = (knex, Promise) => {
         email: "hawaiimike@gmail.com",
         bio:
           "My hobbies include surfing, playing the ukelele, and watching videos of girls.",
-        token: "test-token"
+        idToken: "test-token"
       },
       {
         user_id: 8,
@@ -72,7 +74,7 @@ exports.seed = (knex, Promise) => {
         name: "John Cynn",
         email: "johncynn@gmail.com",
         bio: "I love to sing!! Ask me to sing A Whole New World!",
-        token: "test-token"
+        idToken: "test-token"
       },
       {
         user_id: 9,
@@ -82,7 +84,7 @@ exports.seed = (knex, Promise) => {
         email: "nickb@gmail.com",
         bio:
           "I lived in Argentina for a year and would love to go back there someday!",
-        token: "test-token"
+        idToken: "test-token"
       }
     ]),
     knex("blogs").insert([
