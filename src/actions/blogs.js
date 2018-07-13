@@ -5,10 +5,8 @@ import {
   GET_BLOGS_FAILURE,
   BLOG_CREATING,
   BLOG_CREATE_SUCCESS,
-  BLOG_CREATE_ERROR
+  BLOG_CREATE_ERROR,
 } from "./types";
-
-// all logic in action creators and/or utility functions used by action creators!
 
 // export const blogCreate = (client, blog) => {
 export const blogCreate = (userInfo, blog) => {
@@ -71,3 +69,50 @@ export const getBlogs = () => {
       });
   };
 };
+
+export const getBlogsByUser = () => {
+  return dispatch => {
+    dispatch(getBlogsRequest());
+    return axios
+      .get("/blogs", {
+        params: {
+          userId
+        }
+      })
+      .then(res => {
+        // console.log(res);
+        const blogs = res.data.map(blog => {
+          return blog;
+        });
+        dispatch(getBlogsSuccess(blogs));
+      })
+      .catch(err => {
+        // console.log(err);
+        dispatch(getBlogsFailure(err));
+      });
+  };
+};
+
+export const getBlogsByLocation = () => {
+  return dispatch => {
+    dispatch(getBlogsRequest());
+    return axios
+      .get("/blogs", {
+        params: {
+          location
+        }
+      })
+      .then(res => {
+        // console.log(res);
+        const blogs = res.data.map(blog => {
+          return blog;
+        });
+        dispatch(getBlogsSuccess(blogs));
+      })
+      .catch(err => {
+        // console.log(err);
+        dispatch(getBlogsFailure(err));
+      });
+  };
+};
+
