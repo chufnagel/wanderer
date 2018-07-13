@@ -11,29 +11,20 @@ import PhotosContainer from "../../containers/PhotosContainer";
 // };
 
 const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
-  console.log("userInfo", userInfo);
+  // console.log("userInfo", userInfo);
   // console.log("friendInfo", friendInfo);
   // console.log("headerSetting", headerSetting);
   return (
     <div>
       <h2>
-        {headerSetting === "HOME"
-          ? userInfo.username
-          : friendInfo.username}
+        {headerSetting === "HOME" ? userInfo.username : friendInfo.username}
       </h2>
-      <img
+      {/* <img
         src={profilePhoto}
-        alt={
-          headerSetting === "HOME"
-            ? userInfo.username
-            : friendInfo.username
-        }
+        alt={headerSetting === "HOME" ? userInfo.username : friendInfo.username}
         width="33%"
-      />
+      /> */}
 
-      <Typography variant="title" gutterBottom>
-        {"Blogs"}
-      </Typography>
       <ul width="52%">
         <BlogsContainer />
       </ul>
