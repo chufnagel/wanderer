@@ -9,7 +9,8 @@ exports.seed = (knex, Promise) => {
         name: "Broichi Slope-Roll",
         email: "s.koichi@gmail.com",
         bio: "I am a placeholder bio",
-        idToken: "test-token"
+        idToken: "test-token",
+        image_url: "https://s3.amazonaws.com/griffyndor/Koichi.jpeg"
       },
       {
         user_id: 2,

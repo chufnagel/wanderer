@@ -13,7 +13,10 @@ const FriendsList = ({
   getFriendInfo,
   getFaveDestinations,
   getVisitedDestinations,
-  getAlbumPhotos
+  getAlbumPhotos,
+  getBlogsByLocation,
+  headerSetting,
+  profilePhoto
 }) => (
   <div>
     <Typography variant="headline">{message}</Typography>
@@ -26,7 +29,8 @@ const FriendsList = ({
             getFriendInfo(friend.user_id);
             getFaveDestinations(friend.user_id);
             getVisitedDestinations(friend.user_id);
-            getAlbumPhotos([friend.user_id])
+            getAlbumPhotos([friend.user_id]);
+            getBlogsByLocation([friend.user_id]);
           }}
           to="/profile"
         >
@@ -48,3 +52,13 @@ FriendsList.propTypes = {
 };
 
 export default FriendsList;
+
+/* <img
+            src={profilePhoto}
+            alt={
+              headerSetting === "HOME"
+                ? userInfo.username
+                : friendInfo.username
+            }
+            width="33%"
+            /> */

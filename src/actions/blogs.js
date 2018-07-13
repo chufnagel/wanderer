@@ -51,13 +51,13 @@ export const getBlogsFailure = error => {
   };
 };
 
-export const getBlogs = () => {
+export const getBlogs = (userIds) => {
   return dispatch => {
     dispatch(getBlogsRequest());
     return axios
       .get("/blogs")
       .then(res => {
-        // console.log(res);
+        console.log(res);
         const blogs = res.data.map(blog => {
           return blog;
         });
@@ -93,12 +93,14 @@ export const getBlogsByUser = () => {
   };
 };
 
-export const getBlogsByLocation = () => {
+export const getBlogsByLocation = (userId, location) => {
+  console.log('location', location)
   return dispatch => {
     dispatch(getBlogsRequest());
     return axios
-      .get("/blogs", {
+      .get("/blogsByLocation", {
         params: {
+          userId,
           location
         }
       })

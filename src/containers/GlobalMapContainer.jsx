@@ -7,7 +7,8 @@ import {
   getFaveCount,
   setHeader,
   changeSelectedLocation,
-  getAlbumPhotos
+  getAlbumPhotos,
+  getBlogsByLocation
 } from "../actions";
 import GlobalMap from "../components/GlobalMap/GlobalMap";
 
@@ -26,7 +27,9 @@ const mapDispatchToProps = dispatch => ({
   getLocationBasicInfo: term => dispatch(getLocationBasicInfo(term)),
   getVisitedCount: term => dispatch(getVisitedCount(term)),
   getFaveCount: term => dispatch(getFaveCount(term)),
-  getAlbumPhotos: (id, location) => dispatch(getAlbumPhotos(id, location))
+  getAlbumPhotos: (id, location) => dispatch(getAlbumPhotos(id, location)),
+  getBlogsByLocation: (id, location) =>
+    dispatch(getBlogsByLocation(id, location))
 });
 
 export default connect(
