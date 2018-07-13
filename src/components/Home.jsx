@@ -45,7 +45,7 @@ class Home extends Component {
     const { uploaderActive, blogFormActive } = this.state;
     return (
       <div style={{ marginLeft: "130px", textAlign: "center" }}>
-        <Typography variant="display1">
+        <Typography variant="display2">
           Welcome, <strong>{userInfo.name}</strong>!
         </Typography>
         <Button
