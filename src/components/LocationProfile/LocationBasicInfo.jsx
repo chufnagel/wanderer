@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
 
 const LocationBasicInfo = ({ location, locationBasicInfo }) => {
   return (
     <div className="location-info">
-      <h2>Basic Info About {location}:</h2>
+      <Typography variant="display1" gutterBottom>
+        Basic Info About {location}:
+      </Typography>
       <img
         src={locationBasicInfo.flag}
         alt="country flag"
