@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 
 // can eventually add blog media, user avatar, etc.
 const BlogList = ({ blogs }) => {
-  return blogs.map(blog => (
+  return blogs.blogs.map((blog) => (
     <Card key={blog.blog_id}>
       <CardHeader title={blog.title} />
       <CardContent>
@@ -17,19 +17,19 @@ const BlogList = ({ blogs }) => {
   ));
 };
 
-BlogList.propTypes = {
-  blogs: PropTypes.arrayOf(PropTypes.object)
-};
+// BlogList.propTypes = {
+//   blogs: PropTypes.object
+// };
 
-BlogList.defaultProps = {
-  blogs: [
-    {
-      blogId: 0,
-      blogTitle: "Follow some blogs!",
-      blogAuthor: "",
-      blogContents: "Nothing here yet"
-    }
-  ]
-};
+// BlogList.defaultProps = {
+//   blogs: [
+//     {
+//       blog_id: 0,
+//       title: "Follow some blogs!",
+//       blogAuthor: "",
+//       content: "Nothing here yet"
+//     }
+//   ]
+// };
 
 export default BlogList;
