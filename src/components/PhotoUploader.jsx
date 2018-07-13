@@ -27,7 +27,7 @@ const PhotoUploader = ({
     <div>
       <br />
       <Select
-        value="Afghanistan"
+        value={location}
         onChange={e => {
           changeSelectedLocation(e.target.value);
         }}

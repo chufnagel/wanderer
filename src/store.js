@@ -78,7 +78,7 @@ const store = createStore(
       currencies: [{ name: "" }]
     },
     userId: 1,
-    profilePhoto: "",
+    profilePhoto: "https://s3.amazonaws.com/griffyndor/Koichi.jpeg",
     albumPhotos: [],
     faveDestinations: [],
     visitedDestinations: [],

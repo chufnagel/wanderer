@@ -19,11 +19,11 @@ const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
       <h2>
         {headerSetting === "HOME" ? userInfo.username : friendInfo.username}
       </h2>
-      <img
+      {/* <img
         src={profilePhoto}
         alt={headerSetting === "HOME" ? userInfo.username : friendInfo.username}
         width="33%"
-      />
+      /> */}
 
       <ul width="52%">
         <BlogsContainer />
