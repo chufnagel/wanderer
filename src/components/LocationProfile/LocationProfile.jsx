@@ -20,9 +20,7 @@ const LocationProfile = ({
       <Typography variant="display2" gutterBottom>
         {location}
       </Typography>
-
       <LocationStats />
-
       <div className="add-location-options">
         <Button
           type="submit"
@@ -44,9 +42,7 @@ const LocationProfile = ({
         </Button>
       </div>
       <br /> <br />
-
       <LocationBasicInfo />
-
       <PointsOfInterest />
     </div>
   );

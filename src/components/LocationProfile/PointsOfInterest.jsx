@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 const styles = {
   card: {
@@ -32,9 +31,7 @@ const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
             <Typography component="p">
               Address: {place.formatted_address}
             </Typography>
-            <Typography component="p">
-              Rating: {place.rating}
-            </Typography>
+            <Typography component="p">Rating: {place.rating}</Typography>
           </CardContent>
         </Card>
       ))}
