@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
@@ -29,6 +28,7 @@ const Attractions = ({ location, attractions, classes }) => (
       Check out some of these unusual, interesting and obscure travel
       destinations!
     </Typography>
+    <br /> <br />
 
     {attractions.map(attraction => (
       <Card className={classes.card} key={attraction.path}>
