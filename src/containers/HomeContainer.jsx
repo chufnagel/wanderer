@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Home from "../components/Home";
+import { getAlbumPhotos } from "../actions";
 
 const mapStateToProps = state => ({
   userInfo: state.userInfo,
@@ -7,14 +8,9 @@ const mapStateToProps = state => ({
   faveDestinations: state.faveDestinations
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   the action for getting blogs by userId
-// })
-
 // remove line 20 and uncomment line 19 when we
 // have actions & reducers for getting blog posts by user id
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
   null
 )(Home);

@@ -1,6 +1,8 @@
 import React from "react";
 import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
 
 const methods = {
   // componentDidMount({
@@ -19,18 +21,22 @@ const methods = {
 };
 
 const PhotoGrid = ({ albumPhotos }) => {
-  console.log("albumphotos", albumPhotos)
   return (
     <div>
-      {albumPhotos.map(photo => {
-        return (
-          <img
-            src={photo.image_url}
-            alt={photo.image_url}
-            className="post-image"
-          />
-        );
-      })}
+      <GridList cellHeight={160} className="photo" cols={3}>
+        {albumPhotos.map(photo => {
+          return (
+            <GridListTile cols={1}>
+              <img
+                src={photo.image_url}
+                alt={photo.image_url}
+                className="post-image"
+                key={photo.media_id}
+              />
+            </GridListTile>
+          );
+        })}
+      </GridList>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
 import Blogs from "./WrappedContainers";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
+import PhotosContainer from "../containers/PhotosContainer";
 
 const recentBlogs = "Recent blogs";
 const recentPhotos = "Recent photos";
@@ -84,7 +85,9 @@ class Home extends Component {
         )}
         <Typography variant="headline">{recentBlogs}</Typography>
         {/* <Blogs /> */}
-        <Typography variant="headline">{recentPhotos}</Typography>
+        <Typography variant="headline">
+          <PhotosContainer />
+        </Typography>
         <br />
       </div>
     );

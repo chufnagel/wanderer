@@ -10,7 +10,9 @@ import {
 const mapStateToProps = state => {
   return {
     headerSetting: state.headerSetting,
-    userInfo: state.userInfo
+    userInfo: state.userInfo,
+    userId: state.userId,
+    friendsId: state.friendsId
   };
 };
 

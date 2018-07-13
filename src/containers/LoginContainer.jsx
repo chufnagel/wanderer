@@ -3,7 +3,8 @@ import LoginPage from "../components/LoginPage";
 import { getBlogs, setHeader, changeUserId, getUserInfo, getAlbumPhotos } from "../actions";
 
 const mapStateToProps = state => ({
-  userId: state.userId
+  userId: state.userId,
+  friendsId: state.friendsId
 });
 
 const mapDispatchToProps = dispatch => ({
