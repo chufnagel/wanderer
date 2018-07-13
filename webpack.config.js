@@ -3,11 +3,13 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
 const ManifestPlugin = require("webpack-manifest-plugin");
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 // const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const SRC_DIR = path.resolve(__dirname, "src");
 const DIST_DIR = path.resolve(__dirname, "dist");
+
+// require("dotenv").config();
 
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 if (process.env.NODE_ENV === "test") {
@@ -17,12 +19,12 @@ if (process.env.NODE_ENV === "test") {
 }
 
 module.exports = env => {
-  // const isProduction = env === "production";
+  const isProduction = env === "production";
 
   return {
-    // devtool: "cheap-module-eval-source-map",
+    devtool: "cheap-source-map",
     entry: `${SRC_DIR}/index.js`,
-    mode: "production",
+    mode: "development",
     output: {
       path: DIST_DIR,
       filename: "index.js",
@@ -59,7 +61,8 @@ module.exports = env => {
               options: {
                 importLoaders: 1,
                 modules: true,
-                localIdentName: "[name]__[local]__[hash:base64:5]"
+                localIdentName: "[name]__[local]__[hash:base64:5]",
+                sourceMap: true
               }
             },
             {
@@ -88,7 +91,6 @@ module.exports = env => {
       new HtmlWebpackPlugin({
         title: "Wanderer",
         favicon: `${SRC_DIR}/favicon.ico`,
-        filename: "favicon.html",
         template: `${SRC_DIR}/index.html`,
         filename: "index.html",
         // inject: false
