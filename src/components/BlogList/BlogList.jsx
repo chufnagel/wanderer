@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import { withTheme } from "@material-ui/core/styles";
 
 const styles = {
   marginLeft: "130px",
@@ -37,4 +38,4 @@ const BlogList = ({ blogs }) => {
 //   ]
 // };
 
-export default BlogList;
+export default withTheme()(BlogList);

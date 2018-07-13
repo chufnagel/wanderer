@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import SearchIcon from "@material-ui/icons/Search";
 import { LOCATION_PROFILE } from "../constants";
 
 class Search extends Component {
@@ -44,13 +45,13 @@ class Search extends Component {
           }}
         />
         <br />
-        <Link to="/search">
+        <Link to="/search" style={{ textDecoration: "none" }}>
           <center>
             <Button
               label="Search"
               type="submit"
               variant="raised"
-              color="primary"
+              color="secondary"
               onClick={() => {
                 setHeader(LOCATION_PROFILE);
                 changeSelectedLocation(field);
@@ -61,7 +62,7 @@ class Search extends Component {
                 getFaveCount(field);
               }}
             >
-              Search
+              Search<SearchIcon />
             </Button>
           </center>
         </Link>

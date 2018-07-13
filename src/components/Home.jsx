@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
-import { withStyles } from "@material-ui/core/styles";
+import { withTheme } from "@material-ui/core/styles";
 import { Blogs } from "./WrappedContainers";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
 import PhotosContainer from "../containers/PhotosContainer";
@@ -13,12 +13,6 @@ import BlogForm from "./BlogForm";
 
 const linkStyles = {
   textDecoration: "none"
-};
-
-const styles = {
-  display1: {
-    color: "white"
-  }
 };
 
 class Home extends Component {
@@ -51,7 +45,7 @@ class Home extends Component {
     const { uploaderActive, blogFormActive } = this.state;
     return (
       <div style={{ marginLeft: "130px", textAlign: "center" }}>
-        <Typography variant="display1" className={this.props.classes.display1}>
+        <Typography variant="display1">
           Welcome, <strong>{userInfo.name}</strong>!
         </Typography>
         <Button
@@ -104,4 +98,4 @@ Home.propTypes = {
   // faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default withStyles(styles)(Home);
+export default withTheme()(Home);

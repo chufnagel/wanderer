@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
+import { withTheme } from "@material-ui/core/styles";
 
 const LocationStats = ({ visitedCount = 0, faveCount = 0 }) => {
   return (
@@ -20,4 +21,4 @@ LocationStats.propTypes = {
   faveCount: PropTypes.number.isRequired
 };
 
-export default LocationStats;
+export default withTheme()(LocationStats);
