@@ -1,11 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
 
 const LocationStats = ({ visitedCount = 0, faveCount = 0 }) => {
   return (
     <div className="location-stats">
-      <p>[{visitedCount}] Wanderers have visited here.</p>
-      <p>[{faveCount}] Wanderers want to visit here.</p>
+      <Typography variant="body1">
+        <p>[{visitedCount}] Wanderers have visited here.</p>
+        <p>[{faveCount}] Wanderers want to visit here.</p>
+      </Typography>
     </div>
   );
 };
