@@ -248,6 +248,7 @@ router.post("/create", (req, res) => {
 router.get("/mediaByUserId", async (req, res, next) => {
   try {
     const location_name = req.query.location;
+    console.log("location_name", location_name)
     let country_id = null;
 
     if (location_name !== undefined) {
