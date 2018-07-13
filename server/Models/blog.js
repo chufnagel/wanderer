@@ -9,7 +9,7 @@ Blog.addNewBlog = (title, contents, tags, userId) => {
       contents,
       user_id: userId
     })
-    .then(user => user)
+    .then(blog => blog)
     .catch(err => console.error(err));
 };
 

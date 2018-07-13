@@ -17,9 +17,9 @@ module.exports = env => {
   // const isProduction = env === "production";
 
   return {
-    devtool: "cheap-module-source-map",
+    devtool: "source-map",
     entry: `${SRC_DIR}/index.js`,
-    mode: "production",
+    mode: "development",
     output: {
       path: DIST_DIR,
       filename: "index.js",
@@ -34,6 +34,8 @@ module.exports = env => {
       splitChunks: {
         chunks: "all"
       },
+      namedModules: true,
+      namedChunks: true,
       minimize: true
     },
     module: {
