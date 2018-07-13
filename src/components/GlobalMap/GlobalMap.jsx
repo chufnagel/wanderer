@@ -26,7 +26,10 @@ const GlobalMap = props => {
     getAttractions,
     getLocationBasicInfo,
     getVisitedCount,
-    getFaveCount
+    getFaveCount,
+    getAlbumPhotos,
+    userId,
+    friendsId
     // addFaveDestination
   } = props;
   return (
@@ -100,6 +103,7 @@ const GlobalMap = props => {
                       getAttractions(geography.properties.name);
                       getVisitedCount(geography.properties.name);
                       getFaveCount(geography.properties.name);
+                      getAlbumPhotos(friendsId.concat(userId), geography.properties.name);
                     }}
                   />
                 </Link>
@@ -120,7 +124,10 @@ GlobalMap.propTypes = {
   getAttractions: PropTypes.func.isRequired,
   getLocationBasicInfo: PropTypes.func.isRequired,
   getVisitedCount: PropTypes.func.isRequired,
-  getFaveCount: PropTypes.func.isRequired
+  getFaveCount: PropTypes.func.isRequired,
+  getAlbumPhotos: PropTypes.func.isRequired,
+  userId: PropTypes.number.isRequired,
+  friendsId: PropTypes.arrayOf(PropTypes.object).isRequired
   // addFaveDestination: PropTypes.func.isRequired
 };
 

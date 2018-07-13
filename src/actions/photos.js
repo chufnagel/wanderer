@@ -22,7 +22,7 @@ export function updatePhotoOne(photoOne) {
 }
 
 export function getAlbumPhotos(userId, location) {
-  // console.log("location****", location);
+  console.log("location****", location);
   return dispatch => {
     axios
       .get("/mediaByUserId", {

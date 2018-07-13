@@ -8,7 +8,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchContainer from "../../containers/SearchContainer";
-import { HOME, OTHER } from "../../constants";
+import { HOME, OTHER, USER_PROFILE } from "../../constants";
 
 const linkStyles = {
   textDecoration: "none"
@@ -19,7 +19,8 @@ const Sidebar = ({
   userInfo,
   setHeader,
   getFriendsList,
-  changeSelectedLocation
+  changeSelectedLocation,
+  getAlbumPhotos
 }) => (
   <div>
     {headerSetting === OTHER ? null : (
@@ -50,7 +51,7 @@ const Sidebar = ({
               <ListItemText
                 primary="Friends"
                 onClick={() => {
-                  setHeader(HOME);
+                  setHeader(USER_PROFILE);
                   getFriendsList(userInfo.user_id);
                 }}
               />
@@ -58,7 +59,13 @@ const Sidebar = ({
           </ListItem>
           <ListItem button>
             <Link to="/profile" style={linkStyles}>
-              <ListItemText primary="Profile" onClick={() => setHeader(HOME)} />
+              <ListItemText
+                primary="Profile"
+                onClick={() => {
+                  getAlbumPhotos([1]);
+                  setHeader(HOME);
+                }}
+              />
             </Link>
           </ListItem>
           <br />
@@ -107,7 +114,8 @@ Sidebar.propTypes = {
 
   setHeader: PropTypes.func.isRequired,
   getFriendsList: PropTypes.func.isRequired,
-  changeSelectedLocation: PropTypes.func.isRequired
+  changeSelectedLocation: PropTypes.func.isRequired,
+  getAlbumPhotos: PropTypes.func.isRequired
 };
 
 export default Sidebar;
