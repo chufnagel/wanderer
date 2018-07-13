@@ -6,8 +6,6 @@ import {
   GET_BLOGS_REQUEST,
   GET_BLOGS_SUCCESS,
   GET_BLOGS_FAILURE,
-  GET_OWN_BLOGS,
-  GET_BLOGS_BY_USER_ID
 } from "../actions/types";
 
 const initialState = {
@@ -63,11 +61,11 @@ const getBlogsRequest = (state, action) => {
 };
 
 const getBlogsSuccess = (state, action) => {
-  // return updateObject(state, {
-  //   blogs: action.blogs,
-  //   loading: false
-  // });
-  return action.blogs;
+  return updateObject(state, {
+    blogs: action.blogs,
+    loading: false
+  });
+  // return action.blogs;
 };
 
 const getBlogsFail = (state, action) => {

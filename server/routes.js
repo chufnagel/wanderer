@@ -128,10 +128,12 @@ router.get("/retrieve", (req, res) => {
 // user auth placeholder
 // expected inputs: authData = { email: whatever, password: whatever, returnSecureToken: true }
 router.post("/signup", async (req, res, next) => {
+  console.log(req.body);
   try {
-    //
+    const newUser = await User.addNewUser(req.body);
   } catch (err) {
-    //
+    console.error(err);
+    res.status(404).send("Unable to create new user");
   }
 });
 
