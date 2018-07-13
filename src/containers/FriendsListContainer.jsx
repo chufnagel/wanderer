@@ -4,12 +4,18 @@ import {
   getVisitedDestinations,
   getFaveDestinations,
   getFriendInfo,
-  getAlbumPhotos
+  getAlbumPhotos,
+  updateProfilePhoto,
+  getBlogsByLocation
 } from "../actions";
 
 const mapStateToProps = state => {
   return {
-    friends: state.friends
+    friends: state.friends,
+    headerSetting: state.headerSetting,
+    profilePhoto: state.profilePhoto,
+    friendInfo: state.friendInfo
+
   };
 };
 
@@ -18,7 +24,9 @@ const mapDispatchToProps = dispatch => ({
   // getBlogsByUserId: userId => dispatch(getBlogsByUserId(userId)),
   getVisitedDestinations: userId => dispatch(getVisitedDestinations(userId)),
   getFaveDestinations: userId => dispatch(getFaveDestinations(userId)),
-  getAlbumPhotos: userId => dispatch(getAlbumPhotos(userId))
+  getAlbumPhotos: userId => dispatch(getAlbumPhotos(userId)),
+  updateProfilePhoto: imageUrl => dispatch(updateProfilePhoto(imageUrl)),
+  getBlogsByLocation: id => dispatch(getBlogsByLocation(id))
 });
 
 const FriendsListContainer = connect(
