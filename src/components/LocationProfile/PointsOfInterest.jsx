@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
 
 const PointsOfInterest = ({ pointsOfInterest, location }) => {
   const sorted = pointsOfInterest.sort((a, b) => {
@@ -7,7 +8,9 @@ const PointsOfInterest = ({ pointsOfInterest, location }) => {
   });
   return (
     <div className="points-of-interest-section">
-      <h2>Top Places To Visit In {location}:</h2>
+      <Typography variant="display1" gutterBottom>
+        Top Places To Visit In {location}:
+      </Typography>
       {sorted.map(place => (
         <div className="point-of-interest" key={place.id}>
           <h3>{place.name}</h3>
