@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
 
 const Attractions = ({ location, attractions }) => (
   <div className="attractions">
-    <h1>Cool Obscure Attractions in {location}:</h1>
-    <h2>
+    <Typography variant="display2" gutterBottom>
+      Cool Obscure Attractions in {location}:
+    </Typography>
+    <Typography variant="headline">
       Check out some of these unusual, interesting and obscure travel
       destinations!
-    </h2>
+    </Typography>
 
     {attractions.map(attraction => (
       <div className="attraction" key={attraction.path}>

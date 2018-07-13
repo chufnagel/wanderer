@@ -43,6 +43,7 @@ const LocationProfile = ({
           {"I Want To Go Here!"}
         </Button>
       </div>
+      <br></br> <br></br>
 
       <LocationBasicInfo />
 
