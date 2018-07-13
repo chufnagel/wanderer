@@ -72,7 +72,7 @@ const GlobalMap = props => {
                           continentColors[
                             continents.indexOf(geography.properties.continent)
                           ],
-                        stroke: "#607D8B",
+                        stroke: "rgba(81, 59, 114, 1)",
                         strokeWidth: 0.75,
                         outline: "none"
                       },
@@ -82,7 +82,7 @@ const GlobalMap = props => {
                         ]
                           .brighten(0.6)
                           .saturate(0.2),
-                        stroke: "#607D8B",
+                        stroke: "rgba(81, 59, 114, 1)",
                         strokeWidth: 0.75,
                         outline: "none"
                       },
@@ -90,7 +90,7 @@ const GlobalMap = props => {
                         fill: continentColors[
                           continents.indexOf(geography.properties.continent)
                         ].luminance(0.5, "hsl"),
-                        stroke: "#607D8B",
+                        stroke: "rgba(81, 59, 114, 1)",
                         strokeWidth: 0.75,
                         outline: "none"
                       }
@@ -103,7 +103,10 @@ const GlobalMap = props => {
                       getAttractions(geography.properties.name);
                       getVisitedCount(geography.properties.name);
                       getFaveCount(geography.properties.name);
-                      getAlbumPhotos(friendsId.concat(userId), geography.properties.name);
+                      getAlbumPhotos(
+                        friendsId.concat(userId),
+                        geography.properties.name
+                      );
                     }}
                   />
                 </Link>

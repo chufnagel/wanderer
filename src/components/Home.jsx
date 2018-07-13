@@ -6,7 +6,6 @@ import Button from "@material-ui/core/Button";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
 import { Blogs } from "./WrappedContainers";
-import PhotosContainer from "../containers/PhotosContainer";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
 import PhotosContainer from "../containers/PhotosContainer";
 import BlogForm from "./BlogForm";
@@ -73,12 +72,12 @@ class Home extends Component {
         <br />
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
-        {blogFormActive === true ?
-          <BlogForm /> : null }
+        {blogFormActive === true ? <BlogForm /> : null}
         <Typography variant="headline">Recent Blogs</Typography>
         <Blogs />
-        <Typography variant="headline">Recent Photos
-        <PhotosContainer />
+        <Typography variant="headline">
+          Recent Photos
+          {/* <PhotosContainer /> */}
         </Typography>
         <br />
       </div>
@@ -93,9 +92,7 @@ Home.propTypes = {
     name: PropTypes.string.isRequired,
     user_id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired
-  }).isRequired,
-  photos: PropTypes.arrayOf(PropTypes.object).isRequired,
-  blogs: PropTypes.arrayOf(PropTypes.object).isRequired
+  }).isRequired
   // visitedDestinations: PropTypes.arrayOf(PropTypes.object).isRequired,
   // faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
 };

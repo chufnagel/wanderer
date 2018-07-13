@@ -25,8 +25,7 @@ const styles = {
   display: "relative",
   flexWrap: "wrap row",
   justifyContent: "center",
-  backgroundSize: "100%",
-  backgroundColor: "#fff5ff",
+  backgroundSize: "100%"
 };
 
 const App = () => (

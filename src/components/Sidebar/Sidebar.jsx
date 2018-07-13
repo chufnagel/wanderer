@@ -12,12 +12,12 @@ import ProfilePhotoContainer from "../../containers/ProfilePhotoContainer";
 import { HOME, OTHER, USER_PROFILE } from "../../constants";
 
 const styles = {
-width: "130px",
-position: "fixed",
-zIndex: 1,
-top:"200px",
-left: "10px",
-background: "#d0c2e",
+  width: "130px",
+  position: "fixed",
+  zIndex: 1,
+  top: "200px",
+  left: "10px",
+  background: "#d0c2e"
 };
 
 const Sidebar = ({
@@ -30,7 +30,7 @@ const Sidebar = ({
   userId,
   friendsId
 }) => (
-  <div styles={{styles}}>
+  <div styles={{ styles }}>
     {headerSetting === OTHER ? null : (
       <Drawer
         variant="permanent"
@@ -41,9 +41,10 @@ const Sidebar = ({
         <br />
         <br />
         <br />
-        <List component="nav" style={{textDecoration: "none"}}>
+        <List component="nav" style={{ textDecoration: "none" }}>
           <center>
-            <ProfilePhotoContainer /><br />
+            <ProfilePhotoContainer />
+            <br />
             <Typography variant="title">{userInfo.name}</Typography>
             <Typography variant="subheading">@{userInfo.username}</Typography>
           </center>
@@ -51,11 +52,7 @@ const Sidebar = ({
           <SearchContainer />
           <br />
           <ListItem button>
-<<<<<<< HEAD
-            <Link to="/home" style={{textDecoration: "none"}}>
-              <ListItemText primary="Home" onClick={() => setHeader(HOME)} />
-=======
-            <Link to="/home" style={linkStyles}>
+            <Link to="/home" style={{ textDecoration: "none" }}>
               <ListItemText
                 primary="Home"
                 onClick={() => {
@@ -63,11 +60,10 @@ const Sidebar = ({
                   getAlbumPhotos(friendsId.concat(userId));
                 }}
               />
->>>>>>> dev
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/friends" style={{textDecoration: "none"}}>
+            <Link to="/friends" style={{ textDecoration: "none" }}>
               <ListItemText
                 primary="Friends"
                 onClick={() => {
@@ -78,7 +74,7 @@ const Sidebar = ({
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/profile" style={{textDecoration: "none"}}>
+            <Link to="/profile" style={{ textDecoration: "none" }}>
               <ListItemText
                 primary="Profile"
                 onClick={() => {
@@ -99,7 +95,7 @@ const Sidebar = ({
             <Button
               component={Link}
               to="/"
-              style={{ textDecoration: "none"}}
+              style={{ textDecoration: "none" }}
               label="sign-out"
               type="submit"
               size="small"

@@ -20,10 +20,10 @@ const LoginPage = ({
   getAlbumPhotos
 }) => {
   return (
-    <div style={{position: "relative"}}>
+    <div style={{ position: "relative" }}>
       <Typography variant="headline">Welcome back!</Typography>
       <Typography variant="body2">Click below to sign back in.</Typography>
-      <Link to="/home" style={{textDecoration: "none"}}>
+      <Link to="/home" style={{ textDecoration: "none" }}>
         <Button
           color="secondary"
           type="submit"
