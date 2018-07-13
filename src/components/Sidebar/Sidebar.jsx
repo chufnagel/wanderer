@@ -13,11 +13,11 @@ import { HOME, OTHER, USER_PROFILE } from "../../constants";
 
 const styles = {
   width: "130px",
+  background: "rgba(148, 130, 175, 1)",
   position: "fixed",
   zIndex: 1,
   top: "200px",
-  left: "10px",
-  background: "#d0c2e"
+  left: "10px"
 };
 
 const Sidebar = ({
@@ -28,9 +28,9 @@ const Sidebar = ({
   changeSelectedLocation,
   getAlbumPhotos,
   userId,
-  friendsId
+  friendsId,
 }) => (
-  <div styles={{ styles }}>
+  <div style={styles}>
     {headerSetting === OTHER ? null : (
       <Drawer
         variant="permanent"

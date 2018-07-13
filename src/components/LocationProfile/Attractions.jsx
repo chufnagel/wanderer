@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import { withStyles } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
 
 const styles = {
   card: {
@@ -29,21 +29,20 @@ const Attractions = ({ location, attractions, classes }) => (
       destinations!
     </Typography>
     <br /> <br />
-
     {attractions.map(attraction => (
       <Card className={classes.card} key={attraction.path}>
-        <CardMedia className={classes.media} image={attraction.img} title={attraction.name} />
+        <CardMedia
+          className={classes.media}
+          image={attraction.img}
+          title={attraction.name}
+        />
 
         <CardContent>
           <Typography variant="title" component="h3">
             {attraction.name}
           </Typography>
-          <Typography className={classes.pos}>
-            {attraction.location}
-          </Typography>
-          <Typography component="p">
-            {attraction.description}
-          </Typography>
+          <Typography className={classes.pos}>{attraction.location}</Typography>
+          <Typography component="p">{attraction.description}</Typography>
         </CardContent>
       </Card>
     ))}
