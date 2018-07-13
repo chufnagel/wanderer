@@ -46,7 +46,7 @@ class Home extends Component {
     const { uploaderActive, blogFormActive } = this.state;
 
     return (
-      <div>
+      <div style={{ marginLeft: "130px", textAlign: "center" }}>
         <Typography variant="display1">
           Welcome, <strong>{userInfo.name}</strong>!
         </Typography>
@@ -66,7 +66,7 @@ class Home extends Component {
           name="blogFormActive"
           value={blogFormActive}
           color="primary"
-          onClick={this.toggleUploader}
+          onClick={this.toggleForm}
         >
           write
           <CreateIcon />

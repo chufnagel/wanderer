@@ -8,10 +8,16 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SearchContainer from "../../containers/SearchContainer";
+import ProfilePhotoContainer from "../../containers/ProfilePhotoContainer";
 import { HOME, OTHER, USER_PROFILE } from "../../constants";
 
-const linkStyles = {
-  textDecoration: "none"
+const styles = {
+width: "130px",
+position: "fixed",
+zIndex: 1,
+top:"200px",
+left: "10px",
+background: "#d0c2e",
 };
 
 const Sidebar = ({
@@ -22,7 +28,7 @@ const Sidebar = ({
   changeSelectedLocation,
   getAlbumPhotos
 }) => (
-  <div>
+  <div styles={{styles}}>
     {headerSetting === OTHER ? null : (
       <Drawer
         variant="permanent"
@@ -33,8 +39,9 @@ const Sidebar = ({
         <br />
         <br />
         <br />
-        <List component="nav" style={linkStyles}>
+        <List component="nav" style={{textDecoration: "none"}}>
           <center>
+            <ProfilePhotoContainer /><br />
             <Typography variant="title">{userInfo.name}</Typography>
             <Typography variant="subheading">@{userInfo.username}</Typography>
           </center>
@@ -42,12 +49,12 @@ const Sidebar = ({
           <SearchContainer />
           <br />
           <ListItem button>
-            <Link to="/home" style={linkStyles}>
+            <Link to="/home" style={{textDecoration: "none"}}>
               <ListItemText primary="Home" onClick={() => setHeader(HOME)} />
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/friends" style={linkStyles}>
+            <Link to="/friends" style={{textDecoration: "none"}}>
               <ListItemText
                 primary="Friends"
                 onClick={() => {
@@ -58,7 +65,7 @@ const Sidebar = ({
             </Link>
           </ListItem>
           <ListItem button>
-            <Link to="/profile" style={linkStyles}>
+            <Link to="/profile" style={{textDecoration: "none"}}>
               <ListItemText
                 primary="Profile"
                 onClick={() => {
@@ -79,7 +86,7 @@ const Sidebar = ({
             <Button
               component={Link}
               to="/"
-              style={linkStyles}
+              style={{ textDecoration: "none"}}
               label="sign-out"
               type="submit"
               size="small"

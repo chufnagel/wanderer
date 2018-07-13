@@ -21,10 +21,18 @@ import {
   PhotoUploader
 } from "./WrappedContainers";
 
+const styles = {
+  display: "relative",
+  flexWrap: "wrap row",
+  justifyContent: "center",
+  backgroundSize: "100%",
+  backgroundColor: "#fff5ff",
+};
+
 const App = () => (
-  <div className="app">
+  <div className="app" style={styles}>
     <center>
-      <Typography variant="display2">Wanderer</Typography>
+      <Typography variant="display3"><strong>Wanderer</strong></Typography>
       <br />
       <GlobalMap />
     </center>

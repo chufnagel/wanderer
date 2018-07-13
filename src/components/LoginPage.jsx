@@ -7,27 +7,28 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import purple from "@material-ui/core/colors/purple";
 import { HOME } from "../constants";
-// import { GET_BLOGS_BY_USER_ID } from "../actions/types";
 // import { startLogin } from "../actions/auth";
 
+
+const color = purple[400];
 const LoginPage = ({
   changeUserId,
   getUserInfo,
   setHeader,
   getBlogs,
-  userId,
   getAlbumPhotos
 }) => {
   return (
-    <div>
+    <div style={{position: "relative"}}>
       <Typography variant="headline">Welcome back!</Typography>
       <Typography variant="body2">Click below to sign back in.</Typography>
-      <Link to="/home" style={{ textDecoration: "none" }}>
+      <Link to="/home" style={{textDecoration: "none"}}>
         <Button
+          color="secondary"
           type="submit"
           variant="raised"
-          color="secondary"
           onClick={() => {
             getUserInfo(1);
             changeUserId(1);

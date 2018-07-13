@@ -19,7 +19,6 @@ const continentColors = [
 ];
 const GlobalMap = props => {
   const {
-    // userId,
     setHeader,
     changeSelectedLocation,
     getPointsOfInterest,
@@ -30,15 +29,16 @@ const GlobalMap = props => {
     getAlbumPhotos,
     userId,
     friendsId
-    // addFaveDestination
   } = props;
   return (
     <div
       className="global-map"
       style={{
         width: "100%",
-        maxWidth: 980,
-        margin: "0 auto"
+        maxWidth: 1000,
+        marginLeft: "130px",
+        margin: "auto",
+        textAlign: "center"
       }}
     >
       <ComposableMap
@@ -46,7 +46,7 @@ const GlobalMap = props => {
           scale: 110,
           rotation: [-11, 0, 0]
         }}
-        width={980}
+        width={1000}
         height={360}
         style={{
           width: "100%",
@@ -117,7 +117,6 @@ const GlobalMap = props => {
 };
 
 GlobalMap.propTypes = {
-  // userId: PropTypes.string.isRequired,
   setHeader: PropTypes.func.isRequired,
   changeSelectedLocation: PropTypes.func.isRequired,
   getPointsOfInterest: PropTypes.func.isRequired,
@@ -128,7 +127,6 @@ GlobalMap.propTypes = {
   getAlbumPhotos: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   friendsId: PropTypes.arrayOf(PropTypes.object).isRequired
-  // addFaveDestination: PropTypes.func.isRequired
 };
 
 export default GlobalMap;
