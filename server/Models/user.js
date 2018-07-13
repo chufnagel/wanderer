@@ -1,3 +1,5 @@
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const db = require("../db");
 
 const User = {};
@@ -30,12 +32,14 @@ User.retrieveFriendsByUserId = (userId, cb) => {
 };
 
 User.addProfilePhotoByUserId = (imageinfo, user_id) => {
+  console.log('addprofilephotobyuserid imageinfo',imageinfo)
   return db("users")
     .where({ user_id })
     .update({
-      etag: imageinfo.ETag.substring(1, imageinfo.ETag.length - 1),
+      etag: imageinfo.ETag.substring(1,imageinfo.ETag.length - 1),
       version_id: imageinfo.VersionId,
-      image_key: imageinfo.key
+      image_key: imageinfo.key,
+      image_url: imageinfo.Location
     });
 };
 

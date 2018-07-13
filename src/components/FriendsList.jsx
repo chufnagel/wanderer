@@ -12,7 +12,8 @@ const FriendsList = ({
   friends,
   getFriendInfo,
   getFaveDestinations,
-  getVisitedDestinations
+  getVisitedDestinations,
+  getAlbumPhotos
 }) => (
   <div>
     <Typography variant="headline">{message}</Typography>
@@ -25,6 +26,7 @@ const FriendsList = ({
             getFriendInfo(friend.user_id);
             getFaveDestinations(friend.user_id);
             getVisitedDestinations(friend.user_id);
+            getAlbumPhotos([friend.user_id])
           }}
           to="/profile"
         >
@@ -41,7 +43,8 @@ FriendsList.propTypes = {
   friends: PropTypes.arrayOf(PropTypes.object).isRequired,
   getFriendInfo: PropTypes.func.isRequired,
   getFaveDestinations: PropTypes.func.isRequired,
-  getVisitedDestinations: PropTypes.func.isRequired
+  getVisitedDestinations: PropTypes.func.isRequired,
+  getAlbumPhotos: PropTypes.func.isRequired
 };
 
 export default FriendsList;

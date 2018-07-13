@@ -11,6 +11,7 @@ const logger = require("morgan");
 const cors = require("cors");
 const busboy = require("connect-busboy");
 const busboyBodyParser = require("busboy-body-parser");
+// const auth = require("./routes/auth");
 const router = require("./routes");
 
 const { log, chalkSuccess } = require("../chalkpresets");
