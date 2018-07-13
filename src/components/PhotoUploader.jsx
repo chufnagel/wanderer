@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import axios from "axios";
+import Select from "@material-ui/core/Select";
+import allCountries from "./LocationProfile/CountriesAll.jsx";
 
 const handleUploadFile = (e, userId, updatePhotoOne, location) => {
   updatePhotoOne(e.target.files[0]);
@@ -14,9 +16,30 @@ const handleUploadFile = (e, userId, updatePhotoOne, location) => {
   axios.post("/createAlbum", data).then(response => console.log(response));
 };
 
-const PhotoUploader = ({ photoOne, userId, updatePhotoOne, location }) => {
+const PhotoUploader = ({
+  photoOne,
+  userId,
+  updatePhotoOne,
+  location,
+  changeSelectedLocation
+}) => {
   return (
     <div>
+      <br />
+      <Select
+        value="Afghanistan"
+        onChange={e => {
+          changeSelectedLocation(e.target.value);
+        }}
+      >
+        {allCountries.map((country, ind) => (
+          <option key={ind} value={country}>
+            {country}
+          </option>
+        ))}
+      </Select>
+      <br />
+      <br />
       <input
         type="file"
         onChange={e => {
@@ -29,7 +52,17 @@ const PhotoUploader = ({ photoOne, userId, updatePhotoOne, location }) => {
 };
 
 PhotoUploader.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.object)
+  photoOne: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
+  location: PropTypes.string.isRequired,
+  updatePhotoOne: PropTypes.func.isRequired,
+  changeSelectedLocation: PropTypes.func.isRequired
 };
 
 export default PhotoUploader;
+
+/*       {this.state.countries.map((country, ind) => (
+          <option key={ind} value={country}>
+          {country}
+          </option>
+        ))} */

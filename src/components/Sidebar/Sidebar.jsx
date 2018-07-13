@@ -26,7 +26,9 @@ const Sidebar = ({
   setHeader,
   getFriendsList,
   changeSelectedLocation,
-  getAlbumPhotos
+  getAlbumPhotos,
+  userId,
+  friendsId
 }) => (
   <div styles={{styles}}>
     {headerSetting === OTHER ? null : (
@@ -49,8 +51,19 @@ const Sidebar = ({
           <SearchContainer />
           <br />
           <ListItem button>
+<<<<<<< HEAD
             <Link to="/home" style={{textDecoration: "none"}}>
               <ListItemText primary="Home" onClick={() => setHeader(HOME)} />
+=======
+            <Link to="/home" style={linkStyles}>
+              <ListItemText
+                primary="Home"
+                onClick={() => {
+                  setHeader(HOME);
+                  getAlbumPhotos(friendsId.concat(userId));
+                }}
+              />
+>>>>>>> dev
             </Link>
           </ListItem>
           <ListItem button>

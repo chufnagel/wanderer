@@ -24,13 +24,10 @@ Media.retrieveMediaByUserId = (userId, location) => {
 };
 
 Media.addMediaByUserIdAndCountryId = (userId, locationId, imageinfo) => {
-  console.log('user_id', userId)
-  console.log('locationId', locationId)
-  console.log('imageinfo', imageinfo)
   return db("media")
     .insert({
       user_id: userId,
-      country_id: locationId[0].country_id,
+      country_id: locationId,
       image_url: imageinfo.Location
     })
     .select("*")

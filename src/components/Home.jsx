@@ -8,6 +8,7 @@ import CreateIcon from "@material-ui/icons/Create";
 import { Blogs } from "./WrappedContainers";
 import PhotosContainer from "../containers/PhotosContainer";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
+import PhotosContainer from "../containers/PhotosContainer";
 import BlogForm from "./BlogForm";
 
 const linkStyles = {

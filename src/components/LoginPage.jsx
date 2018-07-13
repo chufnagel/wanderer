@@ -11,13 +11,12 @@ import purple from "@material-ui/core/colors/purple";
 import { HOME } from "../constants";
 // import { startLogin } from "../actions/auth";
 
-
-const color = purple[400];
 const LoginPage = ({
   changeUserId,
   getUserInfo,
   setHeader,
   getBlogs,
+  friendsId,
   getAlbumPhotos
 }) => {
   return (
@@ -34,7 +33,7 @@ const LoginPage = ({
             changeUserId(1);
             setHeader(HOME);
             getBlogs();
-            getAlbumPhotos([1], null);
+            getAlbumPhotos(friendsId.concat(1), null);
           }}
         >
           Sign<br />in
