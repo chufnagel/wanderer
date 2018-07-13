@@ -15,15 +15,16 @@ const LocationBasicInfo = ({ location, locationBasicInfo }) => {
         alt="country flag"
         style={{ width: "150px" }}
       />
-      <br></br>
+      <br />
 
       <Typography variant="body1" component="p">
-          {location} is located in {locationBasicInfo.subregion} with a population
-          size of {locationBasicInfo.population}. <br />
-          The primary language is {locationBasicInfo.languages[0].name} and its
-          currency is the {locationBasicInfo.currencies[0].name}.{" "}
+        {location} is located in {locationBasicInfo.subregion} with a population
+        size of {locationBasicInfo.population}. <br />
+        The primary language is {locationBasicInfo.languages[0].name} and its
+        currency is the {locationBasicInfo.currencies[0].name}.{" "}
       </Typography>
-      <br></br><br></br>
+      <br />
+      <br />
     </div>
   );
 };

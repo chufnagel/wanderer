@@ -10,6 +10,10 @@ import {
   PointsOfInterest
 } from "../WrappedContainers";
 
+const styles = {
+  "margin-right": "1%"
+};
+
 const LocationProfile = ({
   location,
   userId,
@@ -28,6 +32,7 @@ const LocationProfile = ({
           variant="raised"
           color="primary"
           size="small"
+          style={styles}
           onClick={() => addVisitedDestination(userId, location)}
         >
           {"I've Been Here"}

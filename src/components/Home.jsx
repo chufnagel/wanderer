@@ -74,12 +74,8 @@ class Home extends Component {
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
         {blogFormActive === true ? <BlogForm /> : null}
-        <Typography variant="headline">Recent Blogs</Typography>
-        <Blogs />
-        <Typography variant="headline">
-          Recent Photos
-          <PhotosContainer />
-        </Typography>
+        <center><Blogs /></center>
+        <PhotosContainer />
         <br />
       </div>
     );
