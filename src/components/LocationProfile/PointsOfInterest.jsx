@@ -9,9 +9,8 @@ import CardContent from '@material-ui/core/CardContent';
 const styles = {
   card: {
     maxWidth: 500,
-    marginBottom: 10
+    marginBottom: 12
   }
-
 };
 
 const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {

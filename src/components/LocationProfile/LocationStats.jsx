@@ -7,6 +7,8 @@ const LocationStats = ({ visitedCount = 0, faveCount = 0 }) => {
     <div className="location-stats">
       <Typography variant="body1">
         <p>[{visitedCount}] Wanderers have visited here.</p>
+      </Typography>
+      <Typography variant="body1">
         <p>[{faveCount}] Wanderers want to visit here.</p>
       </Typography>
     </div>
