@@ -1,11 +1,12 @@
 import { connect } from "react-redux";
 import Home from "../components/Home";
-import { getAlbumPhotos } from "../actions";
 
 const mapStateToProps = state => ({
   userInfo: state.userInfo,
   visitedDestinations: state.visitedDestinations,
-  faveDestinations: state.faveDestinations
+  faveDestinations: state.faveDestinations,
+  blogs: state.blogs,
+  photos: state.albumPhotos
 });
 
 // remove line 20 and uncomment line 19 when we

@@ -20,9 +20,7 @@ const LocationProfile = ({
       <Typography variant="display2" gutterBottom>
         {location}
       </Typography>
-
       <LocationStats />
-
       <div className="add-location-options">
         <Button
           type="submit"
@@ -43,20 +41,10 @@ const LocationProfile = ({
           {"I Want To Go Here!"}
         </Button>
       </div>
-
+      <br /> <br />
       <LocationBasicInfo />
-
       <PointsOfInterest />
-
-      {/* <div>
-        <h2>Fun Facts About {location}:</h2>
-        <ul>
-          {this.state.funFacts.map((fact, ind) => (
-            <li key={ind}>{fact}</li>
-          ))}
-        </ul>
-      </div> */}
-    </div> // close country-page div
+    </div>
   );
 };
 

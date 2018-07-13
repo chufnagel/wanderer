@@ -18,6 +18,7 @@ const { log, chalkSuccess } = require("../chalkpresets");
 
 const PORT = process.env.PORT || 3000;
 
+
 const app = express();
 
 // Apply middleware
@@ -63,3 +64,8 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
 });
+
+// production variant for reverse proxy
+// app.listen(PORT, '0.0.0.0', (err) => {
+//   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
+// });

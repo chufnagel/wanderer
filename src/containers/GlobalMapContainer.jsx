@@ -28,7 +28,6 @@ const mapDispatchToProps = dispatch => ({
   getVisitedCount: term => dispatch(getVisitedCount(term)),
   getFaveCount: term => dispatch(getFaveCount(term)),
   getAlbumPhotos: (id, location) => dispatch(getAlbumPhotos(id, location)),
-  getAlbumPhotos: (id, location) => dispatch(getAlbumPhotos(id, location)),
   getBlogsByLocation: (id, location) =>
     dispatch(getBlogsByLocation(id, location))
 });

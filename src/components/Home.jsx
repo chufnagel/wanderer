@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
 import { Blogs } from "./WrappedContainers";
@@ -44,7 +43,7 @@ class Home extends Component {
     const { userInfo } = this.props;
     const { uploaderActive, blogFormActive } = this.state;
     return (
-      <div>
+      <div style={{ marginLeft: "130px", textAlign: "center" }}>
         <Typography variant="display1">
           Welcome, <strong>{userInfo.name}</strong>!
         </Typography>
@@ -74,11 +73,11 @@ class Home extends Component {
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
         {blogFormActive === true ? <BlogForm /> : null}
-        <Typography variant="headline">recentBlogs</Typography>
+        <Typography variant="headline">Recent Blogs</Typography>
         <Blogs />
         <Typography variant="headline">
-          {"recentPhotos"}
-          <PhotosContainer />
+          Recent Photos
+          {/* <PhotosContainer /> */}
         </Typography>
         <br />
       </div>
