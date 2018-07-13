@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
+import { withTheme } from "@material-ui/core/styles";
 import { Blogs } from "./WrappedContainers";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
 import PhotosContainer from "../containers/PhotosContainer";
@@ -44,7 +45,7 @@ class Home extends Component {
     const { uploaderActive, blogFormActive } = this.state;
     return (
       <div style={{ marginLeft: "130px", textAlign: "center" }}>
-        <Typography variant="display1">
+        <Typography variant="display2">
           Welcome, <strong>{userInfo.name}</strong>!
         </Typography>
         <Button
@@ -62,7 +63,7 @@ class Home extends Component {
           variant="contained"
           name="blogFormActive"
           value={blogFormActive}
-          color="primary"
+          color="default"
           onClick={this.toggleForm}
         >
           write
@@ -73,12 +74,8 @@ class Home extends Component {
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
         {blogFormActive === true ? <BlogForm /> : null}
-        <Typography variant="headline">Recent Blogs</Typography>
-        <Blogs />
-        <Typography variant="headline">
-          Recent Photos
-          {/* <PhotosContainer /> */}
-        </Typography>
+        <center><Blogs /></center>
+        <PhotosContainer />
         <br />
       </div>
     );
@@ -97,4 +94,4 @@ Home.propTypes = {
   // faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default Home;
+export default withTheme()(Home);

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import Tooltip from "@material-ui/core/Tooltip";
+import { withTheme } from "@material-ui/core/styles";
 import chroma from "chroma-js";
 import continents from "./continents";
 import { LOCATION_PROFILE } from "../../constants";
@@ -137,4 +138,4 @@ GlobalMap.propTypes = {
   friendsId: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
-export default GlobalMap;
+export default withTheme()(GlobalMap);

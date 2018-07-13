@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import { withStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
+import { withTheme } from "@material-ui/core/styles";
 
 const styles = {
   card: {
@@ -45,4 +46,4 @@ PointsOfInterest.propTypes = {
   classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styles)(PointsOfInterest);
+export default withTheme()(withStyles(styles)(PointsOfInterest));

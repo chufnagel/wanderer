@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Drawer from "@material-ui/core/Drawer";
+import { withTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import List from "@material-ui/core/List";
@@ -10,15 +11,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import SearchContainer from "../../containers/SearchContainer";
 import ProfilePhotoContainer from "../../containers/ProfilePhotoContainer";
 import { HOME, OTHER, USER_PROFILE } from "../../constants";
-
-const styles = {
-  width: "130px",
-  position: "fixed",
-  zIndex: 1,
-  top: "200px",
-  left: "10px",
-  background: "#d0c2e"
-};
 
 const Sidebar = ({
   headerSetting,
@@ -31,7 +23,7 @@ const Sidebar = ({
   userId,
   friendsId
 }) => (
-  <div styles={{ styles }}>
+  <div>
     {headerSetting === OTHER ? null : (
       <Drawer
         variant="permanent"
@@ -98,20 +90,15 @@ const Sidebar = ({
             <Button
               component={Link}
               to="/"
+              variant="contained"
               style={{ textDecoration: "none" }}
               label="sign-out"
-              type="submit"
-              size="small"
-              variant="outlined"
-              color="default"
+              color="secondary"
               onClick={() => {
                 setHeader(OTHER);
                 changeSelectedLocation(null);
               }}
-            >
-              <center>
-                <ListItemText primary="   Sign out" />
-              </center>
+            >Sign out
             </Button>
           </center>
           <br />
@@ -137,4 +124,4 @@ Sidebar.propTypes = {
   getAlbumPhotos: PropTypes.func.isRequired
 };
 
-export default Sidebar;
+export default withTheme()(Sidebar);

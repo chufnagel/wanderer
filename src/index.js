@@ -2,17 +2,65 @@ import React from "react";
 import { render } from "react-dom";
 import { Provider } from "react-redux";
 import { HashRouter, BrowserRouter, Route } from "react-router-dom";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 import App from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
+
+const theme = createMuiTheme({
+  palette: {
+    common: {
+      type: "dark"
+    },
+    primary: {
+      main: "#9575cd",
+      light: "#c7a4ff",
+      dark: "#65499c",
+      contrastText: "#fff"
+    },
+    secondary: {
+      main: "#80deea",
+      light: "#88ffff",
+      dark: "#26c6da",
+      contrastText: "#000"
+    },
+    text: {
+      primary: "rgba(255, 255, 255, 0.87)",
+      secondaryTextColor: "#9575cd",
+    },
+    background: {
+      paper: "#76688C"
+    }
+  },
+  card: {
+    titleColor: "#b39ddb",
+    subtitleColor: "rgba(255, 255, 255, 0.87)"
+  },
+  typography: {
+    fontFamily: "Roboto, sans-serif",
+    display1: {
+      color: "#fff"
+    }
+  },
+  button: {
+    color: "#547E84"
+  },
+  zIndex: {
+    drawer: 1200,
+    modal: 1300,
+    tooltip: 1500
+  }
+});
 
 /* global document */
 
 render(
   <Provider store={store}>
     <HashRouter>
-      <Route component={App} />
+      <MuiThemeProvider theme={theme}>
+        <Route component={App} />
+      </MuiThemeProvider>
     </HashRouter>
   </Provider>,
   document.getElementById("root")
