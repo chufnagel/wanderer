@@ -248,7 +248,7 @@ router.post("/create", (req, res) => {
 router.get("/mediaByUserId", async (req, res, next) => {
   try {
     const location_name = req.query.location;
-    console.log("location_name", location_name)
+    console.log("location_name", location_name);
     let country_id = null;
 
     if (location_name !== undefined) {
@@ -269,19 +269,22 @@ router.get("/mediaByUserId", async (req, res, next) => {
 router.post("/createAlbum", async (req, res, next) => {
   const file = req.files.file;
   const userId = req.body.user_id;
-  let location = req.body.location;
+  const location = req.body.location;
 
   // placeholder
-  location = "Russia";
+  console.log("createalbum location", location);
 
   try {
     const country_id = await Destinations.getCountryIdByName(location);
-
     const imageinfo = await axios.post(`${ec2path}/createAlbum`, {
       file
     });
 
-    Media.addMediaByUserIdAndCountryId(userId, country_id, imageinfo.data);
+    Media.addMediaByUserIdAndCountryId(
+      userId,
+      country_id[0].country_id,
+      imageinfo.data
+    );
 
     res.status(200).send(country_id);
   } catch (err) {

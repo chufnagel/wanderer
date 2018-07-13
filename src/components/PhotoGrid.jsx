@@ -22,11 +22,11 @@ const methods = {
 
 const PhotoGrid = ({ albumPhotos }) => {
   return (
-    <div>
-      <GridList cellHeight={160} className="photo" cols={3}>
+    <div marginLeft="130px">
+      <GridList cellHeight={300} width="100px" className="photo" cols={3} flexWrap="wrap row" marginLeft="130px">
         {albumPhotos.map(photo => {
           return (
-            <GridListTile cols={1}>
+            <GridListTile cols={1} flexWrap="wrap row" marginLeft="130px">
               <img
                 src={photo.image_url}
                 alt={photo.image_url}
