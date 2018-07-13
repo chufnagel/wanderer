@@ -16,18 +16,6 @@ const styles = {
   }
 };
 
-// can eventually add blog media, user avatar, etc.
-const BlogList = ({ blogs }) => {
-  return blogs.blogs.map(blog => (
-    <Card key={blog.blog_id} style={styles}>
-      <CardHeader title={blog.title} />
-      <CardContent>
-        <Typography paragraph>{blog.content}</Typography>
-      </CardContent>
-    </Card>
-  ));
-};
-
 const BlogList = ({ blogs, classes }) => {
   return (
     <div>
