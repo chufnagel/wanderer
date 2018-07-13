@@ -2,6 +2,9 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
+const ManifestPlugin = require("webpack-manifest-plugin");
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+// const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 const SRC_DIR = path.resolve(__dirname, "src");
 const DIST_DIR = path.resolve(__dirname, "dist");
@@ -17,9 +20,9 @@ module.exports = env => {
   // const isProduction = env === "production";
 
   return {
-    devtool: "source-map",
+    // devtool: "cheap-module-eval-source-map",
     entry: `${SRC_DIR}/index.js`,
-    mode: "development",
+    mode: "production",
     output: {
       path: DIST_DIR,
       filename: "index.js",
@@ -36,7 +39,7 @@ module.exports = env => {
       },
       namedModules: true,
       namedChunks: true,
-      minimize: true
+      minimize: true,
     },
     module: {
       rules: [
@@ -73,16 +76,27 @@ module.exports = env => {
           ]
         },
         {
-          test: /\.(png|jpe?g|gif)$/,
+          // test: /\.(png|jpe?g|gif)$/,
+          test: /\.(png|jpe?g|gif||otf|ttf|woff|woff2)$/,
           loader: "url-loader?limit=8000&name=images/[name].[ext]"
         }
       ]
     },
     plugins: [
+      // new CleanWebpackPlugin(`${DIST_DIR}`),
+      new FaviconsWebpackPlugin(`${SRC_DIR}/favicon.ico`),
       new HtmlWebpackPlugin({
+        title: "Wanderer",
+        favicon: `${SRC_DIR}/favicon.ico`,
+        filename: "favicon.html",
         template: `${SRC_DIR}/index.html`,
         filename: "index.html",
+        // inject: false
         inject: "body"
+      }),
+      new ManifestPlugin({
+        fileName: "asset-manifest.json",
+        basePath: `${DIST_DIR}`,
       }),
       new webpack.DefinePlugin({
         "process.env.FIREBASE_API_KEY": JSON.stringify(
@@ -105,6 +119,5 @@ module.exports = env => {
         )
       })
     ]
-    // devtool: isProduction ? "source-map" : "inline-source-map"
   };
 };
