@@ -141,8 +141,9 @@ router.post("/signup", async (req, res, next) => {
 
 // addBlog
 router.post("/blogs", async (req, res, next) => {
+  console.log("req blogs", req.body)
   try {
-    const newBlog = await Blog.addNewBlog(req.body);
+    const newBlog = await Blog.addNewBlog(req.body.title, req.body.contents, req.body.userId);
     res.status(200).send(newBlog);
   } catch (err) {
     console.error(err);
@@ -162,7 +163,8 @@ router.get("/blogs", async (req, res, next) => {
 });
 
 // retrieveBlogsByUserId
-router.get("/blogsByUserId", async (req, res, next) => {
+router.get("/blogsByLocation", async (req, res, next) => {
+  console.log("blogsBylocation req query", req.query)
   try {
     const location_name = req.query.location;
     let country_id = null;
@@ -171,6 +173,7 @@ router.get("/blogsByUserId", async (req, res, next) => {
       country_id = await Destinations.getCountryIdByName(location_name);
     }
 
+    console.log("country_id", country_id)
     const blogs = await Blog.retrieveBlogsByUserId(
       req.query.userId,
       country_id

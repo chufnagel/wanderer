@@ -34,7 +34,7 @@ exports.up = (knex, Promise) =>
     knex.schema.createTable("blogs", table => {
       table.increments("blog_id").primary();
       table.string("title");
-      table.string("content", 10000);
+      table.string("contents", 10000);
       table.timestamp("timestamp");
       table.integer("user_id");
       table.integer("country_id");

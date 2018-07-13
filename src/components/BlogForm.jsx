@@ -6,12 +6,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import axios from "axios"
 
 class BlogForm extends Component {
   state = {
     open: false,
     title: "",
-    content: ""
+    contents: ""
   };
 
   handleClickOpen = () => {
@@ -48,6 +49,11 @@ class BlogForm extends Component {
               label="title"
               type="text"
               fullWidth
+              onChange={(text) => {
+                this.setState({
+                  title: text.target.value
+                })
+              }}
             />
             <TextField
               autoFocus
@@ -56,6 +62,11 @@ class BlogForm extends Component {
               label="content"
               type="text"
               fullWidth
+              onChange={(text) => {
+                this.setState({
+                  contents: text.target.value
+                })
+              }}
             />
           </DialogContent>
           <DialogActions>
@@ -63,9 +74,13 @@ class BlogForm extends Component {
               Cancel
             </Button>
             <Button
-              onClick={() =>
-                this.props.addBlog(this.state.title, this.state.content)
-              }
+              onClick={() => {
+                axios.post("/blogs", {
+                  title: this.state.title,
+                  contents: this.state.contents,
+                  userId: 1
+                })
+              }}
               color="primary"
             >
               {"Submit Blog"}
