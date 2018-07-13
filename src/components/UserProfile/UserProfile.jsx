@@ -16,9 +16,9 @@ const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
   // console.log("headerSetting", headerSetting);
   return (
     <div>
-      <h2>
+      <Typography variant="display2">
         {headerSetting === "HOME" ? userInfo.username : friendInfo.username}
-      </h2>
+      </Typography>
       {/* <img
         src={profilePhoto}
         alt={headerSetting === "HOME" ? userInfo.username : friendInfo.username}

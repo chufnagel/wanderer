@@ -1,6 +1,7 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { withTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
 import Home from "../containers/HomeContainer";
@@ -21,15 +22,15 @@ import {
   PhotoUploader
 } from "./WrappedContainers";
 
-const styles = {
-  display: "relative",
-  flexWrap: "wrap row",
-  justifyContent: "center",
-  backgroundSize: "100%"
-};
+// const styles = {
+//   display: "relative",
+//   flexWrap: "wrap row",
+//   justifyContent: "center",
+//   backgroundSize: "100%"
+// };
 
 const App = () => (
-  <div className="app" style={styles}>
+  <div className="app">
     <center>
       <Typography variant="display3"><strong>Wanderer</strong></Typography>
       <br />
@@ -56,4 +57,4 @@ const App = () => (
   </div>
 );
 
-export default hot(module)(App);
+export default withTheme()(hot(module)(App));
