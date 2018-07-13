@@ -24,7 +24,8 @@ const store = createStore(
     // countries: CountriesAll,
     location: "",
     friends: [],
-    blogs: [
+    blogs: {
+      blogs: [
       {
         blogId: 1,
         title: "WELCOME TO NIHON",
@@ -41,6 +42,11 @@ const store = createStore(
         userId: 1
       }
     ],
+    loading: false,
+    successful: false,
+    messages: [],
+    errors: []
+  },
     // photos,
     friendInfo: {
       bio: "I am a former data scientist",
