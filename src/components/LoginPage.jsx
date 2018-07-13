@@ -16,7 +16,7 @@ const LoginPage = ({
   getUserInfo,
   setHeader,
   getBlogs,
-  userId,
+  friendsId,
   getAlbumPhotos
 }) => {
   return (
@@ -33,7 +33,7 @@ const LoginPage = ({
             changeUserId(1);
             setHeader(HOME);
             getBlogs();
-            getAlbumPhotos([1], null);
+            getAlbumPhotos(friendsId.concat(1), null);
           }}
         >
           Sign<br />in

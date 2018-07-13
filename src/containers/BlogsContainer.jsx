@@ -6,16 +6,16 @@ import { getBlogs } from "../actions";
 import { getBlogsState } from "../selectors";
 
 
-const mapStateToProps = state => {
-  return {
-    blogs: getBlogsState(state)
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     blogs: getBlogsState(state)
+//   }
+// }
 
-// const mapStateToProps = state => ({
-//   blogs: state.blogs,
-//   loading: false
-// });
+const mapStateToProps = state => ({
+  blogs: state.blogs,
+  loading: false
+});
 
 const mapDispatchToProps = dispatch => ({
   getBlogs: () => {

@@ -20,7 +20,9 @@ const Sidebar = ({
   setHeader,
   getFriendsList,
   changeSelectedLocation,
-  getAlbumPhotos
+  getAlbumPhotos,
+  userId,
+  friendsId
 }) => (
   <div>
     {headerSetting === OTHER ? null : (
@@ -43,7 +45,13 @@ const Sidebar = ({
           <br />
           <ListItem button>
             <Link to="/home" style={linkStyles}>
-              <ListItemText primary="Home" onClick={() => setHeader(HOME)} />
+              <ListItemText
+                primary="Home"
+                onClick={() => {
+                  setHeader(HOME);
+                  getAlbumPhotos(friendsId.concat(userId));
+                }}
+              />
             </Link>
           </ListItem>
           <ListItem button>

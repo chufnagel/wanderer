@@ -8,6 +8,7 @@ import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import CreateIcon from "@material-ui/icons/Create";
 import { Blogs } from "./WrappedContainers";
 import PhotoUploaderContainer from "../containers/PhotoUploaderContainer";
+import PhotosContainer from "../containers/PhotosContainer";
 import BlogForm from "./BlogForm";
 
 const linkStyles = {
@@ -72,11 +73,12 @@ class Home extends Component {
         <br />
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
-        {blogFormActive === true ?
-          <BlogForm /> : null }
-        <Typography variant="headline">{"recentBlogs"}</Typography>
+        {blogFormActive === true ? <BlogForm /> : null}
+        <Typography variant="headline">recentBlogs</Typography>
         <Blogs />
-        <Typography variant="headline">{"recentPhotos"}
+        <Typography variant="headline">
+          {"recentPhotos"}
+          <PhotosContainer />
         </Typography>
         <br />
       </div>

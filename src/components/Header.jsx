@@ -17,13 +17,19 @@ const headerStyles = {
   flexWrap: "nowrap"
 };
 
-const Header = ({ headerSetting }) => (
+const Header = ({ headerSetting, getAlbumPhotos, userId, friendsId }) => (
   <header>
     <center>
       {settings.OTHER === headerSetting ? null : null}
       {settings.HOME === headerSetting ? (
         <span style={headerStyles}>
-          <Link to="/home" style={linkStyles}>
+          <Link
+            to="/home"
+            style={linkStyles}
+            onClick={() => {
+              getAlbumPhotos(friendsId.concat(userId), null);
+            }}
+          >
             <Typography>dashboard</Typography>
           </Link>
           <span> | </span>
