@@ -8,6 +8,7 @@ import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
 
 /* global document */
+
 render(
   <Provider store={store}>
     <HashRouter>
