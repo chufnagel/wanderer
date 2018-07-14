@@ -3,6 +3,7 @@ import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { withTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Home from "../containers/HomeContainer";
 import Header from "../containers/HeaderContainer";
