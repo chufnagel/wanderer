@@ -5,18 +5,23 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build && node server/index.js",
-    "build": "webpack",
-    "build-watch": "webpack -w -d",
+    "prebuild": "rimraf dist/",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress",
+    "dev-watch": "cross-env NODE_ENV=development config/webpack.dev.js -w -d",
     "start-watch": "nodemon server/index.js",
-    "dev": "concurrently --kill-others \"npm run start-watch\" \"npm run build-watch\"",
-    "test-arch": "cross-env NODE_ENV=test jest --config=jest.config.json",
+    "dev": "npm run prebuild; concurrently --kill-others \"npm:*-watch\"",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "selenium-setup": "selenium-standalone install",
     "selenium-start": "selenium-standalone start",
     "e2etests": "wdio wdio.conf.js",
-    "e2etests-watch": "wdio wdio.conf.js --watch",
-    "lint": "eslint src",
+    "e2etests-start": "wdio wdio.conf.js --watch",
+    "test": "jest -c jest.config.js",
+    "test-update": "npm run test",
+    "test-watch": "npm run test -- -u",
+    "test-coverage": "npm run test --coverage",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "heroku-postbuild": "webpack"
   },
   "repository": {
@@ -30,15 +35,22 @@
   },
   "homepage": "https://github.com/CoolStuffIncorporated/thesis#readme",
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-react-constant-elements": "^7.0.0",
+    "@babel/plugin-transform-react-inline-elements": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.1.5",
     "autoprefixer": "^8.6.4",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^8.2.5",
     "babel-jest": "^23.0.1",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-react-inline-elements": "^6.22.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "babel-loader": "^8.0.4",
     "chai": "^4.1.2",
-    "clean-webpack-plugin": "^0.1.19",
     "concurrently": "^3.6.0",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
@@ -51,12 +63,17 @@
     "eslint-plugin-react": "^7.10.0",
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^1.1.11",
-    "ghooks": "^2.0.4",
     "html-webpack-plugin": "^3.2.0",
+    "husky": "^1.2.0",
+    "imagemin": "^6.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "img-loader": "^3.0.1",
     "jest": "^23.1.0",
     "nodemon": "^1.17.5",
     "prettier": "^1.13.5",
     "redux-mock-store": "^1.5.3",
+    "rimraf": "^2.6.2",
     "selenium-standalone": "^6.15.1",
     "style-loader": "^0.21.0",
     "url-loader": "^1.0.1",
@@ -64,14 +81,15 @@
     "webdriverio": "^4.13.1",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
-    "webpack-manifest-plugin": "^2.0.3"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-manifest-plugin": "^2.0.3",
+    "webpack-merge": "^4.1.4",
+    "workbox-webpack-plugin": "^3.6.3"
   },
   "dependencies": {
     "@material-ui/core": "^1.2.3",
     "@material-ui/icons": "^1.1.0",
     "axios": "^0.18.0",
-    "babel-eslint": "^8.2.5",
-    "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "body-parser": "^1.18.3",
     "busboy": "^0.2.14",
     "busboy-body-parser": "^0.3.2",
@@ -88,7 +106,6 @@
     "enzyme-to-json": "^3.3.4",
     "express": "^4.16.3",
     "fetch-mock": "^6.4.4",
-    "firebase": "^5.2.0",
     "formik": "^1.0.0-beta.9",
     "knex": "^0.15.0",
     "morgan": "^1.9.0",
@@ -111,13 +128,15 @@
     "reselect": "^3.0.1"
   },
   "engines": {
-    "node": "10.5.0",
-    "npm": "6.1.0"
+    "node": "11.2.0",
+    "npm": "6.4.1"
   },
   "config": {
-    "ghooks": {
+    "husky": {
       "post-merge": "npm install",
-      "post-rewrite": "npm install"
+      "post-rewrite": "npm install",
+      "pre-commit": "npm run lint:fix",
+      "pre-push": "npm test"
     }
   }
 }

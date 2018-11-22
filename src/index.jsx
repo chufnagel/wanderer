@@ -5,7 +5,6 @@ import { HashRouter, BrowserRouter, Route } from "react-router-dom";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 
 import App from "./components/App";
-import registerServiceWorker from "./registerServiceWorker";
 import store from "./store";
 
 const theme = createMuiTheme({
@@ -53,7 +52,22 @@ const theme = createMuiTheme({
   }
 });
 
-/* global document */
+/* global document, window, navigator */
+
+if (process.env.NODE_ENV === "production") {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/sw.js")
+        .then(registration => {
+          console.log("SW registered: ", registration);
+        })
+        .catch(registrationError => {
+          console.log("SW registration failed: ", registrationError);
+        });
+    });
+  }
+}
 
 render(
   <Provider store={store}>
@@ -65,8 +79,6 @@ render(
   </Provider>,
   document.getElementById("root")
 );
-
-registerServiceWorker();
 
 // Hot Module Replacement
 if (module.hot) {

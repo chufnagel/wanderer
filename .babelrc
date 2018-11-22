@@ -1,10 +1,72 @@
 {
-  "presets": [
-    "react",
-    "stage-2"
-  ],
-  "plugins": [
-    "transform-react-constant-elements",
-    "transform-react-inline-elements"
-  ]
-}
+  "env": {
+      "production": {
+        "presets": [
+          ["@babel/preset-react"],
+          [
+            "@babel/preset-env",
+            {
+              "debug": false,
+              "targets": {
+                "browsers": [
+                  "last 3 versions"
+                ]
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          "@babel/plugin-transform-runtime",
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-proposal-object-rest-spread",
+          "@babel/plugin-syntax-dynamic-import",
+          "@babel/plugin-transform-react-inline-elements",
+          "@babel/transform-react-constant-elements"
+        ]
+      },
+      "development": {
+        "presets": [
+          ["@babel/preset-react"],
+          [
+            "@babel/preset-env",
+            {
+              "debug": false,
+              "targets": {
+                "browsers": [
+                  "last 3 versions"
+                ]
+              }
+            }
+          ]
+        ],
+        "plugins": [
+          "@babel/plugin-transform-runtime",
+          "react-hot-loader/babel",
+          "@babel/plugin-proposal-class-properties",
+          "@babel/plugin-proposal-object-rest-spread",
+          "@babel/plugin-syntax-dynamic-import"
+        ]
+      }
+    },
+    "plugins": [
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-transform-react-inline-elements"
+    ],
+    "presets": [
+      ["@babel/preset-react"],
+      [
+        "@babel/preset-env",
+        {
+          "debug": false,
+          "targets": {
+            "browsers": [
+              "last 3 versions"
+            ]
+          }
+        }
+      ]
+    ]
+  }

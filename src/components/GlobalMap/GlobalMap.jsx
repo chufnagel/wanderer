@@ -7,6 +7,7 @@ import { withTheme } from "@material-ui/core/styles";
 import chroma from "chroma-js";
 import continents from "./continents";
 import { LOCATION_PROFILE } from "../../constants";
+import geographyJson from "../../world-1.json";
 
 const continentColors = [
   chroma("F4C8D9"), // queen pink // Asia
@@ -37,11 +38,14 @@ class GlobalMap extends PureComponent {
       <div
         className="global-map"
         style={{
+          display: "flex",
+          alignContent: "center",
+          flexDirection: "row",
           width: "100%",
           maxWidth: 1000,
           marginLeft: "130px",
           margin: "auto",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         <ComposableMap
@@ -56,7 +60,7 @@ class GlobalMap extends PureComponent {
             height: "auto"
           }}
         >
-          <Geographies geography="world-1.json">
+          <Geographies geography={geographyJson}>
             {(geographies, projection) =>
               geographies.map(geography => (
                 <Tooltip
