@@ -40,6 +40,10 @@
     "react/require-default-props": "warn",
     "react/no-array-index-key": "warn",
     "react/no-access-state-in-setstate": "warn",
-    "react/jsx-key": "warn"
+    "react/jsx-key": "warn",
+    "consistent-return": "warn",
+    "global-require": "warn",
+    "no-param-reassign": "warn",
+    "import/order": "warn"
   }
 }
