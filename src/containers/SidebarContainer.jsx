@@ -1,21 +1,31 @@
 import { connect } from "react-redux";
 import Sidebar from "../components/Sidebar/Sidebar";
-import { setHeader, getFriendsList, changeSelectedLocation } from "../actions"
+import {
+  setHeader,
+  getFriendsList,
+  changeSelectedLocation,
+  getAlbumPhotos,
+  getBlogsByLocation,
+} from "../actions";
 
 const mapStateToProps = state => {
   return {
     headerSetting: state.headerSetting,
-    userInfo: state.userInfo
+    userInfo: state.userInfo,
+    userId: state.userId,
+    friendsId: state.friendsId,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
   setHeader: term => dispatch(setHeader(term)),
   changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
-  getFriendsList: id => dispatch(getFriendsList(id))
+  getFriendsList: id => dispatch(getFriendsList(id)),
+  getAlbumPhotos: id => dispatch(getAlbumPhotos(id)),
+  getBlogsByLocation: id => dispatch(getBlogsByLocation(id)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Sidebar);

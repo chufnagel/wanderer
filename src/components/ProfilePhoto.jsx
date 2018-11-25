@@ -13,16 +13,11 @@ const handleUploadFile = (event, userId, updateProfilePhoto) => {
     axios
       .get("/retrieve", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(photo => {
-        const image = String.fromCharCode.apply(
-          null,
-          new Uint16Array(photo.data.Body.data)
-        );
-
-        updateProfilePhoto(`data:image/png;base64,${image}`);
+        updateProfilePhoto(photo.data[0].image_url);
       });
   });
 };
@@ -47,7 +42,7 @@ ProfilePhoto.propTypes = {
   // photos: PropTypes.arrayOf(PropTypes.object)
   userId: PropTypes.number.isRequired,
   updateProfilePhoto: PropTypes.func.isRequired,
-  profilePhoto: PropTypes.string.isRequired
+  profilePhoto: PropTypes.string.isRequired,
 };
 
 export default ProfilePhoto;

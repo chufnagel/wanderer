@@ -1,8 +1,6 @@
 export const GET_BLOGS_REQUEST = "GET_BLOGS_REQUEST";
 export const GET_BLOGS_SUCCESS = "GET_BLOGS_SUCCESS";
 export const GET_BLOGS_FAILURE = "GET_BLOGS_FAILURE";
-export const GET_OWN_BLOGS = "GET_OWN_BLOGS"; // not yet needed
-export const GET_BLOGS_BY_USER_ID = "GET_BLOGS_BY_USER_ID";
 
 export const BLOG_CREATING = "BLOG_CREATING";
 export const BLOG_CREATE_SUCCESS = "BLOG_CREATE_SUCCESS";
@@ -43,3 +41,13 @@ export const SET_HEADER = "SET_HEADER";
 export const RCV_ERROR = "RCV_ERROR";
 export const ADD_ERROR = "ADD_ERROR";
 export const CLEAR_ERROR = "CLEAR_ERROR";
+
+export const AUTH_START = "AUTH_START";
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAIL = "AUTH_FAIL";
+export const AUTH_INITIATE_LOGOUT = "AUTH_INITIATE_LOGOUT";
+export const AUTH_LOGOUT = "AUTH_LOGOUT";
+export const AUTH_CHECK_TIMEOUT = "AUTH_CHECK_TIMEOUT";
+export const AUTH_USER = "AUTH_USER";
+export const SET_AUTH_REDIRECT_PATH = "SET_AUTH_REDIRECT_PATH";
+export const AUTH_CHECK_STATE = "AUTH_CHECK_STATE";

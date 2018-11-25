@@ -1,7 +1,7 @@
 const chalk = require("chalk");
 
 // chalk logging
-const log = console.log;
+const { log } = console;
 const chalkSuccess = chalk.bold.green.bgWhite;
 const chalkError = chalk.bold.red.bgBlack;
 const chalkWarning = chalk.underline.orange;
@@ -12,5 +12,5 @@ module.exports = {
   chalkSuccess,
   chalkError,
   chalkWarning,
-  chalkInfo
+  chalkInfo,
 };

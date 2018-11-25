@@ -3,9 +3,11 @@ export {
   getBlogsRequest,
   getBlogsSuccess,
   getBlogsFailure,
+  getBlogsByUser,
+  getBlogsByLocation,
   blogCreate,
   blogCreateSuccess,
-  blogCreateError
+  blogCreateError,
 } from "./blogs";
 export {
   addFaveDestinationSuccess,
@@ -15,27 +17,18 @@ export {
   addVisitedDestinationSuccess,
   addVisitedDestination,
   getVisitedDestinationsSuccess,
-  getVisitedDestinations
+  getVisitedDestinations,
 } from "./destinations";
 export {
   getFriendInfoRequest,
   getFriendInfoSuccess,
   getFriendInfoFailure,
-  getFriendInfo
+  getFriendInfo,
 } from "./friendInfo";
-export {
-  getFriendsListSuccess,
-  getFriendsListFailure,
-  getFriendsList
-} from "./friendsList";
+export { getFriendsListSuccess, getFriendsListFailure, getFriendsList } from "./friendsList";
 export { setHeader } from "./header";
 export { changeSelectedLocation } from "./location";
-export {
-  updateAlbumPhotos,
-  updateProfilePhoto,
-  updatePhotoOne,
-  getAlbumPhotos
-} from "./photos";
+export { updateAlbumPhotos, updateProfilePhoto, updatePhotoOne, getAlbumPhotos } from "./photos";
 export {
   getPointsOfInterest,
   getPointsOfInterestSuccess,
@@ -46,12 +39,23 @@ export {
   getVisitedCount,
   getVisitedCountSuccess,
   getFaveCount,
-  getFaveCountSuccess
+  getFaveCountSuccess,
 } from "./search";
 export { changeUserId, changeFriendsId } from "./userId";
 export {
   getUserInfoRequest,
   getUserInfoSuccess,
   getUserInfoFailure,
-  getUserInfo
+  getUserInfo,
 } from "./userInfo";
+export {
+  authStart,
+  authSuccess,
+  authFail,
+  logout,
+  logoutSucceed,
+  checkAuthTimeout,
+  auth,
+  setAuthRedirectPath,
+  authCheckState,
+} from "./auth";

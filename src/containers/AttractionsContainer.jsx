@@ -4,7 +4,7 @@ import Attractions from "../components/LocationProfile/Attractions";
 const mapStateToProps = state => {
   return {
     location: state.location,
-    attractions: state.attractions
+    attractions: state.attractions,
   };
 };
 

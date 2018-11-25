@@ -7,23 +7,29 @@ import * as settings from "../constants";
 // The Header creates links that can be used to navigate
 // between routes.
 const linkStyles = {
-  textDecoration: "none"
+  textDecoration: "none",
 };
 
 const headerStyles = {
   width: 400,
   display: "flex",
   justifyContent: "space-between",
-  flexWrap: "nowrap"
+  flexWrap: "nowrap",
 };
 
-const Header = ({ headerSetting }) => (
+const Header = ({ headerSetting, getAlbumPhotos, userId, friendsId }) => (
   <header>
     <center>
       {settings.OTHER === headerSetting ? null : null}
       {settings.HOME === headerSetting ? (
         <span style={headerStyles}>
-          <Link to="/home" style={linkStyles}>
+          <Link
+            to="/home"
+            style={linkStyles}
+            onClick={() => {
+              getAlbumPhotos(friendsId.concat(userId), null);
+            }}
+          >
             <Typography>dashboard</Typography>
           </Link>
           <span> | </span>
@@ -84,7 +90,7 @@ const Header = ({ headerSetting }) => (
 );
 
 Header.propTypes = {
-  headerSetting: PropTypes.string.isRequired
+  headerSetting: PropTypes.string.isRequired,
 };
 
 export default Header;

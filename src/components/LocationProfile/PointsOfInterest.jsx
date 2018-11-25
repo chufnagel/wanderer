@@ -1,19 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Typography from "@material-ui/core/Typography";
+import { withStyles, withTheme } from "@material-ui/core/styles";
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
-const PointsOfInterest = ({ pointsOfInterest, location }) => {
+const styles = {
+  card: {
+    maxWidth: 500,
+    marginBottom: 12,
+  },
+};
+
+const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
   const sorted = pointsOfInterest.sort((a, b) => {
     return b.rating - a.rating;
   });
   return (
     <div className="points-of-interest-section">
-      <h2>Top Places To Visit In {location}:</h2>
+      <Typography variant="h4" gutterBottom>
+        Top Places To Visit In {location}:
+      </Typography>
+
       {sorted.map(place => (
-        <div className="point-of-interest" key={place.id}>
-          <h3>{place.name}</h3>
-          <p>Address: {place.formatted_address}</p>
-          <p>Rating: {place.rating}</p>
-        </div>
+        <Card className={classes.card} key={place.id}>
+          <CardContent>
+            <Typography variant="h6" component="h3">
+              {place.name}
+            </Typography>
+            <Typography component="p">Address: {place.formatted_address}</Typography>
+            <Typography component="p">Rating: {place.rating}</Typography>
+          </CardContent>
+        </Card>
       ))}
     </div>
   );
@@ -21,7 +39,8 @@ const PointsOfInterest = ({ pointsOfInterest, location }) => {
 
 PointsOfInterest.propTypes = {
   location: PropTypes.string.isRequired,
-  pointsOfInterest: PropTypes.arrayOf(PropTypes.object).isRequired
+  pointsOfInterest: PropTypes.arrayOf(PropTypes.object).isRequired,
+  classes: PropTypes.object.isRequired,
 };
 
-export default PointsOfInterest;
+export default withTheme()(withStyles(styles)(PointsOfInterest));

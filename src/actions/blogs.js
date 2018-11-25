@@ -5,59 +5,105 @@ import {
   GET_BLOGS_FAILURE,
   BLOG_CREATING,
   BLOG_CREATE_SUCCESS,
-  BLOG_CREATE_ERROR
+  BLOG_CREATE_ERROR,
 } from "./types";
-
-// all logic in action creators and/or utility functions used by action creators!
 
 // export const blogCreate = (client, blog) => {
 export const blogCreate = (userInfo, blog) => {
   return {
     type: BLOG_CREATING,
     userInfo,
-    blog
+    blog,
   };
 };
 
 export const blogCreateSuccess = blog => {
   return {
     type: BLOG_CREATE_SUCCESS,
-    blog
+    blog,
   };
 };
 
 export const blogCreateError = error => {
   return {
     type: BLOG_CREATE_ERROR,
-    error
+    error,
   };
 };
 
 export const getBlogsRequest = () => {
   return {
-    type: GET_BLOGS_REQUEST
+    type: GET_BLOGS_REQUEST,
   };
 };
 
 export const getBlogsSuccess = blogs => {
   return {
     type: GET_BLOGS_SUCCESS,
-    blogs
+    blogs,
   };
 };
 
 export const getBlogsFailure = error => {
   return {
     type: GET_BLOGS_FAILURE,
-    error
+    error,
   };
 };
 
-export const getBlogs = () => {
+export const getBlogs = userIds => {
   return dispatch => {
     dispatch(getBlogsRequest());
     return axios
       .get("/blogs")
+      .then(res => {
+        // console.log(res);
+        const blogs = res.data.map(blog => {
+          return blog;
+        });
+        dispatch(getBlogsSuccess(blogs));
+      })
+      .catch(err => {
+        // console.log(err);
+        dispatch(getBlogsFailure(err));
+      });
+  };
+};
+
+export const getBlogsByUser = () => {
+  return dispatch => {
+    dispatch(getBlogsRequest());
+    return axios
+      .get("/blogs", {
+        params: {
+          userId,
+        },
+      })
+      .then(res => {
+        // console.log(res);
+        const blogs = res.data.map(blog => {
+          return blog;
+        });
+        dispatch(getBlogsSuccess(blogs));
+      })
+      .catch(err => {
+        // console.log(err);
+        dispatch(getBlogsFailure(err));
+      });
+  };
+};
+
+export const getBlogsByLocation = (userId, location) => {
+  console.log("location", location);
+  return dispatch => {
+    dispatch(getBlogsRequest());
+    return axios
+      .get("/blogsByLocation", {
+        params: {
+          userId,
+          location,
+        },
+      })
       .then(res => {
         // console.log(res);
         const blogs = res.data.map(blog => {

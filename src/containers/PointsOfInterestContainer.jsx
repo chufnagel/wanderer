@@ -4,7 +4,7 @@ import PointsOfInterest from "../components/LocationProfile/PointsOfInterest";
 const mapStateToProps = state => {
   return {
     location: state.location,
-    pointsOfInterest: state.pointsOfInterest
+    pointsOfInterest: state.pointsOfInterest,
   };
 };
 

@@ -5,7 +5,8 @@ import App from "../../components/App";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import GlobalMap from "../../components/GlobalMap/GlobalMap";
 import Header from "../../components/Header";
-import Main from "../../components/Main";
+const dotenv = require("dotenv");
+dotenv.config();
 
 // // keep snapshot commented during App development
 // test("App matches snapshot", () => {
@@ -21,16 +22,13 @@ describe("App", () => {
   test("App renders without crashing", () => {
     expect(wrapper.exists()).toEqual(true);
   });
-  test("Should render the GlobalMap component", () => {
-    expect(wrapper.containsMatchingElement(<GlobalMap />)).toEqual(true);
-  });
-  test("Should render the Sidebar component", () => {
-    expect(wrapper.containsMatchingElement(<Sidebar />)).toEqual(true);
-  });
-  test("It should render a Header component", () => {
-    expect(wrapper.containsMatchingElement(<Header />)).toEqual(true);
-  });
-  test("Should render the Main component", () => {
-    expect(wrapper.containsMatchingElement(<Main />)).toEqual(true);
-  });
+  // test("Should render the GlobalMap component", () => {
+  //   expect(wrapper.containsMatchingElement(<GlobalMap />)).toEqual(true);
+  // });
+  // test("Should render the Sidebar component", () => {
+  //   expect(wrapper.containsMatchingElement(<Sidebar />)).toEqual(true);
+  // });
+  // test("It should render a Header component", () => {
+  //   expect(wrapper.containsMatchingElement(<Header />)).toEqual(true);
+  // });
 });

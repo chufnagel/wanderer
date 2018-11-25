@@ -1,7 +1,9 @@
 import React from "react";
 import { hot } from "react-hot-loader";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { withTheme } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Home from "../containers/HomeContainer";
 import Header from "../containers/HeaderContainer";
@@ -18,13 +20,22 @@ import {
   Photos,
   Blogs,
   Profile,
-  PhotoUploader
+  PhotoUploader,
 } from "./WrappedContainers";
+
+// const styles = {
+//   display: "relative",
+//   flexWrap: "wrap row",
+//   justifyContent: "center",
+//   backgroundSize: "100%"
+// };
 
 const App = () => (
   <div className="app">
     <center>
-      <Typography variant="display2">Wanderer</Typography>
+      <Typography variant="h2">
+        <strong>Wanderer</strong>
+      </Typography>
       <br />
       <GlobalMap />
     </center>
@@ -49,4 +60,4 @@ const App = () => (
   </div>
 );
 
-export default hot(module)(App);
+export default withTheme()(hot(module)(App));

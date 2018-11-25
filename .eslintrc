@@ -28,6 +28,22 @@
     "arrow-body-style": "off",
     "no-unused-vars": "off",
     "camelcase": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": 0,
+    "no-undef": "off",
+    "prefer-destructuring": "warn",
+    "react/destructuring-assignment": "warn",
+    "react/display-name": "warn",
+    "react/prop-types": "warn",
+    "react/forbid-prop-types": "warn",
+    "no-restricted-syntax": "warn",
+    "react/require-default-props": "warn",
+    "react/no-array-index-key": "warn",
+    "react/no-access-state-in-setstate": "warn",
+    "react/jsx-key": "warn",
+    "consistent-return": "warn",
+    "global-require": "warn",
+    "no-param-reassign": "warn",
+    "import/order": "warn"
   }
 }

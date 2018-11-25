@@ -1,27 +1,23 @@
 // This should eventually be refactored such that they use
 // the GET_USER_INFO_* actions, since they are functionally identical
 import axios from "axios";
-import {
-  GET_FRIEND_INFO_REQUEST,
-  GET_FRIEND_INFO_SUCCESS,
-  GET_FRIEND_INFO_FAILURE
-} from "./types";
+import { GET_FRIEND_INFO_REQUEST, GET_FRIEND_INFO_SUCCESS, GET_FRIEND_INFO_FAILURE } from "./types";
 
 export function getFriendInfoRequest() {
   return {
-    type: GET_FRIEND_INFO_REQUEST
+    type: GET_FRIEND_INFO_REQUEST,
   };
 }
 export function getFriendInfoSuccess(friendInfo) {
   return {
     type: GET_FRIEND_INFO_SUCCESS,
-    friendInfo
+    friendInfo,
   };
 }
 export function getFriendInfoFailure(err) {
   return {
     type: GET_FRIEND_INFO_FAILURE,
-    err
+    err,
   };
 }
 
@@ -31,8 +27,8 @@ export function getFriendInfo(userId) {
     axios
       .get("/userInfo", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(({ data }) => {
         const friendInfo = data.map(info => {

@@ -1,12 +1,12 @@
 import {
   GET_FRIEND_INFO_SUCCESS,
   GET_FRIEND_INFO_REQUEST,
-  GET_FRIEND_INFO_FAILURE
+  GET_FRIEND_INFO_FAILURE,
 } from "../actions/types";
 import { updateObject } from "../lib/utility";
 
 const initialState = {
-  loading: false
+  loading: false,
 };
 
 function friendInfo(state = initialState, action) {

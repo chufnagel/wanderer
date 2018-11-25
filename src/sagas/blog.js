@@ -1,12 +1,7 @@
 /* global fetch */
 import { call, put, takeLatest } from "redux-saga/effects";
 import { BLOG_CREATING, GET_BLOGS_REQUEST } from "../actions/types";
-import {
-  blogCreateSuccess,
-  blogCreateError,
-  getBlogsSuccess,
-  getBlogsFailure
-} from "../actions";
+import { blogCreateSuccess, blogCreateError, getBlogsSuccess, getBlogsFailure } from "../actions";
 import { handleApiErrors } from "../lib/api-errors";
 
 const blogsUrl = "localhost:3000/blogs";
@@ -26,14 +21,14 @@ function blogCreateApi(userInfo, blog) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: userInfo.token.id || undefined
+      Authorization: userInfo.token.id || undefined,
     },
-    body: JSON.stringify(blog)
+    body: JSON.stringify(blog),
   });
   return handleRequest(request);
 }
 
-function* blogCreateFlow(action) {
+export function* blogCreateFlow(action) {
   try {
     const { userId, blog } = action;
     const createdBlog = yield call(blogCreateApi, userId, blog);
@@ -43,8 +38,8 @@ function* blogCreateFlow(action) {
   }
 }
 
-function* blogWatcher() {
-  yield [takeLatest(BLOG_CREATING, blogCreateFlow)];
-}
+// function* blogWatcher() {
+//   yield [takeLatest(BLOG_CREATING, blogCreateFlow)];
+// }
 
-export default blogWatcher;
+// export default blogWatcher;

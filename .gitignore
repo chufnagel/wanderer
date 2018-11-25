@@ -28,8 +28,11 @@ dist/
 .env
 
 _README.md
-knexfile.js
 
 wanderer.service
 stats.json
 firebaseAdminSecret.json
+
+logs
+
+coverage

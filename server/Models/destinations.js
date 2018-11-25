@@ -50,7 +50,7 @@ Destinations.addFavByUserId = (userId, country) => {
       db("favorite_destinations")
         .where({
           destination_id: results[0].country_id,
-          user_id: userId
+          user_id: userId,
         })
         .then(rows => {
           if (rows.length === 0) {
@@ -58,11 +58,10 @@ Destinations.addFavByUserId = (userId, country) => {
             console.log("no matching record");
             return db("favorite_destinations").insert({
               user_id: userId,
-              destination_id: results[0].country_id
+              destination_id: results[0].country_id,
             });
           }
-            console.log("record already exists");
-
+          console.log("record already exists");
         })
         .catch(err => {
           console.error(err);
@@ -81,18 +80,17 @@ Destinations.addVisitedByUserId = (userId, country) => {
       return db("visited_destinations")
         .where({
           destination_id: results[0].country_id,
-          user_id: userId
+          user_id: userId,
         })
         .then(rows => {
           if (rows.length === 0) {
             // no matching records
             return db("visited_destinations").insert({
               user_id: userId,
-              destination_id: results[0].country_id
+              destination_id: results[0].country_id,
             });
           }
-            console.log("record already exists");
-
+          console.log("record already exists");
         })
         .catch(err => {
           console.error(err);
@@ -114,7 +112,7 @@ Destinations.getVisitedCount = (country, cb) => {
         .where({ destination_id: countryId })
         .then(resultCount =>
           // console.log("getVisited resultCount:", resultCount[0]["count(*)"]);
-          cb(resultCount[0]["count(*)"])
+          cb(resultCount[0]["count(*)"]),
         )
         .catch(() => cb(0));
     })

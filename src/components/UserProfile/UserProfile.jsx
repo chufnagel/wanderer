@@ -16,24 +16,15 @@ const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
   // console.log("headerSetting", headerSetting);
   return (
     <div>
-      <h2>
-        {headerSetting === "HOME"
-          ? userInfo[0].username
-          : friendInfo[0].username}
-      </h2>
-      <img
-        src={profilePhoto}
-        alt={
-          headerSetting === "HOME"
-            ? userInfo[0].username
-            : friendInfo[0].username
-        }
-        width="33%"
-      />
-
-      <Typography variant="title" gutterBottom>
-        {"Blogs"}
+      <Typography variant="h3">
+        {headerSetting === "HOME" ? userInfo.username : friendInfo.username}
       </Typography>
+      {/* <img
+        src={profilePhoto}
+        alt={headerSetting === "HOME" ? userInfo.username : friendInfo.username}
+        width="33%"
+      /> */}
+
       <ul width="52%">
         <BlogsContainer />
       </ul>
@@ -49,7 +40,7 @@ UserProfile.propTypes = {
   friendInfo: PropTypes.arrayOf(PropTypes.object),
   userInfo: PropTypes.arrayOf(PropTypes.object),
   profilePhoto: PropTypes.string.isRequired,
-  headerSetting: PropTypes.string.isRequired
+  headerSetting: PropTypes.string.isRequired,
 };
 
 export default UserProfile;

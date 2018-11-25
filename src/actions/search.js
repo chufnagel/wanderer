@@ -4,7 +4,7 @@ import * as actions from "./types";
 export function getPointsOfInterestSuccess(pointsOfInterest) {
   return {
     type: actions.GET_POINTS_OF_INTEREST_SUCCESS,
-    pointsOfInterest
+    pointsOfInterest,
   };
 }
 
@@ -22,7 +22,7 @@ export function getPointsOfInterest(location) {
 export function getAttractionsSuccess(attractions) {
   return {
     type: actions.GET_ATTRACTIONS_SUCCESS,
-    attractions
+    attractions,
   };
 }
 
@@ -40,7 +40,7 @@ export function getAttractions(location) {
 export function getLocationBasicInfoSuccess(locationBasicInfo) {
   return {
     type: actions.GET_BASIC_LOCATION_INFO_SUCCESS,
-    locationBasicInfo
+    locationBasicInfo,
   };
 }
 
@@ -55,7 +55,7 @@ export function getLocationBasicInfo(location) {
 export function getVisitedCountSuccess(visitedCount) {
   return {
     type: actions.GET_VISITED_COUNT,
-    visitedCount
+    visitedCount,
   };
 }
 
@@ -64,8 +64,8 @@ export function getVisitedCount(location) {
     axios
       .get("/getVisitedCount", {
         params: {
-          location
-        }
+          location,
+        },
       })
       .then(data => {
         dispatch(getVisitedCountSuccess(data.data));
@@ -76,7 +76,7 @@ export function getVisitedCount(location) {
 export function getFaveCountSuccess(faveCount) {
   return {
     type: actions.GET_FAVE_COUNT,
-    faveCount
+    faveCount,
   };
 }
 
@@ -85,8 +85,8 @@ export function getFaveCount(location) {
     axios
       .get("/getFaveCount", {
         params: {
-          location
-        }
+          location,
+        },
       })
       .then(data => {
         dispatch(getFaveCountSuccess(data.data));

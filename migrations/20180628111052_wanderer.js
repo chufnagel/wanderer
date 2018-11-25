@@ -26,6 +26,10 @@ exports.up = (knex, Promise) =>
       table.string("etag");
       table.string("image_key");
       table.string("version_id");
+      table.string("image_url");
+      table.string("idToken");
+      table.string("localId");
+      table.string("expiresIn");
     }),
     knex.schema.createTable("blogs", table => {
       table.increments("blog_id").primary();
@@ -33,6 +37,7 @@ exports.up = (knex, Promise) =>
       table.string("content", 10000);
       table.timestamp("timestamp");
       table.integer("user_id");
+      table.integer("country_id");
     }),
     knex.schema.createTable("tags", table => {
       table.increments("tag_id").primary();
