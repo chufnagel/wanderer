@@ -5,20 +5,18 @@ import { addVisitedDestination, addFaveDestination } from "../actions";
 const mapStateToProps = state => {
   return {
     location: state.location,
-    userId: state.userId
+    userId: state.userId,
   };
 };
 
 const mapDispatchToProps = dispatch => ({
-  addVisitedDestination: (userId, location) =>
-    dispatch(addVisitedDestination(userId, location)),
-  addFaveDestination: (userId, location) =>
-    dispatch(addFaveDestination(userId, location))
+  addVisitedDestination: (userId, location) => dispatch(addVisitedDestination(userId, location)),
+  addFaveDestination: (userId, location) => dispatch(addFaveDestination(userId, location)),
 });
 
 const LocationProfileContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(LocationProfile);
 
 export default LocationProfileContainer;

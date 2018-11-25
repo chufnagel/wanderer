@@ -26,27 +26,27 @@ const store = createStore(
     friends: [],
     blogs: {
       blogs: [
-      {
-        blogId: 1,
-        title: "WELCOME TO NIHON",
-        content: "I went to sky stree",
-        timestamp: "2018-06-30 19:46:49",
-        userId: 1
-      },
-      {
-        blogId: 2,
-        title: "I just came back from Germany",
-        author: "BROICHI",
-        content: "I went to see the soccer game",
-        timestamp: "2018-06-30 19:46:49",
-        userId: 1
-      }
-    ],
-    loading: false,
-    successful: false,
-    messages: [],
-    errors: []
-  },
+        {
+          blogId: 1,
+          title: "WELCOME TO NIHON",
+          content: "I went to sky stree",
+          timestamp: "2018-06-30 19:46:49",
+          userId: 1,
+        },
+        {
+          blogId: 2,
+          title: "I just came back from Germany",
+          author: "BROICHI",
+          content: "I went to see the soccer game",
+          timestamp: "2018-06-30 19:46:49",
+          userId: 1,
+        },
+      ],
+      loading: false,
+      successful: false,
+      messages: [],
+      errors: [],
+    },
     // photos,
     friendInfo: {
       bio: "I am a former data scientist",
@@ -57,7 +57,7 @@ const store = createStore(
       password: "hydrate",
       user_id: 2,
       username: "DoctorC",
-      version_id: null
+      version_id: null,
     },
     userInfo: {},
     // userInfo: {
@@ -75,7 +75,7 @@ const store = createStore(
     attractions: [],
     locationBasicInfo: {
       languages: [{ name: "" }],
-      currencies: [{ name: "" }]
+      currencies: [{ name: "" }],
     },
     userId: 1,
     profilePhoto: "https://s3.amazonaws.com/griffyndor/Koichi.jpeg",
@@ -85,9 +85,9 @@ const store = createStore(
     photoOne: null,
     faveCount: 0,
     visitedCount: 0,
-    friendsId: [2, 3, 4] // placeholder for photo component to render properly
+    friendsId: [2, 3, 4], // placeholder for photo component to render properly
   },
-  composeEnhancers(applyMiddleware(thunk, sagaMiddleware, logger))
+  composeEnhancers(applyMiddleware(thunk, sagaMiddleware, logger)),
 );
 
 sagaMiddleware.run(watchAuth);

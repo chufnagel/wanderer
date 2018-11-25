@@ -21,10 +21,10 @@ describe("async actions", () => {
           content: "YOLO SWAG",
           timestamp: "2018-06-30T23:46:49.000Z",
           title: "WELCOME TO NIHON",
-          user_id: 1
-        }
+          user_id: 1,
+        },
       ],
-      headers: { "content-type": "application/json" }
+      headers: { "content-type": "application/json" },
     });
     const expectedActions = [
       { type: types.GET_BLOGS_REQUEST },
@@ -36,10 +36,10 @@ describe("async actions", () => {
             content: "YOLO SWAG",
             timestamp: "2018-06-30T23:46:49.000Z",
             title: "WELCOME TO NIHON",
-            user_id: 1
-          }
-        ]
-      }
+            user_id: 1,
+          },
+        ],
+      },
     ];
     const store = mockStore({ blogs: [] });
 

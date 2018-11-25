@@ -17,7 +17,7 @@ const continentColors = [
   chroma("9BE6F1"), // winter wizard (icy blue) // Antarctica
   chroma("9BBEFF"), // baby blue eyes // Europe
   chroma("FFE575"), // yellow // Oceania
-  chroma("FFF") // white // Seven seas (open oceans)
+  chroma("FFF"), // white // Seven seas (open oceans)
 ];
 class GlobalMap extends PureComponent {
   render() {
@@ -32,7 +32,7 @@ class GlobalMap extends PureComponent {
       getAlbumPhotos,
       getBlogsByLocation,
       userId,
-      friendsId
+      friendsId,
     } = this.props;
     return (
       <div
@@ -51,13 +51,13 @@ class GlobalMap extends PureComponent {
         <ComposableMap
           projectionConfig={{
             scale: 110,
-            rotation: [-11, 0, 0]
+            rotation: [-11, 0, 0],
           }}
           width={1000}
           height={360}
           style={{
             width: "100%",
-            height: "auto"
+            height: "auto",
           }}
         >
           <Geographies geography={geographyJson}>
@@ -75,23 +75,18 @@ class GlobalMap extends PureComponent {
                       projection={projection}
                       style={{
                         default: {
-                          fill:
-                            continentColors[
-                              continents.indexOf(geography.properties.continent)
-                            ],
+                          fill: continentColors[continents.indexOf(geography.properties.continent)],
                           stroke: "rgba(81, 59, 114, 1)",
                           strokeWidth: 0.75,
-                          outline: "none"
+                          outline: "none",
                         },
                         hover: {
-                          fill: continentColors[
-                            continents.indexOf(geography.properties.continent)
-                          ]
+                          fill: continentColors[continents.indexOf(geography.properties.continent)]
                             .brighten(0.6)
                             .saturate(0.2),
                           stroke: "rgba(81, 59, 114, 1)",
                           strokeWidth: 0.75,
-                          outline: "none"
+                          outline: "none",
                         },
                         pressed: {
                           fill: continentColors[
@@ -99,8 +94,8 @@ class GlobalMap extends PureComponent {
                           ].luminance(0.5, "hsl"),
                           stroke: "rgba(81, 59, 114, 1)",
                           strokeWidth: 0.75,
-                          outline: "none"
-                        }
+                          outline: "none",
+                        },
                       }}
                       onClick={() => {
                         setHeader(LOCATION_PROFILE);
@@ -110,14 +105,8 @@ class GlobalMap extends PureComponent {
                         getAttractions(geography.properties.name);
                         getVisitedCount(geography.properties.name);
                         getFaveCount(geography.properties.name);
-                        getAlbumPhotos(
-                          friendsId.concat(userId),
-                          geography.properties.name
-                        );
-                        getBlogsByLocation(
-                          friendsId.concat(userId),
-                          geography.properties.name
-                        );
+                        getAlbumPhotos(friendsId.concat(userId), geography.properties.name);
+                        getBlogsByLocation(friendsId.concat(userId), geography.properties.name);
                       }}
                     />
                   </Link>
@@ -249,7 +238,7 @@ GlobalMap.propTypes = {
   getAlbumPhotos: PropTypes.func.isRequired,
   userId: PropTypes.number.isRequired,
   friendsId: PropTypes.arrayOf(PropTypes.object).isRequired,
-  getBlogsByLocation: PropTypes.func.isRequired
+  getBlogsByLocation: PropTypes.func.isRequired,
 };
 
 export default withTheme()(GlobalMap);

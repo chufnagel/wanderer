@@ -11,7 +11,7 @@ class Search extends Component {
     super(props);
 
     this.state = {
-      field: ""
+      field: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,7 +30,7 @@ class Search extends Component {
       getPointsOfInterest,
       getAttractions,
       getVisitedCount,
-      getFaveCount
+      getFaveCount,
     } = this.props;
     const { field } = this.state;
     return (
@@ -62,7 +62,8 @@ class Search extends Component {
                 getFaveCount(field);
               }}
             >
-              Search<SearchIcon />
+              Search
+              <SearchIcon />
             </Button>
           </center>
         </Link>
@@ -78,7 +79,7 @@ Search.propTypes = {
   getPointsOfInterest: PropTypes.func.isRequired,
   getAttractions: PropTypes.func.isRequired,
   getVisitedCount: PropTypes.func.isRequired,
-  getFaveCount: PropTypes.func.isRequired
+  getFaveCount: PropTypes.func.isRequired,
 };
 
 export default Search;

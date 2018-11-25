@@ -6,13 +6,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import axios from "axios"
+import axios from "axios";
 
 class BlogForm extends Component {
   state = {
     open: false,
     title: "",
-    contents: ""
+    contents: "",
   };
 
   handleClickOpen = () => {
@@ -41,7 +41,7 @@ class BlogForm extends Component {
         >
           <DialogTitle id="form-dialog-title">Create new blog</DialogTitle>
           <DialogContent>
-            <DialogContentText>{"Add a blog post"}</DialogContentText>
+            <DialogContentText>Add a blog post</DialogContentText>
             <TextField
               autoFocus
               margin="dense"
@@ -49,10 +49,10 @@ class BlogForm extends Component {
               label="title"
               type="text"
               fullWidth
-              onChange={(text) => {
+              onChange={text => {
                 this.setState({
-                  title: text.target.value
-                })
+                  title: text.target.value,
+                });
               }}
             />
             <TextField
@@ -62,10 +62,10 @@ class BlogForm extends Component {
               label="content"
               type="text"
               fullWidth
-              onChange={(text) => {
+              onChange={text => {
                 this.setState({
-                  contents: text.target.value
-                })
+                  contents: text.target.value,
+                });
               }}
             />
           </DialogContent>
@@ -78,8 +78,8 @@ class BlogForm extends Component {
                 axios.post("/blogs", {
                   title: this.state.title,
                   contents: this.state.contents,
-                  userId: 1
-                })
+                  userId: 1,
+                });
               }}
               color="primary"
             >

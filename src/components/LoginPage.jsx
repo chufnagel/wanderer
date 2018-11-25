@@ -17,12 +17,12 @@ const LoginPage = ({
   setHeader,
   getBlogs,
   friendsId,
-  getAlbumPhotos
+  getAlbumPhotos,
 }) => {
   return (
     <div style={{ position: "relative" }}>
-      <Typography variant="headline">Welcome back!</Typography>
-      <Typography variant="body2">Click below to sign back in.</Typography>
+      <Typography variant="h5">Welcome back!</Typography>
+      <Typography variant="body1">Click below to sign back in.</Typography>
       <Link to="/home" style={{ textDecoration: "none" }}>
         <Button
           color="secondary"
@@ -36,7 +36,9 @@ const LoginPage = ({
             getAlbumPhotos(friendsId.concat(1), null);
           }}
         >
-          Sign<br />in
+          Sign
+          <br />
+          in
         </Button>
       </Link>
     </div>
@@ -47,7 +49,7 @@ LoginPage.propTypes = {
   changeUserId: PropTypes.func.isRequired,
   getUserInfo: PropTypes.func.isRequired,
   setHeader: PropTypes.func.isRequired,
-  getBlogs: PropTypes.func.isRequired
+  getBlogs: PropTypes.func.isRequired,
   // startLogin: PropTypes.func.isRequired
 };
 

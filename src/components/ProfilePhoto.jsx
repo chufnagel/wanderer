@@ -13,8 +13,8 @@ const handleUploadFile = (event, userId, updateProfilePhoto) => {
     axios
       .get("/retrieve", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(photo => {
         updateProfilePhoto(photo.data[0].image_url);
@@ -42,7 +42,7 @@ ProfilePhoto.propTypes = {
   // photos: PropTypes.arrayOf(PropTypes.object)
   userId: PropTypes.number.isRequired,
   updateProfilePhoto: PropTypes.func.isRequired,
-  profilePhoto: PropTypes.string.isRequired
+  profilePhoto: PropTypes.string.isRequired,
 };
 
 export default ProfilePhoto;

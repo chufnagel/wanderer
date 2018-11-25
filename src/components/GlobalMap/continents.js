@@ -6,7 +6,7 @@ const continents = [
   "Antarctica",
   "Europe",
   "Oceania",
-  "Seven seas (open ocean)"
+  "Seven seas (open ocean)",
 ];
 
 export default continents;

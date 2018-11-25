@@ -1,7 +1,4 @@
-import {
-  GET_FRIENDS_LIST_SUCCESS,
-  GET_FRIENDS_LIST_FAILURE
-} from "../actions/types";
+import { GET_FRIENDS_LIST_SUCCESS, GET_FRIENDS_LIST_FAILURE } from "../actions/types";
 import { updateObject } from "../lib/utility";
 
 function friends(state = [], action) {

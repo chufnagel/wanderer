@@ -5,7 +5,7 @@ import {
   getFriendsList,
   changeSelectedLocation,
   getAlbumPhotos,
-  getBlogsByLocation
+  getBlogsByLocation,
 } from "../actions";
 
 const mapStateToProps = state => {
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
     headerSetting: state.headerSetting,
     userInfo: state.userInfo,
     userId: state.userId,
-    friendsId: state.friendsId
+    friendsId: state.friendsId,
   };
 };
 
@@ -22,10 +22,10 @@ const mapDispatchToProps = dispatch => ({
   changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
   getFriendsList: id => dispatch(getFriendsList(id)),
   getAlbumPhotos: id => dispatch(getAlbumPhotos(id)),
-  getBlogsByLocation: id => dispatch(getBlogsByLocation(id))
+  getBlogsByLocation: id => dispatch(getBlogsByLocation(id)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Sidebar);

@@ -6,12 +6,12 @@ const mapStateToProps = state => ({
   visitedDestinations: state.visitedDestinations,
   faveDestinations: state.faveDestinations,
   blogs: state.blogs,
-  photos: state.albumPhotos
+  photos: state.albumPhotos,
 });
 
 // remove line 20 and uncomment line 19 when we
 // have actions & reducers for getting blog posts by user id
 export default connect(
   mapStateToProps,
-  null
+  null,
 )(Home);

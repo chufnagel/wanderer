@@ -12,7 +12,7 @@ import PhotosContainer from "../containers/PhotosContainer";
 import BlogForm from "./BlogForm";
 
 const linkStyles = {
-  textDecoration: "none"
+  textDecoration: "none",
 };
 
 class Home extends Component {
@@ -21,7 +21,7 @@ class Home extends Component {
 
     this.state = {
       uploaderActive: false,
-      blogFormActive: false
+      blogFormActive: false,
     };
     this.toggleForm = this.toggleForm.bind(this);
     this.toggleUploader = this.toggleUploader.bind(this);
@@ -30,13 +30,13 @@ class Home extends Component {
   toggleUploader(e) {
     e.preventDefault();
     this.setState({
-      uploaderActive: !this.state.uploaderActive
+      uploaderActive: !this.state.uploaderActive,
     });
   }
 
   toggleForm(e) {
     this.setState({
-      blogFormActive: !this.state.blogFormActive
+      blogFormActive: !this.state.blogFormActive,
     });
   }
 
@@ -45,7 +45,7 @@ class Home extends Component {
     const { uploaderActive, blogFormActive } = this.state;
     return (
       <div style={{ marginLeft: "130px", textAlign: "center" }}>
-        <Typography variant="display2">
+        <Typography variant="h3">
           Welcome, <strong>{userInfo.name}</strong>!
         </Typography>
         <Button
@@ -74,7 +74,9 @@ class Home extends Component {
         {uploaderActive === true ? <PhotoUploaderContainer /> : null}
         <br />
         {blogFormActive === true ? <BlogForm /> : null}
-        <center><Blogs /></center>
+        <center>
+          <Blogs />
+        </center>
         <PhotosContainer />
         <br />
       </div>
@@ -88,8 +90,8 @@ Home.propTypes = {
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     user_id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired
-  }).isRequired
+    username: PropTypes.string.isRequired,
+  }).isRequired,
   // visitedDestinations: PropTypes.arrayOf(PropTypes.object).isRequired,
   // faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
 };

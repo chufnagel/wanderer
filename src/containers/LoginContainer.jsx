@@ -4,7 +4,7 @@ import { getBlogs, setHeader, changeUserId, getUserInfo, getAlbumPhotos } from "
 
 const mapStateToProps = state => ({
   userId: state.userId,
-  friendsId: state.friendsId
+  friendsId: state.friendsId,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -12,12 +12,12 @@ const mapDispatchToProps = dispatch => ({
   getUserInfo: id => dispatch(getUserInfo(id)),
   setHeader: term => dispatch(setHeader(term)),
   getBlogs: () => dispatch(getBlogs()),
-  getAlbumPhotos: id => dispatch(getAlbumPhotos(id))
+  getAlbumPhotos: id => dispatch(getAlbumPhotos(id)),
 });
 
 const LoginContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(LoginPage);
 
 export default LoginContainer;

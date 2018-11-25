@@ -3,10 +3,8 @@ import Typography from "@material-ui/core/Typography";
 
 const Explore = () => (
   <div>
-    <Typography variant="headline">Explore</Typography>
-    <Typography variant="body2">
-      Oh my god, literally, I love exploring.
-    </Typography>
+    <Typography variant="h5">Explore</Typography>
+    <Typography variant="body1">Oh my god, literally, I love exploring.</Typography>
   </div>
 );
 

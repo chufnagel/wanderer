@@ -8,14 +8,14 @@ import {
   setHeader,
   changeSelectedLocation,
   getAlbumPhotos,
-  getBlogsByLocation
+  getBlogsByLocation,
 } from "../actions";
 import GlobalMap from "../components/GlobalMap/GlobalMap";
 
 const mapStateToProps = state => {
   return {
     userId: state.userId,
-    friendsId: state.friendsId
+    friendsId: state.friendsId,
   };
 };
 
@@ -28,11 +28,10 @@ const mapDispatchToProps = dispatch => ({
   getVisitedCount: term => dispatch(getVisitedCount(term)),
   getFaveCount: term => dispatch(getFaveCount(term)),
   getAlbumPhotos: (id, location) => dispatch(getAlbumPhotos(id, location)),
-  getBlogsByLocation: (id, location) =>
-    dispatch(getBlogsByLocation(id, location))
+  getBlogsByLocation: (id, location) => dispatch(getBlogsByLocation(id, location)),
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(GlobalMap);

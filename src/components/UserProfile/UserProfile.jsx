@@ -16,7 +16,7 @@ const UserProfile = ({ profilePhoto, friendInfo, userInfo, headerSetting }) => {
   // console.log("headerSetting", headerSetting);
   return (
     <div>
-      <Typography variant="display2">
+      <Typography variant="h3">
         {headerSetting === "HOME" ? userInfo.username : friendInfo.username}
       </Typography>
       {/* <img
@@ -40,7 +40,7 @@ UserProfile.propTypes = {
   friendInfo: PropTypes.arrayOf(PropTypes.object),
   userInfo: PropTypes.arrayOf(PropTypes.object),
   profilePhoto: PropTypes.string.isRequired,
-  headerSetting: PropTypes.string.isRequired
+  headerSetting: PropTypes.string.isRequired,
 };
 
 export default UserProfile;

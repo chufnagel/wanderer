@@ -1,8 +1,8 @@
 import React from "react";
 import lifecycle from "react-pure-lifecycle";
 import PropTypes from "prop-types";
-import GridList from '@material-ui/core/GridList';
-import GridListTile from '@material-ui/core/GridListTile';
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
 
 const methods = {
   // componentDidMount({
@@ -23,7 +23,14 @@ const methods = {
 const PhotoGrid = ({ albumPhotos }) => {
   return (
     <div marginLeft="130px">
-      <GridList cellHeight={300} width="100px" className="photo" cols={3} flexWrap="wrap row" marginLeft="130px">
+      <GridList
+        cellHeight={300}
+        width="100px"
+        className="photo"
+        cols={3}
+        flexWrap="wrap row"
+        marginLeft="130px"
+      >
         {albumPhotos.map(photo => {
           return (
             <GridListTile cols={1} flexWrap="wrap row" marginLeft="130px">
@@ -42,7 +49,7 @@ const PhotoGrid = ({ albumPhotos }) => {
 };
 
 PhotoGrid.propTypes = {
-  albumPhotos: PropTypes.arrayOf(PropTypes.object).isRequired
+  albumPhotos: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default lifecycle(methods)(PhotoGrid);

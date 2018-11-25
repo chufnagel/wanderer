@@ -12,13 +12,13 @@ const mapStateToProps = state => {
     profilePhoto: state.profilePhoto,
     friendInfo: state.friendInfo,
     userInfo: state.userInfo,
-    headerSetting: state.headerSetting
+    headerSetting: state.headerSetting,
   };
 };
 
 const UserProfileContainer = connect(
   mapStateToProps,
-  null
+  null,
 )(UserProfile);
 
 export default UserProfileContainer;

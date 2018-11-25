@@ -16,10 +16,10 @@ const FriendsList = ({
   getAlbumPhotos,
   getBlogsByLocation,
   headerSetting,
-  profilePhoto
+  profilePhoto,
 }) => (
   <div>
-    <Typography variant="headline">{message}</Typography>
+    <Typography variant="h5">{message}</Typography>
     <div>
       {friends.map(friend => (
         <Link
@@ -48,7 +48,7 @@ FriendsList.propTypes = {
   getFriendInfo: PropTypes.func.isRequired,
   getFaveDestinations: PropTypes.func.isRequired,
   getVisitedDestinations: PropTypes.func.isRequired,
-  getAlbumPhotos: PropTypes.func.isRequired
+  getAlbumPhotos: PropTypes.func.isRequired,
 };
 
 export default FriendsList;

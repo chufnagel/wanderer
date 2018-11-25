@@ -6,22 +6,18 @@ import { withTheme } from "@material-ui/core/styles";
 const LocationBasicInfo = ({ location, locationBasicInfo }) => {
   return (
     <div className="location-info">
-      <Typography variant="display1" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         Basic Info About {location}:
       </Typography>
 
-      <img
-        src={locationBasicInfo.flag}
-        alt="country flag"
-        style={{ width: "150px" }}
-      />
+      <img src={locationBasicInfo.flag} alt="country flag" style={{ width: "150px" }} />
       <br />
 
-      <Typography variant="body1" component="p">
-        {location} is located in {locationBasicInfo.subregion} with a population
-        size of {locationBasicInfo.population}. <br />
-        The primary language is {locationBasicInfo.languages[0].name} and its
-        currency is the {locationBasicInfo.currencies[0].name}.{" "}
+      <Typography variant="body2" component="p">
+        {location} is located in {locationBasicInfo.subregion} with a population size of{" "}
+        {locationBasicInfo.population}. <br />
+        The primary language is {locationBasicInfo.languages[0].name} and its currency is the{" "}
+        {locationBasicInfo.currencies[0].name}.{" "}
       </Typography>
       <br />
       <br />
@@ -31,7 +27,7 @@ const LocationBasicInfo = ({ location, locationBasicInfo }) => {
 
 LocationBasicInfo.propTypes = {
   location: PropTypes.string.isRequired,
-  locationBasicInfo: PropTypes.object.isRequired
+  locationBasicInfo: PropTypes.object.isRequired,
 };
 
 export default withTheme()(LocationBasicInfo);

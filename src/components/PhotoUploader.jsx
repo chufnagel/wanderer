@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import PhotoCameraIcon from "@material-ui/icons/PhotoCamera";
 import axios from "axios";
 import Select from "@material-ui/core/Select";
-import allCountries from "./LocationProfile/CountriesAll.jsx";
+import allCountries from "./LocationProfile/CountriesAll";
 
 const handleUploadFile = (e, userId, updatePhotoOne, location) => {
   updatePhotoOne(e.target.files[0]);
@@ -16,13 +16,7 @@ const handleUploadFile = (e, userId, updatePhotoOne, location) => {
   axios.post("/createAlbum", data).then(response => console.log(response));
 };
 
-const PhotoUploader = ({
-  photoOne,
-  userId,
-  updatePhotoOne,
-  location,
-  changeSelectedLocation
-}) => {
+const PhotoUploader = ({ photoOne, userId, updatePhotoOne, location, changeSelectedLocation }) => {
   return (
     <div>
       <br />
@@ -56,7 +50,7 @@ PhotoUploader.propTypes = {
   userId: PropTypes.number.isRequired,
   location: PropTypes.string.isRequired,
   updatePhotoOne: PropTypes.func.isRequired,
-  changeSelectedLocation: PropTypes.func.isRequired
+  changeSelectedLocation: PropTypes.func.isRequired,
 };
 
 export default PhotoUploader;

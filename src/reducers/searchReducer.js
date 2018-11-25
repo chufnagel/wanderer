@@ -45,10 +45,4 @@ function faveCount(state = 0, action) {
   }
 }
 
-export {
-  attractions,
-  pointsOfInterest,
-  locationBasicInfo,
-  visitedCount,
-  faveCount
-};
+export { attractions, pointsOfInterest, locationBasicInfo, visitedCount, faveCount };

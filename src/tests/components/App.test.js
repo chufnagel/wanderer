@@ -5,7 +5,7 @@ import App from "../../components/App";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import GlobalMap from "../../components/GlobalMap/GlobalMap";
 import Header from "../../components/Header";
-import Main from "../../components/Main";
+// import Main from "../../components/Main";
 
 // // keep snapshot commented during App development
 // test("App matches snapshot", () => {
@@ -29,8 +29,5 @@ describe("App", () => {
   });
   test("It should render a Header component", () => {
     expect(wrapper.containsMatchingElement(<Header />)).toEqual(true);
-  });
-  test("Should render the Main component", () => {
-    expect(wrapper.containsMatchingElement(<Main />)).toEqual(true);
   });
 });

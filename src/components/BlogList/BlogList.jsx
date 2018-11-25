@@ -9,17 +9,17 @@ import { withTheme, withStyles } from "@material-ui/core/styles";
 const styles = {
   card: {
     maxWidth: 750,
-    marginBottom: 12
+    marginBottom: 12,
   },
   pos: {
-    marginBottom: 2
-  }
+    marginBottom: 2,
+  },
 };
 
 const BlogList = ({ blogs, classes }) => {
   return (
-    <div style={{marginLeft: "130px"}}>
-      <Typography variant="display2" gutterBottom>
+    <div style={{ marginLeft: "130px" }}>
+      <Typography variant="h3" gutterBottom>
         {"Blogs"}
       </Typography>
       {blogs.blogs.map(blog => (
@@ -48,7 +48,7 @@ const BlogList = ({ blogs, classes }) => {
 
 BlogList.propTypes = {
   blogs: PropTypes.arrayOf(PropTypes.object).isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withTheme()(withStyles(styles)(BlogList));

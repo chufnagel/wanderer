@@ -5,7 +5,7 @@ import { getVisitedDestinations, getFaveDestinations } from "../actions";
 const mapStateToProps = state => ({
   visitedDestinations: state.visitedDestinations,
   faveDestinations: state.faveDestinations,
-  userId: state.userId
+  userId: state.userId,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -14,12 +14,12 @@ const mapDispatchToProps = dispatch => ({
   },
   getFaveDestinations: userId => {
     dispatch(getFaveDestinations(userId));
-  }
+  },
 });
 
 const DestinationsContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Destinations);
 
 export default DestinationsContainer;

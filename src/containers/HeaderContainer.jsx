@@ -5,18 +5,18 @@ import { getAlbumPhotos } from "../actions";
 const mapStateToProps = state => ({
   headerSetting: state.headerSetting,
   userId: state.userId,
-  friendsId: state.friendsId
+  friendsId: state.friendsId,
 });
 
 const mapDispatchToProps = dispatch => ({
   getAlbumPhotos: (userId, location) => {
     dispatch(getAlbumPhotos(userId, location));
-  }
+  },
 });
 
 const HeaderContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Header);
 
 export default HeaderContainer;

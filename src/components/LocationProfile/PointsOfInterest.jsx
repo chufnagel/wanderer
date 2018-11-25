@@ -1,16 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles, withTheme } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
-import { withTheme } from "@material-ui/core/styles";
 
 const styles = {
   card: {
     maxWidth: 500,
-    marginBottom: 12
-  }
+    marginBottom: 12,
+  },
 };
 
 const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
@@ -19,7 +18,7 @@ const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
   });
   return (
     <div className="points-of-interest-section">
-      <Typography variant="display1" gutterBottom>
+      <Typography variant="h4" gutterBottom>
         Top Places To Visit In {location}:
       </Typography>
 
@@ -29,9 +28,7 @@ const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
             <Typography variant="title" component="h3">
               {place.name}
             </Typography>
-            <Typography component="p">
-              Address: {place.formatted_address}
-            </Typography>
+            <Typography component="p">Address: {place.formatted_address}</Typography>
             <Typography component="p">Rating: {place.rating}</Typography>
           </CardContent>
         </Card>
@@ -43,7 +40,7 @@ const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
 PointsOfInterest.propTypes = {
   location: PropTypes.string.isRequired,
   pointsOfInterest: PropTypes.arrayOf(PropTypes.object).isRequired,
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
 };
 
 export default withTheme()(withStyles(styles)(PointsOfInterest));

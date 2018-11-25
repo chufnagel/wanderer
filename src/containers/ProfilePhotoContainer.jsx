@@ -6,18 +6,18 @@ const mapStateToProps = state => ({
   navFlag: state.navFlag, // console.log('photocontainer',state.photos)
   profile: state.photos,
   userId: state.userId,
-  profilePhoto: state.profilePhoto
+  profilePhoto: state.profilePhoto,
 });
 
 const mapDispatchToProps = dispatch => ({
   updateProfilePhoto: photo => {
     dispatch(updateProfilePhoto(photo));
-  }
+  },
 });
 
 const ProfilePhotoContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(ProfilePhoto);
 
 export default ProfilePhotoContainer;

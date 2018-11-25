@@ -6,12 +6,12 @@ import {
   getVisitedCount,
   getFaveCount,
   setHeader,
-  changeSelectedLocation
+  changeSelectedLocation,
 } from "../actions";
 import Search from "../components/Search";
 
 const mapStateToProps = state => ({
-  location: state.location
+  location: state.location,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -21,12 +21,12 @@ const mapDispatchToProps = dispatch => ({
   getPointsOfInterest: term => dispatch(getPointsOfInterest(term)),
   getAttractions: term => dispatch(getAttractions(term)),
   getVisitedCount: term => dispatch(getVisitedCount(term)),
-  getFaveCount: term => dispatch(getFaveCount(term))
+  getFaveCount: term => dispatch(getFaveCount(term)),
 });
 
 const SearchContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Search);
 
 export default SearchContainer;

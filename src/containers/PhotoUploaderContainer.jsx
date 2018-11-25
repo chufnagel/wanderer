@@ -5,7 +5,7 @@ import { updatePhotoOne, changeSelectedLocation } from "../actions";
 const mapStateToProps = state => ({
   photoOne: state.photoOne,
   userId: state.userId,
-  location: state.location
+  location: state.location,
   // albumPhotos: state.albumPhotos,
   // userId: state.userId,
   // friendsId: state.friendsId,
@@ -17,12 +17,12 @@ const mapDispatchToProps = dispatch => ({
   updatePhotoOne: photo => {
     dispatch(updatePhotoOne(URL.createObjectURL(photo)));
   },
-  changeSelectedLocation: term => dispatch(changeSelectedLocation(term))
+  changeSelectedLocation: term => dispatch(changeSelectedLocation(term)),
 });
 
 const PhotoUploaderContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PhotoUploader);
 
 export default PhotoUploaderContainer;

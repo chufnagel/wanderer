@@ -7,18 +7,18 @@ const mapStateToProps = state => ({
   userId: state.userId,
   friendsId: state.friendsId,
   location: state.location,
-  headerSetting: state.headerSetting
+  headerSetting: state.headerSetting,
 });
 
 const mapDispatchToProps = dispatch => ({
   getAlbumPhotos: (userId, location) => {
     dispatch(getAlbumPhotos(userId, location));
-  }
+  },
 });
 
 const PhotosContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(PhotoGrid);
 
 export default PhotosContainer;

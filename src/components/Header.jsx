@@ -7,14 +7,14 @@ import * as settings from "../constants";
 // The Header creates links that can be used to navigate
 // between routes.
 const linkStyles = {
-  textDecoration: "none"
+  textDecoration: "none",
 };
 
 const headerStyles = {
   width: 400,
   display: "flex",
   justifyContent: "space-between",
-  flexWrap: "nowrap"
+  flexWrap: "nowrap",
 };
 
 const Header = ({ headerSetting, getAlbumPhotos, userId, friendsId }) => (
@@ -90,7 +90,7 @@ const Header = ({ headerSetting, getAlbumPhotos, userId, friendsId }) => (
 );
 
 Header.propTypes = {
-  headerSetting: PropTypes.string.isRequired
+  headerSetting: PropTypes.string.isRequired,
 };
 
 export default Header;

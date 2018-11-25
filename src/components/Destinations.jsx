@@ -12,7 +12,7 @@ const methods = {
   componentDidMount({ getFaveDestinations, getVisitedDestinations, userId }) {
     getFaveDestinations(userId);
     getVisitedDestinations(userId);
-  }
+  },
 };
 
 const styling = {
@@ -21,14 +21,14 @@ const styling = {
   border: "1px solid black",
   "border-radius": "5%",
   margin: "2%",
-  padding: "1%"
+  padding: "1%",
 };
 
 const Destinations = ({ visitedDestinations, faveDestinations }) => {
   // console.log("visited and fave dest:", visitedDestinations, faveDestinations);
   return (
     <div className="destinations">
-      <Typography variant="display2" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         {"Destinations"}
       </Typography>
 
@@ -73,7 +73,7 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
 
 Destinations.propTypes = {
   visitedDestinations: PropTypes.arrayOf(PropTypes.object).isRequired,
-  faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired
+  faveDestinations: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default lifecycle(methods)(Destinations);

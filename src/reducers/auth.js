@@ -7,7 +7,7 @@ import {
   AUTH_CHECK_TIMEOUT,
   AUTH_USER,
   SET_AUTH_REDIRECT_PATH,
-  AUTH_CHECK_STATE
+  AUTH_CHECK_STATE,
 } from "../actions/types";
 import { updateObject } from "../lib/utility";
 
@@ -16,7 +16,7 @@ const initialState = {
   userId: null,
   error: null,
   loading: false,
-  authRedirectPath: "/"
+  authRedirectPath: "/",
 };
 
 const authStart = (state, action) => {
@@ -28,14 +28,14 @@ const authSuccess = (state, action) => {
     token: action.idToken,
     userId: action.userId,
     error: null,
-    loading: false
+    loading: false,
   });
 };
 
 const authFail = (state, action) => {
   return updateObject(state, {
     error: action.error,
-    loading: false
+    loading: false,
   });
 };
 

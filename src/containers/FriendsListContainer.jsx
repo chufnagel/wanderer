@@ -6,7 +6,7 @@ import {
   getFriendInfo,
   getAlbumPhotos,
   updateProfilePhoto,
-  getBlogsByLocation
+  getBlogsByLocation,
 } from "../actions";
 
 const mapStateToProps = state => {
@@ -14,8 +14,7 @@ const mapStateToProps = state => {
     friends: state.friends,
     headerSetting: state.headerSetting,
     profilePhoto: state.profilePhoto,
-    friendInfo: state.friendInfo
-
+    friendInfo: state.friendInfo,
   };
 };
 
@@ -26,12 +25,12 @@ const mapDispatchToProps = dispatch => ({
   getFaveDestinations: userId => dispatch(getFaveDestinations(userId)),
   getAlbumPhotos: userId => dispatch(getAlbumPhotos(userId)),
   updateProfilePhoto: imageUrl => dispatch(updateProfilePhoto(imageUrl)),
-  getBlogsByLocation: id => dispatch(getBlogsByLocation(id))
+  getBlogsByLocation: id => dispatch(getBlogsByLocation(id)),
 });
 
 const FriendsListContainer = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(FriendsList);
 
 export default FriendsListContainer;

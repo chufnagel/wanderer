@@ -7,12 +7,12 @@ import {
   AUTH_CHECK_TIMEOUT,
   AUTH_USER,
   SET_AUTH_REDIRECT_PATH,
-  AUTH_CHECK_STATE
+  AUTH_CHECK_STATE,
 } from "./types";
 
 export const authStart = () => {
   return {
-    type: AUTH_START
+    type: AUTH_START,
   };
 };
 
@@ -20,14 +20,14 @@ export const authSuccess = (token, userId) => {
   return {
     type: AUTH_SUCCESS,
     idToken: token,
-    userId
+    userId,
   };
 };
 
 export const authFail = error => {
   return {
     type: AUTH_FAIL,
-    error
+    error,
   };
 };
 
@@ -36,20 +36,20 @@ export const logout = () => {
   // localStorage.removeItem('expirationDate');
   // localStorage.removeItem('userId');
   return {
-    type: AUTH_INITIATE_LOGOUT
+    type: AUTH_INITIATE_LOGOUT,
   };
 };
 
 export const logoutSucceed = () => {
   return {
-    type: AUTH_LOGOUT
+    type: AUTH_LOGOUT,
   };
 };
 
 export const checkAuthTimeout = expirationTime => {
   return {
     type: AUTH_CHECK_TIMEOUT,
-    expirationTime
+    expirationTime,
   };
 };
 
@@ -58,19 +58,19 @@ export const auth = (email, password, isSignup) => {
     type: AUTH_USER,
     email,
     password,
-    isSignup
+    isSignup,
   };
 };
 
 export const setAuthRedirectPath = path => {
   return {
     type: SET_AUTH_REDIRECT_PATH,
-    path
+    path,
   };
 };
 
 export const authCheckState = () => {
   return {
-    type: AUTH_CHECK_STATE
+    type: AUTH_CHECK_STATE,
   };
 };

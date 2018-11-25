@@ -4,14 +4,14 @@ import { GET_FRIENDS_LIST_SUCCESS, GET_FRIENDS_LIST_FAILURE } from "./types";
 export function getFriendsListSuccess(friends) {
   return {
     type: GET_FRIENDS_LIST_SUCCESS,
-    friends
+    friends,
   };
 }
 
 export function getFriendsListFailure(err) {
   return {
     type: GET_FRIENDS_LIST_FAILURE,
-    err
+    err,
   };
 }
 
@@ -20,8 +20,8 @@ export function getFriendsList(userId) {
     axios
       .get("/friends", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(({ data }) => {
         const friends = data.map(friend => {

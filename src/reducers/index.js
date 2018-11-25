@@ -9,7 +9,7 @@ import {
   attractions,
   locationBasicInfo,
   visitedCount,
-  faveCount
+  faveCount,
 } from "./searchReducer";
 import { profilePhoto, albumPhotos, photoOne } from "./photoReducer";
 import userInfo from "./userInfoReducer";
@@ -41,7 +41,7 @@ const rootReducer = combineReducers({
   profilePhoto,
   albumPhotos,
   photoOne,
-  auth
+  auth,
   // userId
 });
 

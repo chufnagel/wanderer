@@ -13,17 +13,15 @@ const initialState = {
   loading: false,
   successful: false,
   messages: [],
-  errors: []
+  errors: [],
 };
 
 const createBlogRequest = (state, action) => {
   return updateObject(state, {
     loading: true,
     successful: false,
-    messages: [
-      { body: `Blog: ${action.blog.title} being created...`, time: new Date() }
-    ],
-    errors: []
+    messages: [{ body: `Blog: ${action.blog.title} being created...`, time: new Date() }],
+    errors: [],
   });
 };
 
@@ -34,10 +32,10 @@ const createBlogSuccess = (state, action) => {
     messages: [
       {
         body: `Blog: ${action.blog.title} created!`,
-        time: new Date()
-      }
+        time: new Date(),
+      },
     ],
-    errors: []
+    errors: [],
   });
 };
 
@@ -50,9 +48,9 @@ const createBlogError = (state, action) => {
     errors: state.errors.concat([
       {
         body: action.error.toString(),
-        time: new Date()
-      }
-    ])
+        time: new Date(),
+      },
+    ]),
   });
 };
 
@@ -63,7 +61,7 @@ const getBlogsRequest = (state, action) => {
 const getBlogsSuccess = (state, action) => {
   return updateObject(state, {
     blogs: action.blogs,
-    loading: false
+    loading: false,
   });
   // return action.blogs;
 };

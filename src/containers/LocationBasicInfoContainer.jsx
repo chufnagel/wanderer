@@ -4,7 +4,7 @@ import LocationBasicInfo from "../components/LocationProfile/LocationBasicInfo";
 const mapStateToProps = state => {
   return {
     location: state.location,
-    locationBasicInfo: state.locationBasicInfo
+    locationBasicInfo: state.locationBasicInfo,
   };
 };
 

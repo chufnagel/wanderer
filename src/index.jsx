@@ -10,46 +10,46 @@ import store from "./store";
 const theme = createMuiTheme({
   palette: {
     common: {
-      type: "dark"
+      type: "dark",
     },
     primary: {
       main: "#9575cd",
       light: "#c7a4ff",
       dark: "#65499c",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
     secondary: {
       main: "#80deea",
       light: "#88ffff",
       dark: "#26c6da",
-      contrastText: "#000"
+      contrastText: "#000",
     },
     text: {
       primary: "rgba(255, 255, 255, 0.87)",
       secondaryTextColor: "#9575cd",
     },
     background: {
-      paper: "#76688C"
-    }
+      paper: "#76688C",
+    },
   },
   card: {
     titleColor: "#b39ddb",
-    subtitleColor: "rgba(255, 255, 255, 0.87)"
+    subtitleColor: "rgba(255, 255, 255, 0.87)",
   },
   typography: {
     fontFamily: "Roboto, sans-serif",
-    display1: {
-      color: "#fff"
-    }
+    h4: {
+      color: "#fff",
+    },
   },
   button: {
-    color: "#547E84"
+    color: "#547E84",
   },
   zIndex: {
     drawer: 1200,
     modal: 1300,
-    tooltip: 1500
-  }
+    tooltip: 1500,
+  },
 });
 
 /* global document, window, navigator */
@@ -77,7 +77,7 @@ render(
       </MuiThemeProvider>
     </HashRouter>
   </Provider>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );
 
 // Hot Module Replacement

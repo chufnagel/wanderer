@@ -9,7 +9,7 @@ describe("auth reducer", () => {
       userId: null,
       error: null,
       loading: false,
-      authRedirectPath: "/"
+      authRedirectPath: "/",
     });
   });
 
@@ -21,20 +21,20 @@ describe("auth reducer", () => {
           userId: null,
           error: null,
           loading: false,
-          authRedirectPath: "/"
+          authRedirectPath: "/",
         },
         {
           type: AUTH_SUCCESS,
           idToken: "some-token",
-          userId: "some-user-id"
-        }
-      )
+          userId: "some-user-id",
+        },
+      ),
     ).toEqual({
       token: "some-token",
       userId: "some-user-id",
       error: null,
       loading: false,
-      authRedirectPath: "/"
+      authRedirectPath: "/",
     });
   });
 });

@@ -13,45 +13,45 @@ export const blogCreate = (userInfo, blog) => {
   return {
     type: BLOG_CREATING,
     userInfo,
-    blog
+    blog,
   };
 };
 
 export const blogCreateSuccess = blog => {
   return {
     type: BLOG_CREATE_SUCCESS,
-    blog
+    blog,
   };
 };
 
 export const blogCreateError = error => {
   return {
     type: BLOG_CREATE_ERROR,
-    error
+    error,
   };
 };
 
 export const getBlogsRequest = () => {
   return {
-    type: GET_BLOGS_REQUEST
+    type: GET_BLOGS_REQUEST,
   };
 };
 
 export const getBlogsSuccess = blogs => {
   return {
     type: GET_BLOGS_SUCCESS,
-    blogs
+    blogs,
   };
 };
 
 export const getBlogsFailure = error => {
   return {
     type: GET_BLOGS_FAILURE,
-    error
+    error,
   };
 };
 
-export const getBlogs = (userIds) => {
+export const getBlogs = userIds => {
   return dispatch => {
     dispatch(getBlogsRequest());
     return axios
@@ -76,8 +76,8 @@ export const getBlogsByUser = () => {
     return axios
       .get("/blogs", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(res => {
         // console.log(res);
@@ -94,15 +94,15 @@ export const getBlogsByUser = () => {
 };
 
 export const getBlogsByLocation = (userId, location) => {
-  console.log('location', location)
+  console.log("location", location);
   return dispatch => {
     dispatch(getBlogsRequest());
     return axios
       .get("/blogsByLocation", {
         params: {
           userId,
-          location
-        }
+          location,
+        },
       })
       .then(res => {
         // console.log(res);
@@ -117,4 +117,3 @@ export const getBlogsByLocation = (userId, location) => {
       });
   };
 };
-

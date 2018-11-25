@@ -21,16 +21,11 @@ const Sidebar = ({
   getAlbumPhotos,
   getBlogsByLocation,
   userId,
-  friendsId
+  friendsId,
 }) => (
   <div>
     {headerSetting === OTHER ? null : (
-      <Drawer
-        variant="permanent"
-        position="absolute"
-        className="docked"
-        anchor="left"
-      >
+      <Drawer variant="permanent" position="absolute" className="docked" anchor="left">
         <br />
         <br />
         <br />
@@ -50,8 +45,8 @@ const Sidebar = ({
                 primary="Home"
                 onClick={() => {
                   setHeader(HOME);
-                  getAlbumPhotos(friendsId.concat(userId))
-                  getBlogsByLocation(friendsId.concat(userId))
+                  getAlbumPhotos(friendsId.concat(userId));
+                  getBlogsByLocation(friendsId.concat(userId));
                 }}
               />
             </Link>
@@ -98,7 +93,8 @@ const Sidebar = ({
                 setHeader(OTHER);
                 changeSelectedLocation(null);
               }}
-            >Sign out
+            >
+              Sign out
             </Button>
           </center>
           <br />
@@ -115,13 +111,13 @@ Sidebar.propTypes = {
     email: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     user_id: PropTypes.number.isRequired,
-    username: PropTypes.string.isRequired
+    username: PropTypes.string.isRequired,
   }).isRequired,
 
   setHeader: PropTypes.func.isRequired,
   getFriendsList: PropTypes.func.isRequired,
   changeSelectedLocation: PropTypes.func.isRequired,
-  getAlbumPhotos: PropTypes.func.isRequired
+  getAlbumPhotos: PropTypes.func.isRequired,
 };
 
 export default withTheme()(Sidebar);

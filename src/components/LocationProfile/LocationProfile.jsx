@@ -4,25 +4,16 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import { withTheme } from "@material-ui/core/styles";
 
-import {
-  LocationStats,
-  LocationBasicInfo,
-  PointsOfInterest
-} from "../WrappedContainers";
+import { LocationStats, LocationBasicInfo, PointsOfInterest } from "../WrappedContainers";
 
 const styles = {
-  "margin-right": "1%"
+  "margin-right": "1%",
 };
 
-const LocationProfile = ({
-  location,
-  userId,
-  addVisitedDestination,
-  addFaveDestination
-}) => {
+const LocationProfile = ({ location, userId, addVisitedDestination, addFaveDestination }) => {
   return (
     <div className="location-profile">
-      <Typography variant="display2" gutterBottom>
+      <Typography variant="h3" gutterBottom>
         {location}
       </Typography>
       <LocationStats />
@@ -58,7 +49,7 @@ LocationProfile.propTypes = {
   location: PropTypes.string.isRequired,
   userId: PropTypes.number.isRequired,
   addVisitedDestination: PropTypes.func.isRequired,
-  addFaveDestination: PropTypes.func.isRequired
+  addFaveDestination: PropTypes.func.isRequired,
 };
 
 export default withTheme()(LocationProfile);

@@ -6,10 +6,10 @@ import { withTheme } from "@material-ui/core/styles";
 const LocationStats = ({ visitedCount = 0, faveCount = 0 }) => {
   return (
     <div className="location-stats">
-      <Typography variant="body1" component="p">
+      <Typography variant="body2" component="p">
         [{visitedCount}] Wanderers have visited here.
       </Typography>
-      <Typography variant="body1" component="p">
+      <Typography variant="body2" component="p">
         [{faveCount}] Wanderers want to visit here.
       </Typography>
     </div>
@@ -18,7 +18,7 @@ const LocationStats = ({ visitedCount = 0, faveCount = 0 }) => {
 
 LocationStats.propTypes = {
   visitedCount: PropTypes.number.isRequired,
-  faveCount: PropTypes.number.isRequired
+  faveCount: PropTypes.number.isRequired,
 };
 
 export default withTheme()(LocationStats);

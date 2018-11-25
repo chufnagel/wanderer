@@ -7,7 +7,7 @@ import * as actions from "./types";
 export function addFaveDestinationSuccess(faveDestinations) {
   return {
     type: actions.ADD_FAV_DESTINATION_SUCCESS,
-    faveDestinations
+    faveDestinations,
   };
 }
 
@@ -17,11 +17,9 @@ export function addFaveDestination(userId, country) {
     axios
       .post("/favorites", {
         userId,
-        country
+        country,
       })
-      .then(({ faveDestinations }) =>
-        dispatch(addFaveDestinationSuccess(faveDestinations))
-      );
+      .then(({ faveDestinations }) => dispatch(addFaveDestinationSuccess(faveDestinations)));
   };
 }
 
@@ -29,7 +27,7 @@ export function addFaveDestination(userId, country) {
 export function getFaveDestinationsSuccess(faveDestinations) {
   return {
     type: actions.GET_FAV_DESTINATIONS_SUCCESS,
-    faveDestinations
+    faveDestinations,
   };
 }
 
@@ -39,8 +37,8 @@ export function getFaveDestinations(userId) {
     axios
       .get("/favorites", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(({ data }) => {
         const destinations = data.map(destination => {
@@ -55,7 +53,7 @@ export function getFaveDestinations(userId) {
 export function addVisitedDestinationSuccess(visitedDestinations) {
   return {
     type: actions.ADD_VISITED_DESTINATION_SUCCESS,
-    visitedDestinations
+    visitedDestinations,
   };
 }
 
@@ -65,7 +63,7 @@ export function addVisitedDestination(userId, country) {
     axios
       .post("/visited", {
         userId,
-        country
+        country,
       })
       .then(({ visitedDestinations }) => {
         dispatch(addVisitedDestinationSuccess(visitedDestinations));
@@ -77,7 +75,7 @@ export function addVisitedDestination(userId, country) {
 export function getVisitedDestinationsSuccess(visitedDestinations) {
   return {
     type: actions.GET_VISITED_DESTINATIONS_SUCCESS,
-    visitedDestinations
+    visitedDestinations,
   };
 }
 
@@ -87,8 +85,8 @@ export function getVisitedDestinations(userId) {
     axios
       .get("/visited", {
         params: {
-          userId
-        }
+          userId,
+        },
       })
       .then(({ data }) => {
         const destinations = data.map(destination => {

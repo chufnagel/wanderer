@@ -33,7 +33,7 @@ import {
 const App = () => (
   <div className="app">
     <center>
-      <Typography variant="display3">
+      <Typography variant="h2">
         <strong>Wanderer</strong>
       </Typography>
       <br />

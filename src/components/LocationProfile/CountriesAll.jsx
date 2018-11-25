@@ -206,7 +206,7 @@ const allCountries = [
   "Virgin Islands (US)",
   "Yemen",
   "Zambia",
-  "Zimbabwe"
+  "Zimbabwe",
 ];
 
 export default allCountries;
