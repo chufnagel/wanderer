@@ -40,12 +40,12 @@ module.exports = merge(common, {
       },
     ],
   },
-  devServer: {
-    hot: true,
-    inline: true,
-    // compress: true,
-    contentBase: DIST_DIR,
-    port: 3000,
-    writeToDisk: true,
-  },
+  // devServer: {
+  //   hot: true,
+  //   inline: true,
+  //   // compress: true,
+  //   contentBase: DIST_DIR,
+  //   port: 3000,
+  //   writeToDisk: true,
+  // },
 });
