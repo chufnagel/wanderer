@@ -20,7 +20,7 @@ import {
   Photos,
   Blogs,
   Profile,
-  PhotoUploader
+  PhotoUploader,
 } from "./WrappedContainers";
 
 // const styles = {
@@ -33,7 +33,9 @@ import {
 const App = () => (
   <div className="app">
     <center>
-      <Typography variant="display3"><strong>Wanderer</strong></Typography>
+      <Typography variant="display3">
+        <strong>Wanderer</strong>
+      </Typography>
       <br />
       <GlobalMap />
     </center>
