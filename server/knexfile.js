@@ -2,11 +2,11 @@ const path = require("path");
 
 const config = require("./lib/config");
 
-const { RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME, RDS_PORT } = process.env;
+const { RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME, RDS_PORT, DB } = process.env;
 
 module.exports = {
   development: {
-    client: "mysql",
+    client: DB,
     connection: {
       host: RDS_HOSTNAME,
       user: RDS_USERNAME,
@@ -27,7 +27,7 @@ module.exports = {
     },
   },
   production: {
-    client: "mysql",
+    client: DB,
     connection: {
       host: RDS_HOSTNAME,
       user: RDS_USERNAME,
