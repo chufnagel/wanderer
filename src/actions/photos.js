@@ -31,7 +31,7 @@ export function getAlbumPhotos(userId, location) {
         },
       })
       .then(({ data }) => {
-        console.log("data*****", data);
+        // console.log("data*****", data);
         /* const destinations = data.map(destination => {
           return destination;
         }); */

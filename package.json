@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist/",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.js --progress",
     "dev-watch": "cross-env NODE_ENV=development webpack --config config/webpack.dev.js -w -d",
-    "start-watch": "nodemon server/index.js",
+    "start-watch": "cross-env NODE_ENV=development nodemon server/index.js",
     "dev": "npm run prebuild; concurrently \"npm:*-watch\"",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -84,8 +84,11 @@
     "webdriverio": "^4.13.1",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
+    "webpack-dev-middleware": "^3.4.0",
+    "webpack-hot-middleware": "^2.24.3",
     "webpack-manifest-plugin": "^2.0.3",
     "webpack-merge": "^4.1.4",
+    "winston": "^3.1.0",
     "workbox-webpack-plugin": "^3.6.3"
   },
   "dependencies": {

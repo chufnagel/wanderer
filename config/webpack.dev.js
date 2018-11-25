@@ -1,6 +1,7 @@
 const merge = require("webpack-merge");
 const path = require("path");
 const common = require("./webpack.common");
+const webpack = require("webpack");
 
 const SRC_DIR = path.join(__dirname, "../src");
 const DIST_DIR = path.join(__dirname, "../dist");
@@ -8,6 +9,7 @@ const DIST_DIR = path.join(__dirname, "../dist");
 module.exports = merge(common, {
   mode: "development",
   devtool: "cheap-module-source-map",
+  entry: "webpack-hot-middleware/client",
   output: {
     path: DIST_DIR,
     filename: "bundle.js",
@@ -40,6 +42,7 @@ module.exports = merge(common, {
       },
     ],
   },
+  plugins: [new webpack.HotModuleReplacementPlugin()],
   // devServer: {
   //   hot: true,
   //   inline: true,

@@ -9,12 +9,19 @@ import { watchAuth, watchBlog } from "./sagas";
 import { OTHER } from "./constants";
 
 /*eslint-disable */
-const composeEnhancers = process.env.NODE_ENV !== 'production' && typeof window === 'object' &&
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : compose
+const composeEnhancers =
+  process.env.NODE_ENV !== "production" &&
+  typeof window === "object" &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+    : compose;
 /* eslint-enable */
 
+const middlewares = [thunk];
+
 const sagaMiddleware = createSagaMiddleware();
+middlewares.push(sagaMiddleware);
+if (process.env === "development") middlewares.push(logger);
 
 const store = createStore(
   rootReducer,
@@ -87,7 +94,8 @@ const store = createStore(
     visitedCount: 0,
     friendsId: [2, 3, 4], // placeholder for photo component to render properly
   },
-  composeEnhancers(applyMiddleware(thunk, sagaMiddleware, logger)),
+  // composeEnhancers(applyMiddleware(thunk, sagaMiddleware, logger)),
+  composeEnhancers(applyMiddleware(...middlewares)),
 );
 
 sagaMiddleware.run(watchAuth);
