@@ -25,7 +25,7 @@ const PointsOfInterest = ({ pointsOfInterest, location, classes }) => {
       {sorted.map(place => (
         <Card className={classes.card} key={place.id}>
           <CardContent>
-            <Typography variant="title" component="h3">
+            <Typography variant="h6" component="h3">
               {place.name}
             </Typography>
             <Typography component="p">Address: {place.formatted_address}</Typography>

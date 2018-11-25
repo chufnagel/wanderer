@@ -1,5 +1,7 @@
 const path = require("path");
 
+const config = require("./server/lib/config");
+
 const { RDS_HOSTNAME, RDS_USERNAME, RDS_PASSWORD, RDS_DB_NAME, RDS_PORT } = process.env;
 
 module.exports = {

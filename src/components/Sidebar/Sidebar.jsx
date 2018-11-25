@@ -33,8 +33,8 @@ const Sidebar = ({
           <center>
             <ProfilePhotoContainer />
             <br />
-            <Typography variant="title">{userInfo.name}</Typography>
-            <Typography variant="subheading">@{userInfo.username}</Typography>
+            <Typography variant="h6">{userInfo.name}</Typography>
+            <Typography variant="subtitle1">@{userInfo.username}</Typography>
           </center>
           <br />
           <SearchContainer />

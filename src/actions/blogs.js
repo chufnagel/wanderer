@@ -57,7 +57,7 @@ export const getBlogs = userIds => {
     return axios
       .get("/blogs")
       .then(res => {
-        console.log(res);
+        // console.log(res);
         const blogs = res.data.map(blog => {
           return blog;
         });

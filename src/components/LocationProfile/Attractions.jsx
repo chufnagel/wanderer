@@ -33,7 +33,7 @@ const Attractions = ({ location, attractions, classes }) => (
         <CardMedia className={classes.media} image={attraction.img} title={attraction.name} />
 
         <CardContent>
-          <Typography variant="title" component="h3">
+          <Typography variant="h6" component="h3">
             {attraction.name}
           </Typography>
           <Typography className={classes.pos}>{attraction.location}</Typography>

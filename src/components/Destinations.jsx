@@ -34,7 +34,7 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
 
       <div className="visited-and-fave-destinations">
         <div className="visited-destinations" style={styling}>
-          <Typography variant="title" color="inherit">
+          <Typography variant="h6" color="inherit">
             {"Places I've Been:"}
           </Typography>
 
@@ -51,7 +51,7 @@ const Destinations = ({ visitedDestinations, faveDestinations }) => {
         </div>
 
         <div className="fave-destinations" style={styling}>
-          <Typography variant="title" color="inherit">
+          <Typography variant="h6" color="inherit">
             {"Places I Want To Visit:"}
           </Typography>
 

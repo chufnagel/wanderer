@@ -37,6 +37,8 @@ const theme = createMuiTheme({
     subtitleColor: "rgba(255, 255, 255, 0.87)",
   },
   typography: {
+    useNextVariants: true,
+    suppressDeprecationWarnings: true,
     fontFamily: "Roboto, sans-serif",
     h4: {
       color: "#fff",
