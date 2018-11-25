@@ -32,7 +32,7 @@ module.exports = {
     axios
       .get(queryStr)
       .then(({ data }) => cb(data.Attractions))
-      .catch(err => console.log("helper function error getting attractions:", err));
+      .catch(err => console.error("helper function error getting attractions:", err));
   },
   // query REST Countries API for basic country info for a given country
   getLocationBasicInfo: (location, cb) => {
@@ -40,6 +40,6 @@ module.exports = {
     axios
       .get(queryStr)
       .then(({ data }) => cb(data[0]))
-      .catch(err => console.log("helper function error getting basic info:", err));
+      .catch(err => console.error("helper function error getting basic info:", err));
   },
 };

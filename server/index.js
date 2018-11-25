@@ -2,7 +2,7 @@ const opn = require("opn");
 
 const PORT = process.env.PORT || 3000;
 
-const { log, chalkSuccess } = require("../chalkpresets");
+const { log, chalkSuccess } = require("./lib/chalkpresets");
 
 const app = require("./app");
 

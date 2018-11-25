@@ -25,7 +25,7 @@ const ec2path = "http://ec2-52-91-143-214.compute-1.amazonaws.com:3000";
 router.post("/getPointsOfInterest", (req, res) => {
   getPointsOfInterest(req.body.location, (err, data) => {
     if (err) {
-      console.log("error getting points of interest from server", err);
+      console.error("error getting points of interest from server", err);
     } else {
       res.send(data);
     }
@@ -49,7 +49,7 @@ router.post("/getLocationBasicInfo", (req, res) => {
 // retrieve number of Wanderers who have been to a given country
 router.get("/getVisitedCount", (req, res) => {
   Destinations.getVisitedCount(req.query.location, visitedCount => {
-    console.log("visitedCount: ", visitedCount);
+    // console.log("visitedCount: ", visitedCount);
     res.send(visitedCount.toString());
   });
 });
@@ -57,7 +57,7 @@ router.get("/getVisitedCount", (req, res) => {
 // retrieve number of Wanderers who want to go to a given country
 router.get("/getFaveCount", (req, res) => {
   Destinations.getFaveCount(req.query.location, faveCount => {
-    console.log("faveCount: ", faveCount);
+    // console.log("faveCount: ", faveCount);
     res.send(faveCount.toString());
   });
 });
@@ -82,12 +82,12 @@ router.get("/visited", (req, res) => {
 });
 
 router.post("/favorites", (req, res) => {
-  console.log("2. hit server post route to fav:", req.body.country);
+  // console.log("2. hit server post route to fav:", req.body.country);
   Destinations.addFavByUserId(req.body.userId, req.body.country);
 });
 
 router.post("/visited", (req, res) => {
-  console.log("2. hit server post route to visited:", req.body);
+  // console.log("2. hit server post route to visited:", req.body);
   Destinations.addVisitedByUserId(req.body.userId, req.body.country);
 });
 
