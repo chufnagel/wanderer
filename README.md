@@ -31,7 +31,7 @@
 > Some usage instructions
 
 ## Requirements
-- Node.js 10.5.0
+- Node.js 10.5.0 or higher, NPM || Yarn
 - MariaDB 10.3.7 || MySql 8.0.11
 
 ## Development

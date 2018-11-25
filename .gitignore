@@ -34,3 +34,5 @@ stats.json
 firebaseAdminSecret.json
 
 logs
+
+coverage
