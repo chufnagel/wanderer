@@ -1,5 +1,6 @@
 const express = require("express");
 const path = require("path");
+const opn = require("opn");
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -19,7 +20,6 @@ const { log, chalkSuccess } = require("../chalkpresets");
 
 const PORT = process.env.PORT || 3000;
 
-
 const app = express();
 
 // Apply middleware
@@ -31,8 +31,8 @@ app.use(
   logger("combined", {
     skip(req, res) {
       return res.statusCode < 400;
-    }
-  })
+    },
+  }),
 );
 app.use(cors());
 app.use(express.static(path.join(__dirname, "../dist/")));
@@ -47,7 +47,7 @@ if (app.get("env") === "development") {
     res.status(err.status || 500);
     res.json({
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }
@@ -58,13 +58,25 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.json({
     message: err.message,
-    error: {}
+    error: {},
   });
 });
 
-app.listen(PORT, () => {
-  log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
-});
+if (process.env.NODE_ENV === "production") {
+  app.listen(PORT, () => {
+    log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
+    opn(`http://localhost:${PORT}`);
+  });
+} else {
+  console.log(process.env.NODE_ENV);
+  app.listen(PORT, () => {
+    log(chalkSuccess(`Wanderer running on port ${PORT}`));
+  });
+}
+
+// app.listen(PORT, () => {
+//   log(chalkSuccess(`Port ${PORT} is lit fam 🔥 🔥 🔥`));
+// });
 
 // production variant for reverse proxy
 // app.listen(PORT, '0.0.0.0', (err) => {

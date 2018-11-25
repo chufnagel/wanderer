@@ -32,14 +32,14 @@ User.retrieveFriendsByUserId = (userId, cb) => {
 };
 
 User.addProfilePhotoByUserId = (imageinfo, user_id) => {
-  console.log('addprofilephotobyuserid imageinfo',imageinfo)
+  console.log("addprofilephotobyuserid imageinfo", imageinfo);
   return db("users")
     .where({ user_id })
     .update({
-      etag: imageinfo.ETag.substring(1,imageinfo.ETag.length - 1),
+      etag: imageinfo.ETag.substring(1, imageinfo.ETag.length - 1),
       version_id: imageinfo.VersionId,
       image_key: imageinfo.key,
-      image_url: imageinfo.Location
+      image_url: imageinfo.Location,
     });
 };
 
@@ -58,7 +58,7 @@ User.addNewUser = (username, password, name, email, bio) => {
       name,
       email,
       bio,
-      token: "test_token"
+      token: "test_token",
     })
     .then(user_id => User.findByUserId(user_id))
     .catch(err => console.error(err));
@@ -76,12 +76,12 @@ User.verifyPassword = (usernameReq, passwordReq) => {
       const pass = result[0].password;
       if (passwordReq === pass) {
         // login
-        const auth = { idToken: "test_token", localId: "100", expiresIn: ""}
+        const auth = { idToken: "test_token", localId: "100", expiresIn: "" };
       } else {
         // failed login
       }
     })
     .catch(err => console.error(err));
-}
+};
 
 module.exports = User;

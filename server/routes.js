@@ -3,11 +3,7 @@ const axios = require("axios");
 // const jwt = require("jsonwebtoken");
 const User = require("./Models/user");
 const Destinations = require("./Models/destinations");
-const {
-  getPointsOfInterest,
-  getAttractions,
-  getLocationBasicInfo
-} = require("./helperFunctions");
+const { getPointsOfInterest, getAttractions, getLocationBasicInfo } = require("./helperFunctions");
 const Media = require("./Models/media");
 // const Tag = require("./Models/tag");
 const Blog = require("./Models/blog");
@@ -141,7 +137,7 @@ router.post("/signup", async (req, res, next) => {
 
 // addBlog
 router.post("/blogs", async (req, res, next) => {
-  console.log("req blogs", req.body)
+  console.log("req blogs", req.body);
   try {
     const newBlog = await Blog.addNewBlog(req.body.title, req.body.contents, req.body.userId);
     res.status(200).send(newBlog);
@@ -164,7 +160,7 @@ router.get("/blogs", async (req, res, next) => {
 
 // retrieveBlogsByUserId
 router.get("/blogsByLocation", async (req, res, next) => {
-  console.log("blogsBylocation req query", req.query)
+  console.log("blogsBylocation req query", req.query);
   try {
     const location_name = req.query.location;
     let country_id = null;
@@ -173,11 +169,8 @@ router.get("/blogsByLocation", async (req, res, next) => {
       country_id = await Destinations.getCountryIdByName(location_name);
     }
 
-    console.log("country_id", country_id)
-    const blogs = await Blog.retrieveBlogsByUserId(
-      req.query.userId,
-      country_id
-    );
+    console.log("country_id", country_id);
+    const blogs = await Blog.retrieveBlogsByUserId(req.query.userId, country_id);
     res.status(200).send(blogs);
   } catch (err) {
     console.error(err);
@@ -238,7 +231,7 @@ router.post("/create", (req, res) => {
   const userId = req.body.user_id;
   axios
     .post(`${ec2path}/create`, {
-      file
+      file,
     })
     .then(imageinfo => {
       User.addProfilePhotoByUserId(imageinfo.data, userId).then(() => {
@@ -259,10 +252,7 @@ router.get("/mediaByUserId", async (req, res, next) => {
     if (location_name !== undefined) {
       country_id = await Destinations.getCountryIdByName(location_name);
     }
-    const media = await Media.retrieveMediaByUserId(
-      req.query.userId,
-      country_id
-    );
+    const media = await Media.retrieveMediaByUserId(req.query.userId, country_id);
     res.status(200).send(media);
   } catch (err) {
     console.error(err);
@@ -282,14 +272,10 @@ router.post("/createAlbum", async (req, res, next) => {
   try {
     const country_id = await Destinations.getCountryIdByName(location);
     const imageinfo = await axios.post(`${ec2path}/createAlbum`, {
-      file
+      file,
     });
 
-    Media.addMediaByUserIdAndCountryId(
-      userId,
-      country_id[0].country_id,
-      imageinfo.data
-    );
+    Media.addMediaByUserIdAndCountryId(userId, country_id[0].country_id, imageinfo.data);
 
     res.status(200).send(country_id);
   } catch (err) {

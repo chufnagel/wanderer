@@ -5,7 +5,7 @@ const Tag = {};
 Tag.createTag = name => {
   return db("tags")
     .insert({
-      name
+      name,
     })
     .then(tag => tag)
     .catch(err => console.error(err));

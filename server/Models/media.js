@@ -13,14 +13,13 @@ Media.retrieveMediaByUserId = (userId, location) => {
       .then(media => media)
       .catch(err => console.error(err));
   }
-    return db("media")
-      .whereIn("user_id", userId)
-      .select("*")
-      .then(media => {
-        return media;
-      })
-      .catch(err => console.error(err));
-
+  return db("media")
+    .whereIn("user_id", userId)
+    .select("*")
+    .then(media => {
+      return media;
+    })
+    .catch(err => console.error(err));
 };
 
 Media.addMediaByUserIdAndCountryId = (userId, locationId, imageinfo) => {
@@ -28,7 +27,7 @@ Media.addMediaByUserIdAndCountryId = (userId, locationId, imageinfo) => {
     .insert({
       user_id: userId,
       country_id: locationId,
-      image_url: imageinfo.Location
+      image_url: imageinfo.Location,
     })
     .select("*")
     .then(media => media)
