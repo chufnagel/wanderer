@@ -1,6 +1,5 @@
 const express = require("express");
 const path = require("path");
-const opn = require("opn");
 
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
@@ -9,7 +8,6 @@ const morgan = require("morgan");
 const cors = require("cors");
 const busboy = require("connect-busboy");
 const busboyBodyParser = require("busboy-body-parser");
-// const auth = require("./routes/auth");
 const router = require("./routes");
 const logger = require("./lib/logger");
 const config = require("./lib/config");

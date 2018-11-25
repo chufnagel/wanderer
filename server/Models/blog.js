@@ -3,9 +3,9 @@ const db = require("../db");
 const Blog = {};
 // WIP, need to add connection to tags
 Blog.addNewBlog = (title, content, userId, tags) => {
-  console.log("title", title);
-  console.log("content", content);
-  console.log("title", content);
+  // console.log("title", title);
+  // console.log("content", content);
+  // console.log("title", content);
   return db("blogs")
     .insert({
       title,
@@ -26,8 +26,8 @@ Blog.retrieveAllBlogs = () => {
 
 // retrieve Blogs by user id
 Blog.retrieveBlogsByUserId = (userId, location) => {
-  console.log("retrieveBlogsbyUserId", location);
-  console.log("userId", userId);
+  // console.log("retrieveBlogsbyUserId", location);
+  // console.log("userId", userId);
   if (location) {
     return db("blogs")
       .whereIn("user_id", userId)
