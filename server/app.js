@@ -10,9 +10,10 @@ const busboy = require("connect-busboy");
 const busboyBodyParser = require("busboy-body-parser");
 const router = require("./routes");
 const logger = require("./lib/logger");
-const config = require("./lib/config");
 
 const app = express();
+
+if (process.env.NODE_ENV !== 'production') require('dotenv').config()
 
 if (process.env.NODE_ENV === "development") {
   console.log("Using webpack dev and hot middleware");
