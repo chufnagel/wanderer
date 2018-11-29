@@ -24,7 +24,7 @@
     "seed": "knex --knexfile server/knexfile.js seed:run",
     "lint": "eslint --ext .jsx,.js server/ src/",
     "lint:fix": "eslint --ext .jsx,.js src/ server/ --fix",
-    "heroku-postbuild": "npm run build; node server/index.js"
+    "heroku-postbuild": "npm run server"
   },
   "repository": {
     "type": "git",
