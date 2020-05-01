@@ -24,7 +24,9 @@
     "seed": "knex --knexfile server/knexfile.js seed:run",
     "lint": "eslint --ext .jsx,.js server/ src/",
     "lint:fix": "eslint --ext .jsx,.js src/ server/ --fix",
-    "heroku-postbuild": "webpack -p --config config/webpack.prod.js"
+    "heroku-postbuild": "webpack -p --config config/webpack.prod.js",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -130,7 +132,8 @@
     "redux-form": "^7.4.2",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "snyk": "^1.316.1"
   },
   "engines": {
     "node": "11.2.0",
@@ -143,5 +146,6 @@
       "pre-commit": "npm run lint:fix",
       "pre-push": "npm test"
     }
-  }
+  },
+  "snyk": true
 }
