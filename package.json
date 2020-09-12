@@ -106,7 +106,7 @@
     "connect-busboy": "0.0.2",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.4",
-    "cross-fetch": "^2.2.2",
+    "cross-fetch": "^3.0.6",
     "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
